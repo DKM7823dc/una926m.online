@@ -32,11 +32,70 @@ function gtag_report_conversion(url) {
   return false;
 }
 </script>
+
+	<script>
+     function showline() {
+    // 创建提示弹窗
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #25D366;
+        color: white;
+        padding: 20px 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        text-align: center;
+        min-width: 300px;
+    `;
+    
+    let countdown = 2;
+    notification.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <span style="margin-right: 10px; font-size: 20px;">📱</span>
+            <div>
+                <div style="margin-bottom: 8px;">You will be redirected to WhatsApp to contact us</div>
+                <div style="font-size: 14px; opacity: 0.9;">
+                    Redirecting in <span id="countdown">${countdown}</span> seconds
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // 倒计时
+    const timer = setInterval(() => {
+        countdown--;
+        const countdownElement = document.getElementById('countdown');
+        if (countdownElement) {
+            countdownElement.textContent = countdown;
+        }
+        
+        if (countdown <= 0) {
+            clearInterval(timer);
+            // 跳转到WhatsApp (请替换为您的WhatsApp链接)
+           gtag_report_conversion('https://ourl.cn/kNgZkm');
+            // 移除通知
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }
+    }, 1000);
+}
+</script>
+
+
 	
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
 	<script>
-	function showline()
+	function showline22()
 	{
 	gtag_report_conversion('https://ourl.cn/kNgZkm');
 	}
