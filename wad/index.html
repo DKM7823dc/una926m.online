@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushiswap | AI Smart Cloud Mining Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#2a2a2a',
+                        accent: '#00d4aa',
+                        dark: '#0a0a0a'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .btn-primary {
+            background-color: #00d4aa;
+            color: #1a1a1a;
+        }
+        .btn-primary:hover {
+            background-color: #00b894;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #00d4aa, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .social-icons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-icon {
+            background-color: #25d366;
+        }
+        .telegram-icon {
+            background-color: #0088cc;
+        }
+        .breathing-effect {
+            animation: breathing 3s ease-in-out infinite;
+        }
+        @keyframes breathing {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="bg-primary dark:bg-dark text-white font-sans">
+    <!-- Social Icons -->
+    <div class="social-icons">
+        <div class="social-icon whatsapp-icon" onclick="k2()">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.051 3.488"/>
+            </svg>
+        </div>
+        <div class="social-icon telegram-icon" onclick="k3()">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Dark mode detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <!-- Navigation -->
+    <nav class="bg-primary border-b border-secondary fixed w-full top-0 z-40">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="img/logo.jpg" alt="Sushiswap Logo" class="w-12 h-12 rounded-full mr-3">
+                    <span class="text-2xl font-bold text-white">Sushiswap</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-accent">Home</a>
+                    <a href="#platform" class="text-gray-300 hover:text-accent">Platform</a>
+                    <a href="#security" class="text-gray-300 hover:text-accent">Security</a>
+                    <a href="#networks" class="text-gray-300 hover:text-accent">Networks</a>
+                    <a href="#advantages" class="text-gray-300 hover:text-accent">Advantages</a>
+                    <a href="#rewards" class="text-gray-300 hover:text-accent">Rewards</a>
+                    <a href="#contact" class="text-gray-300 hover:text-accent">Contact</a>
+                </div>
+                <button onclick="k2()" class="btn-primary px-6 py-2 rounded-lg font-semibold">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-primary pt-24 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">
+                    Sushiswap
+                    <span class="block text-3xl md:text-4xl font-light mt-2 text-accent">AI Smart Cloud Mining Platform</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                    Officially Launched! Start your mining journey with our decentralized intelligent mining platform
+                </p>
+                <button onclick="k2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold">
+                    Start Your Mining Journey
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Introduction -->
+    <section id="platform" class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8 text-gradient">Platform Introduction</h2>
+                <p class="text-lg text-gray-300 mb-12 leading-relaxed">
+                    Sushiswap is a decentralized intelligent mining platform focused on BNB/ETH/Polygon and other public chain networks, 
+                    supporting users to automatically participate in node computing power rewards through wallet holdings of USDT/USDC.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <img src="img/1.webp" alt="Platform Overview" class="w-full rounded-lg shadow-lg breathing-effect">
+                    </div>
+                    <div class="order-1 md:order-2 text-left">
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white">100% Self-Controlled</h3>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white">Full Chain Settlement</h3>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold text-white">Transparent, Safe, Efficient</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <button onclick="k2()" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
+                        Start Your Mining Journey
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Testimonials -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center text-gradient">What Our Users Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Michael Chen</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Amazing returns! I've been earning 25% daily consistently. My wallet remains secure and I have full control."</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1c5?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Sarah Johnson</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Started with 50 USDT and now earning $15-20 daily. The platform is transparent and trustworthy!"</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">David Rodriguez</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Best mining platform ever! No deposits needed, funds stay in my MetaMask. Earning 30%+ daily!"</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Emma Wilson</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Incredible! Made $500 in my first week. The hourly settlements are real and automatic. Highly recommend!"</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Alex Thompson</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Finally a legitimate platform! No scams, no fake promises. Real mining, real profits. Thank you Sushiswap!"</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Lisa Park</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"The referral system is amazing! Earning from my network while they also profit. Win-win for everyone!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asset Security -->
+    <section id="security" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-8 text-gradient">Asset Security</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="bg-secondary p-8 rounded-lg border border-gray-700">
+                        <div class="text-4xl mb-4">🔒</div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">100% Self-Controlled</h3>
+                        <p class="text-gray-400">Full chain settlement</p>
+                    </div>
+                    <div class="bg-secondary p-8 rounded-lg border border-gray-700">
+                        <div class="text-4xl mb-4">🔍</div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Transparent</h3>
+                        <p class="text-gray-400">Open and verifiable</p>
+                    </div>
+                    <div class="bg-secondary p-8 rounded-lg border border-gray-700">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">High Efficiency</h3>
+                        <p class="text-gray-400">Fast processing</p>
+                    </div>
+                    <div class="bg-secondary p-8 rounded-lg border border-gray-700">
+                        <div class="text-4xl mb-4">🛡️</div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Stable</h3>
+                        <p class="text-gray-400">Reliable platform</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Networks -->
+    <section id="networks" class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold mb-16 text-center text-gradient">Supported Networks & Currencies</h2>
+                
+                <!-- Blockchain Networks -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold mb-8 text-center text-white">🔗 Blockchain Networks</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
+                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-primary">P</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Polygon</h4>
+                            <p class="text-gray-400">Low fees, fast transactions</p>
+                        </div>
+                        <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
+                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-primary">B</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2">BSC</h4>
+                            <p class="text-gray-400">BNB Smart Chain network</p>
+                        </div>
+                        <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
+                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-primary">E</span>
+                            </div>
+                            <h4 class="text-xl font-semibold text-white mb-2">Ethereum</h4>
+                            <p class="text-gray-400">Most secure blockchain</p>
+                        </div>
+                    </div>
+                </div>
+ 
+                <!-- Supported Currencies -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold mb-8 text-center text-white">💰 Supported Currencies</h3>
+                    <div class="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
+                        <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
+                            <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-white">₮</span>
+                            </div>
+                            <h4 class="text-2xl font-semibold text-white mb-2">USDT</h4>
+                            <p class="text-gray-400">Tether USD Stablecoin</p>
+                        </div>
+                        <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
+                            <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-white">$</span>
+                            </div>
+                            <h4 class="text-2xl font-semibold text-white mb-2">USDC</h4>
+                            <p class="text-gray-400">USD Coin Stablecoin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supported Wallets -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-bold mb-8 text-center text-white">👛 Compatible Wallets</h3>
+                    <div class="grid grid-cols-3 gap-4 md:gap-8">
+                        <div class="bg-primary border border-gray-700 p-3 md:p-6 rounded-lg text-center">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-gray-700 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-4">
+                                <span class="text-sm md:text-xl font-bold text-white">TW</span>
+                            </div>
+                            <h4 class="text-sm md:text-lg font-semibold text-white">Trust Wallet</h4>
+                        </div>
+                        <div class="bg-primary border border-gray-700 p-3 md:p-6 rounded-lg text-center">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange-600 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-4">
+                                <span class="text-sm md:text-xl font-bold text-white">MM</span>
+                            </div>
+                            <h4 class="text-sm md:text-lg font-semibold text-white">MetaMask</h4>
+                        </div>
+                        <div class="bg-primary border border-gray-700 p-3 md:p-6 rounded-lg text-center">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-4">
+                                <span class="text-sm md:text-xl font-bold text-white">TP</span>
+                            </div>
+                            <h4 class="text-sm md:text-lg font-semibold text-white">TokenPocket</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <img src="img/4.webp" alt="Networks Overview" class=" mx-auto rounded-lg mb-8">
+                    <button onclick="k2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold">
+                        Connect Your Wallet & Start Mining
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operation Advantages -->
+    <section id="advantages" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center text-gradient">Operation Advantages</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-secondary border border-gray-700 p-8 rounded-lg">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Simple Operation</h3>
+                    <p class="text-gray-300">No transfers required, no lockup needed. Funds always remain in your wallet.</p>
+                </div>
+                <div class="bg-secondary border border-gray-700 p-8 rounded-lg">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Revenue Generation</h3>
+                    <p class="text-gray-300">Deposit ≥ 12 USDT/USDC in your wallet, automatically generate revenue within 1 hour.</p>
+                </div>
+                <div class="bg-secondary border border-gray-700 p-8 rounded-lg">
+                    <div class="text-4xl mb-4">⏰</div>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Settlement Frequency</h3>
+                    <p class="text-gray-300">Hourly settlement, daily automatic profit, asset mining with instant crediting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mining Advantages -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center text-gradient">Mining Project Advantages</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center text-white">
+                                <span class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-primary mr-3">✓</span>
+                                Security
+                            </h3>
+                            <p class="text-gray-400">Cryptocurrency stored in your wallet, as safe as your bank deposits.</p>
+                        </div>
+                        <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center text-white">
+                                <span class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-primary mr-3">💎</span>
+                                Returns
+                            </h3>
+                            <p class="text-gray-400">Minimum 12 USDT to participate in mining, daily returns 16%~50%. Plus 1.98 USDT newcomer bonus.</p>
+                        </div>
+                        <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center text-white">
+                                <span class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-primary mr-3">⚠️</span>
+                                Risk
+                            </h3>
+                            <p class="text-gray-400">Devaluation risk only. USDT only devalues when USD devalues, no other risks.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center text-white">
+                                <span class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-primary mr-3">🏦</span>
+                                No Platform Deposits
+                            </h3>
+                            <p class="text-gray-400">No need to deposit funds to the platform, just store them in your own wallet.</p>
+                        </div>
+                        <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-3 flex items-center text-white">
+                                <span class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-primary mr-3">🔒</span>
+                                Stable & Reliable
+                            </h3>
+                            <p class="text-gray-400">USDT freely controlled in your own wallet, returns based on USDT holdings.</p>
+                        </div>
+                        <img src="img/3.webp" alt="Mining Advantages" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation Rewards -->
+    <section id="rewards" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center text-gradient">Invitation Reward Program</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <p class="text-xl text-gray-300 mb-8">
+                        Share your exclusive invitation link: Enjoy up to 15%-10%-5% three-tier referral rewards
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center bg-secondary border border-gray-700 p-8 rounded-lg">
+                        <div class="text-4xl font-bold mb-2 text-accent">15%</div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Level 1 Agent</h3>
+                        <p class="text-gray-300">Direct invitations - If user generates 100 USDT daily, you get 15 USDT</p>
+                    </div>
+                    <div class="text-center bg-secondary border border-gray-700 p-8 rounded-lg">
+                        <div class="text-4xl font-bold mb-2 text-accent">10%</div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Level 2 Agent</h3>
+                        <p class="text-gray-300">Sub-invitations - If user generates 100 USDT daily, you get 10 USDT</p>
+                    </div>
+                    <div class="text-center bg-secondary border border-gray-700 p-8 rounded-lg">
+                        <div class="text-4xl font-bold mb-2 text-accent">5%</div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Level 3 Agent</h3>
+                        <p class="text-gray-300">Third level - If user generates 100 USDT daily, you get 5 USDT</p>
+                    </div>
+                </div>
+                <div class="text-center bg-accent text-primary p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">Daily Team Commission Total = 6,150 USDT!</h3>
+                    <button onclick="k2()" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold">
+                        Invest Your Future
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Sushiswap -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-16 text-gradient">Why Choose Sushiswap for Greater Security?</h2>
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="text-left space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">Full chain transparent operation, rejecting black box operations.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">No fund custody, 100% user control of wallet assets.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">Compliant registration with MSB and other financial qualifications.</p>
+                        </div>
+                    </div>
+                    <div class="text-left space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">Stable returns, clear rules, real-time settlement.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">Powerful risk control system + community co-built ecosystem.</p>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-300">Continuous operation, not short-term money grabbing model.</p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="k2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold mb-8">
+                    Start Your Mining Journey
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-primary border-t border-gray-700 py-16">
+        <div class="container mx-auto px-6 text-center">
+
+            <h3 class="text-2xl font-bold mb-4 text-white">Sushiswap — Your Trusted Mining Partner</h3>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+                We not only focus on returns, but more on long-term stable and secure asset growth experience. 
+                Rejecting short-term profit temptation, bringing DeFi back to its essence.
+            </p>
+            <button onclick="k2()" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
+                Contact Us Now
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        function k2() {
+            // Replace with your actual WhatsApp link
+            window.open('https://wa.me/your_whatsapp_number', '_blank');
+        }
+
+        function k3() {
+            // Replace with your actual Telegram link
+            window.open('https://t.me/your_telegram_username', '_blank');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
