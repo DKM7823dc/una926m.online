@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexWork Pro - ابدأ عملك بدوام جزئي عبر الهاتف المحمول</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      
+    <style>
+        :root {
+            --deep-blue: #003366;
+            --ocean-blue: #0066cc;
+            --bright-yellow: #ffcc00;
+            --white: #ffffff;
+            --black: #000000;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333333;
+            --gradient-1: linear-gradient(135deg, #003366, #0066cc);
+            --gradient-2: linear-gradient(135deg, #ffcc00, #ff9900);
+            --gradient-3: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--bright-yellow);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+            background: var(--bright-yellow);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--gradient-1);
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(255,204,0,0.1);
+            color: var(--bright-yellow);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,204,0,0.3)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,204,0,0.2)"/><circle cx="40" cy="70" r="1" fill="rgba(255,204,0,0.4)"/><circle cx="90" cy="80" r="2.5" fill="rgba(255,204,0,0.2)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #ffcc00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: var(--gradient-2);
+            color: var(--black);
+            padding: clamp(12px, 3vw, 18px) clamp(25px, 6vw, 40px);
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 204, 0, 0.6);
+        }
+
+        .cta-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Sections */
+        .section {
+            padding: clamp(3rem, 8vw, 5rem) 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: var(--gradient-3);
+        }
+
+        .section:nth-child(odd) {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(2rem, 5vw, 4rem);
+            color: var(--deep-blue);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+        }
+
+        .section h3 {
+            color: var(--ocean-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section Enhanced */
+        .about-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: center;
+            margin-bottom: clamp(2rem, 5vw, 4rem);
+        }
+
+        .about-text {
+            text-align: left;
+            position: relative;
+        }
+
+        .about-intro {
+            background: var(--white);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--bright-yellow);
+            margin-bottom: 2rem;
+        }
+
+        .about-intro h3 {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            color: var(--deep-blue);
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-intro p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .mission-section {
+            background: var(--white);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .mission-section h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: var(--ocean-blue);
+            text-align: center;
+        }
+
+        .mission-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .mission-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05), rgba(255, 204, 0, 0.05));
+            border-radius: 15px;
+            border-left: 4px solid var(--bright-yellow);
+            transition: all 0.3s ease;
+        }
+
+        .mission-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .mission-icon {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-top: 0.2rem;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            flex-shrink: 0;
+        }
+
+        .mission-item h4 {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 0.5rem;
+            color: var(--deep-blue);
+        }
+
+        .mission-item p {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .professional-image {
+            width: 100%;
+            height: clamp(300px, 50vw, 450px);
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .professional-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+            background: rgba(0, 51, 102, 0.95);
+            padding: clamp(1rem, 3vw, 2rem);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 204, 0, 0.3);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            color: var(--white);
+            flex: 1;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: bold;
+            color: var(--bright-yellow);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            display: block;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .about-cta {
+            text-align: center;
+            margin-top: clamp(2rem, 5vw, 4rem);
+        }
+
+        /* Why Choose Us Enhanced */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+            margin-top: clamp(2rem, 5vw, 4rem);
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            background: var(--gradient-2);
+            width: clamp(60px, 10vw, 80px);
+            height: clamp(60px, 10vw, 80px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--black);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            margin-bottom: 1rem;
+            color: var(--deep-blue);
+        }
+
+        .feature-card p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* Work Content Enhanced */
+        .work-section {
+            background: var(--gradient-3);
+            position: relative;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+            margin-top: 3rem;
+        }
+
+        .work-item {
+            background: var(--white);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            border-radius: 20px;
+            border-left: 6px solid var(--bright-yellow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .work-item::before {
+            content: attr(data-number);
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--gradient-2);
+            color: var(--black);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+        }
+
+        .work-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .work-item h3 {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 1rem;
+            color: var(--deep-blue);
+        }
+
+        .work-item p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* FAQ Enhanced */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .faq-question {
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: clamp(1rem, 3vw, 1.5rem);
+            font-weight: bold;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            position: relative;
+        }
+
+        .faq-question::after {
+            content: '💡';
+            position: absolute;
+            right: clamp(1rem, 3vw, 1.5rem);
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+
+        .faq-answer {
+            padding: clamp(1rem, 3vw, 1.5rem);
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* How to Join Enhanced */
+        .join-section {
+            background: linear-gradient(135deg, var(--gradient-3), #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .join-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,204,0,0.05) 0%, transparent 70%);
+            animation: float 30s infinite linear;
+        }
+
+        .steps-container {
+            background: var(--white);
+            padding: clamp(2rem, 5vw, 3rem);
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            margin-top: 3rem;
+            position: relative;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-2);
+            border-radius: 25px;
+            padding: 3px;
+            z-index: -1;
+            background-clip: border-box;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(2rem, 5vw, 3rem);
+            margin-top: 2rem;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            position: relative;
+            background: linear-gradient(135deg, rgba(0,102,204,0.02), rgba(255,204,0,0.02));
+            border-radius: 20px;
+            border: 2px dashed var(--ocean-blue);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .step-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 45%, rgba(255,204,0,0.1) 50%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .step-item:hover::before {
+            opacity: 1;
+        }
+
+        .step-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--bright-yellow);
+            border-style: solid;
+            box-shadow: 0 15px 35px rgba(255,204,0,0.3);
+            background: linear-gradient(135deg, rgba(0,102,204,0.05), rgba(255,204,0,0.05));
+        }
+
+        .step-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid var(--bright-yellow);
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            z-index: 3;
+        }
+
+        .step-item:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            background: var(--gradient-2);
+            color: var(--black);
+            width: clamp(60px, 10vw, 80px);
+            height: clamp(60px, 10vw, 80px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-weight: bold;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.5);
+            position: relative;
+            z-index: 2;
+            border: 4px solid var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover .step-number {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 15px 35px rgba(255, 204, 0, 0.7);
+        }
+
+        .step-number::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px dashed var(--ocean-blue);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .step-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-item h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 1rem;
+            color: var(--deep-blue);
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .step-item p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+            background: rgba(255,255,255,0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--bright-yellow);
+        }
+
+        .step-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover .step-icon {
+            opacity: 0.8;
+            transform: scale(1.2);
+        }
+
+        .join-cta-container {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0,102,204,0.1), rgba(255,204,0,0.1));
+            border-radius: 20px;
+            border: 2px solid var(--bright-yellow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .join-cta-container::before {
+            content: '🚀';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 50%;
+            border: 2px solid var(--bright-yellow);
+        }
+
+        .join-cta-container h3 {
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            margin-top: 1rem;
+        }
+
+        .join-cta-container p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+
+        /* Footer Enhanced */
+        footer {
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: clamp(3rem, 6vw, 4rem) 0 clamp(1rem, 3vw, 2rem);
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .risk-warning {
+            background: rgba(255, 204, 0, 0.15);
+            border: 2px solid var(--bright-yellow);
+            padding: clamp(1.5rem, 4vw, 2rem);
+            margin: clamp(2rem, 5vw, 3rem) 0;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .risk-warning h3 {
+            color: var(--bright-yellow);
+            margin-bottom: 1rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        }
+
+        .risk-warning p {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            margin-bottom: 0.8rem;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: clamp(1.5rem, 4vw, 2rem);
+            margin-top: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Image Styling Enhanced */
+        .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin: clamp(2rem, 5vw, 3rem) auto;
+            display: block;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .section-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Form Validation Styles */
+        .form-error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+        }
+
+        .form-success {
+            border-color: #10b981 !important;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background-color: rgba(255, 204, 0, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Responsive Enhanced */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .image-overlay {
+                position: static;
+                margin-top: 1rem;
+                background: rgba(0, 51, 102, 1);
+            }
+
+            .step-item::after {
+                display: none;
+            }
+
+            .mission-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 5rem 0 2rem;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .about-intro,
+            .mission-section {
+                padding: 1.5rem;
+            }
+
+            .feature-card,
+            .work-item {
+                padding: 1.5rem;
+            }
+
+            .steps-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">FlexWork Pro</div>
+            <ul class="nav-links">
+                <li><a href="#about">نبذة عنا</a></li>
+                <li><a href="#why-choose">كيفية البدء</a></li>
+                <li><a href="#faq">الأسئلة الشائعة</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#about" onclick="closeMobileMenu()">نبذة عنا</a>
+            <a href="#why-choose" onclick="closeMobileMenu()">كيفية البدء</a>
+            <a href="#faq" onclick="closeMobileMenu()">الأسئلة الشائعة</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ابدأ عملك بدوام جزئي عبر الهاتف المحمول</h1>
+            <p>عمل مرن، عمل عن بُعد، نظم وقتك بحرية واعمل بجد من أجل أحلامك</p>
+            <button class="cta-button" onclick="k3()">قدم الآن</button>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>نبذة عنا</h2>
+            <div class="about-layout">
+                <div class="about-text">
+                    <div class="about-intro">
+                        <h3>منصة مهنية للعمل عن بُعد</h3>
+                        <p>نحن منصة خدمات تركز على العمل عن بُعد بدوام جزئي ونلتزم بتوفير فرص عمل مرنة عن بُعد للمستخدمين. باستخدام هاتفك المحمول يمكنك أداء مهام بسيطة دون الحاجة لخبرة متخصصة، حتى يتمكن أي شخص من الحصول على دخل إضافي بسهولة مع تطوير المهارات المهنية.</p>
+                    </div>
+                    
+                    <div class="mission-section">
+                        <h3>مهمتنا</h3>
+                        <div class="mission-grid">
+                            <div class="mission-item">
+                                <div class="mission-icon">🎯</div>
+                                <div>
+                                    <h4>حرية الوقت وحرية الدخل</h4>
+                                    <p>نساعد المزيد من الأشخاص على تحقيق حرية الوقت والحرية المالية</p>
+                                </div>
+                            </div>
+                            <div class="mission-item">
+                                <div class="mission-icon">⚡</div>
+                                <div>
+                                    <h4>تشغيل بسيط</h4>
+                                    <p>نقدم مشاريع بدوام جزئي بسيطة وسهلة الاستخدام</p>
+                                </div>
+                            </div>
+                            <div class="mission-item">
+                                <div class="mission-icon">🏆</div>
+                                <div>
+                                    <h4>منصة موثوقة</h4>
+                                    <p>ننشئ منصة عمل عن بُعد فعالة وموثوقة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="img/2.jpg" alt="فريق مهني" class="professional-image">
+                    <div class="image-overlay">
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">10K+</span>
+                                <span class="stat-label">مستخدم نشط</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">رضا العملاء</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-cta">
+                <button class="cta-button" onclick="k3()">قدم الآن وانضم إلينا</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose" class="section">
+        <div class="container">
+            <h2>لماذا تختارنا؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>جداول عمل مرنة</h3>
+                    <p>جداول العمل تعتمد عليك تماماً، متكيفة مع أي نمط حياة، دون التدخل في الدراسة أو الحياة العائلية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>سهل الاستخدام، لا حاجة لخبرة</h3>
+                    <p>جميع المهام لها تعليمات مفصلة، لا تتطلب مهارات خاصة ويمكن تنفيذها بالهاتف المحمول.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>آمن وموثوق ومضمون</h3>
+                    <p>المنصة تتعاون مع شركات منتظمة، فوترة شفافة للمهام، دفع في الوقت المحدد، بدون رسوم خفية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏠</div>
+                    <h3>عمل عن بُعد، دون مغادرة المنزل</h3>
+                    <p>جميع المهام يمكن تنفيذها بالهاتف المحمول، لا حاجة للانتقال، اعمل في أي وقت ومكان.</p>
+                </div>
+            </div>
+            <img src="img/1.jpg" alt="مزايا العمل عن بُعد" class="section-image">
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="cta-button" onclick="k3()">قدم الآن وانضم إلينا</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section work-section">
+        <div class="container">
+            <h2>محتوى العمل</h2>
+            <div class="work-grid">
+                <div class="work-item" data-number="1">
+                    <h3>معالجة البيانات</h3>
+                    <p>إكمال نماذج بسيطة على الإنترنت، التحقق من البيانات ومهام أساسية أخرى.</p>
+                </div>
+                <div class="work-item" data-number="2">
+                    <h3>الاستطلاعات</h3>
+                    <p>المشاركة في استطلاعات العلامات التجارية، إكمال الاستبيانات عبر الإنترنت والحصول على مكافآت.</p>
+                </div>
+                <div class="work-item" data-number="3">
+                    <h3>مراجعة المحتوى</h3>
+                    <p>مراجعة الصور والنصوص أو محتوى الفيديو وفقاً لقواعد المنصة، عملية سهلة الفهم.</p>
+                </div>
+                <div class="work-item" data-number="4">
+                    <h3>ترويج المنتجات</h3>
+                    <p>مشاركة معلومات المنتجات عبر وسائل التواصل الاجتماعي، مساعدة العلامات التجارية على زيادة انتشارها وكسب جوائز إعلانية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container">
+            <h2>الأسئلة الشائعة</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">س1: ما هي المتطلبات التي يجب أن أستوفيها؟</div>
+                    <div class="faq-answer">تحتاج فقط إلى هاتف محمول وبيئة شبكة جيدة ومسؤولية في العمل. لا تتطلب مهارات مهنية.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">س2: هل العمل قانوني ومتوافق؟</div>
+                    <div class="faq-answer">نتعاون مع شركات منتظمة، جميع المهام تتوافق مع القوانين واللوائح ذات الصلة وتضمن الأمان والموثوقية.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">س3: كيف يتم حساب الدخل؟</div>
+                    <div class="faq-answer">يتم حساب الدخل وفقاً لسعر القطعة الواحدة من المهمة، ويتم الدفع فوراً بعد إكمال المهمة، يدعم طرق دفع متعددة، شفاف وفعال.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">س4: هل هناك تدريب أو تعليمات؟</div>
+                    <div class="faq-answer">نعم! نوفر لكل عضو جديد تعليمات مفصلة لتشغيل المهام لضمان قدرتك على إكمال العمل بسلاسة.</div>
+                </div>
+            </div> 
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="cta-button" onclick="k3()">قدم الآن وانضم إلينا</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>كيفية الانضمام إلينا؟</h2>
+            <div class="steps-container">
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h3>تسجيل الحساب</h3>
+                        <p>انقر على زر "قدم الآن" في الصفحة وأكمل معلوماتك الأساسية</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h3>إكمال التسجيل</h3>
+                        <p>أكمل التحقق البسيط من الهوية وفقاً لمتطلبات المنصة لضمان أمان الحساب</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h3>بدء العمل</h3>
+                        <p>قم بالعمليات وفقاً لتعليمات المهام، أرسل المهام وانتظر الموافقة للحصول على الدخل</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <h3>سحب الأرباح</h3>
+                        <p>بعد الموافقة على الأرباح، يمكنك طلب السحب في أي وقت، دفع سريع، توليد دخل بسيط</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 4rem;">
+                <button class="cta-button" onclick="k3()">ابدأ رحلتك الآن</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="risk-warning">
+                    <h3>⚠️ تحذير من المخاطر ومعلومات مهمة</h3>
+                    <p><strong>مخاطر الاستثمار:</strong> تتضمن هذه المنصة فرص عمل قد تتطلب استثمارات من الوقت. النتائج قد تختلف وفقاً للجهد الفردي وظروف السوق. لا نضمن دخلاً ثابتاً.</p>
+                    <p><strong>معلومات الامتثال:</strong> جميع فرص العمل مقدمة بما يتوافق مع قوانين ولوائح العمل المحلية. المستخدمون مسؤولون عن الإبلاغ عن الدخل وفقاً للمتطلبات الضريبية المحلية.</p>
+                    <p><strong>الخصوصية:</strong> نجمع ونعالج المعلومات الشخصية بما يتوافق مع قوانين حماية البيانات المعمول بها. بياناتك محمية ولا تُباع أبداً لأطراف ثالثة.</p>
+                    <p><strong>متطلبات العمر:</strong> يجب أن يكون المستخدمون 18 عاماً أو أكثر للمشاركة في فرص العمل على هذه المنصة.</p>
+                </div>
+                
+                <div class="copyright">
+                      <p><a href="privacy.html" style="color: white;"><strong>سياسة الخصوصية</strong></a></p>
+<p><a href="terms.html" style="color: white;"><strong>شروط الاستخدام</strong></a></p>
+                    <p><strong>الامتثال القانوني:</strong> تعمل هذه المنصة بامتثال كامل لمعايير العمل الدولية، ولوائح حماية البيانات (GDPR) وقوانين حماية المستهلك.</p>
+                    <p><strong>شروط الخدمة:</strong> باستخدام هذه المنصة، فإنك توافق على شروط الخدمة وسياسات الخصوصية الخاصة بنا. جميع عقود العمل تخضع لقانون العمل المعمول به.</p>
+                    <p><strong>معلومات الاتصال:</strong> للدعم وأسئلة الامتثال، اتصل بنا عبر القنوات الرسمية.</p>
+                    <p><strong>الامتثال التنظيمي:</strong> مرخص ومنظم وفقاً للمتطلبات المحلية لتسجيل الشركات. تفاصيل تسجيل الشركة متوفرة عند الطلب.</p>
+                    <p><strong>ممارسات العمل العادلة:</strong> نلتزم بممارسات العمل العادلة، وتكافؤ فرص التوظيف وأنظمة الدفع الشفافة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function k3() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.remove('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Performance optimization
+        window.addEventListener('load', function() {
+            // Remove loading states after page loads
+            document.body.classList.add('loaded');
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"5420521deff5493a98ad952b49aeff33","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"c52185cb3c904c548534a26d597a87e2","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"e6f6caca2baf4283b5c4281d384d0793","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a18d10be504c4823b883e333c620887a","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a18d10be504c4823b883e333c620887a","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a18d10be504c4823b883e333c620887a","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+
+</html>
