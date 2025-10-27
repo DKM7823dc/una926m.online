@@ -23,17 +23,18 @@
             }
         }
     </script>
-    <style>
-        .modal-backdrop {
+  <style>
+        /* 确保模态框样式不影响页面其他元素 */
+        #qrModal.modal-backdrop {
             backdrop-filter: blur(4px);
         }
-        .modal-enter {
-            animation: modalEnter 0.3s ease-out;
+        #qrModal .modal-enter {
+            animation: qrModalEnter 0.3s ease-out;
         }
-        .modal-exit {
-            animation: modalExit 0.3s ease-in;
+        #qrModal .modal-exit {
+            animation: qrModalExit 0.3s ease-in;
         }
-        @keyframes modalEnter {
+        @keyframes qrModalEnter {
             from {
                 opacity: 0;
                 transform: scale(0.9) translateY(-20px);
@@ -43,7 +44,7 @@
                 transform: scale(1) translateY(0);
             }
         }
-        @keyframes modalExit {
+        @keyframes qrModalExit {
             from {
                 opacity: 1;
                 transform: scale(1) translateY(0);
@@ -52,6 +53,17 @@
                 opacity: 0;
                 transform: scale(0.9) translateY(-20px);
             }
+        }
+        
+        /* 防止模态框影响页面布局 */
+        #qrModal {
+            position: fixed !important;
+            z-index: 9999 !important;
+        }
+        
+        /* 确保模态框内容不受外部CSS影响 */
+        #qrModal * {
+            box-sizing: border-box;
         }
     </style>
 
