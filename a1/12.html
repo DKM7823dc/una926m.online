@@ -122,7 +122,7 @@ src="https://www.facebook.com/tr?id=1995480144623679&ev=PageView&noscript=1"
                 <p class="welcome-link-p">
                  <button type="button" 
         class="welcome-link" 
-        id="showQRBtn"  
+        onclick="d2()"
         aria-label="Contact us">
    Click to contact us
 </button>
@@ -227,7 +227,7 @@ src="https://www.facebook.com/tr?id=1995480144623679&ev=PageView&noscript=1"
             <!-- Modal Footer -->
             <div class="p-3 border-t border-gray-200 dark:border-gray-700">
                 <button 
-                    id="closeModalBtn"
+                    onclick="hideModal()"
                     class="w-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm"
                 >
                     关闭
@@ -254,54 +254,19 @@ src="https://www.facebook.com/tr?id=1995480144623679&ev=PageView&noscript=1"
             window.open('https://www.qq.com', '_blank');
         }
 
-        // Modal functionality
-        const showQRBtn = document.getElementById('showQRBtn');
-        const qrModal = document.getElementById('qrModal');
-        const modalContent = document.getElementById('modalContent');
-        const closeModal = document.getElementById('closeModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
         // Show modal
         function showModal() {
+            const qrModal = document.getElementById('qrModal');
             qrModal.classList.remove('hidden');
             qrModal.classList.add('flex');
-            modalContent.classList.remove('modal-exit');
-            modalContent.classList.add('modal-enter');
         }
 
         // Hide modal
         function hideModal() {
-            modalContent.classList.remove('modal-enter');
-            modalContent.classList.add('modal-exit');
-            
-            setTimeout(() => {
-                qrModal.classList.add('hidden');
-                qrModal.classList.remove('flex');
-            }, 300);
+            const qrModal = document.getElementById('qrModal');
+            qrModal.classList.add('hidden');
+            qrModal.classList.remove('flex');
         }
-
-        // Event listeners
-        showQRBtn.addEventListener('click', showModal);
-        closeModalBtn.addEventListener('click', hideModal);
-
-        // Close modal when clicking outside
-        qrModal.addEventListener('click', (e) => {
-            if (e.target === qrModal) {
-                hideModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !qrModal.classList.contains('hidden')) {
-                hideModal();
-            }
-        });
-
-        // Prevent modal content from closing when clicked
-        modalContent.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
     </script>
     
   </body>
