@@ -280,65 +280,97 @@
                 text-overflow: ellipsis;
             }
         }
+
+        /* ダークモード対応 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            }
+            
+            .hero-section,
+            .info-card,
+            .warning-section {
+                background: rgba(44, 62, 80, 0.9);
+                color: #ecf0f1;
+            }
+            
+            .hero-title,
+            .card-header {
+                color: #ecf0f1;
+            }
+            
+            .card-subtitle {
+                color: #bdc3c7;
+            }
+            
+            .card-content {
+                color: #bdc3c7;
+            }
+            
+            .warning-list {
+                color: #bdc3c7;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="main-wrapper">
         <section class="hero-section">
             <img src="img/1.png" alt="株式市場情報" class="primary-image">
-            <div class="participant-counter">現在参加人数：21979</div>
-            <h1 class="hero-title">私たちをLINE友達に追加して、即座に市場情報を取得</h1>
-            <p class="hero-description">今すぐあなたのLINEで取得</p>
+            <div class="participant-counter">現在の登録者数：21,979名</div>
+            <h1 class="hero-title">LINE友達追加で最新の株式市場情報をリアルタイム配信</h1>
+            <p class="hero-description">今すぐLINEで最新情報をお受け取りください</p>
             <img src="img/2.png" alt="株式市場情報" class="primary-image">
         </section>
 
         <div class="content-grid">
             <div class="info-card">
-                <h2 class="card-header">株式市場の動向を探り、より多くの市場情報を取得</h2>
-                <h3 class="card-subtitle">市場トレンドと最新動向を理解</h3>
+                <h2 class="card-header">株式市場の動向分析と注目銘柄情報</h2>
+                <h3 class="card-subtitle">市場トレンドと最新動向を詳しく解説</h3>
                 <p class="card-content">
-                    公開データと市場分析に基づき、最近の取引量が多く、アナリストの注目度が高い株式リストを整理し、参考として提供いたします。
+                    公開データと専門的な市場分析に基づき、取引量の多い注目銘柄やアナリストが評価する株式の情報を整理し、投資判断の参考資料として提供いたします。
                 </p>
-                <button class="action-btn" onclick="k2()">下方をクリックして、詳細情報をご覧ください</button>
-                <p class="disclaimer-text">データは参考のみです。ご自身の状況に基づいて慎重に判断してください。</p>
+                <button class="action-btn" onclick="k2()">詳細情報を確認する</button>
+                <p class="disclaimer-text">※提供する情報は参考資料です。投資判断はご自身の責任で慎重に行ってください。</p>
             </div>
 
             <div class="info-card">
-                <h2 class="card-header">最近の市場パフォーマンス分析</h2>
-                <h3 class="card-subtitle">市場パフォーマンスと株式取引動向を把握</h3>
+                <h2 class="card-header">最新の市場パフォーマンス分析レポート</h2>
+                <h3 class="card-subtitle">市場動向と株式取引トレンドの詳細分析</h3>
                 <p class="card-content">
-                    最近の公開市場データを提供し、アナリストの評価が高い株式とその公開取引トレンドを含め、市場情報をより良く理解できるよう支援します。
+                    最新の市場データを基に、専門アナリストが注目する銘柄情報と取引トレンドを分析し、市場理解を深めるための情報をお届けします。
                 </p>
-                <button class="action-btn" onclick="k2()">市場分析リストを確認</button>
-                <p class="disclaimer-text">ご注意ください。すべての情報は参考のみであり、投資アドバイスを構成するものではありません。</p>
+                <button class="action-btn" onclick="k2()">市場分析レポートを見る</button>
+                <p class="disclaimer-text">※すべての情報は参考資料であり、投資勧誘や助言を目的としたものではありません。</p>
             </div>
 
             <div class="info-card">
-                <h2 class="card-header">人気取引株式ランキング</h2>
-                <h3 class="card-subtitle">最近の取引量が多い株式を理解</h3>
+                <h2 class="card-header">人気銘柄取引ランキング</h2>
+                <h3 class="card-subtitle">取引量上位の注目銘柄をチェック</h3>
                 <p class="card-content">
-                    公開市場で取引量上位の株式情報を整理し、市場動向の参考として提供いたします。
+                    市場で注目を集める取引量上位の銘柄情報を整理し、市場動向を把握するための参考データとして提供いたします。
                 </p>
-                <button class="action-btn" onclick="k2()">クリックしてランキング詳細をご覧ください</button>
-                <p class="disclaimer-text">データは公開情報に基づいて整理されており、投資推奨や助言ではありません。</p>
+                <button class="action-btn" onclick="k2()">ランキング詳細を確認</button>
+                <p class="disclaimer-text">※データは公開情報を基に整理しており、投資推奨や助言ではありません。</p>
                 <img src="img/3.png" alt="取引ランキング" class="primary-image">
             </div>
         </div>
 
         <section class="subscription-section">
-            <h2 class="subscription-title">株式市場情報を無料購読</h2>
-            <h3 class="subscription-subtitle">LINEサービスで最新市場動向をフォロー</h3>
+            <h2 class="subscription-title">株式市場情報の無料配信サービス</h2>
+            <h3 class="subscription-subtitle">LINEで最新市場動向をリアルタイムでお届け</h3>
             <p class="subscription-description">
-                私たちをLINE友達に追加して、公開された市場情報と厳選された株式動向アラートを無料で取得し、いつでも市場変化を把握しましょう！
+                LINE友達登録で、厳選した市場情報と注目銘柄の動向アラートを無料配信！いつでも最新の市場変化をキャッチしましょう。
             </p>
-            <button class="action-btn" onclick="k2()">今すぐLINE友達追加</button>
+            <button class="action-btn" onclick="k2()">今すぐLINE友達登録</button>
         </section>
 
         <div class="warning-section">
-            <h3 class="warning-title">🔹 重要リスク提示</h3>
+            <h3 class="warning-title">⚠️ 重要なリスク開示</h3>
             <ul class="warning-list">
-                <li>• 市場にはリスクがあり、投資は慎重に行う必要があります。過去の実績は将来のパフォーマンスを示すものではありません。</li>
-                <li>• コース内容およびツールは参考のみであり、個別の投資アドバイスを構成するものではありません。</li>
+                <li>• 投資にはリスクが伴います。過去の実績は将来の運用成果を保証するものではありません。</li>
+                <li>• 提供するコンテンツやツールは参考資料であり、個別の投資助言を構成するものではありません。</li>
+                <li>• 投資判断は必ずご自身の責任で行い、リスクを十分にご理解の上でご利用ください。</li>
             </ul>
         </div>
 
@@ -348,15 +380,14 @@
         </div>
     </div>
 
-    <button class="floating-cta" onclick="k2()">LINE友達追加で市場情報取得</button>
+    <button class="floating-cta" onclick="k2()">LINE登録で市場情報をゲット</button>
 
     <script>
         function k2() {
-            // LINE跳转逻辑
-            console.log('LINE友達追加ボタンがクリックされました');
+            window.open('https://www.qq.com', '_blank');
         }
 
-        // 暗色模式支持
+        // ダークモード対応
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
         }
