@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>David Rosenberg Investment Advisory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
+            min-height: 100vh;
+            padding: 20px 15px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .chat-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-height: 400px;
+        }
+        
+        .message {
+            display: flex;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+            border: 3px solid #2c5aa0;
+            object-fit: cover;
+        }
+        
+        .message-content {
+            flex: 1;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 15px;
+            position: relative;
+        }
+        
+        .message-content::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 15px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid #f8f9fa;
+        }
+        
+        .sender-name {
+            font-weight: bold;
+            color: #2c5aa0;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .message-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .apply-button-container {
+            text-align: center;
+            display: none;
+        }
+        
+        .apply-button {
+            background: linear-gradient(45deg, #2c5aa0, #1e3a5f);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.4);
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .apply-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(44, 90, 160, 0.6);
+        }
+        
+
+        
+        .question-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        
+        .option-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+        
+        .option-button:hover {
+            border-color: #2c5aa0;
+            background: #e6f0ff;
+            color: #2c5aa0;
+        }
+        
+        .result-content {
+            text-align: center;
+        }
+        
+        .result-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 20px;
+        }
+        
+        .result-text {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .warning-text {
+            font-size: 14px;
+            color: #856404;
+        }
+        
+        .free-button {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .free-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.6);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .question-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #2c5aa0;
+        }
+        
+        .result-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Investment Advisory</h1>
+            <p>Professional Stock Analysis & Recommendations</p>
+        </div>
+
+        <div class="chat-container">
+            <div id="chatMessages">
+                <!-- Messages will be added here dynamically -->
+            </div>
+            
+            <div id="applyButtonContainer" class="apply-button-container">
+                <button id="applyButton" class="apply-button pulse">
+                    💰 Apply Now
+                </button>
+            </div>
+            
+            <div id="inChatQuestionContainer" class="question-container" style="display: none;">
+                <!-- Questions will be displayed here -->
+            </div>
+            
+            <div id="inChatResultContainer" class="result-container" style="display: none;">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Chat messages data
+        const messages = [
+            {
+                text: "Hello everyone, I'm David Rosenberg, renowned Canadian economist and Chief Strategist at Rosenberg Research.",
+                delay: 0
+            },
+            {
+                text: "Drone sector is on fire with policy tailwinds propelling stocks to new heights! In July, everyone was stunned—Invidious surged 90% in just three months! I saw this coming and boldly recommended three drone powerhouse stocks to my exclusive circle—we've already secured 15% returns.",
+                delay: 1000
+            },
+            {
+                text: "Now, standing at the November 2025 juncture, US markets show cautious optimism: S&P 500 index, driven by tech stocks and AI infrastructure, is expected to reach new highs before year-end.",
+                delay: 2000
+            },
+            {
+                text: "Given the current market dynamics—including rising defense spending, accelerating AI-autonomous systems integration, and exploding commercial drone demand—I've selected three high-potential stocks for recommendation, now published in my investment community!",
+                delay: 3000
+            },
+            {
+                text: "Please click the 'Apply Now' button below to complete the questionnaire and get early access to November's rising stock list and real-time market analysis.",
+                delay: 4000
+            }
+        ];
+
+        // Questionnaire data
+        const questions = [
+            {
+                question: "👤 What is your age group?",
+                options: ["18–26", "27–45", "46–55", "56 and above"]
+            },
+            {
+                question: "⏰ Do you have time to receive detailed materials about my November high-quality rising stock recommendations?",
+                options: ["Yes", "No"]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let answers = [];
+
+        // Create message element
+        function createMessage(text, isFirst = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            // Create avatar with fallback
+            const avatarSrc = 'img/1.jpg';
+            const fallbackAvatar = 'data:image/svg+xml;base64,' + btoa(`
+                <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="25" fill="#5D5CDE"/>
+                    <text x="25" y="30" text-anchor="middle" fill="white" font-size="16" font-weight="bold">DR</text>
+                </svg>
+            `);
+            
+            messageDiv.innerHTML = `
+                <img src="${avatarSrc}" alt="David Rosenberg" class="avatar" 
+                     onerror="this.src='${fallbackAvatar}'">
+                <div class="message-content">
+                    <div class="sender-name">David Rosenberg</div>
+                    <div class="message-text">${text}</div>
+                </div>
+            `;
+            
+            return messageDiv;
+        }
+
+        // Show message
+        function showMessage(messageElement) {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.appendChild(messageElement);
+            
+            setTimeout(() => {
+                messageElement.classList.add('show');
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 100);
+        }
+
+        // Display messages sequentially
+        function displayMessages() {
+            messages.forEach((message, index) => {
+                setTimeout(() => {
+                    const messageElement = createMessage(message.text, index === 0);
+                    showMessage(messageElement);
+                    
+                    // Show apply button after last message
+                    if (index === messages.length - 1) {
+                        setTimeout(() => {
+                            document.getElementById('applyButtonContainer').style.display = 'block';
+                        }, 500);
+                    }
+                }, message.delay);
+            });
+        }
+
+        // Show question in chat
+        function showInChatQuestion(questionIndex) {
+            const questionData = questions[questionIndex];
+            const questionContainer = document.getElementById('inChatQuestionContainer');
+            
+            questionContainer.innerHTML = `
+                <div class="question-title">${questionData.question}</div>
+                <div>
+                    ${questionData.options.map(option => `
+                        <button class="option-button" onclick="selectInChatAnswer('${option}')">
+                            ${option}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+            
+            questionContainer.style.display = 'block';
+        }
+
+        // Select answer
+        function selectInChatAnswer(answer) {
+            answers.push(answer);
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < questions.length) {
+                showInChatQuestion(currentQuestionIndex);
+            } else {
+                // All questions answered, show result
+                document.getElementById('inChatQuestionContainer').style.display = 'none';
+                showInChatResult();
+            }
+        }
+
+        // Show result in chat
+        function showInChatResult() {
+            const resultContainer = document.getElementById('inChatResultContainer');
+            resultContainer.innerHTML = `
+                <div class="result-title">🎉 Thank you very much for taking the time to complete my questionnaire!</div>
+                <div class="result-text">
+                    Click "Get Free Access" below to message me privately and receive the drone and AI quality stock list!
+                </div>
+                <div class="warning-box">
+                    <div class="warning-text">
+                        <strong>⚠️ Important Notice:</strong> The community is completely free, no charges, no payments required. If you encounter any suspicious operations, please stop immediately and report!
+                    </div>
+                </div>
+                <button class="free-button" onclick="k2()">
+                    🎁 Get Free Access
+                </button>
+            `;
+            resultContainer.style.display = 'block';
+        }
+
+        // K2 function for final button action
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // Event listeners
+        document.getElementById('applyButton').addEventListener('click', function() {
+            // Hide apply button, show questionnaire
+            document.getElementById('applyButtonContainer').style.display = 'none';
+            showInChatQuestion(0);
+        });
+
+
+
+        // Start conversation after page loads
+        window.addEventListener('load', function() {
+            setTimeout(displayMessages, 500);
+        });
+    </script>
+</body>
+</html>
