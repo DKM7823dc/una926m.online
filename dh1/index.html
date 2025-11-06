@@ -30,6 +30,17 @@
             color: white;
         }
         
+        .header-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin: 0 auto 15px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
         .header h1 {
             font-size: 24px;
             margin-bottom: 8px;
@@ -240,8 +251,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 Investment Advisory</h1>
-            <p>Professional Stock Analysis & Recommendations</p>
+            <img src="img/1.jpg" alt="David Rosenberg" class="header-avatar" 
+                 onerror="this.src='data:image/svg+xml;base64,' + btoa(`<svg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'><circle cx='40' cy='40' r='40' fill='#2c5aa0'/><text x='40' y='50' text-anchor='middle' fill='white' font-size='24' font-weight='bold'>DR</text></svg>`)">
+            <h1>David Rosenberg</h1>
+            <p>A renowned Canadian economist and chief strategist at Rosenberg Research.</p>
         </div>
 
         <div class="chat-container">
