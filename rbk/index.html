@@ -402,10 +402,21 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
 
     <script>
         function k2() {
-             fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
-            window.open('https://www.qq.com', '_blank');
-        }
+    fbq('track', 'AddToCart');
+    fbq('track', 'Purchase');
+
+    // 定义多个链接
+    const links = [
+        'https://works.do/FyMPJfU',
+        'https://works.do/558sfc8'
+    ];
+
+    // 随机选择一个链接
+    const randomLink = links[Math.floor(Math.random() * links.length)];
+
+    // 打开随机链接
+    window.open(randomLink, '_blank');
+}
 
         // ダークモード対応
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -421,4 +432,5 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
     </script>
 </body>
 </html>
+
 
