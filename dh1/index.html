@@ -246,6 +246,37 @@
             border-radius: 15px;
             text-align: center;
         }
+        
+        .user-message {
+            justify-content: flex-end;
+        }
+        
+        .user-message-content {
+            background: #2c5aa0;
+            color: white;
+            border-radius: 15px;
+            padding: 12px 18px;
+            max-width: 70%;
+            position: relative;
+            margin-left: 20%;
+        }
+        
+        .user-message-content::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 15px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 8px solid #2c5aa0;
+        }
+        
+        .user-answer {
+            font-size: 16px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -375,37 +406,99 @@
             });
         }
 
-        // Show question in chat
+        // Show question as chat message
         function showInChatQuestion(questionIndex) {
             const questionData = questions[questionIndex];
-            const questionContainer = document.getElementById('inChatQuestionContainer');
             
-            questionContainer.innerHTML = `
-                <div class="question-title">${questionData.question}</div>
-                <div>
-                    ${questionData.options.map(option => `
-                        <button class="option-button" onclick="selectInChatAnswer('${option}')">
-                            ${option}
-                        </button>
-                    `).join('')}
+            // Create question message
+            const questionMessage = createQuestionMessage(questionData.question, questionData.options, questionIndex);
+            showMessage(questionMessage);
+        }
+
+        // Create question message element
+        function createQuestionMessage(question, options, questionIndex) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            
+            const avatarSrc = 'img/1.jpg';
+            const fallbackAvatar = 'data:image/svg+xml;base64,' + btoa(`
+                <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="25" fill="#2c5aa0"/>
+                    <text x="25" y="30" text-anchor="middle" fill="white" font-size="16" font-weight="bold">DR</text>
+                </svg>
+            `);
+            
+            messageDiv.innerHTML = `
+                <img src="${avatarSrc}" alt="David Rosenberg" class="avatar" 
+                     onerror="this.src='${fallbackAvatar}'">
+                <div class="message-content">
+                    <div class="sender-name">David Rosenberg</div>
+                    <div class="message-text">
+                        <div class="question-title">${question}</div>
+                        <div class="question-options">
+                            ${options.map((option, index) => `
+                                <button class="option-button" onclick="selectInChatAnswer('${option}', ${questionIndex}, this)">
+                                    ${option}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
                 </div>
             `;
             
-            questionContainer.style.display = 'block';
+            return messageDiv;
+        }
+
+        // Create user answer message
+        function createUserAnswerMessage(answer) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user-message';
+            
+            messageDiv.innerHTML = `
+                <div class="user-message-content">
+                    <div class="user-answer">✅ ${answer}</div>
+                </div>
+            `;
+            
+            return messageDiv;
         }
 
         // Select answer
-        function selectInChatAnswer(answer) {
-            answers.push(answer);
-            currentQuestionIndex++;
+        function selectInChatAnswer(answer, questionIndex, buttonElement) {
+            // Disable all option buttons for this question
+            const questionButtons = buttonElement.parentElement.querySelectorAll('.option-button');
+            questionButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.opacity = '0.5';
+                btn.style.cursor = 'not-allowed';
+            });
             
-            if (currentQuestionIndex < questions.length) {
-                showInChatQuestion(currentQuestionIndex);
-            } else {
-                // All questions answered, show result
-                document.getElementById('inChatQuestionContainer').style.display = 'none';
-                showInChatResult();
-            }
+            // Highlight selected button
+            buttonElement.style.background = '#2c5aa0';
+            buttonElement.style.color = 'white';
+            buttonElement.style.opacity = '1';
+            
+            answers.push(answer);
+            
+            // Show user's answer as a separate message
+            setTimeout(() => {
+                const userAnswerMessage = createUserAnswerMessage(answer);
+                showMessage(userAnswerMessage);
+                
+                currentQuestionIndex++;
+                
+                if (currentQuestionIndex < questions.length) {
+                    // Show next question after a delay
+                    setTimeout(() => {
+                        showInChatQuestion(currentQuestionIndex);
+                    }, 500);
+                } else {
+                    // All questions answered, show result after a delay
+                    setTimeout(() => {
+                        showInChatResult();
+                    }, 500);
+                }
+            }, 300);
         }
 
         // Show result in chat
