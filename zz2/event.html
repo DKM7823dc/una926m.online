@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rummy 91 - India's Best Gaming Platform | Win Up to ₹5 Crores Daily</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#4AE54A',
+                            500: '#2ECC71',
+                            600: '#27AE60',
+                            700: '#1E8449'
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-gold': 'linear-gradient(135deg, #4AE54A 0%, #27AE60 100%)',
+                        'gradient-dark': 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)'
+                    }
+                }
+            }
+        }
+
+        // K2 method for all buttons
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // M2 method for Event menu
+        function m2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // Social media methods
+        function openFacebook() {
+            window.open('https://www.facebook.com', '_blank');
+        }
+
+        function openYoutube() {
+            window.open('https://www.youtube.com', '_blank');
+        }
+
+        function openTelegram() {
+            window.open('https://t.me', '_blank');
+        }
+
+        function openWhatsApp() {
+            window.open('https://wa.me', '_blank');
+        }
+
+        function openCustomerService() {
+            window.open('https://t.me', '_blank');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            const menuIcon = menuButton.querySelector('svg');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        }
+
+        // Close mobile menu when clicking on a link
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            const menuIcon = menuButton.querySelector('svg');
+            
+            mobileMenu.classList.add('hidden');
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+        }
+
+        // Dynamic download counter
+        function initDownloadCounter() {
+            const counter = document.getElementById('download-counter');
+            if (!counter) return;
+
+            let downloadCount = parseInt(localStorage.getItem('rummy91-downloads') || '500000');
+
+            function formatNumber(num) {
+                return num.toLocaleString();
+            }
+
+            function updateDisplay() {
+                counter.textContent = formatNumber(downloadCount);
+                localStorage.setItem('rummy91-downloads', downloadCount.toString());
+            }
+
+            updateDisplay();
+
+            setInterval(() => {
+                const increment = Math.floor(Math.random() * 101) + 100;
+                downloadCount += increment;
+                updateDisplay();
+            }, 2000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initDownloadCounter();
+        });
+    </script>
+    <style>
+        .glow-gold {
+            box-shadow: 0 0 20px rgba(74, 229, 74, 0.5);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(74, 229, 74, 0.3);
+        }
+        .social-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .floating-element {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .bounce-element {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .social-sidebar {
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                gap: 10px;
+            }
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            .floating-button {
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .floating-button button {
+                padding: 10px 16px;
+                font-size: 14px;
+                white-space: nowrap;
+                min-width: max-content;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Dark mode detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <!-- Header -->
+    <header class="relative bg-gradient-dark py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="img/148.png" alt="Rummy 91 Logo" class="h-12 w-auto">
+                    <span class="ml-3 text-xl md:text-2xl font-bold text-gold-400">Rummy 91</span>
+                </div>
+                
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-gold-400 transition-colors font-medium">Home</a>
+                    <a href="#benefits" class="text-white hover:text-gold-400 transition-colors font-medium">Benefits</a>
+                    <a href="#bonuses" class="text-white hover:text-gold-400 transition-colors font-medium">Bonuses</a>
+                    <a href="#agent" class="text-white hover:text-gold-400 transition-colors font-medium">Agent</a>
+                    <a href="#activities" class="text-white hover:text-gold-400 transition-colors font-medium">Activities</a>
+                    <a href="javascript:void(0)" onclick="m2()" class="text-white hover:text-gold-400 transition-colors font-medium">Event</a>
+                    <a href="#contact" class="text-white hover:text-gold-400 transition-colors font-medium">Contact</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" onclick="toggleMobileMenu()" class="md:hidden text-white p-2 hover:text-gold-400 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-gradient-dark border-t border-gray-700 z-40">
+            <nav class="container mx-auto px-4 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" onclick="closeMobileMenu()" class="text-white hover:text-gold-400 transition-colors font-medium py-2 border-b border-gray-700">Home</a>
+                    <a href="#benefits" onclick="closeMobileMenu()" class="text-white hover:text-gold-400 transition-colors font-medium py-2 border-b border-gray-700">Benefits</a>
+                    <a href="#bonuses" onclick="closeMobileMenu()" class="text-white hover:text-gold-400 transition-colors font-medium py-2 border-b border-gray-700">Bonuses</a>
+                    <a href="#agent" onclick="closeMobileMenu()" class="text-white hover:text-gold-400 transition-colors font-medium py-2 border-b border-gray-700">Agent</a>
+                    <a href="#activities" onclick="closeMobileMenu()" class="text-white hover:text-gold-400 transition-colors font-medium py-2 border-b border-gray-700">Activities</a>
+                    <a href="javascript:void(0)" onclick="m2(); closeMobileMenu()" class="text-white hover:text-gold-400 transition-colors font-medium py-2 border-b border-gray-700">Event</a>
+                    <a href="#contact" onclick="closeMobileMenu()" class="text-white hover:text-gold-400 transition-colors font-medium py-2">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-dark min-h-screen flex items-center overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight text-white" style="text-shadow: 3px 3px 6px rgba(0,0,0,0.8);">
+                           Win up to ₹5 crores every single day! Online rummy & skill-based games.
+                        </h1>
+                    </div>
+                    
+                    <div>
+                        <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-6">
+                            🔥 <span class="text-gold-400 font-bold">Experience India's Top Gaming Platform.</span>
+                        </p>
+                        <p class="text-base md:text-lg text-gray-400 mb-8">
+                            Join millions of India players and start earning real cash today!
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center justify-center sm:justify-start space-x-4 md:space-x-8 pt-6">
+                        <div class="text-center">
+                            <div class="text-2xl md:text-3xl font-bold text-gold-400">4.9⭐</div>
+                            <div class="text-xs md:text-sm text-gray-400">App Rating</div>
+                        </div>
+                        <div class="text-center">
+                            <div id="download-counter" class="text-2xl md:text-3xl font-bold text-gold-400">500,000</div>
+                            <div class="text-xs md:text-sm text-gray-400">Downloads</div>
+                        </div>
+                    </div>
+					 
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="k2()" class="bg-gradient-gold text-black px-8 md:px-10 py-4 md:py-5 rounded-full text-lg md:text-xl font-bold hover:scale-105 transition-all duration-300 glow-gold bounce-element">
+                            <i class="fab fa-android mr-3 text-xl md:text-2xl"></i>Download Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Content - Mobile Image -->
+                <div class="text-center lg:text-right">
+                    <div class="relative inline-block">
+                        <img src="img/gaming-experience-mobile.png" alt="Rummy 91 Mobile App" class="max-w-full h-auto max-h-80 md:max-h-96 lg:max-h-[600px] floating-element">
+                        
+                        <!-- Floating Elements Around Phone -->
+                        <div class="absolute -top-4 -left-4 w-12 h-12 md:w-16 md:h-16 bg-gold-400 rounded-full flex items-center justify-center text-black font-bold text-sm md:text-lg floating-element" style="animation-delay: 0.5s;">
+                            ₹5Cr
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-10 h-10 md:w-12 md:h-12 bg-gradient-gold rounded-full flex items-center justify-center floating-element" style="animation-delay: 1s;">
+                            <i class="fas fa-trophy text-black"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Player Benefits Section -->
+    <section id="benefits" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gold-400">New Player Amazing Benefits</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Welcome Bonus -->
+                <div class="bg-gray-900 rounded-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-gold-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-gift text-black text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gold-400 text-center">Welcome Bonus</h3>
+                    <p class="text-gray-300 text-center">Get 7-91Rs instantly when you bind your mobile number</p>
+                </div>
+
+                <!-- First Deposit Support -->
+                <div class="bg-gray-900 rounded-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-gold-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-calendar-week text-black text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gold-400 text-center">7-Day Support Bonus</h3>
+                    <p class="text-gray-300 text-center">First deposit players receive 7 days of continuous support bonus</p>
+                </div>
+
+                <!-- Free Spin Voucher -->
+                <div class="bg-gray-900 rounded-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-gold-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-ticket-alt text-black text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gold-400 text-center">Deposit & Free Spin</h3>
+                    <p class="text-gray-300 text-center">Voucher with you, fun all day long with exciting rewards</p>
+                </div>
+
+                <!-- Daily Promo Code -->
+                <div class="bg-gray-900 rounded-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-gold-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-black text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gold-400 text-center">Daily Promo Code</h3>
+                    <p class="text-gray-300 text-center">Get promo codes daily at 11AM via Telegram & WhatsApp channels</p>
+                </div>
+
+                <!-- Lucky Gullak -->
+                <div class="bg-gray-900 rounded-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-gold-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-piggy-bank text-black text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gold-400 text-center">Daily Lucky Gullak</h3>
+                    <p class="text-gray-300 text-center">Random time opening with surprise rewards daily</p>
+                </div>
+
+                <!-- Mystery Bonus -->
+                <div class="bg-gray-900 rounded-lg p-6 card-hover">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-gold-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-mystery text-black text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gold-400 text-center">Mystery Bonus</h3>
+                    <p class="text-gray-300 text-center">Deposit any amount, receive mystery bonus at 10:30 AM next day</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Bonuses Section -->
+    <section id="bonuses" class="py-20 bg-gradient-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gold-400">Exclusive Bonuses & Rewards</h2>
+            
+            <!-- First Deposit Bonus -->
+            <div class="mb-16">
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/fin_first_deposit_new_banner.png" alt="First Deposit Bonus" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-3xl md:text-4xl font-bold text-gold-400 mb-4">New Player First Deposit</h3>
+                            <p class="text-xl md:text-2xl text-white font-bold">Rebate Up To 200%</p>
+                            <button onclick="k2()" class="mt-6 bg-gradient-gold text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+                                Claim Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mystery Bonus -->
+            <div class="mb-16">
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/mystery_bonus_short.jpg" alt="Mystery Bonus" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">Mystery Bonus Alert!</h3>
+                            <p class="text-lg md:text-xl text-white">Deposit Any Amount - Receive Mystery Bonus Tomorrow 10:30 AM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIP Bonus -->
+            <div class="mb-16">
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/vip_new_banner.jpg" alt="VIP Bonus" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">VIP Exclusive Rewards</h3>
+                            <p class="text-lg text-white">Get Up To ₹20,000,000 Every Sunday</p>
+                            <p class="text-lg text-white">Weekly Bonus Up To ₹50,000</p>
+                            <p class="text-lg text-white">Monthly Bonus Up To ₹200,000 (15th of every month)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agent Program Section -->
+    <section id="agent" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gold-400">Agent Partnership Program</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Agent A -->
+                <div class="bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-lg p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-white">AGENT A</h3>
+                    <ul class="space-y-3 text-white">
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>₹10 upon registration & first deposit</li>
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>0.5% of total bet amount</li>
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>0.5% of total deposit amount</li>
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>60% of their tax</li>
+                    </ul>
+                </div>
+
+                <!-- Agent B -->
+                <div class="bg-gradient-to-br from-gray-500 to-gray-700 rounded-lg p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-white">AGENT B</h3>
+                    <ul class="space-y-3 text-white">
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>0.3% of total bet amount</li>
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>0.2% of total deposit amount</li>
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>20% of their tax</li>
+                    </ul>
+                </div>
+
+                <!-- Agent C -->
+                <div class="bg-gradient-to-br from-orange-600 to-orange-800 rounded-lg p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-white">AGENT C</h3>
+                    <ul class="space-y-3 text-white">
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>0.1% of total bet amount</li>
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>0.1% of total deposit amount</li>
+                        <li class="flex items-center"><i class="fas fa-star mr-2"></i>10% of their tax</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="k2()" class="bg-gradient-gold text-black px-8 py-4 rounded-full text-xl font-bold hover:scale-105 transition-transform">
+                    Join Agent Program
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-20 bg-gradient-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gold-400">Daily Activities & Events</h2>
+            
+            <div class="space-y-12">
+                <!-- 7 Days & 30 Days Card -->
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/12_7days_new_banner.jpg" alt="7 Days Card" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">7 Days & 30 Days Card</h3>
+                            <p class="text-lg md:text-xl text-white">Get Up To 50% Cashback</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Task -->
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/daily_task_banner.png" alt="Daily Task" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">Daily Flight Betting Task</h3>
+                            <p class="text-lg md:text-xl text-white">Earn Up To ₹29,145</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leaderboard -->
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/leaderboard_new_banne.jpg" alt="Leaderboard" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">Leaderboard Competition</h3>
+                            <p class="text-lg md:text-xl text-white">Share The ₹77,350 Prize Pool</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refer & Earn -->
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/ref_earn_banner.jpg" alt="Refer Earn" class="w-full h-auto">
+                </div>
+
+                <!-- Social Media Code -->
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/social_media_newbanner.png" alt="Social Media" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">Daily Promo Code 11AM</h3>
+                            <p class="text-lg text-white">Follow Our Telegram And WhatsApp Official Channel</p>
+                            <p class="text-lg text-white">Get Promo Code Every Day</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Free Cash -->
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/wheelrummy.jpg" alt="Free Cash" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">Free Cash Share</h3>
+                            <p class="text-lg text-white">Share Free Cash To Players, Earn 2x Free Cash</p>
+                            <p class="text-lg text-white">Easy Earn High Commission!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lucky Gullak -->
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/gullaktuts_rummy91.jpg" alt="Lucky Gullak" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">Lucky Gullak</h3>
+                            <p class="text-lg text-white">Daily Event For Random Time Open</p>
+                            <p class="text-md text-white">Stay active and log in to participate and win rewards!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lucky Wheel -->
+                <div class="relative rounded-lg overflow-hidden">
+                    <img src="https://una926m.online/huodong/freecash_notice_g (3).png" alt="Lucky Wheel" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-bold text-gold-400 mb-4">Lucky Wheel</h3>
+                            <div class="text-lg text-white space-y-2">
+                                <p>Meet recharge requirements to get spins!</p>
+                                <p>Wheel Types: Silver, Gold, Diamond, Special</p>
+                                <p>Daily refresh with more surprises!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 bg-gradient-gold">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-black">Ready to Start Winning?</h2>
+            <p class="text-xl mb-8 text-black">Join millions of players and start earning today!</p>
+            <button onclick="k2()" class="bg-black text-gold-400 px-8 py-4 rounded-full text-xl font-bold hover:scale-105 transition-transform">
+                <i class="fab fa-android mr-2"></i>Download Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Social Media Sidebar -->
+    <div class="social-sidebar">
+        <div class="social-icon" style="background-color: #1877F2;" onclick="openFacebook()">
+            <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="social-icon" style="background-color: #FF0000;" onclick="openYoutube()">
+            <i class="fab fa-youtube"></i>
+        </div>
+        <div class="social-icon" style="background-color: #0088CC;" onclick="openTelegram()">
+            <i class="fab fa-telegram"></i>
+        </div>
+        <div class="social-icon" style="background-color: #25D366;" onclick="openWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="social-icon" style="background-color: #4AE54A;" onclick="openCustomerService()" title="Customer Service">
+            <i class="fas fa-headset" style="color: #000;"></i>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <div class="floating-button">
+        <button onclick="k2()" class="bg-gradient-gold text-black px-6 md:px-8 py-3 md:py-4 rounded-full text-lg md:text-xl font-bold glow-gold">
+            <i class="fas fa-download mr-2"></i>Download App Now
+        </button>
+    </div>
+
+    <!-- Company and Legal Links -->
+    <section class="bg-black py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 gap-4 sm:gap-8 max-w-4xl mx-auto">
+                <!-- Company Section -->
+                <div class="text-center">
+                    <h3 class="text-lg sm:text-xl font-bold text-gold-400 mb-3 sm:mb-4">Company</h3>
+                    <div class="space-y-2 sm:space-y-3">
+                        <a href="about.html" target="_blank" class="block text-white hover:text-gold-400 transition-colors text-sm sm:text-lg font-medium border-b-2 border-transparent hover:border-gold-400 pb-1">
+                            About Us
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Legal Section -->
+                <div class="text-center">
+                    <h3 class="text-lg sm:text-xl font-bold text-gold-400 mb-3 sm:mb-4">Legal</h3>
+                    <div class="space-y-2 sm:space-y-3">
+                        <a href="terms.html" target="_blank" class="block text-white hover:text-gold-400 transition-colors text-sm sm:text-lg font-medium border-b-2 border-transparent hover:border-gold-400 pb-1">
+                            Terms & Conditions
+                        </a>
+                        <a href="privacy.html" target="_blank" class="block text-white hover:text-gold-400 transition-colors text-sm sm:text-lg font-medium border-b-2 border-transparent hover:border-gold-400 pb-1">
+                            Privacy Policy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gradient-dark py-16">
+        <div class="container mx-auto px-4">
+            <div class="border-t border-gray-700 pt-8">
+                <div class="text-center space-y-4">
+                    <div class="flex justify-center items-center space-x-6 mb-4">
+                        <img src="img/imps-logo.png" alt="IMPS" class="h-8 w-auto">
+                        <img src="img/upi.png" alt="UPI" class="h-8 w-auto">
+                        <span class="text-gold-400 font-bold">Secure Payment Methods</span>
+                    </div>
+                    <p class="text-gray-400 text-lg">Made with ❤️ in India, for India!</p>
+                    <p class="text-gray-500 text-sm">&copy; 2025 Rummy 91. All rights reserved. | Trusted by 1 Crore+ Players | 100% Safe & Secure</p>
+                    <p class="text-xs text-gray-600">Play Responsibly. This game involves an element of financial risk and may be addictive. Please play responsibly and at your own risk.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"31278a88acbf4cb9913e71e66d4345ed","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
