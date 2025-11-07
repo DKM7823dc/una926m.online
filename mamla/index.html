@@ -1,0 +1,616 @@
+<!DOCTYPE html><html lang="ms"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerja Sambilan Malaysia - Peluang Pendapatan Tambahan</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        :root {
+            --primary: #f08902;
+            --secondary: #FEBC11;
+            --accent: #DA291C;
+            --light: #F4F4F4;
+            --dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #DA291C 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('images/a16767e5c202b0b7677e28da8d635882.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(188, 201, 229,0.85);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .btn:hover {
+            background-color: #e0a500;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+            background: linear-gradient(to right, #f5f5f5, #e0e0e0);
+            text-align: center;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Jobs Section */
+        .jobs {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .job-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .job-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .job-body {
+            padding: 25px;
+        }
+        
+        .job-detail {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .job-detail i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        /* Application Section */
+        .application {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #004d29 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .application h2 {
+            margin-bottom: 20px;
+        }
+        
+        .application p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(18, 140, 126, 0.6);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .benefits-grid, .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a onclick="callwhatsapp()" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-briefcase"></i>
+                    <span>KerjaSambilanMY</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Peluang Kerja Sambilan di Malaysia</h1>
+                <p>Dapatkan pendapatan tambahan hingga RM8,000 sebulan dengan kerja fleksibel dari rumah atau lokasi pilihan anda.</p>
+                <a href="#application" class="btn">Daftar Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Keuntungan Bekerja Dengan Kami</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Kerja Dari Rumah</h3>
+                    <p>Bekerja dari keselesaan rumah anda tanpa perlu berkomuter.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Waktu Fleksibel</h3>
+                    <p>Pilih waktu bekerja yang sesuai dengan jadual harian anda.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Bayaran Tepat Waktu</h3>
+                    <p>Dapatkan bayaran setiap minggu tanpa sebarang delay.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Latihan Disediakan</h3>
+                    <p>Kami sediakan latihan lengkap, tidak perlu pengalaman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Video Penjelasan Kerja</h2>
+                <p>Lihat bagaimana kami membantu rakyat Malaysia mendapatkan pendapatan tambahan</p>
+            </div>
+            <video width="100%" controls="" autoplay="" muted="">
+  <source src="media/video.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。
+</video>
+                </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Posisi Terbuka</h2>
+                <p>Pilih kerja sambilan yang sesuai dengan minat dan kebolehan anda</p>
+            </div>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3>Pembantu Administrasi</h3>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-detail">
+                            <i class="fas fa-money-bill"></i>
+                            <span>RM20-75/jam</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>1-3 jam/minggu</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kerja Remote</span>
+                        </div>
+                        <p>Membantu tugas-tugas administrasi seperti input data, menjawab email, dan penyediaan dokumen.</p>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3>Perwakilan Perkhidmatan Pelanggan</h3>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-detail">
+                            <i class="fas fa-money-bill"></i>
+                            <span>RM35-58/jam</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>2-5 jam/minggu</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kerja Remote</span>
+                        </div>
+                        <p>Memberikan khidmat sokongan pelanggan melalui chat, email atau telefon.</p>
+                    </div>
+                </div>
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3>Pemasaran Media Sosial</h3>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-detail">
+                            <i class="fas fa-money-bill"></i>
+                            <span>RM60-120/jam</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>3-6 jam/minggu</span>
+                        </div>
+                        <div class="job-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kerja Remote</span>
+                        </div>
+                        <p>Mengurus kandungan media sosial dan membantu meningkatkan engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section class="application" id="application">
+        <div class="container">
+            <h2>Sedia Untuk Mula?</h2>
+            <p>Daftar sekarang dan kami akan hubungi anda dalam masa 1 jam untuk proses seterusnya</p>
+            <a onclick="callwhatsapp()" class="btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Mohon Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">KerjaSambilanMY</div>
+                <div class="footer-links">
+                    <a href="#">Syarat & Terma</a>
+                    <a href="#">Dasar Privasi</a>
+                    <a href="#">Hubungi Kami</a>
+                </div>
+                <div class="copyright">
+                    <p>� 2025 Kerja Sambilan MY. Semua hak terpelihara.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.benefit-card, .job-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+    	  
+<script>
+function callwhatsapp()
+{
+      window.location.href="https://www.qq.com";
+}
+ </script>
+ 
+
+</body></html>
