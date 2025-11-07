@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/2x32.webp" sizes="32x32" />
+    <title>Aviso de Privacidade - UM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FE3D42',
+                        'primary-light': '#FF6B6F',
+                        'primary-dark': '#E6252B'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-gradient {
+            background: linear-gradient(135deg, #FE3D42, #FF6B6F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .custom-modal {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300">
+                    <h1 class="text-3xl font-bold text-gradient">UM</h1>
+                    <span class="text-gray-600 dark:text-gray-400">|</span>
+                    <span class="text-gray-700 dark:text-gray-300 font-medium">Voltar ao Início</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Page Title -->
+            <div class="text-center mb-12 animate-fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gradient">Aviso de Privacidade</span>
+                </h1>
+                <p class="text-gray-600 dark:text-gray-400 text-lg">
+                    Data de entrada em vigor: 16 de outubro de 2018
+                </p>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-8 animate-slide-up">
+                <!-- Introduction -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        A Universal McCann Worldwide, Inc. ("UM") respeita as suas preocupações relativas à privacidade. O presente Aviso de Privacidade descreve os tipos de informações pessoais que recolhemos junto dos indivíduos através do site http://www.umww.cc (o "Site"), a forma como podemos utilizar essas informações, com quem as podemos partilhar e as opções disponíveis relativamente à utilização dessas informações. Este aviso também descreve as medidas que tomamos para proteger os dados pessoais, o período durante o qual os conservamos e como os titulares dos dados nos podem contactar relativamente às nossas práticas de privacidade ou para exercer os seus direitos.
+                    </p>
+                </section>
+
+                <!-- Informações que obtemos -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Informações que obtemos</h2>
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>
+                            Podemos recolher e conservar informações pessoais (como o seu nome e outros dados de contacto) que decida facultar quando as submete através do Site ou quando nos contacta. Os tipos de informações pessoais que recolhemos podem incluir:
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Dados de contacto, como o seu nome e endereço de e-mail; e</li>
+                            <li>Outras informações pessoais que possa submeter, por exemplo, quando nos envia uma mensagem de contacto.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Recolha automatizada de dados -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Recolha automatizada de dados</h2>
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>
+                            Ao utilizar o Site, podemos obter determinadas informações por meios automatizados, como cookies de navegador, identificadores de dispositivos, registos de servidor e outras tecnologias. As informações recolhidas por estes meios podem incluir o seu endereço IP, nome de domínio, identificadores associados aos seus dispositivos, tipo e características do dispositivo e do sistema operativo, características do navegador web, preferências de idioma, dados de navegação (clickstream), interações com o Site (como as páginas visitadas, ligações em que clica, vídeos visualizados e funcionalidades utilizadas), páginas de referência, datas e horas de acesso, informações de geolocalização e outros dados relacionados com a utilização do Site.
+                        </p>
+                        <p>
+                            Um "cookie" é um ficheiro de texto que os sites enviam para o computador ou outro dispositivo ligado à Internet do visitante, com o objetivo de identificar de forma única o navegador ou armazenar informações e definições. Esta tecnologia permite guardar dados que um site possa necessitar para personalizar a experiência do utilizador, e pode também ser utilizada para fins de segurança.
+                        </p>
+                        <p>Estas tecnologias ajudam-nos a:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Acompanhar e compreender como utiliza e interage com o Site;</li>
+                            <li>Medir a usabilidade do Site;</li>
+                            <li>Avaliar a eficácia das nossas comunicações; e</li>
+                            <li>Gerir e melhorar as funcionalidades do Site.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Serviços de análise web de terceiros -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Serviços de análise web de terceiros</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Podemos obter informações sobre as suas atividades online ao longo do tempo e em sites, dispositivos e serviços online de terceiros. No Site, utilizamos serviços de análise fornecidos por terceiros, como o Google Analytics. Os prestadores que administram esses serviços utilizam tecnologias automatizadas para recolher dados (como endereços IP, cookies, endereços de e-mail e outros identificadores de dispositivos) a fim de avaliar, por exemplo, a utilização do Site e diagnosticar problemas técnicos.
+                    </p>
+                </section>
+
+                <!-- Como utilizamos as informações recolhidas -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Como utilizamos as informações recolhidas</h2>
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>Podemos utilizar as informações obtidas através do Site para:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Personalizar a sua experiência no Site;</li>
+                            <li>Prestar os nossos serviços;</li>
+                            <li>Promover os nossos serviços junto de si;</li>
+                            <li>Responder a pedidos e questões;</li>
+                            <li>Operar, avaliar e melhorar a nossa atividade;</li>
+                            <li>Proteger contra, identificar e prevenir fraudes e outras atividades ilícitas;</li>
+                            <li>Cumprir e fazer cumprir obrigações legais aplicáveis.</li>
+                        </ul>
+                        <p>
+                            Em conformidade com os requisitos da legislação aplicável, utilizamos as informações pessoais que obtemos para cumprir as obrigações legais em vigor, executar as nossas obrigações contratuais e, na medida permitida por lei, prosseguir os nossos interesses legítimos (tais como a gestão do Site, a realização de análises de dados e a operação, avaliação e melhoria da nossa atividade). Podemos também utilizar as informações que obtemos de forma diferente quando for fornecido um aviso específico no momento da recolha ou, quando aplicável, com o seu consentimento. Além disso, podemos combinar as informações que obtemos sobre si (por exemplo, através do Site ou por intermédio de terceiros) para os fins descritos acima.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Partilha de informações -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Partilha de informações</h2>
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>
+                            Não divulgamos informações pessoais que recolhemos sobre si, exceto conforme descrito neste Aviso de Privacidade. Podemos partilhar as suas informações pessoais com: (1) Empresas afiliadas da UM; e (2) Prestadores de serviços que atuam em nosso nome (por exemplo, alojamento do Site, gestão de relações ou análise de dados), para os fins descritos neste aviso.
+                        </p>
+                        <p>
+                            Não autorizamos esses prestadores a utilizarem ou divulgarem as informações, exceto na medida necessária para executar serviços em nosso nome ou para cumprir obrigações legais.
+                        </p>
+                        <p>Podemos também divulgar informações sobre si:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Se tal nos for exigido por lei ou por um processo judicial (como uma ordem judicial ou intimação);</li>
+                            <li>Em resposta a pedidos de entidades governamentais, tais como autoridades judiciais ou forças de segurança;</li>
+                            <li>Para estabelecer, exercer ou defender os nossos direitos legais;</li>
+                            <li>Quando considerarmos que a divulgação é necessária ou adequada para prevenir danos físicos ou outros, ou perdas financeiras;</li>
+                            <li>No âmbito de uma investigação relativa a uma atividade ilegal suspeita ou comprovada;</li>
+                            <li>No caso de venda ou transferência da totalidade ou de parte da nossa empresa ou dos nossos ativos (incluindo em situações de reorganização, dissolução ou liquidação); ou</li>
+                            <li>De outro modo, com o seu consentimento.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Transferências de dados -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Transferências de dados</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Podemos transferir as informações pessoais que recolhemos sobre si para destinatários (incluindo as nossas filiais, empresas afiliadas e prestadores de serviços terceiros) localizados em países diferentes daquele em que as informações foram inicialmente recolhidas. Esses países podem não dispor das mesmas leis de proteção de dados que o país onde forneceu as informações. Quando transferimos os seus dados para destinatários localizados noutros países (por exemplo, para os Estados Unidos), protegemos essas informações conforme descrito no presente Aviso de Privacidade.
+                    </p>
+                </section>
+
+                <!-- Os seus direitos e escolhas -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Os seus direitos e escolhas</h2>
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>
+                            Oferecemos-lhe determinadas opções relativamente às informações pessoais que recolhemos sobre si. Para atualizar as suas preferências, modificar ou corrigir as suas informações, limitar as comunicações que recebe da nossa parte ou apresentar um pedido, contacte-nos conforme indicado na secção "Como nos contactar" do presente Aviso de Privacidade. Também pode cancelar a sua subscrição das nossas listas de marketing clicando na ligação "Anular subscrição" incluída nos nossos e-mails.
+                        </p>
+                        <p>
+                            De acordo com o direito da União Europeia, todas as pessoas abrangidas pelo Regulamento Geral sobre a Proteção de Dados (RGPD) dispõem de determinados direitos, nomeadamente: (1) Solicitar o acesso às informações pessoais que detemos sobre si; (2) Solicitar a atualização, correção, alteração, eliminação ou limitação da utilização das suas informações pessoais; (3) Exercer o direito à portabilidade dos dados, contactando-nos conforme indicado; (4) Apresentar uma reclamação junto de uma autoridade europeia de controlo relativamente a qualquer alegada violação das regras de proteção de dados; e (5) Em determinadas circunstâncias, solicitar a eliminação dos seus dados ou opor-se à sua conservação ou utilização.
+                        </p>
+                        <p>
+                            Quando previsto por lei, poderá retirar qualquer consentimento previamente concedido ou opor-se, a qualquer momento, ao tratamento das suas informações pessoais por motivos legítimos relacionados com a sua situação específica — e aplicaremos as suas preferências para o futuro. Para proteger a sua privacidade e manter a segurança, poderemos adotar medidas para verificar a sua identidade antes de lhe concedermos acesso às suas informações.
+                        </p>
+                        <p>
+                            Na medida permitida pela legislação aplicável, poderão ser cobradas taxas razoáveis antes de lhe fornecermos uma cópia de quaisquer dados pessoais que detenhamos sobre si.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Serviços online e funcionalidades de terceiros -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Serviços online e funcionalidades de terceiros</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        O Site pode disponibilizar ligações para outros serviços online e sites web para sua conveniência e informação, bem como funcionalidades de terceiros, tais como aplicações, ferramentas, widgets e plug-ins (por exemplo, botões do Facebook, Instagram, LinkedIn e Twitter). Esses serviços, sites e funcionalidades de terceiros podem operar de forma independente da UM. As práticas de privacidade desses terceiros, incluindo as informações que possam recolher sobre si, são regidas pelas respetivas políticas de privacidade, que recomendamos vivamente que consulte. Na medida em que os serviços online associados ou funcionalidades de terceiros não sejam detidos nem controlados por nós, a UM não é responsável pelas práticas de tratamento de dados desses terceiros.
+                    </p>
+                </section>
+
+                <!-- Conservação das informações pessoais -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Conservação das informações pessoais</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Na medida permitida pela legislação aplicável, conservamos as informações pessoais que obtemos sobre si enquanto: (1) Forem necessárias para as finalidades para as quais foram recolhidas, de acordo com o presente Aviso de Privacidade; ou (2) Exista outra base legal que justifique a conservação dos dados além do período necessário para cumprir a finalidade inicial da recolha.
+                    </p>
+                </section>
+
+                <!-- Como protegemos as informações pessoais -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Como protegemos as informações pessoais</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Implementamos medidas de segurança administrativas, técnicas e físicas destinadas a proteger as informações pessoais obtidas através do Site contra destruição, perda, alteração, acesso, divulgação ou utilização acidental, ilegal ou não autorizada.
+                    </p>
+                </section>
+
+                <!-- Atualizações do nosso Aviso de Privacidade -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Atualizações do nosso Aviso de Privacidade</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        O presente Aviso de Privacidade pode ser atualizado periodicamente e sem aviso prévio, de modo a refletir alterações nas nossas práticas de tratamento de informações pessoais. Indicaremos no topo do aviso a data da sua última atualização.
+                    </p>
+                </section>
+
+                <!-- Como nos contactar -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Como nos contactar</h2>
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>
+                            Para nos contactar sobre este Aviso de Privacidade ou sobre qualquer questão relacionada com a proteção de dados pessoais — incluindo dúvidas relativas à utilização dos seus dados pessoais ou para exercer os seus direitos de privacidade — utilize os seguintes contactos:
+                        </p>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg space-y-2">
+                            <p class="font-semibold text-gray-900 dark:text-white">Universal McCann Worldwide, Inc.</p>
+                            <p>100 West 33rd Street</p>
+                            <p>New York, NY 10001</p>
+                            <p>Telefone: 212-883-4700</p>
+                            <p>
+                                E-mail: <a href="mailto:7-eleven@umww.net" class="text-primary hover:underline font-medium">7-eleven@umww.net</a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Back to Home Button -->
+            <div class="text-center mt-12">
+                <a href="index.html" class="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Voltar ao Início
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-primary-dark text-white py-8 px-4 mt-16">
+        <div class="max-w-6xl mx-auto text-center">
+            <h3 class="text-2xl font-bold mb-4">UM</h3>
+            <p class="text-white/80 text-sm">
+                © 2025 UM Estados Unidos (Sede Global)
+            </p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Notifications -->
+    <div id="notificationModal" class="fixed inset-0 custom-modal hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
+            <h3 id="modalTitle" class="text-xl font-bold text-gray-900 dark:text-white mb-4">Informação</h3>
+            <p id="modalMessage" class="text-gray-700 dark:text-gray-300 mb-6">Obrigado pelo seu interesse nas nossas práticas de privacidade.</p>
+            <div class="flex justify-end">
+                <button onclick="closeModal()" class="px-4 py-2 bg-primary text-white hover:bg-primary-dark rounded transition-colors duration-300">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Custom modal functions
+        function showModal(title, message) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('notificationModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('notificationModal').classList.add('hidden');
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with slide-up animation
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('notificationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Email link click handler
+        document.querySelector('a[href^="mailto:"]').addEventListener('click', function(e) {
+            showModal('Email de Contacto', 'O seu cliente de email será aberto para enviar uma mensagem para 7-eleven@umww.net');
+        });
+    </script>
+</body>
+</html>
