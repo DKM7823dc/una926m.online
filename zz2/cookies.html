@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/2x32.webp" sizes="32x32" />
+    <title>Política de Cookies - UM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FE3D42',
+                        'primary-light': '#FF6B6F',
+                        'primary-dark': '#E6252B'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-gradient {
+            background: linear-gradient(135deg, #FE3D42, #FF6B6F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .custom-modal {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300">
+                    <h1 class="text-3xl font-bold text-gradient">UM</h1>
+                    <span class="text-gray-600 dark:text-gray-400">|</span>
+                    <span class="text-gray-700 dark:text-gray-300 font-medium">Voltar ao Início</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Page Title -->
+            <div class="text-center mb-12 animate-fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gradient">Política de Cookies</span>
+                </h1>
+                <p class="text-gray-600 dark:text-gray-400 text-lg">
+                    Última atualização: outubro de 2025
+                </p>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-8 animate-slide-up">
+                <!-- Section 1 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">1. O que são Cookies?</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Os cookies são pequenos ficheiros de texto armazenados no seu dispositivo quando visita o nosso site. Permitem-nos melhorar a sua experiência de navegação e oferecer serviços personalizados.
+                    </p>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-6">2. Tipos de Cookies Utilizados</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cookies Essenciais</h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Necessários para o funcionamento básico do site. Estes cookies não podem ser desativados.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cookies de Desempenho</h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Recolhem informações anónimas sobre a forma como os visitantes utilizam o nosso site.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Cookies de Funcionalidade</h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Permitem recordar as suas preferências e personalizar a sua experiência.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">3. Por que Utilizamos Cookies?</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">Utilizamos cookies para:</p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>Melhorar o desempenho e a funcionalidade do nosso site</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>Analisar a utilização do site e melhorar os nossos serviços</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>Memorizar as suas preferências e definições</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>Fornecer conteúdos personalizados</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">4. Gestão de Cookies</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">Pode controlar e gerir os cookies de várias formas:</p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span><strong>Definições do navegador:</strong> configure o seu navegador para bloquear ou eliminar cookies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span><strong>Banner de consentimento:</strong> utilize o nosso banner para gerir as suas preferências</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span><strong>Navegação privada:</strong> utilize o modo privado para evitar o armazenamento de cookies</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Section 5 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">5. Cookies de Terceiros</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        O nosso site pode incluir cookies de serviços de terceiros, como o Google Analytics, para análise de tráfego. Estes serviços têm as suas próprias políticas de cookies, que recomendamos que consulte.
+                    </p>
+                </section>
+
+                <!-- Section 6 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-6">6. Duração de Conservação</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">Os cookies têm diferentes períodos de validade:</p>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Cookies de Sessão:</h3>
+                            <p class="text-gray-700 dark:text-gray-300">são eliminados quando fecha o navegador</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Cookies Persistentes:</h3>
+                            <p class="text-gray-700 dark:text-gray-300">permanecem até à sua expiração ou eliminação manual</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 7 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">7. Impacto da Desativação</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        A desativação de determinados cookies pode afetar a funcionalidade do nosso site. Os cookies essenciais não podem ser desativados, uma vez que são necessários para o seu correto funcionamento.
+                    </p>
+                </section>
+
+                <!-- Section 8 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">8. Atualização desta Política</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Esta política de cookies pode ser atualizada periodicamente para refletir alterações nas nossas práticas ou por motivos legais. Recomendamos que a consulte regularmente.
+                    </p>
+                </section>
+
+                <!-- Section 9 -->
+                <section class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-primary mb-4">9. As Suas Preferências de Cookies</h2>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                        Pode alterar as suas preferências de cookies a qualquer momento, utilizando as definições do seu navegador ou contactando-nos diretamente.
+                    </p>
+                    
+                    <!-- Cookie Preference Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="showAcceptDialog()" class="px-8 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors duration-300">
+                            Aceitar Todos os Cookies
+                        </button>
+                        <button onclick="showEssentialDialog()" class="px-8 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold rounded-lg transition-colors duration-300">
+                            Apenas Cookies Essenciais
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Back to Home Button -->
+            <div class="text-center mt-12">
+                <a href="index.html" class="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-colors duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Voltar ao Início
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-primary-dark text-white py-8 px-4 mt-16">
+        <div class="max-w-6xl mx-auto text-center">
+            <h3 class="text-2xl font-bold mb-4">UM</h3>
+            <p class="text-white/80 text-sm">
+                © 2025 UM Estados Unidos (Sede Global)
+            </p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Cookie Preferences -->
+    <div id="cookieModal" class="fixed inset-0 custom-modal hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
+            <h3 id="modalTitle" class="text-xl font-bold text-gray-900 dark:text-white mb-4"></h3>
+            <p id="modalMessage" class="text-gray-700 dark:text-gray-300 mb-6"></p>
+            <div class="flex justify-end space-x-3">
+                <button onclick="closeModal()" class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors duration-300">
+                    Fechar
+                </button>
+                <button onclick="closeModal()" class="px-4 py-2 bg-primary text-white hover:bg-primary-dark rounded transition-colors duration-300">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Custom modal functions (replacing alert/confirm)
+        function showModal(title, message) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('cookieModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('cookieModal').classList.add('hidden');
+        }
+
+        function showAcceptDialog() {
+            showModal('Cookies Aceitos', 'Todos os cookies foram aceitos. As suas preferências foram guardadas.');
+        }
+
+        function showEssentialDialog() {
+            showModal('Apenas Cookies Essenciais', 'Apenas os cookies essenciais serão utilizados. As suas preferências foram guardadas.');
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements with slide-up animation
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('cookieModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
