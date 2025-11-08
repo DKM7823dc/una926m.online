@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duitse Aandelenmarkt Investeringsmogelijkheden</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#003366',
+                        'ocean-blue': '#004080',
+                        'bright-yellow': '#FFD700',
+                        'warm-yellow': '#FFA500'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #003366 0%, #004080 100%);
+        }
+        .yellow-glow {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .breathing-animation {
+            animation: breathing 3s ease-in-out infinite;
+        }
+        @keyframes breathing {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            50% { transform: scale(1.08); box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+        }
+        .slide-animation {
+            animation: slideIn 2s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 64, 128, 0.9)), url('img/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-deep-blue text-white">
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-16 px-4">
+        <div class="max-w-6xl mx-auto text-center fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Grijp de Duitse aandelenmarkt<br>
+                <span class="text-bright-yellow">investeringsmogelijkheden!</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+                Met onze professionele aandelenvoorspellingen kunt u samen met vele investeerders aanzienlijke rendementen behalen
+            </p>
+            
+            <!-- Hero Image -->
+            <div class="mb-8">
+                <img src="img/1.png" alt="Investment Expert" class="w-80 object-cover rounded-lg mx-auto shadow-2xl border-4 border-bright-yellow slide-animation">
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                <h3 class="text-bright-yellow text-xl mb-4">Beperkte tijd voor hoogwaardige marktinzichten eindigt over</h3>
+                <div class="flex justify-center space-x-4 text-center">
+                    <div class="bg-bright-yellow text-deep-blue px-4 py-2 rounded-lg">
+                        <div id="days" class="text-3xl font-bold">2</div>
+                        <div class="text-sm">Dagen</div>
+                    </div>
+                    <div class="bg-bright-yellow text-deep-blue px-4 py-2 rounded-lg">
+                        <div id="hours" class="text-3xl font-bold">00</div>
+                        <div class="text-sm">Uren</div>
+                    </div>
+                    <div class="bg-bright-yellow text-deep-blue px-4 py-2 rounded-lg">
+                        <div id="minutes" class="text-3xl font-bold">00</div>
+                        <div class="text-sm">Minuten</div>
+                    </div>
+                    <div class="bg-bright-yellow text-deep-blue px-4 py-2 rounded-lg">
+                        <div id="seconds" class="text-3xl font-bold">00</div>
+                        <div class="text-sm">Seconden</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <button onclick="d2()" class="bg-bright-yellow text-deep-blue text-xl font-bold py-4 px-12 rounded-full hover:bg-warm-yellow transition-all duration-300 breathing-animation">
+                Doe nu mee
+            </button>
+            
+            <p class="mt-4 text-bright-yellow">Deze week hebben zich al 2381 mensen bij ons aangesloten</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-4 bg-ocean-blue">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+                Wat maakt onze analyse <span class="text-bright-yellow">uniek</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 rounded-lg border border-bright-yellow/30 hover:border-bright-yellow hover:shadow-xl transition-all bg-deep-blue/50 backdrop-blur-sm">
+                    <div class="w-16 h-16 bg-bright-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🤖</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Geavanceerde AI-analyse</h3>
+                    <p class="text-gray-300">Onze eigen algoritmen analyseren meer dan 10.000 datapunten per bedrijf om winstgevende kansen te ontdekken die anderen missen.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg border border-bright-yellow/30 hover:border-bright-yellow hover:shadow-xl transition-all bg-deep-blue/50 backdrop-blur-sm">
+                    <div class="w-16 h-16 bg-bright-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">⚖️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Risicobeoordeling</h3>
+                    <p class="text-gray-300">We bieden duidelijke risico-indicatoren voor elke investeringsaanbeveling om u te helpen bij evenwichtige investeringsbeslissingen.</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg border border-bright-yellow/30 hover:border-bright-yellow hover:shadow-xl transition-all bg-deep-blue/50 backdrop-blur-sm">
+                    <div class="w-16 h-16 bg-bright-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">⏰</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Tijdnauwkeurigheid</h3>
+                    <p class="text-gray-300">Weet u precies wanneer u moet kopen en verkopen voor het maximale winstpotentieel van elke aanbeveling?</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg border border-bright-yellow/30 hover:border-bright-yellow hover:shadow-xl transition-all bg-deep-blue/50 backdrop-blur-sm">
+                    <div class="w-16 h-16 bg-bright-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Beperkte kans</h3>
+                    <p class="text-gray-300">We bieden alleen geavanceerde inzichten onder specifieke marktomstandigheden. Beperkte plaatsen, vol = vol, registratie wordt gesloten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Section -->
+    <section class="py-16 px-4 gradient-bg">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+                Duitse technische analist en financieel commentator
+            </h2>
+            
+            <div class="bg-deep-blue/80 backdrop-blur-sm border border-bright-yellow/30 rounded-lg shadow-xl p-8 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <img src="img/2.png" alt="Philip Hopf" class="h-64 object-cover rounded-lg shadow-lg border-4 border-bright-yellow">
+                    <div>
+                        <h3 class="text-2xl font-bold text-bright-yellow mb-4">Philip Hopf</h3>
+                        <p class="text-gray-300 mb-4">
+                            Philip Hopf (geboren rond 1985 in Duitsland) is een technisch analist, trader en invloedrijke figuur in de Duitse financiële wereld.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            Hij is medeoprichter en managing partner van Hopf-Klinkmüller Capital Management (HKCM) en presenteert de financiële en politieke podcast "Hoss & Hopf".
+                        </p>
+                        <p class="text-gray-300">
+                            Hopf is expert in het gebruik van Elliott Wave Theory en Fibonacci-analyse om markttrends te voorspellen. Zijn analyses omvatten aandelen, valuta's, cryptocurrency's en edelmetalen. Hij biedt trendanalyses en handelsstrategieën aan investeerders via zijn platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 px-4 bg-ocean-blue">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+                Dit zijn de <span class="text-bright-yellow">sleutelfiguren</span> achter de schermen
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-gradient-to-br from-deep-blue/70 to-ocean-blue/50 backdrop-blur-sm border border-bright-yellow/20 rounded-2xl hover:border-bright-yellow hover:shadow-2xl hover:from-deep-blue/80 hover:to-ocean-blue/60 transition-all duration-500 transform hover:scale-105">
+                    <div class="relative w-36 h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 mx-auto mb-6">
+                        <!-- 渐变边框效果 -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-bright-yellow via-warm-yellow to-bright-yellow p-1">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-deep-blue to-ocean-blue">
+                                <img src="img/3.png" alt="Johannes Kalkosch" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-xl md:text-2xl font-bold text-white mb-3 tracking-wide">Johannes Kalkosch</h4>
+                    <p class="text-bright-yellow font-semibold mb-1 text-sm uppercase tracking-widest">(Joe)</p>
+                    <p class="text-warm-yellow font-medium mb-4 text-sm">Content Creator</p>
+                    <p class="text-gray-200 leading-relaxed italic">"De marktanalyse heeft me geholpen mijn investeringsstrategie te heroverwegen. Sindsdien kan ik beter geïnformeerde beslissingen nemen en ben ik zelfverzekerder over de markt."</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gradient-to-br from-deep-blue/70 to-ocean-blue/50 backdrop-blur-sm border border-bright-yellow/20 rounded-2xl hover:border-bright-yellow hover:shadow-2xl hover:from-deep-blue/80 hover:to-ocean-blue/60 transition-all duration-500 transform hover:scale-105">
+                    <div class="relative w-36 h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 mx-auto mb-6">
+                        <!-- 渐变边框效果 -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-bright-yellow via-warm-yellow to-bright-yellow p-1">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-deep-blue to-ocean-blue">
+                                <img src="img/4.png" alt="Max Schwab" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-xl md:text-2xl font-bold text-white mb-3 tracking-wide">Max Schwab</h4>
+                    <p class="text-warm-yellow font-medium mb-4 text-sm">Senior Analist</p>
+                    <p class="text-gray-200 leading-relaxed italic">"Als professionele analist waardeer ik de diepte van de verstrekte informatie enorm. De manier waarop fundamentele en technische analyse worden gecombineerd is indrukwekkend."</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gradient-to-br from-deep-blue/70 to-ocean-blue/50 backdrop-blur-sm border border-bright-yellow/20 rounded-2xl hover:border-bright-yellow hover:shadow-2xl hover:from-deep-blue/80 hover:to-ocean-blue/60 transition-all duration-500 transform hover:scale-105">
+                    <div class="relative w-36 h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 mx-auto mb-6">
+                        <!-- 渐变边框效果 -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-bright-yellow via-warm-yellow to-bright-yellow p-1">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-deep-blue to-ocean-blue">
+                                <img src="img/5.png" alt="Anna Müller" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-xl md:text-2xl font-bold text-white mb-3 tracking-wide">Anna Müller</h4>
+                    <p class="text-warm-yellow font-medium mb-4 text-sm">Senior Analist</p>
+                    <p class="text-gray-200 leading-relaxed italic">"De inzichten in markttrends hebben me geholpen mijn portfolio te diversifiëren. De duidelijke koop- en verkoopsignalen zijn vooral belangrijk voor langetermijnbeleggingsstrategieën."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="gradient-bg text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Ben je klaar om je <span class="text-bright-yellow">investeringsresultaten</span> te veranderen?
+            </h2>
+            <p class="text-xl mb-8">
+                Mis onze volgende aanbevelingen voor aandelen met hoog potentieel niet.
+            </p>
+            
+            <img src="img/6.png" alt="Investment Success" class="h-64 object-cover rounded-lg mx-auto mb-8 border-4 border-bright-yellow shadow-xl">
+            
+            <button onclick="d2()" class="bg-bright-yellow text-deep-blue text-xl font-bold py-4 px-12 rounded-full hover:bg-warm-yellow transition-all duration-300 pulse-animation yellow-glow">
+                Doe nu mee
+            </button>
+        </div>
+    </section>
+
+    <!-- Fixed Bottom Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <button onclick="d2()" class="bg-bright-yellow text-deep-blue font-bold py-3 px-6 rounded-full shadow-2xl hover:bg-warm-yellow transition-all duration-300 pulse-animation">
+            Neem contact met ons op
+        </button>
+    </div>
+
+    <!-- WhatsApp 按钮 - 手机优化版本 -->
+    <div style="position: fixed !important; right: 16px !important; top: 40% !important; z-index: 9999 !important; display: block !important; visibility: visible !important;">
+        <button onclick="d2()" style="position: relative !important; width: 56px !important; height: 56px !important; background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important; border-radius: 50% !important; border: none !important; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: all 0.3s ease !important; animation: pulse 2s infinite !important;">
+            <!-- WhatsApp SVG 图标 -->
+            <svg style="width: 32px !important; height: 32px !important; color: white !important;" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.386"/>
+            </svg>
+            <!-- 通知小红点 -->
+            <span style="position: absolute !important; top: -4px !important; right: -4px !important; width: 20px !important; height: 20px !important; background-color: #ff4444 !important; color: white !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 11px !important; font-weight: bold !important; border: 2px solid white !important;">1</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-deep-blue text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>&copy; 2024 Duitse Aandelenmarkt Expertise. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer - Fixed version
+        let countdownDate = new Date();
+        countdownDate.setDate(countdownDate.getDate() + 2); // 2 days from now
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate.getTime() - now;
+            
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById("days").textContent = days.toString().padStart(2, '0');
+                document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+            } else {
+                // Timer expired
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+            }
+        }
+        
+        // Initialize and update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // WhatsApp redirect function
+        function d2() {
+            window.open('https://wa.me/1234567890', '_blank');
+        }
+
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
