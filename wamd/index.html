@@ -54,6 +54,99 @@
             padding: 0 1.5rem;
         }
 
+        /* Floating Bottom Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 1rem 2.5rem;
+            background: var(--accent-gold);
+            color: var(--accent-dark);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            white-space: nowrap;
+            animation: breathing 2s ease-in-out infinite;
+        }
+
+        @keyframes breathing {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+                box-shadow: 0 12px 35px rgba(212, 175, 55, 0.7);
+            }
+        }
+
+        .floating-cta:hover {
+            background: #f4bf3a;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 90px;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        .whatsapp-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 24px;
+            height: 24px;
+            background: #ff4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            animation: bounce 1s ease-in-out infinite;
+            border: 2px solid white;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -335,11 +428,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
         .feature-title {
             font-size: 1.4rem;
             margin-bottom: 1rem;
@@ -372,24 +460,42 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .testimonial-rating {
-            color: var(--accent-gold);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .testimonial-text {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            font-style: italic;
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-rating {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
         }
 
         .testimonial-author {
             font-weight: 600;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             opacity: 0.9;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-style: italic;
         }
 
         /* Final CTA */
@@ -421,39 +527,75 @@
             }
 
             .hero {
-                height: 60vh;
-                min-height: 400px;
+                height: 55vh;
+                min-height: 350px;
             }
 
             .hero-content {
                 padding: 1rem;
             }
 
+            .hero-content h1 {
+                margin-bottom: 1rem;
+            }
+
+            .hero-content p {
+                margin-bottom: 1.5rem;
+            }
+
             section {
-                padding: 3rem 0;
+                padding: 2.5rem 0;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
             }
 
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
+                margin-top: 2rem;
             }
 
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1.2rem;
+                margin-top: 2rem;
             }
 
             .testimonials-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1.2rem;
+                margin-top: 2rem;
             }
 
             .product-info {
                 padding: 1.5rem;
             }
 
+            .product-name {
+                font-size: 1.4rem;
+            }
+
+            .product-description {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+            }
+
             .feature-card {
-                padding: 2rem 1rem;
+                padding: 1.8rem 1.2rem;
+            }
+
+            .feature-title {
+                font-size: 1.2rem;
+            }
+
+            .feature-text {
+                font-size: 1rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
             }
 
             .cta-button {
@@ -467,11 +609,38 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .floating-cta {
+                bottom: 15px;
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .whatsapp-float {
+                right: 15px;
+                bottom: 75px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-float svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .final-cta {
+                padding: 3rem 0;
+            }
         }
 
         @media (max-width: 480px) {
             .section-title {
                 font-size: 1.8rem;
+            }
+
+            .hero {
+                height: 50vh;
+                min-height: 320px;
             }
 
             .hero-content h1 {
@@ -487,7 +656,33 @@
             }
 
             .product-description {
-                font-size: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .floating-cta {
+                font-size: 0.85rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 70px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .whatsapp-badge {
+                width: 20px;
+                height: 20px;
+                font-size: 0.7rem;
+            }
+
+            section {
+                padding: 2rem 0;
             }
         }
 
@@ -505,6 +700,17 @@
     </style>
 </head>
 <body>
+    <!-- Floating Bottom CTA Button -->
+    <button class="floating-cta" onclick="k2()">马上获取产品资料</button>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" onclick="k2()">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.408-5.234-0.322-0.532c-1.343-2.22-2.055-4.77-2.055-7.38 0-7.806 6.35-14.157 14.157-14.157s14.157 6.35 14.157 14.157-6.35 14.157-14.157 14.157zM21.897 18.768c-0.283-0.142-1.677-0.829-1.937-0.924-0.261-0.095-0.451-0.142-0.641 0.142s-0.737 0.924-0.904 1.114c-0.166 0.189-0.333 0.213-0.617 0.071s-1.201-0.443-2.286-1.408c-0.846-0.753-1.416-1.683-1.583-1.967s-0.018-0.437 0.124-0.578c0.127-0.127 0.283-0.331 0.425-0.497s0.189-0.283 0.283-0.473c0.095-0.189 0.047-0.355-0.024-0.497s-0.641-1.544-0.878-2.114c-0.231-0.556-0.466-0.48-0.641-0.489-0.166-0.008-0.355-0.010-0.545-0.010s-0.497 0.071-0.758 0.355c-0.26 0.283-0.995 0.973-0.995 2.372s1.019 2.751 1.161 2.941c0.142 0.189 2.001 3.054 4.848 4.283 0.677 0.292 1.206 0.466 1.619 0.597 0.68 0.213 1.299 0.183 1.789 0.111 0.545-0.081 1.677-0.686 1.914-1.349s0.237-1.23 0.166-1.349c-0.071-0.118-0.26-0.189-0.545-0.331z"/>
+        </svg>
+        <span class="whatsapp-badge">1</span>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-carousel" id="heroCarousel">
@@ -642,32 +848,26 @@
             <h2 class="section-title">Why Choose Us</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
                     <h3 class="feature-title">High Quality Guarantee</h3>
                     <p class="feature-text">Each rubber plate is made from premium raw materials and undergoes strict production processes to ensure wear resistance and pressure resistance.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">✓</div>
                     <h3 class="feature-title">Performance Certifications</h3>
                     <p class="feature-text">Passed multiple tests including tensile and compression testing to ensure product quality and reliability.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
                     <h3 class="feature-title">Customization Services</h3>
                     <p class="feature-text">Flexible customization of color, material, and performance to meet personalized needs.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🏭</div>
                     <h3 class="feature-title">Direct from Source</h3>
                     <p class="feature-text">Factory-direct production and shipping with no middlemen, reducing costs significantly.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
                     <h3 class="feature-title">Global Delivery</h3>
                     <p class="feature-text">Supporting reliable transportation services to meet your continuous order requirements worldwide.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
                     <h3 class="feature-title">Stability & Consistency</h3>
                     <p class="feature-text">Committed to establishing long-term partnerships, providing consistent product quality and earning customer trust.</p>
                 </div>
@@ -681,29 +881,54 @@
             <h2 class="section-title" style="color: white;">Trusted by Industry Leaders</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Michael Chen" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <div class="testimonial-author">Michael Chen — Elite Fitness Center, USA</div>
+                        </div>
+                    </div>
                     <p class="testimonial-text">"Outstanding quality and consistency. Our gym has been using their products for over 3 years with zero quality issues."</p>
-                    <div class="testimonial-author">— Elite Fitness Center, USA</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="James Wilson" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <div class="testimonial-author">James Wilson — PowerHouse Gym, UK</div>
+                        </div>
+                    </div>
                     <p class="testimonial-text">"The customization options are exceptional. They delivered exactly what we needed for our brand."</p>
-                    <div class="testimonial-author">— PowerHouse Gym, UK</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Sarah Thompson" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <div class="testimonial-author">Sarah Thompson — FitZone Australia</div>
+                        </div>
+                    </div>
                     <p class="testimonial-text">"Reliable partner with excellent communication. Global delivery has been seamless every time."</p>
-                    <div class="testimonial-author">— FitZone Australia</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces" alt="David Martinez" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <div class="testimonial-author">David Martinez — Athletic Pro, Canada</div>
+                        </div>
+                    </div>
                     <p class="testimonial-text">"Best pricing without compromising on quality. Direct from manufacturer makes all the difference."</p>
-                    <div class="testimonial-author">— Athletic Pro, Canada</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=faces" alt="Emma Schmidt" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <div class="testimonial-author">Emma Schmidt — Gold's Fitness, Germany</div>
+                        </div>
+                    </div>
                     <p class="testimonial-text">"Professional team, superior products. They've become our exclusive supplier for rubber equipment."</p>
-                    <div class="testimonial-author">— Gold's Fitness, Germany</div>
                 </div>
             </div>
         </div>
@@ -798,5 +1023,6 @@
             card.addEventListener('mouseleave', startAutoPlay);
         });
     </script>
+
 </body>
 </html>
