@@ -57,15 +57,50 @@
             z-index: -2;
         }
 
-        .hero-bg img {
+        .hero-bg img,
+        .hero-bg video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .hero-content {
             max-width: 900px;
             animation: fadeInUp 1s ease-out;
+        }
+
+        /* Mobile Hero Layout */
+        @media (max-width: 640px) {
+            .hero {
+                min-height: auto;
+                flex-direction: column;
+                padding: 0;
+                position: relative;
+            }
+
+            .hero-bg {
+                position: relative;
+                width: 100%;
+                height: 50vh;
+                min-height: 300px;
+                z-index: 0;
+            }
+
+            .hero-bg img,
+            .hero-bg video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 1;
+                background: var(--primary-black);
+                width: 100%;
+                padding: 3rem 1rem;
+            }
         }
 
         .hero h1 {
@@ -565,16 +600,45 @@
         }
 
         @media (max-width: 640px) {
+            .logos {
+                padding: 3rem 1rem;
+            }
+
             .logos-container {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .section {
-                padding: 4rem 1.5rem;
+                padding: 1rem 1rem;
             }
 
             .text-section {
-                padding: 3rem 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .feature-card {
+                padding: 2rem 1rem;
+            }
+
+            .testimonials {
+                padding: 4rem 1rem;
+            }
+
+            .final-cta {
+                padding: 4rem 1rem;
+            }
+
+            .media-item {
+                gap: 2rem;
+            }
+
+            .features-grid {
+                gap: 2rem;
+            }
+
+            .testimonials-grid {
+                gap: 2rem;
             }
         }
 
@@ -585,11 +649,6 @@
                 --dark-bg: #000000;
             }
         }
-		.hero-bg video {
-    width: 100%;
-    height: auto;
-    display: block;
-}
     </style>
 </head>
 <body>
@@ -611,11 +670,11 @@
     <!-- Logos Section -->
     <section class="logos">
         <div class="logos-container">
-            <img src="img/NYSE-logo-1024x375.webp" alt="NYSE">
-            <img src="img/NASDAQ-Logo-1024x291.webp" alt="NASDAQ">
-            <img src="img/CBOE-Logo-1024x349.webp" alt="CBOE">
-            <img src="img/bloomberg-logo.webp" alt="Bloomberg">
-            <img src="img/Forbes-Logo.webp" alt="Forbes">
+            <img src="https://k924uu.site/ausk/images/NYSE-logo-1024x375.webp" alt="NYSE">
+            <img src="https://k924uu.site/ausk/images/NASDAQ-Logo-1024x291.webp" alt="NASDAQ">
+            <img src="https://k924uu.site/ausk/images/CBOE-Logo-1024x349.webp" alt="CBOE">
+            <img src="https://k924uu.site/ausk/images/bloomberg-logo.webp" alt="Bloomberg">
+            <img src="https://k924uu.site/ausk/images/Forbes-Logo.webp" alt="Forbes">
         </div>
     </section>
 
@@ -628,7 +687,7 @@
                     <p>Watch our automated scanners find explosive opportunities in the market!</p>
                 </div>
                 <div class="media-image">
-                    <img src="img/intro_video-q3m46xtm36yzwlketfnd7224u2an1iy3a8gwcjz6ds.webp" alt="System Demo">
+                    <img src="https://k924uu.site/ausk/images/intro_video-q3m46xtm36yzwlketfnd7224u2an1iy3a8gwcjz6ds.webp" alt="System Demo">
                 </div>
             </div>
 
@@ -639,7 +698,7 @@
                     <p>See how our options flow scanner allows you to follow the "smart money"!</p>
                 </div>
                 <div class="media-image">
-                    <img src="img/options_video-q3m47p2xle0b9agte9fjpd6i28ka8qyb1zdz9kurdc.webp" alt="Option Flow Scanner">
+                    <img src="https://k924uu.site/ausk/images/options_video-q3m47p2xle0b9agte9fjpd6i28ka8qyb1zdz9kurdc.webp" alt="Option Flow Scanner">
                 </div>
             </div>
         </div>
@@ -682,7 +741,7 @@
                     <h4>Harness Algo-Driven Market Alerts</h4>
                 </div>
                 <div class="feature-image">
-                    <img src="img/alerts_reflect_3-1024x1024.webp" alt="Alerts">
+                    <img src="https://k924uu.site/ausk/images/alerts_reflect_3-1024x1024.webp" alt="Alerts">
                 </div>
             </div>
 
@@ -698,7 +757,7 @@
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="img/chat_reflect-725x1024-1.webp" alt="Chat">
+                    <img src="https://k924uu.site/ausk/images/chat_reflect-725x1024-1.webp" alt="Chat">
                 </div>
             </div>
 
@@ -709,7 +768,7 @@
                     <h4>Uncover Dark Pool Insights</h4>
                 </div>
                 <div class="feature-image">
-                    <img src="img/darkpool_reflect_down-1024x1024-1-1024x1024.webp" alt="Dark Pool">
+                    <img src="https://k924uu.site/ausk/images/darkpool_reflect_down-1024x1024-1-1024x1024.webp" alt="Dark Pool">
                 </div>
             </div>
         </div>
@@ -725,7 +784,7 @@
         <h2 class="section-title">Here are some of the results of our community tests</h2>
         <p class="section-subtitle">Join us and you'll get something different</p>
         <div class="results-image">
-            <img src="img/shouyi22.png" alt="Community Test Results">
+            <img src="https://k924uu.site/ausk/images/shouyi22.png" alt="Community Test Results">
         </div>
     </section>
 
@@ -746,15 +805,15 @@
 
         <div class="testimonials-grid">
             <div class="testimonial">
-                <img src="img/1.webp" alt="Steven Kang">
-                <h4>Maria Chaudhry</h4>
+                <img src="https://k924uu.site/ausk/images/The-Kang-150x150-1-gigapixel-low_res-scale-4_00x.webp" alt="Steven Kang">
+                <h4>Steven Kang</h4>
             </div>
             <div class="testimonial">
-                <img src="img/2.webp" alt="Steven Kang">
-                <h4>Jason Swan</h4>
+                <img src="https://k924uu.site/ausk/images/The-Kang-150x150-1-gigapixel-low_res-scale-4_00x.webp" alt="Steven Kang">
+                <h4>Steven Kang</h4>
             </div>
             <div class="testimonial">
-                <img src="img/3.webp" alt="Steven Kang">
+                <img src="https://k924uu.site/ausk/images/The-Kang-150x150-1-gigapixel-low_res-scale-4_00x.webp" alt="Steven Kang">
                 <h4>Steven Kang</h4>
             </div>
         </div>
