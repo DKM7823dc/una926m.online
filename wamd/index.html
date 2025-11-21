@@ -193,8 +193,8 @@
         /* Product Card */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
 
@@ -204,6 +204,8 @@
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 100%;
         }
 
         .product-card:hover {
@@ -214,13 +216,16 @@
         .product-carousel {
             position: relative;
             width: 100%;
-            height: 350px;
+            height: 0;
+            padding-bottom: 100%; /* 1:1 aspect ratio */
             overflow: hidden;
             background: white;
         }
 
         .product-slide {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             opacity: 0;
@@ -232,10 +237,15 @@
         }
 
         .product-slide img {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: auto;
             object-fit: contain;
-            padding: 1rem;
         }
 
         .carousel-nav {
@@ -406,23 +416,78 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
             .hero {
                 height: 60vh;
                 min-height: 400px;
+            }
+
+            .hero-content {
+                padding: 1rem;
             }
 
             section {
                 padding: 3rem 0;
             }
 
-            .products-grid,
-            .features-grid,
-            .testimonials-grid {
+            .products-grid {
+                grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .product-carousel {
-                height: 280px;
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .product-info {
+                padding: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 2rem 1rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .product-cta {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .product-name {
+                font-size: 1.3rem;
+            }
+
+            .product-description {
+                font-size: 1rem;
             }
         }
 
@@ -472,13 +537,13 @@
                 <div class="product-card">
                     <div class="product-carousel">
                         <div class="product-slide active">
-                            <img src="mnt/https___una926m.online_wamd_img_Flecksrubber_1.png" alt="Flecks Rubber Bumper Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/07cc971c7416661f4181e9a3e4f2431403f9f69cbc0ce1f1330c4638762b0118?w=1121&h=1121" alt="Flecks Rubber Bumper Plates">
                         </div>
                         <div class="product-slide">
-                            <img src="mnt/https___una926m.online_wamd_img_Flecksrubber_2.png" alt="Flecks Rubber Bumper Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/07858fe13b40656a3f8427ec5b6ba354d65cfee0fc9cc6dd1b1c7a9f2e54b915?w=1121&h=1121" alt="Flecks Rubber Bumper Plates">
                         </div>
                         <div class="product-slide">
-                            <img src="mnt/https___una926m.online_wamd_img_Flecksrubber_3.png" alt="Flecks Rubber Bumper Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/af2d78e497b3d3b163bb7a2b4a5b4017b878b8d12908386fa772d30c6dfe2bf0?w=1118&h=1118" alt="Flecks Rubber Bumper Plates">
                         </div>
                         <div class="carousel-nav">
                             <span class="carousel-dot active" data-slide="0"></span>
@@ -497,13 +562,13 @@
                 <div class="product-card">
                     <div class="product-carousel">
                         <div class="product-slide active">
-                            <img src="mnt/https___una926m.online_wamd_img_Changeplates_1.png" alt="Change Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/927d8e7efc38caf1639869173207c94ad13fc6ee76603a7f5aed5c7656d2030f?w=1280&h=1280" alt="Change Plates">
                         </div>
                         <div class="product-slide">
-                            <img src="mnt/https___una926m.online_wamd_img_Changeplates_2.png" alt="Change Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/887d1859a123b01d30eb9f9d94056ef742b9f1be258de1ee76eb8dd3745e9e02?w=1120&h=1120" alt="Change Plates">
                         </div>
                         <div class="product-slide">
-                            <img src="mnt/https___una926m.online_wamd_img_Changeplates_3.png" alt="Change Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/aaaad36102b9f550d62e93da75f78f03ab2d55e822c0f7ef87b3503d087369a9?w=1120&h=1120" alt="Change Plates">
                         </div>
                         <div class="carousel-nav">
                             <span class="carousel-dot active" data-slide="0"></span>
@@ -522,13 +587,13 @@
                 <div class="product-card">
                     <div class="product-carousel">
                         <div class="product-slide active">
-                            <img src="mnt/https___una926m.online_wamd_img_Macaroncolor_1.png" alt="Macaron Color Bumper Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/ac612eb8c40cd99bb627e5afcf536a13a239871d9424bf212cfb88d4d8a7dda7?w=438&h=468" alt="Macaron Color Bumper Plates">
                         </div>
                         <div class="product-slide">
-                            <img src="mnt/https___una926m.online_wamd_img_Macaroncolor_2.png" alt="Macaron Color Bumper Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/ba8da71deff2698cea46968ad0faab8d6299db1b68664e5e8bb353db3e6e179d?w=1120&h=1120" alt="Macaron Color Bumper Plates">
                         </div>
                         <div class="product-slide">
-                            <img src="mnt/https___una926m.online_wamd_img_Macaroncolor_3.png" alt="Macaron Color Bumper Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/43e14a5ecb0c49299e818c7ea49725df0fc4f9106ebbad43030f1934121a95bd?w=1118&h=1118" alt="Macaron Color Bumper Plates">
                         </div>
                         <div class="carousel-nav">
                             <span class="carousel-dot active" data-slide="0"></span>
@@ -547,13 +612,13 @@
                 <div class="product-card">
                     <div class="product-carousel">
                         <div class="product-slide active">
-                            <img src="mnt/https___una926m.online_wamd_img_trigrip_1.png" alt="Tri-Grip Rubber Coated Weight Plates">
+                            <img src="https://pfst.cf2.poecdn.net/base/image/8f4be06cdd9c6e57034c60243e287b9c8f76ce0fac823ae9cb546f29af029baf?w=1280&h=1280" alt="Tri-Grip Rubber Coated Weight Plates">
                         </div>
                         <div class="product-slide">
-                            <img src="http://una926m.online/wamd/img/trigrip/2.png" alt="Tri-Grip Rubber Coated Weight Plates">
+                            <img src="https://una926m.online/wamd/img/trigrip/2.png" alt="Tri-Grip Rubber Coated Weight Plates">
                         </div>
                         <div class="product-slide">
-                            <img src="http://una926m.online/wamd/img/trigrip/3.png" alt="Tri-Grip Rubber Coated Weight Plates">
+                            <img src="https://una926m.online/wamd/img/trigrip/3.png" alt="Tri-Grip Rubber Coated Weight Plates">
                         </div>
                         <div class="carousel-nav">
                             <span class="carousel-dot active" data-slide="0"></span>
