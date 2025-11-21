@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Premium Rubber Equipment - Factory Direct Prices | Shandong Zhuoao Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,6 +171,12 @@
             background: linear-gradient(135deg, #0f1419 0%, #1a1d29 50%, #2d3748 100%);
             display: flex;
             align-items: center;
+            justify-content: center;
+        }
+
+        .hero .container {
+            width: 100%;
+            padding: 0 1rem;
         }
 
         .hero-bg {
@@ -191,8 +197,15 @@
             z-index: 2;
             color: white;
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 2rem 0.5rem;
             animation: fadeInUp 0.8s ease-out;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .hero-content > * {
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @keyframes fadeInUp {
@@ -259,32 +272,35 @@
 
         .hero-stats {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
+            justify-content: space-between;
+            gap: 0.5rem;
             margin-bottom: 2rem;
             flex-wrap: nowrap;
-            overflow-x: auto;
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
         }
 
         .stat-item {
             text-align: center;
-            flex-shrink: 0;
+            flex: 1;
+            min-width: 0;
         }
 
         .stat-number {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
             color: var(--accent-gold);
-            line-height: 1;
-            margin-bottom: 0.3rem;
+            line-height: 1.1;
+            margin-bottom: 0.2rem;
             font-weight: 800;
         }
 
         .stat-label {
-            font-size: 0.7rem;
+            font-size: clamp(0.6rem, 1.8vw, 0.75rem);
             opacity: 0.8;
             letter-spacing: 0px;
-            white-space: nowrap;
+            line-height: 1.2;
         }
 
         .hero-cta-group {
@@ -334,25 +350,33 @@
 
         .trust-badges {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
+            justify-content: space-between;
+            gap: 0.5rem;
             margin-top: 2rem;
             flex-wrap: nowrap;
-            overflow-x: auto;
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
         }
 
         .trust-badge {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            font-size: 0.7rem;
+            justify-content: center;
+            gap: 0.3rem;
+            font-size: clamp(0.6rem, 1.8vw, 0.75rem);
             opacity: 0.85;
-            flex-shrink: 0;
-            white-space: nowrap;
+            flex: 1;
+            text-align: center;
         }
 
         .trust-badge-icon {
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            flex-shrink: 0;
+        }
+
+        .trust-badge span:last-child {
+            line-height: 1.2;
         }
 
         /* Factory Carousel */
@@ -474,6 +498,7 @@
         .section-header {
             text-align: center;
             margin-bottom: 2rem;
+            padding: 0 1rem;
         }
 
         .section-badge {
@@ -778,6 +803,8 @@
             font-size: 0.85rem;
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            padding: 0 0.5rem;
         }
 
         .proof-icon {
@@ -795,6 +822,12 @@
             text-align: center;
             padding: 3rem 1rem 5rem;
             background: var(--bg-primary);
+        }
+
+        .final-cta .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .final-cta-title {
@@ -907,7 +940,7 @@
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.408-5.234-0.322-0.532c-1.343-2.22-2.055-4.77-2.055-7.38 0-7.806 6.35-14.157 14.157-14.157s14.157 6.35 14.157 14.157-6.35 14.157-14.157 14.157zM21.897 18.768c-0.283-0.142-1.677-0.829-1.937-0.924-0.261-0.095-0.451-0.142-0.641 0.142s-0.737 0.924-0.904 1.114c-0.166 0.189-0.333 0.213-0.617 0.071s-1.201-0.443-2.286-1.408c-0.846-0.753-1.416-1.683-1.583-1.967s-0.018-0.437 0.124-0.578c0.127-0.127 0.283-0.331 0.425-0.497s0.189-0.283 0.283-0.473c0.095-0.189 0.047-0.355-0.024-0.497s-0.641-1.544-0.878-2.114c-0.231-0.556-0.466-0.48-0.641-0.489-0.166-0.008-0.355-0.010-0.545-0.010s-0.497 0.071-0.758 0.355c-0.26 0.283-0.995 0.973-0.995 2.372s1.019 2.751 1.161 2.941c0.142 0.189 2.001 3.054 4.848 4.283 0.677 0.292 1.206 0.466 1.619 0.597 0.68 0.213 1.299 0.183 1.789 0.111 0.545-0.081 1.677-0.686 1.914-1.349s0.237-1.23 0.166-1.349c-0.071-0.118-0.26-0.189-0.545-0.331z"/>
         </svg>
-        <span> Get Instant Quote - Reply in 60s</span>
+        <span>💬 Get Instant Quote - Reply in 60s</span>
     </button>
 
     <!-- WhatsApp Float -->
@@ -940,21 +973,21 @@
                 <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-number">2,500+</div>
-                        <div class="stat-label">Happy Clients</div>
+                        <div class="stat-label">Happy<br>Clients</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">15+</div>
-                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-label">Years<br>Experience</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">Quality Guarantee</div>
+                        <div class="stat-label">Quality<br>Guarantee</div>
                     </div>
                 </div>
 
-                <div class="hero-cta-group">
-                    <button class="cta-primary" onclick="k2()">Get Free Catalog & Quote</button>
-                    <button class="cta-secondary" onclick="k2()">WhatsApp Us Now</button>
+                <div class="hero-cta-group" style="width: 100%; max-width: 400px; margin: 0 auto;">
+                    <button class="cta-primary" onclick="k2()" style="width: 100%;">Get Free Catalog & Quote</button>
+                    <button class="cta-secondary" onclick="k2()" style="width: 100%;">WhatsApp Us Now</button>
                 </div>
 
                 <div class="trust-badges">
