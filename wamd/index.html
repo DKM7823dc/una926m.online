@@ -6,7 +6,7 @@
     <title>Premium Rubber Equipment - Factory Direct Prices | Shandong Zhuoao Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #ffffff;
@@ -46,6 +46,56 @@
             overflow-x: hidden;
         }
 
+        /* --- Animation Utilities --- */
+        
+        /* Scroll Reveal Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered delays for grid items */
+        .reveal-delay-100 { transition-delay: 0.1s; }
+        .reveal-delay-200 { transition-delay: 0.2s; }
+        .reveal-delay-300 { transition-delay: 0.3s; }
+
+        /* Button Shine Effect */
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .cta-primary {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine 6s infinite;
+        }
+
+        /* Hero Background Animation */
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Inter', sans-serif;
             font-weight: 700;
@@ -57,7 +107,6 @@
             margin: 0 auto;
             padding: 0 1rem;
         }
-
 
         /* Floating Bottom WhatsApp CTA */
         .floating-cta {
@@ -83,6 +132,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            transition: transform 0.2s;
         }
 
         .floating-cta svg {
@@ -103,7 +153,7 @@
         }
 
         .floating-cta:active {
-            transform: scale(0.98);
+            transform: scale(0.95);
         }
 
         /* WhatsApp Float - Centered Vertically */
@@ -122,7 +172,11 @@
             justify-content: center;
             cursor: pointer;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-50%) scale(1.1);
         }
 
         .whatsapp-float:active {
@@ -155,15 +209,11 @@
         }
 
         @keyframes bounce {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
-        /* Hero Section - Redesigned for Mobile */
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 85vh;
@@ -190,6 +240,7 @@
             background-size: cover;
             background-position: center;
             filter: brightness(0.4);
+            animation: kenBurns 20s ease-in-out infinite alternate;
         }
 
         .hero-content {
@@ -198,7 +249,6 @@
             color: white;
             text-align: center;
             padding: 2rem 0.5rem;
-            animation: fadeInUp 0.8s ease-out;
             width: 100%;
             max-width: 100%;
         }
@@ -206,17 +256,6 @@
         .hero-content > * {
             margin-left: auto;
             margin-right: auto;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-badge {
@@ -233,6 +272,8 @@
             backdrop-filter: blur(10px);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .hero-badge-dot {
@@ -243,6 +284,12 @@
             animation: pulse 1.5s ease-in-out infinite;
         }
 
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 136, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 136, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 136, 0, 0); }
+        }
+
         .hero-title {
             font-family: 'Inter', sans-serif;
             font-size: clamp(2rem, 8vw, 4rem);
@@ -251,6 +298,8 @@
             font-weight: 800;
             letter-spacing: -0.02em;
             text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
         }
 
         .hero-highlight {
@@ -263,11 +312,12 @@
         .hero-subtitle {
             font-size: clamp(1rem, 4vw, 1.3rem);
             margin-bottom: 2rem;
-            opacity: 0.95;
+            opacity: 0;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
         }
 
         .hero-stats {
@@ -279,6 +329,8 @@
             width: 100%;
             max-width: 100%;
             padding: 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
         }
 
         .stat-item {
@@ -309,6 +361,8 @@
             gap: 1rem;
             max-width: 400px;
             margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
         }
 
         .cta-primary {
@@ -324,6 +378,11 @@
             box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
             letter-spacing: 0px;
             transition: all 0.3s;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
         }
 
         .cta-primary:active {
@@ -344,8 +403,24 @@
             transition: all 0.3s;
         }
 
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
         .cta-secondary:active {
             background: rgba(255,255,255,0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .trust-badges {
@@ -357,6 +432,8 @@
             width: 100%;
             max-width: 100%;
             padding: 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1s forwards;
         }
 
         .trust-badge {
@@ -375,10 +452,6 @@
             flex-shrink: 0;
         }
 
-        .trust-badge span:last-child {
-            line-height: 1.2;
-        }
-
         /* Factory Carousel */
         .factory-carousel {
             position: relative;
@@ -387,6 +460,9 @@
             margin: 2rem auto 0;
             overflow: hidden;
             border-radius: 12px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.2s forwards;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .factory-carousel-inner {
@@ -403,11 +479,13 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out, transform 6s ease;
+            transform: scale(1);
         }
 
         .factory-slide.active {
             opacity: 1;
+            transform: scale(1.05);
         }
 
         .factory-slide img {
@@ -473,6 +551,12 @@
             background: var(--bg-primary);
             border-radius: 12px;
             border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
         .stats-number {
@@ -543,6 +627,13 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
             position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            z-index: 2;
         }
 
         .product-badge {
@@ -558,6 +649,7 @@
             text-transform: uppercase;
             z-index: 10;
             letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.4);
         }
 
         .product-carousel {
@@ -593,6 +685,11 @@
             width: auto;
             height: auto;
             object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-slide.active img {
+            transform: translate(-50%, -50%) scale(1.05);
         }
 
         .carousel-nav {
@@ -669,6 +766,12 @@
             transition: all 0.3s;
         }
 
+        .product-cta:hover {
+            background: #ff9900;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 136, 0, 0.3);
+        }
+
         .product-cta:active {
             transform: translateY(2px);
         }
@@ -693,6 +796,13 @@
             display: flex;
             gap: 1rem;
             align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-color: var(--accent-gold);
         }
 
         .feature-icon-wrapper {
@@ -704,6 +814,11 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .feature-icon-wrapper svg {
@@ -748,6 +863,12 @@
             border-radius: 12px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .testimonial-header {
@@ -863,6 +984,25 @@
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
             letter-spacing: 0px;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine 4s infinite;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
         }
 
         .final-cta-button:active {
@@ -1028,24 +1168,28 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section (Updated with Data Attributes) -->
     <section class="stats-section">
         <div class="container">
             <div class="stats-grid">
-                <div class="stats-card">
-                    <div class="stats-number">2,500+</div>
+                <div class="stats-card reveal reveal-delay-100">
+                    <!-- Target 2500, Suffix "+" -->
+                    <div class="stats-number counter" data-target="2500" data-suffix="+">0</div>
                     <div class="stats-text">Global Customers</div>
                 </div>
-                <div class="stats-card">
-                    <div class="stats-number">50+</div>
+                <div class="stats-card reveal reveal-delay-200">
+                    <!-- Target 50, Suffix "+" -->
+                    <div class="stats-number counter" data-target="50" data-suffix="+">0</div>
                     <div class="stats-text">Countries Served</div>
                 </div>
-                <div class="stats-card">
-                    <div class="stats-number">500K+</div>
+                <div class="stats-card reveal reveal-delay-300">
+                    <!-- Target 500, Suffix "K+" -->
+                    <div class="stats-number counter" data-target="500" data-suffix="K+">0</div>
                     <div class="stats-text">Products Sold</div>
                 </div>
-                <div class="stats-card">
-                    <div class="stats-number">98%</div>
+                <div class="stats-card reveal reveal-delay-100">
+                    <!-- Target 98, Suffix "%" -->
+                    <div class="stats-number counter" data-target="98" data-suffix="%">0</div>
                     <div class="stats-text">Satisfaction Rate</div>
                 </div>
             </div>
@@ -1055,7 +1199,7 @@
     <!-- Products Section -->
     <section id="products">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-badge">Our Products</span>
                 <h2 class="section-title">Premium Product Collection</h2>
                 <p class="section-subtitle">Industry-leading quality with factory-direct pricing. All products customizable with your logo.</p>
@@ -1067,7 +1211,7 @@
 
             <div class="products-grid">
                 <!-- Product 1 -->
-                <div class="product-card">
+                <div class="product-card reveal reveal-delay-100">
                     <span class="product-badge">Hot Sale</span>
                     <div class="product-carousel">
                         <div class="product-slide active">
@@ -1098,7 +1242,7 @@
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card">
+                <div class="product-card reveal reveal-delay-200">
                     <span class="product-badge">New</span>
                     <div class="product-carousel">
                         <div class="product-slide active">
@@ -1128,7 +1272,7 @@
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card">
+                <div class="product-card reveal reveal-delay-300">
                     <span class="product-badge">Popular</span>
                     <div class="product-carousel">
                         <div class="product-slide active">
@@ -1158,7 +1302,7 @@
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card">
+                <div class="product-card reveal reveal-delay-100">
                     <div class="product-carousel">
                         <div class="product-slide active">
                             <img src="https://pfst.cf2.poecdn.net/base/image/8f4be06cdd9c6e57034c60243e287b9c8f76ce0fac823ae9cb546f29af029baf?w=1280&h=1280" alt="Tri-Grip Rubber Coated Weight Plates">
@@ -1190,7 +1334,7 @@
     </section>
 
     <!-- Social Proof -->
-    <section class="social-proof">
+    <section class="social-proof reveal">
         <div class="container">
             <div class="proof-text">
                 <span class="proof-icon">✓</span>
@@ -1206,14 +1350,14 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-badge">Why Choose Us</span>
                 <h2 class="section-title">Factory Direct Advantages</h2>
                 <p class="section-subtitle">We cut out middlemen to bring you the best quality at unbeatable prices</p>
             </div>
 
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-100">
                     <div class="feature-icon-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
@@ -1225,7 +1369,7 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-200">
                     <div class="feature-icon-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 11L12 14L22 4M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"/>
@@ -1237,7 +1381,7 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-300">
                     <div class="feature-icon-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 21C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H7Z"/>
@@ -1250,7 +1394,7 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-100">
                     <div class="feature-icon-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"/>
@@ -1262,7 +1406,7 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-200">
                     <div class="feature-icon-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 12H3L12 3L21 12H19M5 12V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V12"/>
@@ -1274,7 +1418,7 @@
                     </div>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card reveal reveal-delay-300">
                     <div class="feature-icon-wrapper">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z"/>
@@ -1292,14 +1436,14 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-badge" style="background: rgba(255,255,255,0.1); color: var(--accent-gold);">Client Reviews</span>
                 <h2 class="section-title" style="color: white;">Trusted by Industry Leaders</h2>
                 <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Join 2,500+ satisfied customers worldwide</p>
             </div>
 
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal reveal-delay-100">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Michael Chen" class="testimonial-avatar">
                         <div class="testimonial-info">
@@ -1310,7 +1454,7 @@
                     <p class="testimonial-text">"Outstanding quality and consistency. We've been using their products for 3+ years with zero issues. Best investment for our gym."</p>
                 </div>
 
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal reveal-delay-200">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="James Wilson" class="testimonial-avatar">
                         <div class="testimonial-info">
@@ -1321,7 +1465,7 @@
                     <p class="testimonial-text">"The customization options are exceptional. They delivered exactly what we needed with our custom branding. Professional service throughout."</p>
                 </div>
 
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal reveal-delay-100">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Sarah Thompson" class="testimonial-avatar">
                         <div class="testimonial-info">
@@ -1332,7 +1476,7 @@
                     <p class="testimonial-text">"Reliable partner with excellent communication. Global delivery has been seamless every single time. Highly recommend!"</p>
                 </div>
 
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal reveal-delay-200">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces" alt="David Martinez" class="testimonial-avatar">
                         <div class="testimonial-info">
@@ -1343,7 +1487,7 @@
                     <p class="testimonial-text">"Best pricing without compromising quality. Factory-direct makes all the difference. We've saved thousands while upgrading our equipment."</p>
                 </div>
 
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal reveal-delay-100">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=faces" alt="Emma Schmidt" class="testimonial-avatar">
                         <div class="testimonial-info">
@@ -1354,7 +1498,7 @@
                     <p class="testimonial-text">"Professional team, superior products. They've become our exclusive supplier for all rubber equipment. Couldn't be happier!"</p>
                 </div>
 
-                <div class="testimonial-card">
+                <div class="testimonial-card reveal reveal-delay-200">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=faces" alt="Robert Lee" class="testimonial-avatar">
                         <div class="testimonial-info">
@@ -1369,7 +1513,7 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="final-cta">
+    <section class="final-cta reveal">
         <div class="container">
             <h2 class="final-cta-title">Ready to Upgrade Your Equipment?</h2>
             <p class="final-cta-subtitle">Get a free catalog and custom quote within 24 hours. Join 2,500+ satisfied gym owners worldwide.</p>
@@ -1394,6 +1538,66 @@
         function k2() {
             window.location.href = 'https://www.qq.com';
         }
+
+        // --- Scroll Animation Observer ---
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- NEW: Number Counter Animation (2 Seconds Duration) ---
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const suffix = counter.getAttribute('data-suffix');
+                        const duration = 2000; // EXACTLY 2 seconds
+                        const startTime = performance.now();
+                        
+                        const updateCounter = (currentTime) => {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
+                            
+                            // Linear progression (or you can use easeOut logic here)
+                            const currentVal = Math.floor(progress * target);
+                            
+                            // Format number with commas (e.g. 2,500) and add suffix
+                            counter.innerText = currentVal.toLocaleString() + suffix;
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                // Ensure final value is exact
+                                counter.innerText = target.toLocaleString() + suffix;
+                            }
+                        };
+                        
+                        requestAnimationFrame(updateCounter);
+                    });
+                    
+                    statsObserver.unobserve(entry.target); // Only run once
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if(statsSection) statsObserver.observe(statsSection);
+
 
         // Factory Carousel
         let factoryCurrentSlide = 0;
@@ -1420,8 +1624,8 @@
             });
         });
 
-        // Auto-advance factory carousel every 1.5 seconds
-        setInterval(nextFactorySlide, 1500);
+        // Auto-advance factory carousel every 3 seconds
+        setInterval(nextFactorySlide, 3000);
 
         // Product Carousels
         document.querySelectorAll('.product-card').forEach(card => {
@@ -1444,7 +1648,7 @@
             }
 
             function startAutoPlay() {
-                autoPlayInterval = setInterval(nextSlide, 2000);
+                autoPlayInterval = setInterval(nextSlide, 2500);
             }
 
             function stopAutoPlay() {
@@ -1452,7 +1656,8 @@
             }
 
             dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent card click
                     showSlide(index);
                     stopAutoPlay();
                     startAutoPlay();
@@ -1471,7 +1676,7 @@
             card.addEventListener('touchstart', e => {
                 touchStartX = e.changedTouches[0].screenX;
                 stopAutoPlay();
-            });
+            }, {passive: true});
 
             card.addEventListener('touchend', e => {
                 touchEndX = e.changedTouches[0].screenX;
@@ -1481,9 +1686,8 @@
                     showSlide(currentSlide - 1);
                 }
                 startAutoPlay();
-            });
+            }, {passive: true});
         });
     </script>
-
 </body>
 </html>
