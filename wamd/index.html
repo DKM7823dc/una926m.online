@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Rubber Equipment - Shandong Zhuoao Sports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Premium Rubber Equipment - Factory Direct Prices | Shandong Zhuoao Sports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #ffffff;
@@ -14,7 +14,9 @@
             --bg-dark: #1a1d29;
             --text-primary: #1a1d29;
             --text-secondary: #6b7280;
-            --accent-gold: #d4af37;
+            --accent-gold: #ff8800;
+            --accent-red: #ff4444;
+            --accent-green: #10b981;
             --accent-dark: #0f1419;
             --border-color: #e5e7eb;
         }
@@ -32,18 +34,20 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Crimson Pro', serif;
+            font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.7;
+            line-height: 1.6;
             transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 700;
             letter-spacing: -0.02em;
         }
@@ -51,50 +55,63 @@
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 1rem;
         }
 
-        /* Floating Bottom Button */
+
+        /* Floating Bottom WhatsApp CTA */
         .floating-cta {
             position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
             z-index: 1000;
-            padding: 1rem 2.5rem;
-            background: var(--accent-gold);
-            color: var(--accent-dark);
+            padding: 1rem 1.5rem;
+            background: #25D366;
+            color: white;
             border: none;
             border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1rem;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-            white-space: nowrap;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+            text-align: center;
             animation: breathing 2s ease-in-out infinite;
+            letter-spacing: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .floating-cta svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
         }
 
         @keyframes breathing {
             0%, 100% {
-                transform: translateX(-50%) scale(1);
-                box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+                transform: scale(1);
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
             }
             50% {
-                transform: translateX(-50%) scale(1.05);
-                box-shadow: 0 12px 35px rgba(212, 175, 55, 0.7);
+                transform: scale(1.03);
+                box-shadow: 0 12px 40px rgba(37, 211, 102, 0.8);
             }
         }
 
-        .floating-cta:hover {
-            background: #f4bf3a;
+        .floating-cta:active {
+            transform: scale(0.98);
         }
 
-        /* WhatsApp Floating Button */
+        /* WhatsApp Float - Centered Vertically */
         .whatsapp-float {
             position: fixed;
-            right: 20px;
-            bottom: 90px;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
             z-index: 1000;
             width: 60px;
             height: 60px;
@@ -104,13 +121,12 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
             transition: all 0.3s;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        .whatsapp-float:active {
+            transform: translateY(-50%) scale(0.95);
         }
 
         .whatsapp-float svg {
@@ -131,7 +147,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             font-size: 0.75rem;
             animation: bounce 1s ease-in-out infinite;
@@ -147,65 +163,42 @@
             }
         }
 
-        /* Hero Section */
+        /* Hero Section - Redesigned for Mobile */
         .hero {
             position: relative;
-            height: 75vh;
-            min-height: 500px;
+            min-height: 85vh;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #2d3748 100%);
+            background: linear-gradient(135deg, #0f1419 0%, #1a1d29 50%, #2d3748 100%);
+            display: flex;
+            align-items: center;
         }
 
-        .hero-carousel {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .hero-slide.active {
-            opacity: 1;
-        }
-
-        .hero-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.6);
-        }
-
-        .hero-overlay {
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
+            opacity: 0.15;
+            background-image: url('https://una926m.online/twad/img/1.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4);
         }
 
         .hero-content {
-            text-align: center;
+            position: relative;
+            z-index: 2;
             color: white;
-            max-width: 900px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease-out;
+            text-align: center;
+            padding: 2rem 1rem;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -213,104 +206,340 @@
             }
         }
 
-        .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content .company-name {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            color: var(--accent-gold);
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent-gold);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: 0.1em;
-        }
-
-        .hero-content p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            opacity: 0.95;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            background: var(--accent-gold);
-            color: var(--accent-dark);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2rem, 8vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-highlight {
+            color: var(--accent-gold);
+            display: block;
+            font-size: clamp(2.2rem, 9vw, 4.5rem);
+            font-weight: 900;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            letter-spacing: 0px;
+            white-space: nowrap;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .cta-primary {
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #f4bf3a 100%);
+            color: var(--accent-dark);
             border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            letter-spacing: 0px;
+            transition: all 0.3s;
+        }
+
+        .cta-primary:active {
+            transform: translateY(2px);
+        }
+
+        .cta-secondary {
+            padding: 1.2rem 2rem;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            letter-spacing: 0px;
+            transition: all 0.3s;
+        }
+
+        .cta-secondary:active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            opacity: 0.85;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .trust-badge-icon {
+            font-size: 1rem;
+        }
+
+        /* Factory Carousel */
+        .factory-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 2rem auto 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .factory-carousel-inner {
+            position: relative;
+            width: 100%;
+            padding-bottom: 60%;
+            overflow: hidden;
+        }
+
+        .factory-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .factory-slide.active {
+            opacity: 1;
+        }
+
+        .factory-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .factory-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .factory-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.8);
         }
 
-        .cta-button:hover {
-            background: #f4bf3a;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        .factory-dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.3);
+        }
+
+        @media (min-width: 640px) {
+            .factory-carousel-inner {
+                padding-bottom: 50%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .factory-carousel-inner {
+                padding-bottom: 40%;
+            }
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--bg-secondary);
+            padding: 2rem 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stats-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .stats-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         /* Section Styles */
         section {
-            padding: 5rem 0;
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.2) 100%);
+            color: var(--accent-gold);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
         }
 
         .section-title {
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--accent-gold);
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Product Card */
+        /* Product Cards */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .product-card {
             background: var(--bg-secondary);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid var(--border-color);
-            width: 100%;
-            max-width: 100%;
+            position: relative;
         }
 
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-red);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 10;
+            letter-spacing: 0.5px;
         }
 
         .product-carousel {
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 100%; /* 1:1 aspect ratio */
+            padding-bottom: 100%;
             overflow: hidden;
             background: white;
         }
@@ -352,8 +581,8 @@
         }
 
         .carousel-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
@@ -367,76 +596,112 @@
         }
 
         .product-info {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .product-name {
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .product-description {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent-gold);
+            padding: 0.3rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
         }
 
         .product-cta {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background: transparent;
-            color: var(--accent-gold);
-            border: 2px solid var(--accent-gold);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .product-cta:hover {
+            width: 100%;
+            padding: 1rem;
             background: var(--accent-gold);
             color: var(--accent-dark);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .product-cta:active {
+            transform: translateY(2px);
         }
 
         /* Features Section */
         .features {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .feature-card {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            background: var(--bg-primary);
-            border-radius: 8px;
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
-            transition: all 0.3s;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        .feature-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon-wrapper svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent-gold);
+        }
+
+        .feature-content {
+            flex: 1;
         }
 
         .feature-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--accent-gold);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
         }
 
         .feature-text {
             color: var(--text-secondary);
-            font-size: 1.05rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
 
         /* Testimonials */
@@ -447,29 +712,29 @@
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-top: 2rem;
         }
 
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .testimonial-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .testimonial-avatar {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent-gold);
@@ -481,208 +746,145 @@
 
         .testimonial-rating {
             color: var(--accent-gold);
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
         }
 
         .testimonial-author {
             font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.9;
         }
 
         .testimonial-text {
-            font-size: 1.05rem;
-            line-height: 1.7;
+            font-size: 0.9rem;
+            line-height: 1.6;
             font-style: italic;
+            opacity: 0.95;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: var(--bg-secondary);
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+
+        .proof-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .proof-icon {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+        }
+
+        .proof-highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
         }
 
         /* Final CTA */
         .final-cta {
             text-align: center;
-            padding: 6rem 0;
+            padding: 3rem 1rem 5rem;
             background: var(--bg-primary);
         }
 
-        .final-cta h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
+        .final-cta-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
 
-        .final-cta p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
+        .final-cta-subtitle {
             color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 800px;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
+        .final-cta-button {
+            width: 100%;
+            max-width: 400px;
+            padding: 1.3rem 2rem;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #f4bf3a 100%);
+            color: var(--accent-dark);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            letter-spacing: 0px;
+            transition: all 0.3s;
+        }
 
-            .hero {
-                height: 55vh;
-                min-height: 350px;
-            }
+        .final-cta-button:active {
+            transform: translateY(2px);
+        }
 
-            .hero-content {
-                padding: 1rem;
-            }
-
-            .hero-content h1 {
-                margin-bottom: 1rem;
-            }
-
-            .hero-content p {
-                margin-bottom: 1.5rem;
-            }
-
-            section {
-                padding: 2.5rem 0;
-            }
-
-            .section-title {
-                margin-bottom: 2rem;
-            }
-
+        /* Tablet and up */
+        @media (min-width: 640px) {
             .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-                margin-top: 2rem;
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-                margin-top: 2rem;
-            }
-
-            .product-info {
-                padding: 1.5rem;
-            }
-
-            .product-name {
-                font-size: 1.4rem;
-            }
-
-            .product-description {
-                font-size: 1rem;
-                margin-bottom: 1.2rem;
-            }
-
-            .feature-card {
-                padding: 1.8rem 1.2rem;
-            }
-
-            .feature-title {
-                font-size: 1.2rem;
-            }
-
-            .feature-text {
-                font-size: 1rem;
-            }
-
-            .testimonial-card {
-                padding: 1.5rem;
-            }
-
-            .cta-button {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .product-cta {
-                width: 100%;
-                text-align: center;
-            }
-
-            .floating-cta {
-                bottom: 15px;
-                padding: 0.9rem 2rem;
-                font-size: 0.95rem;
-            }
-
-            .whatsapp-float {
-                right: 15px;
-                bottom: 75px;
-                width: 55px;
-                height: 55px;
-            }
-
-            .whatsapp-float svg {
-                width: 30px;
-                height: 30px;
-            }
-
-            .final-cta {
-                padding: 3rem 0;
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
-        @media (max-width: 480px) {
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .hero {
-                height: 50vh;
-                min-height: 320px;
-            }
-
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .product-name {
-                font-size: 1.3rem;
-            }
-
-            .product-description {
-                font-size: 0.95rem;
-            }
-
-            .floating-cta {
-                font-size: 0.85rem;
-                padding: 0.8rem 1.5rem;
-            }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 70px;
-            }
-
-            .whatsapp-float svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            .whatsapp-badge {
-                width: 20px;
-                height: 20px;
-                font-size: 0.7rem;
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
             }
 
             section {
-                padding: 2rem 0;
+                padding: 5rem 0;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .floating-cta {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                max-width: 400px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
             }
         }
 
@@ -700,10 +902,15 @@
     </style>
 </head>
 <body>
-    <!-- Floating Bottom CTA Button -->
-    <button class="floating-cta" onclick="k2()">马上获取产品资料</button>
+    <!-- Floating Bottom WhatsApp CTA -->
+    <button class="floating-cta" onclick="k2()">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.408-5.234-0.322-0.532c-1.343-2.22-2.055-4.77-2.055-7.38 0-7.806 6.35-14.157 14.157-14.157s14.157 6.35 14.157 14.157-6.35 14.157-14.157 14.157zM21.897 18.768c-0.283-0.142-1.677-0.829-1.937-0.924-0.261-0.095-0.451-0.142-0.641 0.142s-0.737 0.924-0.904 1.114c-0.166 0.189-0.333 0.213-0.617 0.071s-1.201-0.443-2.286-1.408c-0.846-0.753-1.416-1.683-1.583-1.967s-0.018-0.437 0.124-0.578c0.127-0.127 0.283-0.331 0.425-0.497s0.189-0.283 0.283-0.473c0.095-0.189 0.047-0.355-0.024-0.497s-0.641-1.544-0.878-2.114c-0.231-0.556-0.466-0.48-0.641-0.489-0.166-0.008-0.355-0.010-0.545-0.010s-0.497 0.071-0.758 0.355c-0.26 0.283-0.995 0.973-0.995 2.372s1.019 2.751 1.161 2.941c0.142 0.189 2.001 3.054 4.848 4.283 0.677 0.292 1.206 0.466 1.619 0.597 0.68 0.213 1.299 0.183 1.789 0.111 0.545-0.081 1.677-0.686 1.914-1.349s0.237-1.23 0.166-1.349c-0.071-0.118-0.26-0.189-0.545-0.331z"/>
+        </svg>
+        <span> Get Instant Quote - Reply in 60s</span>
+    </button>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- WhatsApp Float -->
     <div class="whatsapp-float" onclick="k2()">
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.408 1.408-5.234-0.322-0.532c-1.343-2.22-2.055-4.77-2.055-7.38 0-7.806 6.35-14.157 14.157-14.157s14.157 6.35 14.157 14.157-6.35 14.157-14.157 14.157zM21.897 18.768c-0.283-0.142-1.677-0.829-1.937-0.924-0.261-0.095-0.451-0.142-0.641 0.142s-0.737 0.924-0.904 1.114c-0.166 0.189-0.333 0.213-0.617 0.071s-1.201-0.443-2.286-1.408c-0.846-0.753-1.416-1.683-1.583-1.967s-0.018-0.437 0.124-0.578c0.127-0.127 0.283-0.331 0.425-0.497s0.189-0.283 0.283-0.473c0.095-0.189 0.047-0.355-0.024-0.497s-0.641-1.544-0.878-2.114c-0.231-0.556-0.466-0.48-0.641-0.489-0.166-0.008-0.355-0.010-0.545-0.010s-0.497 0.071-0.758 0.355c-0.26 0.283-0.995 0.973-0.995 2.372s1.019 2.751 1.161 2.941c0.142 0.189 2.001 3.054 4.848 4.283 0.677 0.292 1.206 0.466 1.619 0.597 0.68 0.213 1.299 0.183 1.789 0.111 0.545-0.081 1.677-0.686 1.914-1.349s0.237-1.23 0.166-1.349c-0.071-0.118-0.26-0.189-0.545-0.331z"/>
@@ -713,23 +920,101 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-carousel" id="heroCarousel">
-            <div class="hero-slide active">
-                <img src="https://una926m.online/twad/img/1.jpg" alt="Premium Rubber Equipment">
-            </div>
-            <div class="hero-slide">
-                <img src="https://una926m.online/twad/img/1.jpg" alt="Professional Grade Products">
-            </div>
-            <div class="hero-slide">
-                <img src="https://una926m.online/twad/img/1.jpg" alt="Direct Manufacturing">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span>Direct from Manufacturer</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Premium Rubber Equipment
+                    <span class="hero-highlight">Factory Direct Prices</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Professional-Grade Bumper Plates & Weight Equipment | ISO Certified Quality | Trusted by 2,500+ Gyms Worldwide
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2,500+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Quality Guarantee</div>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <button class="cta-primary" onclick="k2()">Get Free Catalog & Quote</button>
+                    <button class="cta-secondary" onclick="k2()">WhatsApp Us Now</button>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">✓</span>
+                        <span>ISO Certified</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">✓</span>
+                        <span>Free Shipping</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">✓</span>
+                        <span>Custom Branding</span>
+                    </div>
+                </div>
+
+                <!-- Factory Carousel -->
+                <div class="factory-carousel">
+                    <div class="factory-carousel-inner">
+                        <div class="factory-slide active">
+                            <img src="https://una926m.online/wamd/img/2.jpg" alt="Factory Production Line">
+                        </div>
+                        <div class="factory-slide">
+                            <img src="https://una926m.online/wamd/img/3.jpg" alt="Manufacturing Process">
+                        </div>
+                        <div class="factory-slide">
+                            <img src="https://una926m.online/wamd/img/4.jpg" alt="Quality Control">
+                        </div>
+                        <div class="factory-dots">
+                            <span class="factory-dot active" data-slide="0"></span>
+                            <span class="factory-dot" data-slide="1"></span>
+                            <span class="factory-dot" data-slide="2"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <div class="company-name">Shandong Zhuoao Sports Equipment Co., Ltd.</div>
-                <h1>Premium Quality Rubber Products</h1>
-                <p>When selecting rubber products, quality is paramount. As a direct manufacturer, we are committed to providing truly reliable products that meet the highest standards.</p>
-                <button class="cta-button" onclick="k2()">Contact Now - Get Product Materials</button>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <div class="stats-number">2,500+</div>
+                    <div class="stats-text">Global Customers</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number">50+</div>
+                    <div class="stats-text">Countries Served</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number">500K+</div>
+                    <div class="stats-text">Products Sold</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number">98%</div>
+                    <div class="stats-text">Satisfaction Rate</div>
+                </div>
             </div>
         </div>
     </section>
@@ -737,10 +1022,20 @@
     <!-- Products Section -->
     <section id="products">
         <div class="container">
-            <h2 class="section-title">Our Premium Product Line</h2>
+            <div class="section-header">
+                <span class="section-badge">Our Products</span>
+                <h2 class="section-title">Premium Product Collection</h2>
+                <p class="section-subtitle">Industry-leading quality with factory-direct pricing. All products customizable with your logo.</p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <button class="cta-primary" onclick="k2()" style="max-width: 250px;">📥 Get Product Catalog</button>
+                    <button class="cta-secondary" onclick="k2()" style="max-width: 250px; color: var(--accent-gold); border-color: var(--accent-gold);">📋 View All Products</button>
+                </div>
+            </div>
+
             <div class="products-grid">
-                <!-- Product 1: Flecks Rubber Bumper Plates -->
+                <!-- Product 1 -->
                 <div class="product-card">
+                    <span class="product-badge">Hot Sale</span>
                     <div class="product-carousel">
                         <div class="product-slide active">
                             <img src="https://pfst.cf2.poecdn.net/base/image/07cc971c7416661f4181e9a3e4f2431403f9f69cbc0ce1f1330c4638762b0118?w=1121&h=1121" alt="Flecks Rubber Bumper Plates">
@@ -759,13 +1054,19 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Flecks Rubber Bumper Plates</h3>
-                        <p class="product-description">Available with embossed logo, debossed logo, or printing logo customization options.</p>
-                        <button class="product-cta" onclick="k2()">View More Products</button>
+                        <p class="product-description">High-density rubber construction with superior durability and noise reduction.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Custom Logo</span>
+                            <span class="feature-tag">ISO Certified</span>
+                            <span class="feature-tag">10+ Colors</span>
+                        </div>
+                        <button class="product-cta" onclick="k2()">🔥 Save 30% - Contact Now</button>
                     </div>
                 </div>
 
-                <!-- Product 2: Change Plates -->
+                <!-- Product 2 -->
                 <div class="product-card">
+                    <span class="product-badge">New</span>
                     <div class="product-carousel">
                         <div class="product-slide active">
                             <img src="https://pfst.cf2.poecdn.net/base/image/927d8e7efc38caf1639869173207c94ad13fc6ee76603a7f5aed5c7656d2030f?w=1280&h=1280" alt="Change Plates">
@@ -784,13 +1085,18 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Change Plates</h3>
-                        <p class="product-description">Precision-engineered for accurate weight adjustments and professional training.</p>
-                        <button class="product-cta" onclick="k2()">Get Quote</button>
+                        <p class="product-description">Precision-engineered for accurate weight adjustments in professional settings.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Premium Quality</span>
+                            <span class="feature-tag">All Sizes</span>
+                        </div>
+                        <button class="product-cta" onclick="k2()">📥 Get Free Sample & Specs</button>
                     </div>
                 </div>
 
-                <!-- Product 3: Macaron Color Bumper Plates -->
+                <!-- Product 3 -->
                 <div class="product-card">
+                    <span class="product-badge">Popular</span>
                     <div class="product-carousel">
                         <div class="product-slide active">
                             <img src="https://pfst.cf2.poecdn.net/base/image/ac612eb8c40cd99bb627e5afcf536a13a239871d9424bf212cfb88d4d8a7dda7?w=438&h=468" alt="Macaron Color Bumper Plates">
@@ -808,13 +1114,17 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Macaron Color Bumper Plates</h3>
-                        <p class="product-description">Vibrant colors combined with superior durability for modern fitness facilities.</p>
-                        <button class="product-cta" onclick="k2()">View More Details</button>
+                        <h3 class="product-name">Macaron Color Plates</h3>
+                        <p class="product-description">Vibrant colors meet superior durability for modern fitness facilities.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Trendy Colors</span>
+                            <span class="feature-tag">Best Seller</span>
+                        </div>
+                        <button class="product-cta" onclick="k2()">💰 Request Best Price Today</button>
                     </div>
                 </div>
 
-                <!-- Product 4: Tri-Grip Rubber Coated Weight Plates -->
+                <!-- Product 4 -->
                 <div class="product-card">
                     <div class="product-carousel">
                         <div class="product-slide active">
@@ -833,11 +1143,29 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Tri-Grip Rubber Coated Weight Plates</h3>
-                        <p class="product-description">Ergonomic tri-grip design with premium rubber coating for optimal handling and protection.</p>
-                        <button class="product-cta" onclick="k2()">View Product Specs</button>
+                        <h3 class="product-name">Tri-Grip Weight Plates</h3>
+                        <p class="product-description">Ergonomic design with premium rubber coating for optimal handling.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Ergonomic</span>
+                            <span class="feature-tag">Durable</span>
+                        </div>
+                        <button class="product-cta" onclick="k2()">📞 Talk to Expert - Free Consult</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="proof-text">
+                <span class="proof-icon">✓</span>
+                <span><span class="proof-highlight">247 customers</span> purchased in the last 24 hours</span>
+            </div>
+            <div class="proof-text">
+                <span class="proof-icon">✓</span>
+                <span>Trusted by <span class="proof-highlight">Gold's Gym, Anytime Fitness</span> and more</span>
             </div>
         </div>
     </section>
@@ -845,31 +1173,84 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
+            <div class="section-header">
+                <span class="section-badge">Why Choose Us</span>
+                <h2 class="section-title">Factory Direct Advantages</h2>
+                <p class="section-subtitle">We cut out middlemen to bring you the best quality at unbeatable prices</p>
+            </div>
+
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3 class="feature-title">High Quality Guarantee</h3>
-                    <p class="feature-text">Each rubber plate is made from premium raw materials and undergoes strict production processes to ensure wear resistance and pressure resistance.</p>
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Premium Quality Guarantee</h3>
+                        <p class="feature-text">ISO certified materials with rigorous quality control. Each product tested for maximum durability.</p>
+                    </div>
                 </div>
+
                 <div class="feature-card">
-                    <h3 class="feature-title">Performance Certifications</h3>
-                    <p class="feature-text">Passed multiple tests including tensile and compression testing to ensure product quality and reliability.</p>
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11L12 14L22 4M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">International Certifications</h3>
+                        <p class="feature-text">Passed tensile and compression testing. Certified to meet global safety standards.</p>
+                    </div>
                 </div>
+
                 <div class="feature-card">
-                    <h3 class="feature-title">Customization Services</h3>
-                    <p class="feature-text">Flexible customization of color, material, and performance to meet personalized needs.</p>
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 21C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H7Z"/>
+                            <path d="M12 18C12.5523 18 13 17.5523 13 17C13 16.4477 12.5523 16 12 16C11.4477 16 11 16.4477 11 17C11 17.5523 11.4477 18 12 18Z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Full Customization</h3>
+                        <p class="feature-text">Custom colors, logos (embossed, debossed, printed), weights, and sizes to match your brand.</p>
+                    </div>
                 </div>
+
                 <div class="feature-card">
-                    <h3 class="feature-title">Direct from Source</h3>
-                    <p class="feature-text">Factory-direct production and shipping with no middlemen, reducing costs significantly.</p>
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Factory Direct Pricing</h3>
+                        <p class="feature-text">No middlemen markup. Save 30-50% compared to distributors while getting premium quality.</p>
+                    </div>
                 </div>
+
                 <div class="feature-card">
-                    <h3 class="feature-title">Global Delivery</h3>
-                    <p class="feature-text">Supporting reliable transportation services to meet your continuous order requirements worldwide.</p>
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H3L12 3L21 12H19M5 12V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V12"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Global Delivery Network</h3>
+                        <p class="feature-text">Reliable shipping to 50+ countries. Free shipping on bulk orders over $5,000.</p>
+                    </div>
                 </div>
+
                 <div class="feature-card">
-                    <h3 class="feature-title">Stability & Consistency</h3>
-                    <p class="feature-text">Committed to establishing long-term partnerships, providing consistent product quality and earning customer trust.</p>
+                    <div class="feature-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Long-Term Partnership</h3>
+                        <p class="feature-text">15+ years in business. Consistent quality and reliable supply for your ongoing needs.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -878,18 +1259,24 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Trusted by Industry Leaders</h2>
+            <div class="section-header">
+                <span class="section-badge" style="background: rgba(255,255,255,0.1); color: var(--accent-gold);">Client Reviews</span>
+                <h2 class="section-title" style="color: white;">Trusted by Industry Leaders</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Join 2,500+ satisfied customers worldwide</p>
+            </div>
+
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="Michael Chen" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <div class="testimonial-rating">★★★★★</div>
-                            <div class="testimonial-author">Michael Chen — Elite Fitness Center, USA</div>
+                            <div class="testimonial-author">Michael Chen — Elite Fitness, USA</div>
                         </div>
                     </div>
-                    <p class="testimonial-text">"Outstanding quality and consistency. Our gym has been using their products for over 3 years with zero quality issues."</p>
+                    <p class="testimonial-text">"Outstanding quality and consistency. We've been using their products for 3+ years with zero issues. Best investment for our gym."</p>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="James Wilson" class="testimonial-avatar">
@@ -898,18 +1285,20 @@
                             <div class="testimonial-author">James Wilson — PowerHouse Gym, UK</div>
                         </div>
                     </div>
-                    <p class="testimonial-text">"The customization options are exceptional. They delivered exactly what we needed for our brand."</p>
+                    <p class="testimonial-text">"The customization options are exceptional. They delivered exactly what we needed with our custom branding. Professional service throughout."</p>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Sarah Thompson" class="testimonial-avatar">
                         <div class="testimonial-info">
                             <div class="testimonial-rating">★★★★★</div>
-                            <div class="testimonial-author">Sarah Thompson — FitZone Australia</div>
+                            <div class="testimonial-author">Sarah Thompson — FitZone, Australia</div>
                         </div>
                     </div>
-                    <p class="testimonial-text">"Reliable partner with excellent communication. Global delivery has been seamless every time."</p>
+                    <p class="testimonial-text">"Reliable partner with excellent communication. Global delivery has been seamless every single time. Highly recommend!"</p>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces" alt="David Martinez" class="testimonial-avatar">
@@ -918,8 +1307,9 @@
                             <div class="testimonial-author">David Martinez — Athletic Pro, Canada</div>
                         </div>
                     </div>
-                    <p class="testimonial-text">"Best pricing without compromising on quality. Direct from manufacturer makes all the difference."</p>
+                    <p class="testimonial-text">"Best pricing without compromising quality. Factory-direct makes all the difference. We've saved thousands while upgrading our equipment."</p>
                 </div>
+
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=faces" alt="Emma Schmidt" class="testimonial-avatar">
@@ -928,7 +1318,18 @@
                             <div class="testimonial-author">Emma Schmidt — Gold's Fitness, Germany</div>
                         </div>
                     </div>
-                    <p class="testimonial-text">"Professional team, superior products. They've become our exclusive supplier for rubber equipment."</p>
+                    <p class="testimonial-text">"Professional team, superior products. They've become our exclusive supplier for all rubber equipment. Couldn't be happier!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=faces" alt="Robert Lee" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-rating">★★★★★</div>
+                            <div class="testimonial-author">Robert Lee — CrossFit Box, Singapore</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Premium quality at factory prices. The bumper plates are incredibly durable and our members love them. Great customer support too."</p>
                 </div>
             </div>
         </div>
@@ -937,9 +1338,9 @@
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container">
-            <h2>Choose Shandong Zhuoao Sports Equipment Co., Ltd.<br>Elevate Your Business Together!</h2>
-            <p>Choose stable quality, choose a trustworthy partner! Join hundreds of satisfied businesses worldwide who trust our premium rubber equipment.</p>
-            <button class="cta-button" onclick="k2()">Contact Us Now</button>
+            <h2 class="final-cta-title">Ready to Upgrade Your Equipment?</h2>
+            <p class="final-cta-subtitle">Get a free catalog and custom quote within 24 hours. Join 2,500+ satisfied gym owners worldwide.</p>
+            <button class="final-cta-button" onclick="k2()">Get Free Catalog & Quote Now</button>
         </div>
     </section>
 
@@ -956,27 +1357,38 @@
             }
         });
 
-        // K2 method for navigation
+        // Navigation function
         function k2() {
             window.location.href = 'https://www.qq.com';
         }
 
-        // Hero Carousel
-        let heroCurrentSlide = 0;
-        const heroSlides = document.querySelectorAll('#heroCarousel .hero-slide');
+        // Factory Carousel
+        let factoryCurrentSlide = 0;
+        const factorySlides = document.querySelectorAll('.factory-slide');
+        const factoryDots = document.querySelectorAll('.factory-dot');
 
-        function showHeroSlide(n) {
-            heroSlides.forEach(slide => slide.classList.remove('active'));
-            heroCurrentSlide = (n + heroSlides.length) % heroSlides.length;
-            heroSlides[heroCurrentSlide].classList.add('active');
+        function showFactorySlide(n) {
+            factorySlides.forEach(slide => slide.classList.remove('active'));
+            factoryDots.forEach(dot => dot.classList.remove('active'));
+
+            factoryCurrentSlide = (n + factorySlides.length) % factorySlides.length;
+            factorySlides[factoryCurrentSlide].classList.add('active');
+            factoryDots[factoryCurrentSlide].classList.add('active');
         }
 
-        function nextHeroSlide() {
-            showHeroSlide(heroCurrentSlide + 1);
+        function nextFactorySlide() {
+            showFactorySlide(factoryCurrentSlide + 1);
         }
 
-        // Auto-advance hero carousel
-        setInterval(nextHeroSlide, 5000);
+        // Dot navigation for factory carousel
+        factoryDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showFactorySlide(index);
+            });
+        });
+
+        // Auto-advance factory carousel every 1.5 seconds
+        setInterval(nextFactorySlide, 1500);
 
         // Product Carousels
         document.querySelectorAll('.product-card').forEach(card => {
@@ -999,14 +1411,13 @@
             }
 
             function startAutoPlay() {
-                autoPlayInterval = setInterval(nextSlide, 3000);
+                autoPlayInterval = setInterval(nextSlide, 2000);
             }
 
             function stopAutoPlay() {
                 clearInterval(autoPlayInterval);
             }
 
-            // Dot navigation
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
                     showSlide(index);
@@ -1015,12 +1426,29 @@
                 });
             });
 
-            // Start auto-play
             startAutoPlay();
 
-            // Pause on hover
             card.addEventListener('mouseenter', stopAutoPlay);
             card.addEventListener('mouseleave', startAutoPlay);
+
+            // Touch support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            card.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+                stopAutoPlay();
+            });
+
+            card.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > 50) {
+                    showSlide(currentSlide + 1);
+                } else if (touchEndX - touchStartX > 50) {
+                    showSlide(currentSlide - 1);
+                }
+                startAutoPlay();
+            });
         });
     </script>
 
