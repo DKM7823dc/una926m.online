@@ -259,34 +259,7 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-light) 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-            position: relative;
-        }
-
-        .logo-icon::before,
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            background: white;
-            border-radius: 2px;
-        }
-
-        .logo-icon::before {
-            width: 20px;
-            height: 3px;
-            top: 12px;
-        }
-
-        .logo-icon::after {
-            width: 12px;
-            height: 3px;
-            bottom: 12px;
-            left: 10px;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -344,7 +317,7 @@
 <body>
     <!-- Logo -->
     <div class="logo">
-        <div class="logo-icon"></div>
+        <img src="https://una926m.online/yus/img/logo.svg" alt="Market Bullets Logo" class="logo-icon">
         <span class="logo-text">Market Bullets</span>
     </div>
 
