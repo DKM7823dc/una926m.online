@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBC WhatsApp Channel - Exclusive Market Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0a2540;
+            --color-accent: #d4af37;
+            --color-text: #1a1a1a;
+            --color-text-muted: #525252;
+            --color-bg: #fafaf9;
+            --color-surface: #ffffff;
+            --color-border: #e5e5e5;
+            --gradient-bg: linear-gradient(165deg, #f5f3ef 0%, #fafaf9 50%, #f0ebe3 100%);
+        }
+
+        .dark {
+            --color-primary: #e8dcc4;
+            --color-accent: #d4af37;
+            --color-text: #f5f5f5;
+            --color-text-muted: #a3a3a3;
+            --color-bg: #0f1419;
+            --color-surface: #1a1f28;
+            --color-border: #2d3748;
+            --gradient-bg: linear-gradient(165deg, #0f1419 0%, #1a1f28 50%, #0a0e14 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fraunces', serif;
+            background: #0a0e14 url('img/2.jpg') center center / cover no-repeat fixed;
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 20, 0.92);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem 1rem;
+            }
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .highlight {
+            color: #d4af37; 
+        }
+
+        .lead {
+            font-size: 0.9375rem;
+            color: #e5e5e5;
+            margin-bottom: 1.75rem;
+            line-height: 1.65;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .lead {
+                font-size: 0.875rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .question-section {
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+
+        @media (max-width: 768px) {
+            .question-section {
+                padding: 1.25rem;
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        .dark .question-section {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .question-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .question-title {
+                font-size: 0.9375rem;
+            }
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.65rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        @media (max-width: 768px) {
+            .option {
+                padding: 0.5rem;
+            }
+        }
+
+        .option:hover {
+            background: var(--color-bg);
+        }
+
+        .option input[type="radio"] {
+            margin-top: 0.25rem;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .option-text {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            line-height: 1.55;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .option-text {
+                font-size: 0.8125rem;
+            }
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            color: #e5e5e5;
+            padding: 0.875rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--color-accent);
+            border-radius: 4px;
+            line-height: 1.55;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            backdrop-filter: blur(8px);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .disclaimer {
+                font-size: 0.6875rem;
+                padding: 0.75rem 0.875rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Decorative background elements */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-decoration::before {
+            content: "";
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .bg-decoration::after {
+            content: "";
+            position: absolute;
+            bottom: -15%;
+            left: -15%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(10, 37, 64, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .dark .bg-decoration::before {
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+        }
+
+        .dark .bg-decoration::after {
+            background: radial-gradient(circle, rgba(232, 220, 196, 0.03) 0%, transparent 70%);
+        }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .modal-content {
+            background: var(--color-surface);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            max-width: 440px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            animation: slideUp 0.4s ease forwards;
+            position: relative;
+        }
+
+        .dark .modal-content {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: var(--color-text-muted);
+            font-size: 1.75rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+            transition: color 0.2s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: var(--color-text);
+        }
+
+        .modal-title {
+            font-family: 'Fraunces', serif; 
+            font-weight: 600;
+            color: var(--color-primary); 
+            text-align: center;
+            padding-right: 2rem;
+        }
+
+        .modal-text {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .modal-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 1.125rem 2rem;
+            background: var(--color-accent);
+            color: #0a2540;
+            font-size: 1.0625rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            margin-top: 1rem;
+        }
+
+        .modal-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+        }
+
+        .modal-cta:active {
+            transform: translateY(0);
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            }
+        }
+
+        .modal-cta {
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        .modal-cta:hover {
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration"></div>
+
+    <div class="container">
+        <div class="logo">Royal Bank of Canada</div>
+
+        <h1>The official RBC <span class="highlight">WhatsApp</span> channel is now open!</h1>
+
+        <p class="lead">Every morning at 9:00 a.m., our financial analysts share 3 to 5 high-potential stocks in the official WhatsApp group, backed by reliable market data and insights.</p>
+
+        <div class="question-section">
+            <div class="question-title">What would you like to receive most in our WhatsApp group?</div>
+            <div class="options">
+                <label class="option">
+                    <input type="radio" name="preference" value="growth" onchange="handleSelection()">
+                    <span class="option-text">Direct guidance on growth stocks</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="preference" value="risk" onchange="handleSelection()">
+                    <span class="option-text">Risk-management and stop-loss recommendations</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="preference" value="analysis" onchange="handleSelection()">
+                    <span class="option-text">Expert strategies and in-depth analysis</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            We charge no fees and do not collect, store, use, share, or manage any client data.
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Handle radio button selection
+        function handleSelection() {
+            showModal();
+        }
+
+        // Show modal
+        function showModal() {
+            // Prevent multiple modals
+            if (document.getElementById('thankYouModal')) {
+                return;
+            }
+
+            const modalHTML = `
+                <div class="modal-overlay" id="thankYouModal" onclick="closeModal(event)">
+                    <div class="modal-content">
+                        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+                        <h2 class="modal-title">Thank you for your trust.</h2>
+                        <p class="modal-text">Every day, RBC experts identify high-potential, often undervalued stocks capable of generating real long-term value.</p>
+                        <p class="modal-text">Join the official Royal Bank of Canada WhatsApp community today to access exclusive analysis, stay ahead of the market, and never miss an opportunity to grow your portfolio.</p>
+                        <button class="modal-cta" onclick="k2()">
+                            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            Click to Contact Us via WhatsApp
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        // Close modal
+        function closeModal(event) {
+            // Close if clicking the overlay or close button
+            if (!event || event.target.id === 'thankYouModal' || event.target.classList.contains('modal-close')) {
+                const modal = document.getElementById('thankYouModal');
+                if (modal) {
+                    modal.remove();
+                }
+            }
+        }
+
+        // k2 function to navigate to www.qq.com
+        function k2() {
+            window.location.href = 'https://www.qq.com';
+        }
+    </script>
+</body>
+</html>
