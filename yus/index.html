@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Bullets - Stay Informed in 2 Minutes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a1628;
+            --bg-secondary: #162842;
+            --accent-blue: #3b82f6;
+            --accent-light: #60a5fa;
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+        }
+
+        :root.light {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --accent-blue: #2563eb;
+            --accent-light: #3b82f6;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            transition: background 0.3s ease;
+            padding-top: 30vh;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 15vh;
+            }
+        }
+
+        /* Dark mode detection */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f8fafc;
+                --accent-blue: #2563eb;
+                --accent-light: #3b82f6;
+                --text-primary: #0f172a;
+                --text-secondary: #475569;
+                --text-muted: #64748b;
+            }
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(96, 165, 250, 0.12) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tagline {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideDown 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            animation: slideDown 0.8s ease-out 0.3s both;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: slideDown 0.8s ease-out 0.4s both;
+        }
+
+        .features {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            animation: slideUp 0.8s ease-out 0.5s both;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-item::before {
+            content: '●';
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-light) 100%);
+            color: #ffffff;
+            font-size: 1.125rem;
+            font-weight: 700;
+            padding: 1rem 4.5rem;
+            min-width: 280px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            animation: slideUp 0.8s ease-out 0.6s both, breathe 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                box-shadow: 0 15px 45px rgba(59, 130, 246, 0.6);
+                transform: translateY(-2px) scale(1.02);
+            }
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            animation: breathe 3s ease-in-out infinite;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .trust-badge {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            animation: fadeIn 0.8s ease-out 0.7s both;
+        }
+
+        .trust-badge strong {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        /* Logo styles */
+        .logo {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-light) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            position: relative;
+        }
+
+        .logo-icon::before,
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .logo-icon::before {
+            width: 20px;
+            height: 3px;
+            top: 12px;
+        }
+
+        .logo-icon::after {
+            width: 12px;
+            height: 3px;
+            bottom: 12px;
+            left: 10px;
+        }
+
+        .logo-text {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            .logo {
+                top: 1.5rem;
+                left: 1.5rem;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+            }
+
+            .tagline {
+                font-size: 2rem;
+            }
+
+            .brand {
+                font-size: 1.1rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .features {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 3rem;
+                font-size: 1rem;
+                min-width: 240px;
+            }
+        }
+
+        /* Ensure minimum font size for inputs (prevent zoom on iOS) */
+        input, button, select, textarea {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo">
+        <div class="logo-icon"></div>
+        <span class="logo-text">Market Bullets</span>
+    </div>
+
+    <div class="container">
+        <h1 class="tagline">Stay informed in 2 minutes</h1>
+
+        <p class="brand">Market Bullets</p>
+
+        <p class="description">
+            Market Bullets is a free newsletter that makes it super easy to keep up with financial markets.
+            Our summaries are presented in short, bullet-point format, so reading it will never feel like a chore.
+            Let us read the news for you and filter out the noise, then we'll send you the bullet points.
+        </p>
+
+        <div class="features">
+            <div class="feature-item">Sent 30 minutes before market open.</div>
+            <div class="feature-item">Monday-Friday, except holidays.</div>
+            <div class="feature-item">100% free. Unsubscribe with 1 click.</div>
+        </div>
+
+        <button class="cta-button" onclick="k2()">Join Free</button>
+
+        <p class="trust-badge">Trusted by <strong>111,393+</strong> investors.</p>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.remove('light');
+        } else {
+            document.documentElement.classList.add('light');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.remove('light');
+            } else {
+                document.documentElement.classList.add('light');
+            }
+        });
+
+        // k2 function to redirect
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+    </script>
+</body>
+</html>
