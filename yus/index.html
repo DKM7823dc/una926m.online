@@ -224,10 +224,10 @@
             display: inline-block;
             background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-light) 100%);
             color: #ffffff;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            padding: 1rem 4.5rem;
-            min-width: 280px;
+            padding: 1.25rem 5rem;
+            min-width: 320px;
             border-radius: 50px;
             border: none;
             cursor: pointer;
@@ -339,11 +339,19 @@
         }
 
         /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .cta-button {
+                padding: 1.1rem 3.5rem;
+                font-size: 1.1rem;
+                min-width: 260px;
+            }
+        }
+
         @media (max-width: 480px) {
             .cta-button {
-                padding: 0.75rem 2.5rem;
-                font-size: 1rem;
-                min-width: 220px;
+                padding: 1rem 3rem;
+                font-size: 1.05rem;
+                min-width: 240px;
             }
         }
 
