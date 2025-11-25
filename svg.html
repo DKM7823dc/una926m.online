@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG文件下载器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #status {
+            margin-top: 15px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SVG文件下载器</h1>
+        <p>输入SVG文件的URL地址，然后点击下载按钮</p>
+        
+        <input type="text" id="svgUrl" placeholder="请输入SVG文件URL，例如：https://una926m.online/yus/img/logo.svg" value="https://una926m.online/yus/img/logo.svg">
+        <br>
+        <button onclick="downloadSVG()">下载SVG文件</button>
+        
+        <div id="status"></div>
+    </div>
+
+    <script>
+        function downloadSVG() {
+            const svgUrl = document.getElementById('svgUrl').value.trim();
+            const statusElement = document.getElementById('status');
+            
+            if (!svgUrl) {
+                statusElement.textContent = "请输入有效的SVG文件URL";
+                return;
+            }
+            
+            // 检查URL是否以.svg结尾
+            if (!svgUrl.toLowerCase().endsWith('.svg')) {
+                statusElement.textContent = "URL应该指向.svg文件";
+                return;
+            }
+            
+            statusElement.textContent = "正在下载...";
+            
+            // 提取文件名
+            let filename = svgUrl.split('/').pop();
+            if (!filename.endsWith('.svg')) {
+                filename += '.svg';
+            }
+            
+            // 使用fetch获取SVG文件
+            fetch(svgUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应不正常');
+                    }
+                    return response.text();
+                })
+                .then(svgContent => {
+                    // 创建一个Blob对象
+                    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+                    
+                    // 创建一个下载链接
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // 清理
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                        statusElement.textContent = "下载完成！";
+                    }, 100);
+                })
+                .catch(error => {
+                    statusElement.textContent = "下载失败: " + error.message;
+                    console.error('下载错误:', error);
+                });
+        }
+    </script>
+</body>
+</html>
