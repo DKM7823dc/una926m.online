@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>賢い投資家への道 - 財経ニュース解読術</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1401982154923235');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1401982154923235&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <script>
+       function k2() {
+         fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+            window.open('https://www.qq.com', '_blank');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'finance-dark': '#1A1A1A',
+                        'finance-navy': '#2D2D2D',
+                        'finance-blue': '#3A3A3A',
+                        'finance-light-blue': '#4A4A4A',
+                        'accent-primary': '#10B981',
+                        'accent-light': '#34D399',
+                        'accent-dark': '#059669',
+                        'bear-red': '#FF5252',
+                        'neutral-gray': '#F5F5F5',
+                        'text-gray': '#9CA3AF',
+                        'chart-grid': '#262626'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1A1A1A;
+            color: #F8FAFC;
+        }
+
+        /* Financial gradient backgrounds */
+        .bg-finance-gradient {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #3A3A3A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-finance-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.05) 50%, transparent 100%),
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Chart-inspired grid pattern */
+        .chart-pattern {
+            background-image:
+                linear-gradient(rgba(74, 74, 74, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 74, 74, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Modern card styling */
+        .card-finance {
+            background: #2D2D2D;
+            border: 1px solid #4A4A4A;
+            box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .card-finance::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #10B981 0%, #34D399 100%);
+            transition: height 0.3s ease;
+        }
+
+        .card-finance:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+            border-color: #10B981;
+        }
+
+        .card-finance:hover::before {
+            height: 100%;
+        }
+
+        /* Accent theme */
+        .text-bull {
+            color: #10B981;
+        }
+
+        .bg-bull {
+            background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+        }
+
+        /* Premium buttons */
+        .btn-finance {
+            background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+            color: #1A1A1A;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-finance::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .btn-finance:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .btn-finance:hover {
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Divider */
+        .divider-finance {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #10B981, transparent);
+            margin: 2rem 0;
+        }
+
+        /* Number badges with stock ticker style */
+        .badge-finance {
+            background: #1A1A1A;
+            color: #10B981;
+            border: 2px solid #10B981;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+
+        /* Profile container */
+        .profile-finance {
+            background: #2D2D2D;
+            border: 1px solid #4A4A4A;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.1);
+        }
+
+        .profile-img-finance {
+            border: 3px solid #10B981;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+        }
+
+        /* Section titles */
+        .section-title-finance {
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title-finance::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #10B981, #34D399);
+            border-radius: 2px;
+        }
+
+        /* Highlight boxes */
+        .highlight-finance {
+            border-left: 3px solid #10B981;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+
+        /* Feature boxes */
+        .feature-finance {
+            background: #3A3A3A;
+            border: 1px solid #4A4A4A;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-finance::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #10B981, #34D399);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-finance:hover::before {
+            transform: translateX(0);
+        }
+
+        .feature-finance:hover {
+            border-color: #10B981;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Stock ticker style numbers */
+        .ticker-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: #10B981;
+        }
+
+        /* Icon styling */
+        .icon-finance {
+            color: #10B981;
+            font-size: 1.5rem;
+        }
+
+        /* Stats-like styling */
+        .stats-card {
+            background: linear-gradient(135deg, #2D2D2D 0%, #3A3A3A 100%);
+            border: 1px solid #4A4A4A;
+            position: relative;
+        }
+
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #10B981, transparent);
+        }
+
+        /* Dark mode adjustments */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1A1A1A;
+                color: #F8FAFC;
+            }
+            .card-finance, .profile-finance, .feature-finance, .stats-card {
+                background: #2D2D2D;
+                border-color: #4A4A4A;
+            }
+            .highlight-finance {
+                background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+            }
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem !important;
+                line-height: 1.3 !important;
+            }
+            h2 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            h3 {
+                font-size: 1.25rem !important;
+            }
+            h4 {
+                font-size: 1rem !important;
+            }
+            p, .text-xl {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+            }
+            .text-2xl {
+                font-size: 1.125rem !important;
+            }
+            section {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            .p-8 {
+                padding: 1rem !important;
+            }
+            .p-10 {
+                padding: 1.25rem !important;
+            }
+            .py-20 {
+                padding-top: 2.5rem !important;
+                padding-bottom: 2.5rem !important;
+            }
+            .py-24 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            .mb-16 {
+                margin-bottom: 2rem !important;
+            }
+            .mb-12 {
+                margin-bottom: 1.5rem !important;
+            }
+            .mb-8 {
+                margin-bottom: 1rem !important;
+            }
+            .gap-10 {
+                gap: 1.5rem !important;
+            }
+            .gap-6 {
+                gap: 1rem !important;
+            }
+            button {
+                font-size: 1rem !important;
+                padding: 0.75rem 1.5rem !important;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Pulse animation for CTA */
+        @keyframes pulse-accent {
+            0%, 100% {
+                box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+            }
+        }
+
+        .btn-finance {
+            animation: pulse-accent 2s ease-in-out infinite;
+        }
+
+        .btn-finance:hover {
+            animation: none;
+        }
+
+        /* Modal animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .animate-fadeOut {
+            animation: fadeOut 0.3s ease-out forwards;
+        }
+
+        .animate-scaleIn {
+            animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="bg-finance-gradient relative flex items-center">
+        <div class="chart-pattern"></div>
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <!-- 限定优惠标签 -->
+                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-accent-primary to-accent-light px-6 py-2 rounded-full mb-6">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="text-white font-bold text-sm">本日限定：無料優良銘柄情報</span>
+                    </div>
+
+                    <h1 class="text-4xl md:text-6xl font-sans font-extrabold mb-8 leading-tight text-white">
+                        情報過多<span class="text-bull">にさよなら</span>：<br>
+                        賢い投資家になるために、<br>
+                        <span class="text-bull">財経ニュース</span>を読み解くことから始めよう
+                    </h1>
+
+                    <!-- 倒计时 -->
+                    <div class="bg-finance-navy border-2 border-accent-primary rounded-xl p-6 max-w-2xl mx-auto mb-8">
+                        <p class="text-white text-lg mb-4">⏰ <strong class="text-bull">特別オファー終了まで</strong></p>
+                        <div class="flex justify-center gap-4">
+                            <div class="text-center">
+                                <div class="bg-finance-dark border border-accent-primary rounded-lg px-4 py-3 min-w-[80px]">
+                                    <div id="countdown-minutes" class="text-3xl font-mono font-bold text-bull">30</div>
+                                    <div class="text-xs text-gray-400 mt-1">分</div>
+                                </div>
+                            </div>
+                            <div class="text-3xl text-bull self-center">:</div>
+                            <div class="text-center">
+                                <div class="bg-finance-dark border border-accent-primary rounded-lg px-4 py-3 min-w-[80px]">
+                                    <div id="countdown-seconds" class="text-3xl font-mono font-bold text-bull">00</div>
+                                    <div class="text-xs text-gray-400 mt-1">秒</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm mt-4">今すぐ登録して、吉川洋教授の独占分析レポートを受け取りましょう</p>
+                    </div>
+
+                    <div class="divider-finance max-w-md mx-auto"></div>
+
+                    <!-- 社会证明 -->
+                    <div class="flex items-center justify-center gap-4 mb-6 flex-wrap">
+                        <div class="flex items-center gap-2">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-accent-primary to-accent-light border-2 border-finance-dark"></div>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-accent-light to-accent-primary border-2 border-finance-dark"></div>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-accent-primary to-accent-dark border-2 border-finance-dark"></div>
+                            </div>
+                            <span class="text-gray-300 text-sm"><strong class="text-bull">3,200名以上</strong>が参加中</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <svg class="w-5 h-5 text-bull" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-bull" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-bull" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-bull" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5 text-bull" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <span class="text-gray-300 text-sm ml-1">4.9/5.0</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed font-light">
+                        財経ニュースに困惑していませんか？重要な情報を見逃すことはもうありません。<br>
+                        無料の教育コミュニティに参加して、専門家のように財経ニュースを<span class="text-bull font-semibold">解読する</span>方法を体系的に学びましょう。<br>
+                        <span class="text-bull font-semibold">純粋な教育、アドバイスは一切なし。</span>
+                    </p>
+                    <button onclick="k2()" class="btn-finance px-12 py-4 rounded-lg text-lg font-bold transform hover:scale-105 transition-all duration-300">
+                        優良銘柄を受け取る
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Profile Section -->
+    <section class="bg-finance-navy py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Header with Photo and Name -->
+                <div class="text-center mb-12 fade-in">
+                    <img src="img/1.jpg" alt="吉川洋" class="profile-img-finance w-40 h-40 rounded-full object-cover mx-auto mb-6">
+                    <h2 class="section-title-finance text-4xl mb-4 text-white mx-auto">吉川洋</h2>
+                    <p class="text-xl text-bull font-semibold">日本著名経済学者・金融市場アナリスト</p>
+                </div>
+
+                <!-- 研究専門領域セクション -->
+                <div class="mb-8 fade-in">
+                    <div class="card-finance rounded-xl p-8 shadow-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 bg-bull rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-finance-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">研究専門領域</h3>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="text-bull font-mono text-sm mb-2">ACADEMIC FOCUS</div>
+                                <p class="text-gray-300 leading-relaxed"><strong class="text-white">マクロ経済学</strong>、<strong class="text-white">国際経済学</strong>及び<strong class="text-white">日本経済</strong>の研究に長期従事し、学術界において重要な影響力を持つ</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="text-bull font-mono text-sm mb-2">MARKET ANALYSIS</div>
+                                <p class="text-gray-300 leading-relaxed">マクロ経済と金融市場の相互作用を深く分析し、<strong class="text-white">投資金融市場</strong>における豊富な専門能力を保有</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="text-bull font-mono text-sm mb-2">ECONOMIC CYCLES</div>
+                                <p class="text-gray-300 leading-relaxed">経済波動、インフレーション、失業率が<strong class="text-white">株式市場、債券市場、為替市場</strong>に与える影響を専門的に研究</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="text-bull font-mono text-sm mb-2">INVESTMENT STRATEGY</div>
+                                <p class="text-gray-300 leading-relaxed">経済サイクルと密接に関連した<strong class="text-white">投資戦略理論</strong>を提唱し、実践的な指針を提供</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- リスク管理と金融政策研究セクション -->
+                <div class="mb-8 fade-in">
+                    <div class="card-finance rounded-xl p-8 shadow-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 bg-bull rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-finance-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">リスク管理と金融政策研究</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="flex items-start gap-4">
+                                   
+                                    <div>
+                                        <h4 class="text-lg font-bold text-white mb-2">リスク管理と金融監督</h4>
+                                        <p class="text-gray-300 leading-relaxed">リスク管理及び金融監督分野における深い研究により、市場に<strong class="text-bull">安定性に関する提言</strong>を提供。<strong class="text-bull">透明な監督管理枠組み</strong>の重要性を強調し、市場の健全な発展を支援</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="flex items-start gap-4">
+                                    
+                                    <div>
+                                        <h4 class="text-lg font-bold text-white mb-2">日本銀行の金融政策分析</h4>
+                                        <p class="text-gray-300 leading-relaxed"><strong class="text-bull">日本銀行の金融緩和政策</strong>、金利変動及び<strong class="text-bull">量的緩和政策</strong>が金融市場に与える影響を専門的に分析。貨幣政策と市場反応の関係性を深く研究</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="flex items-start gap-4">
+                                    
+                                    <div>
+                                        <h4 class="text-lg font-bold text-white mb-2">金融危機と資本市場研究</h4>
+                                        <p class="text-gray-300 leading-relaxed"><strong class="text-bull">金融危機</strong>及び<strong class="text-bull">資本市場の変動</strong>に対して有益な探求を行い、危機予防と市場安定化のための理論的基盤を構築</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 学術貢献と市場への影響セクション -->
+                <div class="mb-8 fade-in">
+                    <div class="card-finance rounded-xl p-8 shadow-lg">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 bg-bull rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-finance-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">学術貢献と市場への影響</h3>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-finance-blue to-finance-light-blue flex items-center justify-center mb-4">
+                                    <svg class="w-8 h-8 text-gold-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-3">理論と実践の融合</h4>
+                                <p class="text-gray-300 leading-relaxed">学術研究と金融市場の実務を統合し、<strong class="text-bull">実用的な経済理論</strong>を構築</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-finance-blue to-finance-light-blue flex items-center justify-center mb-4">
+                                    <svg class="w-8 h-8 text-gold-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-3">政策提言への貢献</h4>
+                                <p class="text-gray-300 leading-relaxed">研究成果を基に、<strong class="text-bull">経済政策及び金融規制</strong>に対する専門的な提言を提供</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-finance-blue to-finance-light-blue flex items-center justify-center mb-4">
+                                    <svg class="w-8 h-8 text-gold-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-3">投資家教育への貢献</h4>
+                                <p class="text-gray-300 leading-relaxed">複雑な経済理論を分かりやすく解説し、<strong class="text-bull">一般投資家の理解</strong>を深めることに貢献</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="bg-finance-dark py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="section-title-finance text-4xl font-sans text-center mb-16 text-white fade-in mx-auto block">
+                    あなたは<span class="text-bull">こんな経験</span>はありませんか？
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-12">
+                    <div class="card-finance p-8 rounded-lg fade-in">
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            「FRB利上げ」や「インフレ指標発表」を聞いても、その真の意味が分からない？
+                        </p>
+                    </div>
+                    <div class="card-finance p-8 rounded-lg fade-in">
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            企業の「業績予想超え」なのに株価が下落し、理解できない？
+                        </p>
+                    </div>
+                    <div class="card-finance p-8 rounded-lg fade-in">
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            友人や同僚が市場動向を議論している時、自信を持って参加したい？
+                        </p>
+                    </div>
+                    <div class="card-finance p-8 rounded-lg fade-in">
+                        <p class="text-lg leading-relaxed text-gray-300">
+                            毎日の膨大な情報をフィルターし、重要なポイントを掴む方法が必要？
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center fade-in">
+                    <p class="text-2xl mb-10 text-gray-300 font-medium">
+                        もしこのような経験があるなら、<span class="text-bull font-bold">あなたは一人ではありません</span>。
+                    </p>
+                    <div class="stats-card p-8 rounded-lg inline-block">
+                        <p class="text-2xl font-bold text-white mb-2">無料コミュニティへようこそ</p>
+                        <p class="ticker-number text-lg">+5,000人の投資家が学習中</p>
+                    </div>
+                    <br><br><br>
+                    <img src="img/3.jpg" alt="コミュニティイメージ" class="w-full max-w-2xl rounded-xl mx-auto object-cover shadow-xl border border-gold-primary">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Provide Section -->
+    <section class="bg-finance-navy py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="section-title-finance text-4xl font-sans text-center mb-20 text-white fade-in mx-auto block">
+                    私たちが<span class="text-bull">提供するもの</span>
+                </h2>
+
+                <!-- Module 1 -->
+                <div class="mb-16 fade-in">
+                    <div class="card-finance rounded-xl p-10 shadow-lg">
+                        <h3 class="text-3xl font-bold text-white mb-8 flex items-center">
+                            <span class="badge-finance rounded-lg w-14 h-14 flex items-center justify-center mr-5 text-2xl">01</span>
+                            高度な分析思考
+                        </h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="feature-finance p-6 rounded-lg">
+                                <h4 class="text-lg font-bold text-bull mb-3">「事実」と「意見」の区別</h4>
+                                <p class="text-gray-300">ニュース報道における客観的データとアナリストの主観的予測を見分ける方法</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <h4 class="text-lg font-bold text-bull mb-3">「市場期待」の理解</h4>
+                                <p class="text-gray-300">実際のデータと市場期待の差が、データ自体よりも重要である理由を学習</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <h4 class="text-lg font-bold text-bull mb-3">全体的な連携能力</h4>
+                                <p class="text-gray-300">マクロ経済、業界トレンド、個別株パフォーマンスの論理的関係を構築</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="mb-16 fade-in">
+                    <div class="card-finance rounded-xl p-10 shadow-lg">
+                        <h3 class="text-3xl font-bold text-white mb-8 flex items-center">
+                            <span class="badge-finance rounded-lg w-14 h-14 flex items-center justify-center mr-5 text-2xl">02</span>
+                            実戦応用ガイド
+                        </h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="feature-finance p-6 rounded-lg">
+                                <h4 class="text-lg font-bold text-bull mb-3">情報源評価</h4>
+                                <p class="text-gray-300">信頼できる情報源を選択し、ノイズ干渉を避ける方法</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <h4 class="text-lg font-bold text-bull mb-3">情報ダッシュボード構築</h4>
+                                <p class="text-gray-300">最も重要な経済データと企業イベントを効率的に追跡</p>
+                            </div>
+                            <div class="feature-finance p-6 rounded-lg">
+                                <h4 class="text-lg font-bold text-bull mb-3">批判的思考の育成</h4>
+                                <p class="text-gray-300">市場コンセンサスに警戒し、独自の分析フレームワークを形成</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="bg-finance-dark py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="section-title-finance text-4xl font-sans text-center mb-16 text-white fade-in mx-auto block">
+                    なぜ<span class="text-bull">私たちを選ぶのか？</span>
+                </h2>
+                <div class="space-y-6">
+                    <div class="card-finance p-8 rounded-lg flex items-start gap-5 fade-in">
+                        <div class="text-bull text-3xl font-bold">✓</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">100%純粋な教育</h3>
+                            <p class="text-gray-300 text-lg">私たちは知識のみを伝授し、投資アドバイスや個別株分析は一切提供しません。</p>
+                        </div>
+                    </div>
+                    <div class="card-finance p-8 rounded-lg flex items-start gap-5 fade-in">
+                        <div class="text-bull text-3xl font-bold">✓</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">初心者に優しい</h3>
+                            <p class="text-gray-300 text-lg">金融背景は不要です。最も核心的な概念から分かりやすく説明します。</p>
+                        </div>
+                    </div>
+                    <div class="card-finance p-8 rounded-lg flex items-start gap-5 fade-in">
+                        <div class="text-bull text-3xl font-bold">✓</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">コミュニティ学習</h3>
+                            <p class="text-gray-300 text-lg">数千名の学習者と共に、専用プラットフォームで学習体験を交流します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="bg-finance-gradient py-24 relative">
+        <div class="chart-pattern"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-5xl font-sans font-extrabold mb-10 text-white fade-in">
+                今すぐ始めましょう
+            </h2>
+            <div class="divider-finance max-w-md mx-auto mb-10"></div>
+            <p class="text-2xl mb-12 text-gray-300 max-w-2xl mx-auto font-light fade-in">
+                賢い投資家への第一歩を踏み出し、財経ニュースを理解する力を身につけましょう。
+            </p>
+            <button onclick="k2()" class="btn-finance px-16 py-6 rounded-lg text-2xl font-bold transform hover:scale-105 transition-all duration-300 fade-in">
+                優良銘柄を受け取る
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Show welcome modal on page load
+        function showWelcomeModal() {
+            const modal = document.createElement('div');
+            modal.id = 'welcomeModal';
+            modal.className = 'fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 animate-fadeIn';
+            modal.innerHTML = `
+                <div style="background: #2D2D2D; border: 2px solid #10B981;" class="rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl animate-scaleIn relative">
+                    <button onclick="closeWelcomeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    <div class="text-center mb-6">
+                        <div style="background: linear-gradient(135deg, #10B981 0%, #34D399 100%);" class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">ようこそ！</h3>
+                    </div>
+                    <div style="background: #3A3A3A; border: 1px solid rgba(16, 185, 129, 0.3);" class="rounded-lg p-6 mb-6">
+                        <p class="text-gray-200 text-lg leading-relaxed text-center">
+                            「<span style="color: #10B981;" class="font-bold text-xl">777</span>」と返信すると、優良銘<br>
+                            柄の情報をお届けします。たく<br>
+                            さんコミュニケーションを取る<br>
+                            ことで、予想外の収穫があるか<br>
+                            もしれません
+                        </p>
+                    </div>
+                    <button onclick="closeWelcomeModal(); k2();" class="btn-finance w-full py-4 rounded-lg text-xl font-bold transform hover:scale-105 transition-all duration-300">
+                        優良銘柄を受け取る
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function closeWelcomeModal() {
+            const modal = document.getElementById('welcomeModal');
+            if (modal) {
+                modal.classList.add('animate-fadeOut');
+                setTimeout(() => {
+                    modal.remove();
+                }, 300);
+            }
+        }
+
+        // Countdown timer functionality
+        let totalSeconds = 30 * 60; // 30 minutes in seconds
+
+        function updateCountdown() {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+
+            const minutesElement = document.getElementById('countdown-minutes');
+            const secondsElement = document.getElementById('countdown-seconds');
+
+            if (minutesElement && secondsElement) {
+                minutesElement.textContent = String(minutes).padStart(2, '0');
+                secondsElement.textContent = String(seconds).padStart(2, '0');
+            }
+
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                totalSeconds = 30 * 60; // Reset to 30 minutes when it reaches 0
+            }
+        }
+
+        // Initialize scroll animations and show modal on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.fade-in');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Show welcome modal after a short delay
+            setTimeout(() => {
+                showWelcomeModal();
+            }, 500);
+
+            // Start countdown timer
+            updateCountdown(); // Initial call to set the display immediately
+            setInterval(updateCountdown, 1000); // Update every second
+        });
+    </script>
+
+    <!-- Floating Contact Button -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <button onclick="k2()" class="btn-finance px-8 py-4 rounded-lg text-lg font-bold shadow-2xl whitespace-nowrap transform hover:scale-105 transition-all duration-300">
+            優良銘柄を受け取る
+        </button>
+    </div>
+</body>
+</html>
