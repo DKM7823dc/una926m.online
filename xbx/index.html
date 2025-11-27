@@ -1,0 +1,1576 @@
+<!DOCTYPE html><html lang="es"><head>
+ 
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17414185340"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17414185340');
+</script>
+
+<!-- Event snippet for 购买 conversion page . -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17414185340/lgNQCL6WxcIbEPzC3e9A',
+      'transaction_id': '',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+ 
+
+<script>
+   function contactTeam() {
+	gtag_report_conversion('https://www.qq.com');
+            closeModal();
+        }
+</script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia de Acciones IA</title>
+    <style>
+        :root {
+            --primary-color: #00ff88;
+            --secondary-color: #00d4ff;
+            --accent-color: #ff0080;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050814;
+            --bg-card: rgba(15, 23, 42, 0.8);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --grid-color: rgba(0, 255, 136, 0.1);
+            --glow-color: rgba(0, 255, 136, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grid Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px var(--glow-color);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            animation: logoSpin 3s ease-in-out infinite;
+        }
+
+        @keyframes logoSpin {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-ai-avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 40px var(--glow-color), 0 0 80px var(--glow-color);
+            animation: float 3s ease-in-out infinite;
+            display: block;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 50px var(--glow-color);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 10px var(--glow-color));
+            }
+
+            to {
+                filter: drop-shadow(0 0 20px var(--glow-color));
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        /* Search Box */
+        .search-box {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            font-size: 1.1rem;
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 30px var(--glow-color);
+            transform: translateY(-2px);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            color: var(--bg-dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 5px 20px var(--glow-color);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 4rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px var(--glow-color);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 212, 255, 0.05));
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px var(--glow-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Market Data Tables */
+        .market-data {
+            padding: 4rem 0;
+        }
+
+        .tables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .table-container {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            overflow: hidden;
+        }
+
+        .table-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 1rem;
+            text-align: left;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        tr:hover {
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .rank {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .symbol {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .score {
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        /* Insights Section */
+        .insights {
+            padding: 4rem 0;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .insight-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--glow-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .insight-card:hover::after {
+            opacity: 1;
+        }
+
+        .insight-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 212, 255, 0.2));
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-image::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(0, 255, 136, 0.1) 10px,
+                    rgba(0, 255, 136, 0.1) 20px);
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50%, 50%);
+            }
+        }
+
+        .insight-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+            z-index: 1;
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+
+        .insight-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .insight-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            color: var(--bg-dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px var(--glow-color);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px var(--glow-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-darker);
+            padding: 3rem 0 1rem;
+            border-top: 1px solid var(--primary-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-content>div {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .tables-grid,
+            .features-grid,
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-btn {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Ticker Animation */
+        .ticker {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 1rem 0;
+            overflow: hidden;
+            border-top: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: ticker 30s linear infinite;
+        }
+
+        .ticker-item {
+            padding: 0 3rem;
+            white-space: nowrap;
+            color: var(--text-secondary);
+        }
+
+        .ticker-item .up {
+            color: var(--success-color);
+        }
+
+        .ticker-item .down {
+            color: var(--danger-color);
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 8, 20, 0.95);
+            backdrop-filter: blur(10px);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 0 50px var(--glow-color), 0 0 100px var(--glow-color);
+            animation: modalSlideIn 0.4s ease-out;
+            text-align: center;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-ai-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 30px var(--glow-color);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px var(--glow-color);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 50px var(--glow-color);
+            }
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-notice {
+            color: var(--warning-color);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .modal-btn {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            color: var(--bg-dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px var(--glow-color);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px var(--glow-color);
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid var(--primary-color);
+            padding: 1.5rem;
+            z-index: 9998;
+            box-shadow: 0 -5px 30px var(--glow-color);
+            transform: translateY(100%);
+            transition: transform 0.4s ease-out;
+        }
+
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+
+        .cookie-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-text h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .cookie-text p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cookie-text a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .cookie-text a:hover {
+            color: var(--primary-color);
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .cookie-btn.accept {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--bg-dark);
+            box-shadow: 0 3px 15px var(--glow-color);
+        }
+
+        .cookie-btn.accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px var(--glow-color);
+        }
+
+        .cookie-btn.decline {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--text-secondary);
+        }
+
+        .cookie-btn.decline:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+            }
+
+            .cookie-btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-background"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/ai.gif" alt="Avatar IA">
+
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Inteligencia de Acciones IA</a></li>
+                <li><a href="index.html#analysis">Análisis IA</a></li>
+                <li><a href="index.html#insights">Perspectivas del Mercado</a></li>
+                <li><a href="index.html#research">Investigación</a></li>
+                <li><a href="index.html#about">Acerca de</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Ticker -->
+    <div class="ticker">
+        <div class="ticker-content">
+            <div class="ticker-item">NVDA <span class="up">▲ +2.5%</span></div>
+            <div class="ticker-item">TSLA <span class="up">▲ +1.8%</span></div>
+            <div class="ticker-item">GOOGL <span class="down">▼ -0.5%</span></div>
+            <div class="ticker-item">MSFT <span class="up">▲ +0.9%</span></div>
+            <div class="ticker-item">AMZN <span class="up">▲ +1.2%</span></div>
+            <div class="ticker-item">AAPL <span class="down">▼ -0.3%</span></div>
+            <div class="ticker-item">AMD <span class="up">▲ +3.1%</span></div>
+            <div class="ticker-item">NVDA <span class="up">▲ +2.5%</span></div>
+            <div class="ticker-item">TSLA <span class="up">▲ +1.8%</span></div>
+            <div class="ticker-item">GOOGL <span class="down">▼ -0.5%</span></div>
+            <div class="ticker-item">MSFT <span class="up">▲ +0.9%</span></div>
+            <div class="ticker-item">AMZN <span class="up">▲ +1.2%</span></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container fade-in">
+            <img src="images/ai.gif" alt="Avatar IA" class="hero-ai-avatar">
+            <h1>Inteligencia de Acciones IA</h1>
+            <p>Plataforma de Datos e Información del Mercado Impulsada por IA</p>
+            <p style="font-size: 1rem; margin-bottom: 2rem;">Utilice la tecnología de inteligencia artificial para procesar y organizar datos de mercado disponibles públicamente. La plataforma proporciona análisis de datos e información solo con fines de referencia.</p>
+
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Ingrese símbolo de acción o nombre de empresa (ej. AAPL, Tesla)">
+                <button class="search-btn">Obtener Datos de Análisis</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="analysis">
+        <div class="container">
+            <h2 class="section-title">Características de Análisis de Datos IA</h2>
+            <p class="section-subtitle">Funciones impulsadas por IA para procesar y organizar información del mercado</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Reconocimiento de Patrones</h3>
+                    <p>Los algoritmos de IA analizan patrones en datos históricos del mercado. La información mostrada es solo para fines de referencia.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Procesamiento de Datos</h3>
+                    <p>Procesamiento y organización automatizada de datos de mercado y noticias disponibles públicamente.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Filtrado de Acciones</h3>
+                    <p>Filtrado y categorización de acciones impulsados por IA basados en varios criterios de datos para referencia.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Visualización de Tendencias</h3>
+                    <p>Los algoritmos de aprendizaje automático visualizan tendencias y patrones históricos en datos disponibles públicamente.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚠️</div>
+                    <h3>Datos de Volatilidad</h3>
+                    <p>Visualización de métricas de volatilidad e información relacionada disponible públicamente solo para referencia.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Datos Multi-Mercado</h3>
+                    <p>Acceso a información organizada disponible públicamente en diferentes sectores y mercados globales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">Estadísticas de la Plataforma</h2>
+            <p class="section-subtitle">Plataforma de IA que proporciona datos de mercado organizados y visualización de información</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Acciones en la Base de Datos</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Fuentes de Datos</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Sectores del Mercado</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">Diario</div>
+                    <div class="stat-label">Actualizaciones de Datos</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Herramientas de Análisis</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Acceso a la Plataforma</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Data Tables -->
+    <section class="market-data" id="research">
+        <div class="container">
+            <h2 class="section-title">Visualización de Datos del Mercado</h2>
+            <p class="section-subtitle">Visualización de datos de muestra en diferentes sectores - solo con fines de referencia</p>
+
+            <div class="tables-grid">
+                <!-- Tech Stocks Table -->
+                <div class="table-container">
+                    <h3 class="table-title">Datos de Muestra - Sector Tecnológico</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rango</th>
+                                <th>Símbolo</th>
+                                <th>Empresa</th>
+                                <th>Puntuación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="rank">1</td>
+                                <td class="symbol">NVDA</td>
+                                <td>NVIDIA Corp</td>
+                                <td class="score">98.5</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">2</td>
+                                <td class="symbol">TSLA</td>
+                                <td>Tesla Inc</td>
+                                <td class="score">96.2</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">3</td>
+                                <td class="symbol">GOOGL</td>
+                                <td>Alphabet Inc</td>
+                                <td class="score">94.8</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">4</td>
+                                <td class="symbol">MSFT</td>
+                                <td>Microsoft Corp</td>
+                                <td class="score">93.7</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">5</td>
+                                <td class="symbol">AMZN</td>
+                                <td>Amazon.com Inc</td>
+                                <td class="score">92.1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Growth Sector Table -->
+                <div class="table-container">
+                    <h3 class="table-title">Datos de Muestra - Sector de Crecimiento</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rango</th>
+                                <th>Símbolo</th>
+                                <th>Sector</th>
+                                <th>Puntuación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="rank">1</td>
+                                <td class="symbol">AMD</td>
+                                <td>Semiconductores</td>
+                                <td class="score">97.3</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">2</td>
+                                <td class="symbol">CRM</td>
+                                <td>Software</td>
+                                <td class="score">95.6</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">3</td>
+                                <td class="symbol">PLTR</td>
+                                <td>Análisis de Datos</td>
+                                <td class="score">94.2</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">4</td>
+                                <td class="symbol">SNOW</td>
+                                <td>Computación en la Nube</td>
+                                <td class="score">92.8</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">5</td>
+                                <td class="symbol">NET</td>
+                                <td>Ciberseguridad</td>
+                                <td class="score">91.5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Value Sector Table -->
+                <div class="table-container">
+                    <h3 class="table-title">Datos de Muestra - Sector de Valor</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rango</th>
+                                <th>Símbolo</th>
+                                <th>Sector</th>
+                                <th>Puntuación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="rank">1</td>
+                                <td class="symbol">INTC</td>
+                                <td>Tecnología</td>
+                                <td class="score">89.4</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">2</td>
+                                <td class="symbol">BAC</td>
+                                <td>Financiero</td>
+                                <td class="score">87.9</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">3</td>
+                                <td class="symbol">XOM</td>
+                                <td>Energía</td>
+                                <td class="score">86.3</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">4</td>
+                                <td class="symbol">JNJ</td>
+                                <td>Salud</td>
+                                <td class="score">85.7</td>
+                            </tr>
+                            <tr>
+                                <td class="rank">5</td>
+                                <td class="symbol">PG</td>
+                                <td>Bienes de Consumo</td>
+                                <td class="score">84.2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="insights" id="insights">
+        <div class="container">
+            <h2 class="section-title">Capacidades de la Plataforma</h2>
+            <p class="section-subtitle">Procesamiento de datos impulsado por IA y funciones de organización de información</p>
+
+            <div class="insights-grid">
+                <div class="insight-card">
+
+                    <h3>Reconocimiento de Patrones</h3>
+                    <p>Los algoritmos de IA identifican patrones en datos históricos. La información proporcionada es solo para fines de referencia.</p>
+                </div>
+
+                <div class="insight-card">
+
+                    <h3>Análisis de Sentimiento</h3>
+                    <p>Los sistemas de IA procesan noticias disponibles públicamente y datos de redes sociales para analizar tendencias de sentimiento del mercado.</p>
+                </div>
+
+                <div class="insight-card">
+
+                    <h3>Monitoreo en Tiempo Real</h3>
+                    <p>Monitoreo automatizado de cambios de datos de mercado disponibles públicamente. Los datos pueden tener retrasos.</p>
+                </div>
+
+                <div class="insight-card">
+
+                    <h3>Datos Históricos</h3>
+                    <p>Análisis de aprendizaje automático de patrones históricos del mercado. El rendimiento pasado no indica resultados futuros.</p>
+                </div>
+
+                <div class="insight-card">
+
+                    <h3>Cobertura Global</h3>
+                    <p>Organización impulsada por IA de información de mercado disponible públicamente en diferentes regiones globales.</p>
+                </div>
+
+                <div class="insight-card">
+
+                    <h3>Agregación de Datos</h3>
+                    <p>Compilación y organización de IA de datos de mercado disponibles públicamente de múltiples fuentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="about">
+        <div class="container">
+            <h2>Acceda a la Plataforma de Datos del Mercado</h2>
+            <p>Obtenga análisis de datos del mercado impulsado por IA y visualización de información organizada.
+            </p>
+            <button class="cta-btn" onclick="openModal()">Obtener Acceso a los Datos</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Inteligencia de Acciones IA</h3>
+                    <p style="color: var(--text-secondary);">Plataforma de Datos e Información del Mercado Impulsada por IA</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="">Política de Privacidad</a></li>
+                        <li><a href="">Términos de Servicio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Inteligencia de Acciones IA. Impulsado por Tecnología Avanzada de Aprendizaje Automático.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>🍪 Aviso de Cookies</h4>
+                <p>Usamos cookies para mejorar su experiencia de navegación y analizar el tráfico del sitio web. Al continuar usando este sitio web, usted acepta nuestra
+                    <a href="">Política de Privacidad</a> y
+                    <a href="">Términos de Servicio</a>.
+                </p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn decline" onclick="declineCookies()">Rechazar</button>
+                <button class="cookie-btn accept" onclick="acceptCookies()">Aceptar Todas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="analysisModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <img src="images/ai.gif" alt="Avatar IA" class="modal-ai-avatar">
+            <h2 class="modal-title">El Informe de Análisis de Acciones está Listo</h2>
+            <p class="modal-text">Para obtener un informe detallado de acciones, por favor agregue el asistente de IA. También recibirá las 3 acciones de calidad recomendadas de hoy.</p>
+
+            <button class="modal-btn" onclick="contactTeam()">
+                Obtener el informe de análisis vía WhatsApp
+            </button>
+        </div>
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="js_1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17669126234');
+    </script>
+    <script async="" src="js_2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-733163110');
+    </script>
+    <script async="" src="js_2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-733163110');
+    </script>
+    <!-- Google tag (gtag.js) -->
+<script async="" src="js_3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17652201708');
+</script>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .stat-card, .table-container, .insight-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('analysisModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            document.getElementById('analysisModal').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+      
+        
+
+        // Close modal when clicking outside
+        document.getElementById('analysisModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Search functionality
+        document.querySelector('.search-btn').addEventListener('click', function () {
+            const searchInput = document.querySelector('.search-input');
+            if (searchInput.value.trim()) {
+                openModal();
+                // Here you would implement actual search/analysis functionality
+            } else {
+                // Custom alert dialog instead of alert()
+                showAlertDialog('Por favor ingrese un símbolo de acción o nombre de empresa para ver los datos');
+            }
+        });
+
+        // Custom alert dialog function
+        function showAlertDialog(message) {
+            const alertModal = document.createElement('div');
+            alertModal.className = 'modal active';
+            alertModal.innerHTML = `
+                <div class="modal-content" style="max-width: 400px;">
+                    <h2 class="modal-title">Aviso</h2>
+                    <p class="modal-text">${message}</p>
+                    <button class="modal-btn" onclick="this.closest('.modal').remove(); document.body.style.overflow = 'auto';">Aceptar</button>
+                </div>
+            `;
+            document.body.appendChild(alertModal);
+            document.body.style.overflow = 'hidden';
+
+            // Close on click outside
+            alertModal.addEventListener('click', function(e) {
+                if (e.target === alertModal) {
+                    alertModal.remove();
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Enter key support for search
+        document.querySelector('.search-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-btn').click();
+            }
+        });
+
+        // Cookie consent tracking (session-based, no localStorage available in iframe)
+        let cookieConsentGiven = false;
+
+        // Cookie Banner Functions
+        function showCookieBanner() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000); // Show after 1 second
+        }
+
+        function hideCookieBanner() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            cookieBanner.classList.remove('show');
+        }
+
+        function acceptCookies() {
+            // Set cookie consent for this session
+            cookieConsentGiven = true;
+
+            // Hide banner
+            hideCookieBanner();
+
+            // Here you can enable analytics and other cookies
+            console.log('Cookies aceptadas');
+        }
+
+        function declineCookies() {
+            // Set cookie decline for this session
+            cookieConsentGiven = true;
+
+            // Hide banner
+            hideCookieBanner();
+
+            // Here you can disable non-essential cookies
+            console.log('Cookies rechazadas');
+        }
+
+        // Check cookie consent on page load
+        window.addEventListener('load', function () {
+            // Show banner if user hasn't made a choice in this session
+            if (!cookieConsentGiven) {
+                showCookieBanner();
+            } else {
+                console.log('Estado de consentimiento de cookies: dado');
+            }
+        });
+    </script>
+
+
+</body></html>
