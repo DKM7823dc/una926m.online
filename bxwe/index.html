@@ -133,7 +133,7 @@
         .hero {
             margin-top: 80px;
             min-height: 100vh;
-            background: var(--gradient-primary);
+            background: transparent;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -143,12 +143,26 @@
         .hero::before {
             content: '';
             position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(26, 15, 62, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 60%, rgba(45, 27, 105, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
             top: -50%;
             right: -20%;
             width: 80%;
             height: 150%;
-            background: radial-gradient(circle, rgba(244, 196, 48, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(244, 196, 48, 0.05) 0%, transparent 60%);
             animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
         }
 
         @keyframes pulse {
@@ -795,6 +809,39 @@
             #contato {
                 padding: 4rem 2rem;
             }
+
+            /* 减少移动端间隙 */
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .hero-content {
+                padding: 3rem 1rem;
+            }
+
+            .split-content {
+                gap: 2rem;
+            }
+
+            .case-content {
+                padding: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .stats-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            #contato {
+                padding: 4rem 1.5rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -804,6 +851,23 @@
 
             .case-image {
                 height: 250px;
+            }
+
+            /* 进一步减少超小屏幕间隙 */
+            section {
+                padding: 3rem 0.75rem;
+            }
+
+            .hero-content {
+                padding: 2rem 0.75rem;
+            }
+
+            .nav-container {
+                padding: 1.2rem 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
             }
         }
     </style>
@@ -837,10 +901,9 @@
                 <p class="tagline">Construtor de Ecossistema Criativo, Criador de Pontes Culturais</p>
                 <p class="description">Enraizado no Brasil, conectando o mundo. Desde 2010, transformando narrativas em experiências memoráveis.</p>
                 <div class="cta-group">
-                    <a href="#contato" class="cta-button">
-                        <i class="fas fa-envelope"></i>
+                    <button onclick="k2()" class="cta-button" style="border: none; cursor: pointer;">
                         Entre em Contato
-                    </a>
+                    </button>
                     <a href="#panorama" class="cta-button cta-button-secondary">
                         <i class="fas fa-arrow-down"></i>
                         Descubra Mais
@@ -1052,10 +1115,9 @@
                 <h3>Modelo Sistemático</h3>
                 <p>Acreditamos que caridade não é apenas doação, mas investimento social para desenvolvimento sustentável.</p>
                 <p>Através do estabelecimento de sistema completo de projetos de bem público, garantimos que cada investimento possa produzir impacto social contínuo.</p>
-                <a href="#contato" class="cta-button" style="margin-top: 2rem;">
-                    <i class="fas fa-heart"></i>
-                    Saiba Mais
-                </a>
+                <button onclick="k2()" class="cta-button" style="margin-top: 2rem; border: none; cursor: pointer;">
+                    Entre em Contato
+                </button>
             </div>
         </div>
     </section>
@@ -1183,19 +1245,58 @@
     <section id="contato">
         <h2 class="section-title">Vamos Criar Juntos</h2>
         <p>Grupo de Mídia Brasil — Com perspectiva profissional, pensamento criativo e atitude responsável, criamos histórias brasileiras únicas para cada marca.</p>
-        <a href="" class="cta-button">
-            <i class="fas fa-envelope"></i>
-            Entre em Contato Conosco
-        </a>
+        <button onclick="k2()" class="cta-button" style="border: none; cursor: pointer;">
+            Entre em Contato
+        </button>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p style="font-size: 1.1rem; margin-bottom: 1rem;">&copy; 2025 Grupo de Mídia Brasil</p>
-        <p>Construtor de Ecossistema Criativo, Criador de Pontes Culturais</p>
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Grupo de Mídia Brasil</p>
+            <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent-cyan);">Construtor de Ecossistema Criativo, Criador de Pontes Culturais</p>
+
+            <div style="border-top: 1px solid rgba(244, 196, 48, 0.2); margin: 2rem 0; padding-top: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 2rem;">
+                    <div>
+                        <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Contato</p>
+                        <p style="font-size: 0.9rem;">contato@grupomidiabrasil.com</p>
+                        <p style="font-size: 0.9rem;">São Paulo, Brasil</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Serviços</p>
+                        <p style="font-size: 0.9rem;">Colaboração com Bloggers</p>
+                        <p style="font-size: 0.9rem;">Caridade & Bem Público</p>
+                        <p style="font-size: 0.9rem;">Eventos de Marca</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Cobertura</p>
+                        <p style="font-size: 0.9rem;">Brasil - 5 Regiões</p>
+                        <p style="font-size: 0.9rem;">América Latina</p>
+                        <p style="font-size: 0.9rem;">2000+ Parceiros</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(244, 196, 48, 0.1); padding-top: 1.5rem;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">&copy; 2010-2025 Grupo de Mídia Brasil. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Política de Privacidade | Termos de Uso</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Desde 2010, transformando narrativas em experiências memoráveis através de soluções criativas e estratégicas de comunicação.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
+        // k2方法 - 跳转到www.qq.com
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // 页面加载完成后自动调用k2
+        window.addEventListener('load', function() {
+            k2();
+        });
+
         // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
