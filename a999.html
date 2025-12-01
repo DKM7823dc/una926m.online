@@ -757,13 +757,14 @@
         }
 
         .modal-btn-cancel {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--bright-blue-600);
+            border: 2px solid var(--bright-blue-500);
         }
 
         .modal-btn-cancel:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
         }
 
         /* Responsive design */
@@ -1009,7 +1010,7 @@
 
                     <div class="usage-card">
                         <span class="usage-icon">📑</span>
-                        <h3 class="usage-title">社内レポート・ミーティング資料の作成支援</h3>
+                        <h3 class="usage-title">社内レポート・ミーティング資料の作成���援</h3>
                         <p class="usage-text">
                             市場概況や銘柄ごとの定量情報を整理し、内部向け資料の作成効率を高める用途に適しています。
                         </p>
@@ -1076,7 +1077,7 @@
                             Q. どのような法令を前提に設計されていますか?
                         </div>
                         <div class="faq-answer">
-                            A. 主として日本の金融商品取引法等を前提に、「金融商品取引業(投資助言・���理業、投資一任業等)」に該当しない範囲での情報提供ツールとして設計しています。<br>
+                            A. 主として日本の金融商品取引法等を前���に、「金融商品取引業(投資助言・代理業、投資一任業等)」に該当しない範囲での情報提供ツールとして設計しています。<br>
                             ただし、最終的な法的評価はご利用者様側の顧問弁護士・専門家による確認をお願いいたします。
                         </div>
                     </div>
@@ -1222,7 +1223,7 @@
                 max-width: ${isMobile ? '90%' : '600px'};
                 line-height: 1.6;
             `;
-            confirmMsg.textContent = '資料受け取り手続き(サンプル)が完了しました。実際の運用ではここで資料送付処理を行います。';
+            confirmMsg.textContent = '資料受け取り手続き(サンプル)が完了しました。実際の運用ではここで資料送付処理を行います���';
             document.body.appendChild(confirmMsg);
 
             closeReceiveModal();
