@@ -14,11 +14,11 @@
             --deep-blue-600: #004d6b;
             --deep-blue-500: #005a7d;
             --deep-blue-400: #0077a3;
-            --yellow-500: #FFD700;
-            --yellow-400: #FFED4E;
-            --yellow-600: #FFC107;
-            --yellow-700: #FFAB00;
-            --cyan-accent: #00D9FF;
+            --bright-blue-500: #3B82F6;
+            --bright-blue-400: #60A5FA;
+            --bright-blue-600: #2563EB;
+            --bright-blue-300: #93C5FD;
+            --cyan-accent: #06B6D4;
             --white: #ffffff;
             --gray-100: #f8f9fa;
             --gray-200: #e9ecef;
@@ -34,8 +34,8 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             line-height: 1.7;
-            color: var(--white);
-            background: var(--deep-blue-900);
+            color: #1a1a1a;
+            background: var(--white);
             overflow-x: hidden;
         }
 
@@ -59,9 +59,9 @@
             width: 200%;
             height: 200%;
             background:
-                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(0, 119, 163, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
             animation: drift 20s ease-in-out infinite;
         }
 
@@ -77,11 +77,12 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 26, 46, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.15);
             padding: 1rem 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .nav-container {
@@ -97,7 +98,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--yellow-500), var(--cyan-accent));
+            background: linear-gradient(135deg, var(--bright-blue-600), var(--bright-blue-400));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -105,20 +106,20 @@
         }
 
         .nav-cta {
-            background: linear-gradient(135deg, var(--yellow-600), var(--yellow-400));
-            color: var(--deep-blue-900);
+            background: linear-gradient(135deg, var(--bright-blue-600), var(--bright-blue-400));
+            color: var(--white);
             padding: 0.8rem 2rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
         }
 
         /* Main content container */
@@ -135,6 +136,7 @@
             align-items: center;
             position: relative;
             padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
         }
 
         .hero-container {
@@ -147,9 +149,9 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(135deg, var(--deep-blue-600), var(--deep-blue-500));
-            border: 2px solid var(--yellow-500);
-            color: var(--yellow-500);
+            background: rgba(59, 130, 246, 0.08);
+            border: 2px solid var(--bright-blue-500);
+            color: var(--bright-blue-600);
             padding: 0.6rem 1.5rem;
             border-radius: 30px;
             font-size: 0.9rem;
@@ -159,8 +161,8 @@
         }
 
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+            0%, 100% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
         }
 
         .hero-subtitle {
@@ -175,7 +177,7 @@
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--yellow-400) 100%);
+            background: linear-gradient(135deg, var(--deep-blue-900) 0%, var(--bright-blue-600) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -183,7 +185,7 @@
 
         .hero-description {
             font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(26, 26, 26, 0.75);
             line-height: 1.9;
             margin-bottom: 3rem;
             max-width: 900px;
@@ -196,8 +198,8 @@
             gap: 2rem;
             margin: 3rem 0;
             padding: 3rem 0;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .stat-box {
@@ -213,7 +215,7 @@
             transform: translateY(-50%);
             width: 1px;
             height: 60%;
-            background: rgba(255, 215, 0, 0.2);
+            background: rgba(59, 130, 246, 0.2);
         }
 
         .stat-box:last-child::after {
@@ -224,14 +226,14 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
             font-weight: 900;
-            color: var(--yellow-500);
+            color: var(--bright-blue-400);
             display: block;
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(26, 26, 26, 0.65);
             line-height: 1.5;
         }
 
@@ -240,27 +242,27 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            background: linear-gradient(135deg, var(--yellow-600), var(--yellow-400));
-            color: var(--deep-blue-900);
+            background: linear-gradient(135deg, var(--bright-blue-600), var(--bright-blue-400));
+            color: var(--white);
             padding: 1.5rem 3rem;
             border-radius: 50px;
             text-decoration: none;
             font-size: 1.3rem;
             font-weight: 900;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
             border: none;
             cursor: pointer;
         }
 
         .cta-primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
         }
 
         .disclaimer-note {
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(26, 26, 26, 0.5);
             margin-top: 1.5rem;
         }
 
@@ -268,6 +270,7 @@
         .features-section {
             padding: 6rem 2rem;
             position: relative;
+            background: linear-gradient(180deg, var(--white) 0%, rgba(59, 130, 246, 0.02) 50%, var(--white) 100%);
         }
 
         .section-header {
@@ -279,7 +282,7 @@
             font-size: 3rem;
             font-weight: 900;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--yellow-500), var(--cyan-accent));
+            background: linear-gradient(135deg, var(--bright-blue-500), var(--cyan-accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -287,7 +290,7 @@
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(26, 26, 26, 0.65);
         }
 
         .features-grid {
@@ -299,13 +302,14 @@
         }
 
         .feature-item {
-            background: linear-gradient(135deg, rgba(0, 61, 92, 0.6), rgba(0, 45, 74, 0.4));
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            background: var(--white);
+            border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: 20px;
             padding: 3rem;
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.08);
         }
 
         .feature-item::before {
@@ -315,7 +319,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), transparent);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), transparent);
             opacity: 0;
             transition: opacity 0.4s;
         }
@@ -327,7 +331,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(135deg, var(--yellow-500), var(--cyan-accent));
+            background: linear-gradient(135deg, var(--bright-blue-500), var(--white));
             border-radius: 20px;
             z-index: -1;
             opacity: 0;
@@ -337,7 +341,7 @@
         .feature-item:hover {
             transform: translateY(-8px);
             border-color: transparent;
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
         }
 
         .feature-item:hover::before {
@@ -352,20 +356,20 @@
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             display: inline-block;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(0, 217, 255, 0.1));
+            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.1));
             width: 90px;
             height: 90px;
             line-height: 90px;
             text-align: center;
             border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
         .feature-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--yellow-500);
+            color: var(--bright-blue-400);
             margin-bottom: 1.2rem;
             position: relative;
             padding-bottom: 1rem;
@@ -378,13 +382,13 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, var(--yellow-500), transparent);
+            background: linear-gradient(90deg, var(--bright-blue-400), transparent);
             border-radius: 2px;
         }
 
         .feature-description {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(26, 26, 26, 0.75);
             line-height: 2;
             position: relative;
             padding-left: 1.2rem;
@@ -397,7 +401,7 @@
             top: 0.5rem;
             bottom: 0.5rem;
             width: 3px;
-            background: linear-gradient(180deg, var(--yellow-500), transparent);
+            background: linear-gradient(180deg, var(--bright-blue-400), transparent);
             border-radius: 2px;
         }
 
@@ -410,12 +414,22 @@
         /* Usage section */
         .usage-section {
             padding: 6rem 2rem;
-            background: linear-gradient(180deg, transparent, rgba(0, 45, 74, 0.3), transparent);
+            background: linear-gradient(135deg, var(--bright-blue-600), var(--bright-blue-500));
         }
 
         .usage-container {
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .usage-section .section-title {
+            background: none;
+            color: var(--white);
+            -webkit-text-fill-color: var(--white);
+        }
+
+        .usage-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .usage-grid {
@@ -426,16 +440,17 @@
         }
 
         .usage-card {
-            background: linear-gradient(135deg, var(--deep-blue-700), var(--deep-blue-600));
-            border-left: 4px solid var(--yellow-500);
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 4px solid var(--white);
             border-radius: 15px;
             padding: 2.5rem;
             transition: all 0.3s;
+            backdrop-filter: blur(10px);
         }
 
         .usage-card:hover {
             transform: translateX(10px);
-            box-shadow: -5px 5px 30px rgba(255, 215, 0, 0.2);
+            box-shadow: -5px 5px 30px rgba(255, 255, 255, 0.3);
         }
 
         .usage-icon {
@@ -447,13 +462,13 @@
         .usage-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--yellow-500);
+            color: var(--bright-blue-600);
             margin-bottom: 1rem;
         }
 
         .usage-text {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(26, 26, 26, 0.75);
             line-height: 1.8;
         }
 
@@ -472,23 +487,24 @@
         }
 
         .faq-item {
-            background: linear-gradient(135deg, rgba(0, 61, 92, 0.5), rgba(0, 45, 74, 0.3));
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            background: var(--white);
+            border: 1px solid rgba(59, 130, 246, 0.15);
             border-radius: 15px;
             margin-bottom: 1.5rem;
             overflow: hidden;
             transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.05);
         }
 
         .faq-item:hover {
-            border-color: var(--yellow-500);
+            border-color: var(--bright-blue-400);
         }
 
         .faq-question {
             padding: 1.8rem 2rem;
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--deep-blue-900);
             cursor: pointer;
             user-select: none;
             transition: all 0.3s;
@@ -500,12 +516,12 @@
         .faq-question::after {
             content: '▼';
             font-size: 0.8rem;
-            color: var(--yellow-500);
+            color: var(--bright-blue-400);
             transition: transform 0.3s;
         }
 
         .faq-question:hover {
-            background: rgba(255, 215, 0, 0.05);
+            background: rgba(59, 130, 246, 0.05);
         }
 
         .faq-item.active .faq-question::after {
@@ -517,7 +533,7 @@
             max-height: 0;
             overflow: hidden;
             transition: all 0.4s ease-out;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(26, 26, 26, 0.75);
             font-size: 1rem;
             line-height: 1.8;
         }
@@ -530,9 +546,9 @@
         /* Disclaimer section */
         .disclaimer-section {
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(0, 45, 74, 0.2));
-            border-top: 2px solid var(--yellow-600);
-            border-bottom: 2px solid var(--yellow-600);
+            background: rgba(59, 130, 246, 0.04);
+            border-top: 2px solid rgba(59, 130, 246, 0.2);
+            border-bottom: 2px solid rgba(59, 130, 246, 0.2);
         }
 
         .disclaimer-container {
@@ -543,7 +559,7 @@
         .disclaimer-title {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--yellow-500);
+            color: var(--bright-blue-400);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -552,7 +568,7 @@
 
         .disclaimer-content {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(26, 26, 26, 0.75);
             line-height: 2;
         }
 
@@ -569,32 +585,33 @@
         }
 
         .contact-box {
-            background: linear-gradient(135deg, var(--deep-blue-700), var(--deep-blue-600));
-            border: 2px solid var(--yellow-500);
+            background: var(--white);
+            border: 2px solid rgba(59, 130, 246, 0.2);
             border-radius: 25px;
             padding: 4rem 3rem;
             margin-top: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
         }
 
         .contact-description {
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(26, 26, 26, 0.75);
             line-height: 1.9;
             margin-bottom: 3rem;
         }
 
         .resource-list {
             text-align: left;
-            background: rgba(0, 26, 46, 0.5);
+            background: rgba(59, 130, 246, 0.04);
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 3rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .resource-list p {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(26, 26, 26, 0.8);
             margin-bottom: 0.8rem;
             padding-left: 1.5rem;
             position: relative;
@@ -604,13 +621,13 @@
             content: '▸';
             position: absolute;
             left: 0;
-            color: var(--yellow-500);
+            color: var(--bright-blue-400);
             font-weight: bold;
         }
 
         .form-disclaimer {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(26, 26, 26, 0.55);
             margin-top: 1.5rem;
             line-height: 1.6;
         }
@@ -618,9 +635,10 @@
         /* Footer */
         .footer {
             background: var(--deep-blue-900);
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
             padding: 3rem 2rem 2rem;
             text-align: center;
+            color: var(--white);
         }
 
         .footer-content {
@@ -642,14 +660,14 @@
         }
 
         .footer-links a {
-            color: var(--yellow-500);
+            color: var(--bright-blue-400);
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--yellow-400);
+            color: var(--bright-blue-300);
             text-decoration: underline;
         }
 
@@ -676,13 +694,13 @@
         }
 
         .modal-content {
-            background: linear-gradient(135deg, var(--deep-blue-700), var(--deep-blue-600));
-            border: 2px solid var(--yellow-500);
+            background: var(--white);
+            border: 2px solid var(--bright-blue-500);
             border-radius: 20px;
             padding: 3rem;
             max-width: 550px;
             width: 90%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             animation: modalSlideIn 0.4s ease-out;
         }
 
@@ -699,14 +717,14 @@
 
         .modal-title {
             font-size: 1.8rem;
-            color: var(--yellow-500);
+            color: var(--bright-blue-400);
             margin-bottom: 1.5rem;
             font-weight: 700;
         }
 
         .modal-text {
             font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(26, 26, 26, 0.75);
             line-height: 1.8;
             margin-bottom: 2.5rem;
         }
@@ -728,14 +746,14 @@
         }
 
         .modal-btn-confirm {
-            background: linear-gradient(135deg, var(--yellow-600), var(--yellow-400));
-            color: var(--deep-blue-900);
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, var(--bright-blue-600), var(--bright-blue-400));
+            color: var(--white);
+            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
         }
 
         .modal-btn-confirm:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
         }
 
         .modal-btn-cancel {
@@ -872,7 +890,7 @@
             <div class="hero-container">
                 <div class="badge-tag">
                     <span>🤖</span>
-                    <span>AI株式ア システム</span>
+                    <span>AI株式アナリシスシステム</span>
                 </div>
 
                 <div class="hero-subtitle">売買判断を支える「客観的なデータ分析」</div>
@@ -901,7 +919,7 @@
 
                 <a href="#contact" class="cta-primary">
                     <span>📊</span>
-                    <span>デモ・資料請求について問い合わせる（無料）</span>
+                    <span>デモ・資料請求について問い合わせる(無料)</span>
                 </a>
 
                 <p class="disclaimer-note">
@@ -1001,7 +1019,7 @@
                         <span class="usage-icon">🧮</span>
                         <h3 class="usage-title">ポートフォリオモニタリング</h3>
                         <p class="usage-text">
-                            保有銘柄群のリスク指標や相関を継続的にチェックし、リスク管理の���助とすることができます。
+                            保有銘柄群のリスク指標や相関を継続的にチェックし、リスク管理の補助とすることができます。
                         </p>
                     </div>
 
@@ -1025,7 +1043,7 @@
                 <div class="faq-list">
                     <div class="faq-item">
                         <div class="faq-question">
-                            Q. 本サービスは投資助言業や投資一任業に該当しますか？
+                            Q. 本サービスは投資助言業や投資一任業に該当しますか?
                         </div>
                         <div class="faq-answer">
                             A. いいえ。本サービスは、日本株に関する定量データや分析結果を画面上に表示する「情報提供ツール」です。<br>
@@ -1035,7 +1053,7 @@
 
                     <div class="faq-item">
                         <div class="faq-question">
-                            Q. 将来の運用成績はどの程度期待できますか？
+                            Q. 将来の運用成績はどの程度期待できますか?
                         </div>
                         <div class="faq-answer">
                             A. 本サービスは、将来の投資成果や損益を保証するものではありません。<br>
@@ -1045,7 +1063,7 @@
 
                     <div class="faq-item">
                         <div class="faq-question">
-                            Q. 個人投資家でも利用できますか？
+                            Q. 個人投資家でも利用できますか?
                         </div>
                         <div class="faq-answer">
                             A. はい、基本的な金融リテラシーを有し、株式投資のリスクを理解されている方であればご利用いただけます。<br>
@@ -1055,10 +1073,10 @@
 
                     <div class="faq-item">
                         <div class="faq-question">
-                            Q. どのような法令を前提に設計されていますか？
+                            Q. どのような法令を前提に設計されていますか?
                         </div>
                         <div class="faq-answer">
-                            A. 主として日本の金融商品取引法等を前提に、「金融商品取引業（投資助言・代理業、投資一任業等）」に該当しない範囲での情報提供ツールとして設計しています。<br>
+                            A. 主として日本の金融商品取引法等を前提に、「金融商品取引業(投資助言・���理業、投資一任業等)」に該当しない範囲での情報提供ツールとして設計しています。<br>
                             ただし、最終的な法的評価はご利用者様側の顧問弁護士・専門家による確認をお願いいたします。
                         </div>
                     </div>
@@ -1070,7 +1088,7 @@
             <div class="disclaimer-container">
                 <h3 class="disclaimer-title">
                     <span>⚠️</span>
-                    <span>重要事項・免責事項（必ずお読みください）</span>
+                    <span>重要事項・免責事項(必ずお読みください)</span>
                 </h3>
                 <div class="disclaimer-content">
                     <p>
@@ -1098,8 +1116,8 @@
                 <div class="section-header">
                     <h2 class="section-title">AI株式量的分析 資料のご案内</h2>
                     <p class="section-subtitle">
-                        日本AI株式量的分析プラットフォームの概要資料（サンプル）についてのご案内です。<br>
-                        以下のボタンから「資料を受け取る（领取資料）」手続きを進める前に、内容をご確認ください。
+                        日本AI株式量的分析プラットフォームの概要資料(サンプル)についてのご案内です。<br>
+                        以下のボタンから「資料を受け取る(领取資料)」手続きを進める前に、内容をご確認ください。
                     </p>
                 </div>
 
@@ -1107,12 +1125,12 @@
                     <div class="resource-list">
                         <p>日本株に特化したAI量的分析のコンセプト概要</p>
                         <p>主な機能一覧と活用イメージ</p>
-                        <p>コンプライアンス上の位置付け（情報提供ツールとして）</p>
+                        <p>コンプライアンス上の位置付け(情報提供ツールとして)</p>
                     </div>
 
                     <button type="button" class="cta-primary" onclick="showReceiveModal()">
                         <span>📥</span>
-                        <span>資料を受け取る（领取資料）</span>
+                        <span>資料を受け取る(领取資料)</span>
                     </button>
 
                     <p class="form-disclaimer">
@@ -1139,7 +1157,7 @@
         <div class="modal-content">
             <h3 class="modal-title">資料受け取りの最終確認</h3>
             <p class="modal-text">
-                「日本AI株式量的分析プラットフォーム」の概要資料（サンプル）を受け取りますか？<br>
+                「日本AI株式量的分析プラットフォーム」の概要資料(サンプル)を受け取りますか?<br>
                 本資料は情報提供のみを目的としており、特定の投資行動を推奨するものではありません。
             </p>
             <div class="modal-buttons">
@@ -1192,19 +1210,19 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: linear-gradient(135deg, var(--deep-blue-700), var(--deep-blue-600));
-                border: 2px solid var(--yellow-500);
+                background: white;
+                border: 2px solid #3B82F6;
                 padding: ${isMobile ? '1.5rem 1.2rem' : '2rem 3rem'};
                 border-radius: 15px;
-                color: white;
+                color: #1a1a1a;
                 font-size: ${isMobile ? '0.95rem' : '1.1rem'};
                 z-index: 10001;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
                 text-align: center;
                 max-width: ${isMobile ? '90%' : '600px'};
                 line-height: 1.6;
             `;
-            confirmMsg.textContent = '資料受け取り手続き（サンプル）が完了しました。実際の運用ではここで資料送付処理を行います。';
+            confirmMsg.textContent = '資料受け取り手続き(サンプル)が完了しました。実際の運用ではここで資料送付処理を行います。';
             document.body.appendChild(confirmMsg);
 
             closeReceiveModal();
