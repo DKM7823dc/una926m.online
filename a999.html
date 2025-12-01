@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="日本株に特化したAI株式量的分析プラットフォーム。売買の勧誘や投資助言を行わず、投資判断を支える客観的なデータ分析ツールを提供します。">
+    <title>日本AI株式量的分析プラットフォーム｜日本株に特化したデータ分析ツール</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue-900: #001a2e;
+            --deep-blue-800: #002d4a;
+            --deep-blue-700: #003d5c;
+            --deep-blue-600: #004d6b;
+            --deep-blue-500: #005a7d;
+            --deep-blue-400: #0077a3;
+            --yellow-500: #FFD700;
+            --yellow-400: #FFED4E;
+            --yellow-600: #FFC107;
+            --yellow-700: #FFAB00;
+            --cyan-accent: #00D9FF;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.7;
+            color: var(--white);
+            background: var(--deep-blue-900);
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-animated::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(0, 119, 163, 0.1) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, 5%) rotate(120deg); }
+            66% { transform: translate(-5%, 5%) rotate(240deg); }
+        }
+
+        /* Top navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 1rem 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--yellow-500), var(--cyan-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--yellow-600), var(--yellow-400));
+            color: var(--deep-blue-900);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Main content container */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            padding-top: 80px;
+        }
+
+        /* Hero section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4rem 2rem;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .badge-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--deep-blue-600), var(--deep-blue-500));
+            border: 2px solid var(--yellow-500);
+            color: var(--yellow-500);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--cyan-accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--yellow-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.9;
+            margin-bottom: 3rem;
+            max-width: 900px;
+        }
+
+        /* Statistics grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .stat-box {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-box::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .stat-box:last-child::after {
+            display: none;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--yellow-500);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        /* CTA button */
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, var(--yellow-600), var(--yellow-400));
+            color: var(--deep-blue-900);
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 900;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
+
+        .disclaimer-note {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 1.5rem;
+        }
+
+        /* Features section */
+        .features-section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--yellow-500), var(--cyan-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, rgba(0, 61, 92, 0.6), rgba(0, 45, 74, 0.4));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-item::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--yellow-500), var(--cyan-accent));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            border-color: transparent;
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .feature-item:hover::before {
+            opacity: 1;
+        }
+
+        .feature-item:hover::after {
+            opacity: 0.6;
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(0, 217, 255, 0.1));
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--yellow-500);
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .feature-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--yellow-500), transparent);
+            border-radius: 2px;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 2;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .feature-description::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            bottom: 0.5rem;
+            width: 3px;
+            background: linear-gradient(180deg, var(--yellow-500), transparent);
+            border-radius: 2px;
+        }
+
+        .feature-description br {
+            display: block;
+            content: '';
+            margin-top: 0.8rem;
+        }
+
+        /* Usage section */
+        .usage-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(0, 45, 74, 0.3), transparent);
+        }
+
+        .usage-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .usage-card {
+            background: linear-gradient(135deg, var(--deep-blue-700), var(--deep-blue-600));
+            border-left: 4px solid var(--yellow-500);
+            border-radius: 15px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .usage-card:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 5px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .usage-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .usage-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--yellow-500);
+            margin-bottom: 1rem;
+        }
+
+        .usage-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+        }
+
+        /* FAQ section */
+        .faq-section {
+            padding: 6rem 2rem;
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, rgba(0, 61, 92, 0.5), rgba(0, 45, 74, 0.3));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--yellow-500);
+        }
+
+        .faq-question {
+            padding: 1.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--yellow-500);
+            transition: transform 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease-out;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 2rem 2rem 2rem;
+            max-height: 500px;
+        }
+
+        /* Disclaimer section */
+        .disclaimer-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(0, 45, 74, 0.2));
+            border-top: 2px solid var(--yellow-600);
+            border-bottom: 2px solid var(--yellow-600);
+        }
+
+        .disclaimer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .disclaimer-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--yellow-500);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .disclaimer-content {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 2;
+        }
+
+        /* Contact section */
+        .contact-section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--deep-blue-700), var(--deep-blue-600));
+            border: 2px solid var(--yellow-500);
+            border-radius: 25px;
+            padding: 4rem 3rem;
+            margin-top: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.9;
+            margin-bottom: 3rem;
+        }
+
+        .resource-list {
+            text-align: left;
+            background: rgba(0, 26, 46, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-list p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .resource-list p::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--yellow-500);
+            font-weight: bold;
+        }
+
+        .form-disclaimer {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-blue-900);
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--yellow-500);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow-400);
+            text-decoration: underline;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--deep-blue-700), var(--deep-blue-600));
+            border: 2px solid var(--yellow-500);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 550px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.4s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px) scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--yellow-500);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .modal-text {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-btn-confirm {
+            background: linear-gradient(135deg, var(--yellow-600), var(--yellow-400));
+            color: var(--deep-blue-900);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .modal-btn-confirm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .modal-btn-cancel {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 2rem 1.5rem;
+                width: 95%;
+            }
+
+            .modal-title {
+                font-size: 1.4rem;
+            }
+
+            .modal-text {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .modal-btn {
+                width: 100%;
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stat-box::after {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-primary {
+                font-size: 1.1rem;
+                padding: 1.2rem 2rem;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-cta {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .feature-item,
+            .usage-card {
+                padding: 2rem;
+            }
+
+            .contact-section {
+                padding: 4rem 1rem;
+            }
+
+            .contact-box {
+                padding: 2rem 1rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .resource-list {
+                padding: 1.5rem 1rem;
+            }
+
+            .resource-list p {
+                font-size: 0.9rem;
+                padding-left: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animated"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">AI QUANT</div>
+            <a href="#contact" class="nav-cta">資料請求</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="badge-tag">
+                    <span>🤖</span>
+                    <span>AI株式ア システム</span>
+                </div>
+
+                <div class="hero-subtitle">売買判断を支える「客観的なデータ分析」</div>
+
+                <h1 class="hero-title">日本株のファンダメンタルズとテクニカルをAIで一元分析</h1>
+
+                <p class="hero-description">
+                    日本市場の株価・出来高・財務データ・ニュースなどをAIが多角的に解析し、トレンド・リスク・相関関係を可視化するプロフェッショナル向け分析ツールです。<br>
+                    本サービスは、取引の勧誘や個別銘柄の推奨・投資助言を行うものではなく、投資判断を支援するための客観的なデータ提供を目的としています。
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-value">日本株</span>
+                        <span class="stat-label">国内株式市場データに特化した分析</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">マルチ指標</span>
+                        <span class="stat-label">テクニカル・ファンダメンタル・出来高などを同時評価</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">ダッシュボード</span>
+                        <span class="stat-label">重要指標を一画面で俯瞰</span>
+                    </div>
+                </div>
+
+                <a href="#contact" class="cta-primary">
+                    <span>📊</span>
+                    <span>デモ・資料請求について問い合わせる（無料）</span>
+                </a>
+
+                <p class="disclaimer-note">
+                    ※ 本ページは情報提供を目的としており、特定の金融商品の取得を勧誘するものではありません。
+                </p>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">主な機能</h2>
+                <p class="section-subtitle">プロフェッショナル向けの包括的な分析ツール</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🤖</span>
+                    <h3 class="feature-title">AIによる量的スコアリング</h3>
+                    <p class="feature-description">
+                        株価トレンド、ボラティリティ、出来高、財務指標など複数の要素を統合し、銘柄ごとの量的スコアを自動算出。<br>
+                        あくまで参考指標として提供し、個別の売買を推奨するものではありません。
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">📊</span>
+                    <h3 class="feature-title">バックテスト・シミュレーション</h3>
+                    <p class="feature-description">
+                        過去データに基づき、仮想的なルールベース戦略の動きを検証可能。<br>
+                        過去のシミュレーション結果は将来の成果を保証するものではなく、投資判断の一材料としてご利用いただけます。
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">📈</span>
+                    <h3 class="feature-title">リスク・ドローダウン分析</h3>
+                    <p class="feature-description">
+                        銘柄・ポートフォリオ単位で、価格変動リスクやドローダウンの傾向を可視化。<br>
+                        リスク特性の理解を補助し、過度なリスクテイクを避けるための参考情報を提供します。
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🧩</span>
+                    <h3 class="feature-title">相関・クラスタ分析</h3>
+                    <p class="feature-description">
+                        銘柄間の相関やセクター別の動きを分析し、ポートフォリオ多様化検討の一助となる情報を提示します。<br>
+                        実際の投資配分は、お客様ご自身の判断と責任により行ってください。
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🔔</span>
+                    <h3 class="feature-title">カスタムアラート</h3>
+                    <p class="feature-description">
+                        価格・出来高・テクニカル指標など、事前に設定した条件に基づくアラート機能を提供。<br>
+                        アラートはあくまで条件通知であり、売買シグナルや投資助言ではありません。
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🛡️</span>
+                    <h3 class="feature-title">コンプライアンスを意識した設計</h3>
+                    <p class="feature-description">
+                        本サービスは日本の金融商品取引法等を意識し、「注文の受付・執行」や「個別銘柄の推奨・助言」を行わない分析ツールとして設計されています。<br>
+                        詳細は下部の重要事項・免責事項をご確認ください。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="usage" class="usage-section">
+            <div class="usage-container">
+                <div class="section-header">
+                    <h2 class="section-title">主な活用シーン</h2>
+                    <p class="section-subtitle">多様な投資スタイルに対応</p>
+                </div>
+
+                <div class="usage-grid">
+                    <div class="usage-card">
+                        <span class="usage-icon">🏦</span>
+                        <h3 class="usage-title">機関投資家・プロ投資家の補助ツールとして</h3>
+                        <p class="usage-text">
+                            既存リサーチや社内モデルと組み合わせ、定量的な視点を追加するためのサポートツールとしてご利用いただけます。
+                        </p>
+                    </div>
+
+                    <div class="usage-card">
+                        <span class="usage-icon">📑</span>
+                        <h3 class="usage-title">社内レポート・ミーティング資料の作成支援</h3>
+                        <p class="usage-text">
+                            市場概況や銘柄ごとの定量情報を整理し、内部向け資料の作成効率を高める用途に適しています。
+                        </p>
+                    </div>
+
+                    <div class="usage-card">
+                        <span class="usage-icon">🧮</span>
+                        <h3 class="usage-title">ポートフォリオモニタリング</h3>
+                        <p class="usage-text">
+                            保有銘柄群のリスク指標や相関を継続的にチェックし、リスク管理の���助とすることができます。
+                        </p>
+                    </div>
+
+                    <div class="usage-card">
+                        <span class="usage-icon">🕒</span>
+                        <h3 class="usage-title">スクリーニング・候補銘柄の絞り込み</h3>
+                        <p class="usage-text">
+                            予め定義した条件に基づくスクリーニングにより、詳細分析対象の候補銘柄を効率的に抽出します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="faq-container">
+                <div class="section-header">
+                    <h2 class="section-title">よくあるご質問</h2>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q. 本サービスは投資助言業や投資一任業に該当しますか？
+                        </div>
+                        <div class="faq-answer">
+                            A. いいえ。本サービスは、日本株に関する定量データや分析結果を画面上に表示する「情報提供ツール」です。<br>
+                            個別銘柄の売買やポートフォリオ構成について、特定の取引を推奨するものではなく、注文の受付・執行も行いません。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q. 将来の運用成績はどの程度期待できますか？
+                        </div>
+                        <div class="faq-answer">
+                            A. 本サービスは、将来の投資成果や損益を保証するものではありません。<br>
+                            過去データに基づく分析結果やシミュレーションは、あくまで参考情報であり、将来の結果を示唆・保証するものではない点をご理解ください。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q. 個人投資家でも利用できますか？
+                        </div>
+                        <div class="faq-answer">
+                            A. はい、基本的な金融リテラシーを有し、株式投資のリスクを理解されている方であればご利用いただけます。<br>
+                            ただし、投資判断はお客様ご自身の責任で行っていただき、本サービスの表示結果のみに依拠した投資はお控えください。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Q. どのような法令を前提に設計されていますか？
+                        </div>
+                        <div class="faq-answer">
+                            A. 主として日本の金融商品取引法等を前提に、「金融商品取引業（投資助言・代理業、投資一任業等）」に該当しない範囲での情報提供ツールとして設計しています。<br>
+                            ただし、最終的な法的評価はご利用者様側の顧問弁護士・専門家による確認をお願いいたします。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="disclaimer" class="disclaimer-section">
+            <div class="disclaimer-container">
+                <h3 class="disclaimer-title">
+                    <span>⚠️</span>
+                    <span>重要事項・免責事項（必ずお読みください）</span>
+                </h3>
+                <div class="disclaimer-content">
+                    <p>
+                        本ウェブサイトおよび日本AI株式量的分析プラットフォームは、日本株式市場に関する定量的なデータや指標を提供する「分析・リサーチ支援ツール」であり、
+                        金融商品取引法上の投資助言・代理業、投資一任業その他の金融商品取引業を行うものではありません。
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        当サービスは、特定の株式その他の金融商品の売買、保有、組み換え等を推奨するものではなく、いかなる投資判断・取引行為もお客様ご自身の裁量と責任において行われるものです。
+                        過去データに基づくバックテスト結果やシミュレーション結果は、将来の運用成績を示唆・保証するものではありません。
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        投資には元本割れを含む損失リスクが存在します。投資を行う際は、必ず金融商品取引法に基づく契約締結前交付書面等の内容を十分にご確認いただき、
+                        ご自身の投資目的、資産状況およびリスク許容度に照らして慎重にご判断ください。
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        本ウェブサイトに記載された内容は、信頼できると考えられる情報に基づき作成していますが、その正確性・完全性を保証するものではありません。
+                        当社は、本サービスの利用または利用不能により生じたいかなる損失・損害についても責任を負いかねますので、あらかじめご了承ください。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <div class="section-header">
+                    <h2 class="section-title">AI株式量的分析 資料のご案内</h2>
+                    <p class="section-subtitle">
+                        日本AI株式量的分析プラットフォームの概要資料（サンプル）についてのご案内です。<br>
+                        以下のボタンから「資料を受け取る（领取資料）」手続きを進める前に、内容をご確認ください。
+                    </p>
+                </div>
+
+                <div class="contact-box">
+                    <div class="resource-list">
+                        <p>日本株に特化したAI量的分析のコンセプト概要</p>
+                        <p>主な機能一覧と活用イメージ</p>
+                        <p>コンプライアンス上の位置付け（情報提供ツールとして）</p>
+                    </div>
+
+                    <button type="button" class="cta-primary" onclick="showReceiveModal()">
+                        <span>📥</span>
+                        <span>資料を受け取る（领取資料）</span>
+                    </button>
+
+                    <p class="form-disclaimer">
+                        ※ 本ページはデモ用のサンプルであり、実際の資料送付機能は実装されていません。<br>
+                        ※ 個人情報の取扱いについては、別途定めるプライバシーポリシーをご確認ください。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2025 日本AI株式量的分析プラットフォーム. All rights reserved。</p>
+            <div class="footer-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#contact">お問い合わせ</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="receiveModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 class="modal-title">資料受け取りの最終確認</h3>
+            <p class="modal-text">
+                「日本AI株式量的分析プラットフォーム」の概要資料（サンプル）を受け取りますか？<br>
+                本資料は情報提供のみを目的としており、特定の投資行動を推奨するものではありません。
+            </p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-confirm" onclick="confirmReceive()">はい、資料を受け取る</button>
+                <button class="modal-btn modal-btn-cancel" onclick="closeReceiveModal()">いいえ、キャンセルする</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(function(question) {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(function(faqItem) {
+                    faqItem.classList.remove('active');
+                });
+
+                // Activate current item if not active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Modal functions
+        function showReceiveModal() {
+            const modal = document.getElementById('receiveModal');
+            if (modal) {
+                modal.classList.add('show');
+            }
+        }
+
+        function closeReceiveModal() {
+            const modal = document.getElementById('receiveModal');
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+
+        function confirmReceive() {
+            // Create custom confirmation message
+            const confirmMsg = document.createElement('div');
+            const isMobile = window.innerWidth <= 768;
+            confirmMsg.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, var(--deep-blue-700), var(--deep-blue-600));
+                border: 2px solid var(--yellow-500);
+                padding: ${isMobile ? '1.5rem 1.2rem' : '2rem 3rem'};
+                border-radius: 15px;
+                color: white;
+                font-size: ${isMobile ? '0.95rem' : '1.1rem'};
+                z-index: 10001;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                text-align: center;
+                max-width: ${isMobile ? '90%' : '600px'};
+                line-height: 1.6;
+            `;
+            confirmMsg.textContent = '資料受け取り手続き（サンプル）が完了しました。実際の運用ではここで資料送付処理を行います。';
+            document.body.appendChild(confirmMsg);
+
+            closeReceiveModal();
+
+            setTimeout(function() {
+                document.body.removeChild(confirmMsg);
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('receiveModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeReceiveModal();
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
