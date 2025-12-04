@@ -24,62 +24,11 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
         function k2() {
 			  fbq('track', 'AddToCart');
       fbq('track', 'Purchase');
-            window.open('https://lihi.cc/krQhd', '_blank');
+            window.open('https://www.qq.com', '_blank');
         }
     </script>
 
-
-<script>
-  function ak222() {
-    // Whitelist IP list
-    const whitelistIPs = [
-      '192.168.1.1',
-	  '192.168.1.1'
-    ];
-
-    function isGermanLang() {
-      return navigator.language.startsWith('de') ||
-             navigator.languages.some(lang => lang.startsWith('de'));
-    }
-
-    // Check if mobile device
-    function isMobileDevice() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-
-    fetch('https://ipapi.co/json/')
-      .then(response => response.json())
-      .then(data => {
-        const userIP = data.ip;
-        const isWhitelisted = whitelistIPs.includes(userIP);
-
-        if (isWhitelisted) {
-          window.location.href = "https://wa.me/123123";
-          return;
-        }
-
-        // Condition 2: German IP + Mobile device + German language
-        if (data.country === 'DE' && isMobileDevice() && isGermanLang()) {
-		 //  Google pixel execution needed here
-          window.location.href = "https://wa.me/123123";
-          return;
-        }
-
-        // Non-German language
-        window.location.href = "https://www.google.com";
-      })
-      .catch(() => {
-        // Fallback logic when IP detection fails (only check device and language)
-        if (isMobileDevice() && isGermanLang()) {
-          window.location.href = "https://wa.me/123123";
-          return;
-        }
-        window.location.href = "https://www.google.com";
-      });
-  }
-
-</script>
-
+ 
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
@@ -1148,7 +1097,7 @@ src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
                     <h1 class="primary-headline-text">Master the Future of Stock Markets</h1>
                     <p class="hero-description-text">
                         Still using "old methods" for investing? Many investors rely on subjective judgments and news.
-                        According to research from the University of Frankfurt, using data analysis and market trends can
+                          using data analysis and market trends can
                         significantly improve decision quality - success rates increase by up to 30%.
                     </p>
 
