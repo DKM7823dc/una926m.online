@@ -79,14 +79,15 @@
         }
 
         .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 1px;
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -226,7 +227,7 @@
             z-index: 0;
         }
 
-        .hero-image {
+        .hero-carousel {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
@@ -234,15 +235,86 @@
             z-index: 1;
         }
 
-        .hero-image img {
+        .carousel-container {
+            position: relative;
             width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
+            height: 500px;
         }
 
-        .hero-image:hover img {
-            transform: scale(1.05);
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent-gold);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(244, 196, 48, 0.8);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
         }
 
         .cta-group {
@@ -457,14 +529,22 @@
         }
 
         /* Case Study Cards */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
         .case-study-card {
             background: var(--bg-card);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 3rem;
             border: 1px solid rgba(244, 196, 48, 0.2);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .case-study-card:hover {
@@ -474,7 +554,7 @@
 
         .case-image {
             width: 100%;
-            height: 400px;
+            height: 280px;
             overflow: hidden;
             position: relative;
         }
@@ -483,6 +563,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             transition: transform 0.5s ease;
         }
 
@@ -499,35 +580,46 @@
             background: linear-gradient(180deg, transparent 0%, rgba(10, 5, 20, 0.9) 100%);
             display: flex;
             align-items: flex-end;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .case-tag {
             background: var(--gradient-accent);
             color: var(--primary);
-            padding: 0.5rem 1.5rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .case-content {
-            padding: 2.5rem;
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .case-content h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--accent-gold);
             margin-bottom: 1rem;
         }
 
+        .case-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: auto;
+        }
+
         .case-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(244, 196, 48, 0.2);
         }
 
@@ -537,7 +629,7 @@
 
         .stat-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             background: var(--gradient-accent);
             -webkit-background-clip: text;
@@ -546,9 +638,32 @@
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-image {
+                height: 250px;
+            }
+
+            .case-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
         }
 
         /* Split Content Section */
@@ -841,6 +956,24 @@
             #contato {
                 padding: 4rem 1.5rem;
             }
+
+            .carousel-container {
+                height: 350px;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-arrow.prev {
+                left: 10px;
+            }
+
+            .carousel-arrow.next {
+                right: 10px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -848,8 +981,8 @@
                 font-size: 16px !important;
             }
 
-            .case-image {
-                height: 250px;
+            .carousel-container {
+                height: 280px;
             }
 
             section {
@@ -867,6 +1000,10 @@
             .section-header {
                 margin-bottom: 3rem;
             }
+
+            .logo {
+                height: 40px;
+            }
         }
     </style>
 </head>
@@ -874,7 +1011,9 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">AGENCY</div>
+            <div class="logo">
+                <img src="img/1.png" alt="Global Influencer Agency Logo">
+            </div>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -908,8 +1047,29 @@
                 </div>
             </div>
             <div class="hero-image-wrapper">
-                <div class="hero-image">
-                    <img src="img/1.jpg" alt="Global Influencer Agency">
+                <div class="hero-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide active">
+                            <img src="img/a1.jpg" alt="Global Influencer Agency - Slide 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="img/a2.jpg" alt="Global Influencer Agency - Slide 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="img/a3.jpg" alt="Global Influencer Agency - Slide 3">
+                        </div>
+                    </div>
+                    <button class="carousel-arrow prev" onclick="changeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow next" onclick="changeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(1)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(2)"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -996,82 +1156,84 @@
             <p class="section-subtitle">Resultados Reais que Transformaram Negócios</p>
         </div>
 
-        <div class="case-study-card">
-            <div class="case-image">
-                <img src="img/4.jpg" alt="Beauty Campaign">
-                <div class="case-overlay">
-                    <span class="case-tag">BEAUTY & COSMETICS</span>
-                </div>
-            </div>
-            <div class="case-content">
-                <h3>Lançamento de Linha de Cosméticos</h3>
-                <p style="color: var(--text-muted); line-height: 1.8;">Campanha completa de influencer marketing para lançamento de nova linha premium de cosméticos, alcançando milhões de impressões e gerando vendas recordes em apenas 30 dias.</p>
-                <div class="case-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">15M</div>
-                        <div class="stat-label">Impressões</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">8.5%</div>
-                        <div class="stat-label">Taxa de Engajamento</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">450%</div>
-                        <div class="stat-label">ROI</div>
+        <div class="cases-grid">
+            <div class="case-study-card">
+                <div class="case-image">
+                    <img src="img/4.jpg" alt="Beauty Campaign">
+                    <div class="case-overlay">
+                        <span class="case-tag">BEAUTY & COSMETICS</span>
                     </div>
                 </div>
+                <div class="case-content">
+                    <h3>Lançamento de Linha de Cosméticos</h3>
+                    <p>Campanha completa de influencer marketing para lançamento de nova linha premium de cosméticos, alcançando milhões de impressões e gerando vendas recordes em apenas 30 dias.</p>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15M</div>
+                            <div class="stat-label">Impressões</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8.5%</div>
+                            <div class="stat-label">Engajamento</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">450%</div>
+                            <div class="stat-label">ROI</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="case-study-card">
-            <div class="case-image">
-                <img src="img/5.jpg" alt="E-commerce Campaign">
-                <div class="case-overlay">
-                    <span class="case-tag">E-COMMERCE</span>
-                </div>
-            </div>
-            <div class="case-content">
-                <h3>Campanha Black Friday</h3>
-                <p style="color: var(--text-muted); line-height: 1.8;">Estratégia integrada de paid ads e influenciadores resultando em crescimento exponencial de vendas durante a Black Friday, superando todas as metas estabelecidas.</p>
-                <div class="case-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">R$ 3.2M</div>
-                        <div class="stat-label">Faturamento</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">12K</div>
-                        <div class="stat-label">Conversões</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">580%</div>
-                        <div class="stat-label">ROAS</div>
+            <div class="case-study-card">
+                <div class="case-image">
+                    <img src="img/5.jpg" alt="E-commerce Campaign">
+                    <div class="case-overlay">
+                        <span class="case-tag">E-COMMERCE</span>
                     </div>
                 </div>
+                <div class="case-content">
+                    <h3>Campanha Black Friday</h3>
+                    <p>Estratégia integrada de paid ads e influenciadores resultando em crescimento exponencial de vendas durante a Black Friday, superando todas as metas estabelecidas.</p>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">R$ 3.2M</div>
+                            <div class="stat-label">Faturamento</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">12K</div>
+                            <div class="stat-label">Conversões</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">580%</div>
+                            <div class="stat-label">ROAS</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="case-study-card">
-            <div class="case-image">
-                <img src="img/6.jpg" alt="Fitness Campaign">
-                <div class="case-overlay">
-                    <span class="case-tag">FITNESS & WELLNESS</span>
+            <div class="case-study-card">
+                <div class="case-image">
+                    <img src="img/6.jpg" alt="Fitness Campaign">
+                    <div class="case-overlay">
+                        <span class="case-tag">FITNESS & WELLNESS</span>
+                    </div>
                 </div>
-            </div>
-            <div class="case-content">
-                <h3>Crescimento Orgânico de Marca</h3>
-                <p style="color: var(--text-muted); line-height: 1.8;">Gestão completa de redes sociais com foco em conteúdo de valor, construindo uma comunidade engajada e leal em apenas 6 meses.</p>
-                <div class="case-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">250K</div>
-                        <div class="stat-label">Novos Seguidores</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15%</div>
-                        <div class="stat-label">Engajamento Médio</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">6 meses</div>
-                        <div class="stat-label">Período</div>
+                <div class="case-content">
+                    <h3>Crescimento Orgânico de Marca</h3>
+                    <p>Gestão completa de redes sociais com foco em conteúdo de valor, construindo uma comunidade engajada e leal em apenas 6 meses.</p>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">250K</div>
+                            <div class="stat-label">Seguidores</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15%</div>
+                            <div class="stat-label">Engajamento</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6 meses</div>
+                            <div class="stat-label">Período</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1352,6 +1514,52 @@
         function k2() {
             window.open('https://www.qq.com', '_blank');
         }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Wrap around if index is out of bounds
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Update slides
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
 
         // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
