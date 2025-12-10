@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Accessories Store - Quality Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            dark: '#0A0A0A',
+                            gray: '#1A1A1A'
+                        }
+                    },
+                    fontFamily: {
+                        elegant: ['Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .breathe {
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        .fade-slide {
+            animation: fadeSlide 0.8s ease-out;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .elegant-shadow {
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.1);
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white overflow-x-hidden">
+    <div class="hero-bg min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="container mx-auto px-4 py-4">
+            <div class="text-center">
+                <h1 class="text-2xl md:text-3xl font-elegant font-bold gradient-text mb-2">
+                   Quality Fashion Accessories
+                </h1>
+                <p class="text-brand-gold text-base md:text-lg font-light">
+                    Authentic Style, Fair Pricing
+                </p>
+                <div class="mt-2 text-sm text-gray-400">
+                    <p>Licensed Fashion Retailer | Authentic Products Only</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto px-4 py-4">
+            <div class="grid md:grid-cols-2 gap-6 items-center max-w-4xl mx-auto">
+
+                <!-- Left Side - Hero Image -->
+                <div class="text-center order-2 md:order-1">
+                    <div class="relative inline-block">
+                        <img src="img/1.jpg?v=1122d"
+                             alt="Fashion Accessories Collection"
+                             class="w-36 h-36 md:w-48 md:h-48 object-cover rounded-full elegant-shadow border-4 border-brand-gold/30 mx-auto"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2224%22 fill=%22%23000%22%3EFashion Collection%3C/text%3E%3C/svg%3E'">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-brand-gold/20 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Features -->
+                <div class="space-y-4 order-1 md:order-2 fade-slide">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3 p-3 rounded-lg bg-brand-gray/30">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-gold/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-certificate text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Authentic Products</h3>
+                                <p class="text-gray-300 text-sm">All items are genuine and sourced from authorized distributors</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 rounded-lg bg-brand-gray/30">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-gold/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-shipping-fast text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Fast & Secure Shipping</h3>
+                                <p class="text-gray-300 text-sm">Worldwide delivery with tracking and insurance</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 rounded-lg bg-brand-gray/30">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-gold/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-undo text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Return Policy</h3>
+                                <p class="text-gray-300 text-sm">30-day money-back guarantee on all purchases</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 rounded-lg bg-brand-gray/30">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-gold/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-headset text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Customer Support</h3>
+                                <p class="text-gray-300 text-sm">Professional service team available 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Categories -->
+            <div class="mt-8">
+                <h2 class="text-xl md:text-2xl font-elegant font-bold text-center gradient-text mb-6">
+                   Our Product Categories
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                    <div class="bg-brand-gray/40 rounded-lg p-6 text-center elegant-shadow hover:bg-brand-gray/60 transition-all duration-300">
+                        <i class="fas fa-shoe-prints text-brand-gold text-3xl mb-3"></i>
+                        <h3 class="text-lg font-semibold mb-2">Footwear</h3>
+                        <p class="text-gray-300 text-sm">Quality shoes for every occasion</p>
+                    </div>
+                    
+                    <div class="bg-brand-gray/40 rounded-lg p-6 text-center elegant-shadow hover:bg-brand-gray/60 transition-all duration-300">
+                        <i class="fas fa-shopping-bag text-brand-gold text-3xl mb-3"></i>
+                        <h3 class="text-lg font-semibold mb-2">Handbags</h3>
+                        <p class="text-gray-300 text-sm">Stylish bags and accessories</p>
+                    </div>
+                    
+                    <div class="bg-brand-gray/40 rounded-lg p-6 text-center elegant-shadow hover:bg-brand-gray/60 transition-all duration-300">
+                        <i class="fas fa-clock text-brand-gold text-3xl mb-3"></i>
+                        <h3 class="text-lg font-semibold mb-2">Timepieces</h3>
+                        <p class="text-gray-300 text-sm">Fashion watches and accessories</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Gallery Carousel -->
+            <div class="mt-8">
+                <h2 class="text-lg md:text-xl font-elegant font-bold text-center gradient-text mb-4">
+                   ↓↓↓Contact us for special offers and discounts up to $50↓↓↓
+                </h2>
+
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="carousel-container overflow-hidden">
+                        <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
+                            <div class="carousel-slide flex-shrink-0 w-full px-1">
+                                <img src="img/2.jpg?v=222d" alt="Fashion Collection 1" class="w-full h-48 md:h-40 object-cover rounded-lg elegant-shadow" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EFashion Collection%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="carousel-slide flex-shrink-0 w-full px-1">
+                                <img src="img/3.jpg?v=321d" alt="Fashion Collection 2" class="w-full h-48 md:h-40 object-cover rounded-lg elegant-shadow" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EFashion Collection%3C/text%3E%3C/svg%3E'">
+                            </div>
+                            <div class="carousel-slide flex-shrink-0 w-full px-1">
+                                <img src="img/4.jpg?v=421d" alt="Fashion Collection 3" class="w-full h-48 md:h-40 object-cover rounded-lg elegant-shadow" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23D4AF37%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2218%22 fill=%22%23000%22%3EFashion Collection%3C/text%3E%3C/svg%3E'">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <button onclick="prevSlide()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-brand-gold/20 hover:bg-brand-gold/40 text-brand-gold p-2 rounded-full transition-all duration-300">
+                        <i class="fas fa-chevron-left text-sm"></i>
+                    </button>
+                    <button onclick="nextSlide()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-brand-gold/20 hover:bg-brand-gold/40 text-brand-gold p-2 rounded-full transition-all duration-300">
+                        <i class="fas fa-chevron-right text-sm"></i>
+                    </button>
+
+                    <!-- Carousel Indicators -->
+                    <div class="flex justify-center mt-3 space-x-1" id="indicators">
+                        <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-brand-gold transition-all duration-300 indicator active"></button>
+                        <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-brand-gold/60 transition-all duration-300 indicator"></button>
+                        <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-gray-600 hover:bg-brand-gold/60 transition-all duration-300 indicator"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-6 p-6 bg-brand-gold/10 rounded-lg max-w-2xl mx-auto">
+                <h3 class="text-xl font-elegant font-bold gradient-text mb-2">
+                    Contact Us for Product Inquiries
+                </h3>
+                <p class="text-gray-300 mb-4">
+                    Get personalized recommendations and pricing information
+                </p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="container mx-auto px-4 py-4 border-t border-brand-gray">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2024 Fashion Accessories Store. All rights reserved.</p>
+                <p class="mt-1">Licensed retailer of authentic fashion products</p>
+                <div class="mt-2 space-x-4">
+                    <span>Privacy Policy</span>
+                    <span>•</span>
+                    <span>Terms of Service</span>
+                    <span>•</span>
+                    <span>Return Policy</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Contact Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <div class="relative">
+            <button
+               onclick="contactUs()"
+               class="breathe bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-3 text-base">
+                <i class="fas fa-comments text-lg"></i>
+                <span class="font-medium">Contact Us</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Modal for Contact -->
+    <div id="contactModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Contact Information</h3>
+            <div class="space-y-3 text-gray-600 dark:text-gray-300">
+                <p><i class="fas fa-envelope mr-2"></i> Email: info@fashionstore.com</p>
+                <p><i class="fas fa-phone mr-2"></i> Phone: +1 (555) 123-4567</p>
+                <p><i class="fas fa-clock mr-2"></i> Hours: Mon-Fri 9AM-6PM EST</p>
+                <p><i class="fas fa-map-marker-alt mr-2"></i> Location: Authorized Fashion Retailer</p>
+            </div>
+            <div class="flex justify-end space-x-3 mt-6">
+                <button onclick="closeContactModal()" class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">Close</button>
+                <button onclick="openWhatsApp()" class="px-4 py-2 bg-green-500 text-white hover:bg-green-600 rounded">
+                    <i class="fab fa-whatsapp mr-1"></i> WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Contact functions
+        function contactUs() {
+            document.getElementById('contactModal').classList.remove('hidden');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+        }
+
+        function openWhatsApp() {
+            // Replace with your actual WhatsApp number
+            window.open('https://wa.me/1234567890?text=Hello, I\'m interested in your fashion accessories', '_blank');
+            closeContactModal();
+        }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const carouselTrack = document.getElementById('carouselTrack');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                    indicator.classList.remove('bg-gray-600');
+                    indicator.classList.add('bg-brand-gold');
+                } else {
+                    indicator.classList.remove('active');
+                    indicator.classList.remove('bg-brand-gold');
+                    indicator.classList.add('bg-gray-600');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-advance carousel
+        setInterval(nextSlide, 4000);
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        if (carouselTrack) {
+            carouselTrack.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            carouselTrack.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                if (startX - endX > 50) {
+                    nextSlide();
+                } else if (endX - startX > 50) {
+                    prevSlide();
+                }
+            });
+        }
+
+        // Prevent drag on images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+    </script>
+ 
+</body>
+</html>
