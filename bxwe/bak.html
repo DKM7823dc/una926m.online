@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Influencer & Social Media Agency - Marketing Digital de Alta Performance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a0f3e;
+            --secondary: #2d1b69;
+            --accent-gold: #f4c430;
+            --accent-coral: #ff6b6b;
+            --accent-cyan: #4ecdc4;
+            --accent-purple: #9b59b6;
+            --text-light: #ffffff;
+            --text-muted: #a8a8b3;
+            --bg-dark: #0a0514;
+            --bg-card: rgba(42, 24, 80, 0.4);
+            --gradient-primary: linear-gradient(135deg, #1a0f3e 0%, #2d1b69 50%, #1a0f3e 100%);
+            --gradient-accent: linear-gradient(90deg, #f4c430 0%, #ff6b6b 50%, #4ecdc4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(244, 196, 48, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(78, 205, 196, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 5, 20, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0;
+            box-shadow: 0 5px 30px rgba(244, 196, 48, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 100vh;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(26, 15, 62, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 60%, rgba(45, 27, 105, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(244, 196, 48, 0.05) 0%, transparent 60%);
+            animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f4c430 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .tagline {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .hero-text .description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            background: var(--gradient-accent);
+            border-radius: 20px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-carousel {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent-gold);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(244, 196, 48, 0.8);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--gradient-accent);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(244, 196, 48, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 196, 48, 0.5);
+        }
+
+        .cta-button-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--accent-gold);
+            box-shadow: none;
+        }
+
+        .cta-button-secondary:hover {
+            background: rgba(244, 196, 48, 0.1);
+        }
+
+        /* Section Base */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Timeline (Milestones) */
+        .timeline {
+            position: relative;
+            padding: 3rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent-gold), var(--accent-cyan));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(244, 196, 48, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(244, 196, 48, 0.3);
+        }
+
+        .timeline-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-text {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: 0 5px 20px rgba(244, 196, 48, 0.5);
+        }
+
+        /* Feature Cards Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(244, 196, 48, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(244, 196, 48, 0.3);
+            border-color: var(--accent-gold);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(244, 196, 48, 0.2), rgba(78, 205, 196, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Case Study Cards */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .case-study-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(244, 196, 48, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(244, 196, 48, 0.3);
+        }
+
+        .case-image {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .case-study-card:hover .case-image img {
+            transform: scale(1.1);
+        }
+
+        .case-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 5, 20, 0.9) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .case-tag {
+            background: var(--gradient-accent);
+            color: var(--primary);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .case-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .case-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: auto;
+        }
+
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(244, 196, 48, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-image {
+                height: 250px;
+            }
+
+            .case-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Split Content Section */
+        .split-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 4rem 0;
+        }
+
+        .split-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .split-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(244, 196, 48, 0.2), transparent);
+            pointer-events: none;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .split-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .split-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .split-text p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .highlight-list li {
+            padding: 1rem 0;
+            padding-left: 3rem;
+            position: relative;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(244, 196, 48, 0.1);
+        }
+
+        .highlight-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+        }
+
+        /* Stats Counter Section */
+        .stats-section {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(244, 196, 48, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-box::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: linear-gradient(180deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .stat-box:last-child::after {
+            display: none;
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Contact Section */
+        #contato {
+            background: var(--gradient-primary);
+            border-radius: 30px;
+            padding: 6rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contato::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(244, 196, 48, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        #contato .section-title {
+            position: relative;
+            z-index: 1;
+        }
+
+        #contato p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #contato .cta-button {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 5, 20, 0.8);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(244, 196, 48, 0.2);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+            }
+
+            .timeline-content {
+                width: calc(100% - 100px);
+                margin-left: 70px;
+            }
+
+            .timeline-icon {
+                left: 30px;
+            }
+
+            .split-content {
+                grid-template-columns: 1fr;
+            }
+
+            .split-content .split-image:first-child {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(10, 5, 20, 0.98);
+                width: 100%;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-box::after {
+                display: none;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            #contato {
+                padding: 4rem 2rem;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .hero-content {
+                padding: 3rem 1rem;
+            }
+
+            .split-content {
+                gap: 2rem;
+            }
+
+            .case-content {
+                padding: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .stats-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            #contato {
+                padding: 4rem 1.5rem;
+            }
+
+            .carousel-container {
+                height: 350px;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-arrow.prev {
+                left: 10px;
+            }
+
+            .carousel-arrow.next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            input, button {
+                font-size: 16px !important;
+            }
+
+            .carousel-container {
+                height: 280px;
+            }
+
+            section {
+                padding: 3rem 0.75rem;
+            }
+
+            .hero-content {
+                padding: 2rem 0.75rem;
+            }
+
+            .nav-container {
+                padding: 1.2rem 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .logo {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="img/1.png" alt="Global Influencer Agency Logo">
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#casos">Casos</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Global Influencer & Social Media Agency</h1>
+                <p class="tagline">Transformando Marcas em Movimentos Digitais</p>
+                <p class="description">Especialistas em marketing de influência, gestão de redes sociais e campanhas de alta performance que geram resultados reais e mensuráveis.</p>
+                <div class="cta-group">
+                    <button onclick="k2()" class="cta-button" style="border: none; cursor: pointer;">
+                        Entre em Contato
+                    </button>
+                    <a href="#servicos" class="cta-button cta-button-secondary">
+                        <i class="fas fa-arrow-down"></i>
+                        Nossos Serviços
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide active">
+                            <img src="img/a1.jpg" alt="Global Influencer Agency - Slide 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="img/a2.jpg" alt="Global Influencer Agency - Slide 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="img/a3.jpg" alt="Global Influencer Agency - Slide 3">
+                        </div>
+                    </div>
+                    <button class="carousel-arrow prev" onclick="changeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow next" onclick="changeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(1)"></span>
+                        <span class="carousel-dot" onclick="goToSlide(2)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+        <div class="section-header">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Soluções Completas de Marketing Digital</p>
+        </div>
+
+        <div class="split-content">
+            <div class="split-image">
+                <img src="img/2.jpg" alt="Nossos Serviços">
+            </div>
+            <div class="split-text">
+                <h3>Especialização Total</h3>
+                <p>Oferecemos soluções completas de marketing digital, desde a estratégia até a execução, com foco em resultados mensuráveis e crescimento sustentável.</p>
+                <p>Nossa equipe combina criatividade, dados e tecnologia para criar campanhas que não apenas impressionam, mas convertem.</p>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Influenciadores na Rede</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-number">500%</div>
+                    <div class="stat-label">ROI Médio</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Campanhas de Sucesso</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon"><i class="fas fa-globe-americas"></i></div>
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Países Atendidos</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; text-align: center; color: var(--accent-cyan); margin: 5rem 0 3rem 0;">O Que Fazemos</h3>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-users"></i></div>
+                <h3>Influencer Marketing</h3>
+                <p>Conectamos sua marca com os influenciadores certos para criar campanhas autênticas e impactantes que geram engajamento real e conversões.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-share-alt"></i></div>
+                <h3>Social Media Management</h3>
+                <p>Gestão completa das suas redes sociais com estratégia, conteúdo de qualidade, engajamento constante e análise de resultados.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
+                <h3>Paid Ads</h3>
+                <p>Campanhas pagas otimizadas em TikTok, Meta (Instagram/Facebook) e Google Ads para maximizar seu retorno sobre investimento.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-video"></i></div>
+                <h3>Creative Studio</h3>
+                <p>Produção completa de conteúdo: roteiro, filmagem, edição de vídeo, design gráfico e fotografia profissional de produto.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Campaign Strategy</h3>
+                <p>Desenvolvimento de estratégias de marketing personalizadas baseadas em dados, insights de mercado e análise da concorrência.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casos -->
+    <section id="casos">
+        <div class="section-header">
+            <h2 class="section-title">Casos de Sucesso</h2>
+            <p class="section-subtitle">Resultados Reais que Transformaram Negócios</p>
+        </div>
+
+        <div class="cases-grid">
+            <div class="case-study-card">
+                <div class="case-image">
+                    <img src="img/4.jpg" alt="Beauty Campaign">
+                    <div class="case-overlay">
+                        <span class="case-tag">BEAUTY & COSMETICS</span>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <h3>Lançamento de Linha de Cosméticos</h3>
+                    <p>Campanha completa de influencer marketing para lançamento de nova linha premium de cosméticos, alcançando milhões de impressões e gerando vendas recordes em apenas 30 dias.</p>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15M</div>
+                            <div class="stat-label">Impressões</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8.5%</div>
+                            <div class="stat-label">Engajamento</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">450%</div>
+                            <div class="stat-label">ROI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-image">
+                    <img src="img/5.jpg" alt="E-commerce Campaign">
+                    <div class="case-overlay">
+                        <span class="case-tag">E-COMMERCE</span>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <h3>Campanha Black Friday</h3>
+                    <p>Estratégia integrada de paid ads e influenciadores resultando em crescimento exponencial de vendas durante a Black Friday, superando todas as metas estabelecidas.</p>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">R$ 3.2M</div>
+                            <div class="stat-label">Faturamento</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">12K</div>
+                            <div class="stat-label">Conversões</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">580%</div>
+                            <div class="stat-label">ROAS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-image">
+                    <img src="img/6.jpg" alt="Fitness Campaign">
+                    <div class="case-overlay">
+                        <span class="case-tag">FITNESS & WELLNESS</span>
+                    </div>
+                </div>
+                <div class="case-content">
+                    <h3>Crescimento Orgânico de Marca</h3>
+                    <p>Gestão completa de redes sociais com foco em conteúdo de valor, construindo uma comunidade engajada e leal em apenas 6 meses.</p>
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">250K</div>
+                            <div class="stat-label">Seguidores</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15%</div>
+                            <div class="stat-label">Engajamento</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6 meses</div>
+                            <div class="stat-label">Período</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+        <div class="section-header">
+            <h2 class="section-title">Sobre Nós</h2>
+            <p class="section-subtitle">Conectando Marcas e Criadores em Todo o Mundo</p>
+        </div>
+
+        <!-- Introdução da Empresa -->
+        <div class="split-content">
+            <div class="split-text">
+                <h3>Quem Somos</h3>
+                <p>Somos uma empresa de mídia transfronteiriça focada em marketing de redes sociais globais e colaboração com influenciadores.</p>
+                <p>Dedicamo-nos a conectar marcas com criadores de conteúdo globais através de plataformas como TikTok, Instagram, YouTube e Kwai, ajudando nossos clientes a alcançar exposição de marca, crescimento de usuários e conversões de alta qualidade.</p>
+            </div>
+            <div class="split-image">
+                <img src="img/3.jpg" alt="Nossa Equipe Global">
+            </div>
+        </div>
+
+        <!-- Negócios Principais -->
+        <div class="stats-section">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; text-align: center; color: var(--accent-cyan); margin-bottom: 3rem;">Nossos Negócios Principais</h3>
+            <ul class="highlight-list" style="max-width: 900px; margin: 0 auto;">
+                <li>Colaboração Internacional com Influenciadores (KOL/UGC/Live Streaming/Vídeos Curtos)</li>
+                <li>Gestão de Anúncios em Redes Sociais (TikTok Ads / Meta Ads / Google Ads)</li>
+                <li>Localização de Conteúdo Multilíngue (Chinês/Inglês/Japonês/Português/Coreano/Vietnamita)</li>
+                <li>Desenvolvimento de Estratégias de Marketing Global</li>
+                <li>Execução de Planos Integrados de Marketing de Marca</li>
+            </ul>
+            <p style="text-align: center; color: var(--text-muted); margin-top: 2rem; font-size: 1.1rem;">Possuímos experiência rica e recursos em mercados como Brasil, América Latina, Japão, Coreia do Sul e Sudeste Asiático.</p>
+        </div>
+
+        <!-- Nossa Equipe -->
+        <div class="split-content" style="margin-top: 6rem;">
+            <div class="split-image">
+                <img src="img/8.jpg" alt="Equipe Multicultural">
+            </div>
+            <div class="split-text">
+                <h3>Nossa Equipe Multicultural</h3>
+                <p>Nossa equipe é composta por membros da China, Brasil, Japão, Coreia do Sul, Vietnã, Camboja e outros países, com capacidades profissionais de comunicação multilíngue e intercultural.</p>
+                <h4 style="color: var(--accent-cyan); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;">Vantagens da Equipe:</h4>
+                <ul class="highlight-list">
+                    <li>Anos de experiência em crescimento de redes sociais internacionais</li>
+                    <li>Compreensão profunda das culturas e tendências de conteúdo de cada país</li>
+                    <li>Rede rica de colaboração com influenciadores internacionais</li>
+                    <li>Alta capacidade de execução e resposta rápida</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Nossa Visão -->
+        <div class="stats-section" style="margin-top: 6rem;">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; text-align: center; color: var(--accent-gold); margin-bottom: 2rem;">Nossa Visão</h3>
+            <p style="text-align: center; color: var(--text-muted); font-size: 1.2rem; line-height: 1.8; max-width: 800px; margin: 0 auto 3rem;">Nossa visão é nos tornarmos a ponte de colaboração mais confiável entre marcas globais e criadores de conteúdo.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><i class="fas fa-users"></i></div>
+                    <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Para Influenciadores</h4>
+                    <p style="color: var(--text-muted);">Oferecer oportunidades de colaboração de longo prazo, seguras e estáveis</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><i class="fas fa-rocket"></i></div>
+                    <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Para Marcas</h4>
+                    <p style="color: var(--text-muted);">Realizar verdadeiro crescimento e expansão global</p>
+                </div>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><i class="fas fa-globe"></i></div>
+                    <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">Para o Mundo</h4>
+                    <p style="color: var(--text-muted);">Promover a disseminação e colaboração de conteúdo intercultural</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vantagens Competitivas -->
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; text-align: center; color: var(--accent-cyan); margin: 6rem 0 3rem 0;">Nossas Vantagens Competitivas</h3>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>Recursos Globais Amplos</h3>
+                <p>Cobertura em mercados do Brasil, América Latina, Japão, Coreia e Sudeste Asiático com rede extensa de influenciadores locais.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-language"></i></div>
+                <h3>Localização Multilíngue Forte</h3>
+                <p>Suporte para tradução e produção de roteiros em múltiplos idiomas, garantindo autenticidade cultural em cada mercado.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Experiência em Marketing Transfronteiriço</h3>
+                <p>Familiaridade profunda com algoritmos, regras e tendências de plataformas globais para máximo alcance.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Execução Rápida</h3>
+                <p>Ideal para projetos ágeis com equipe preparada para responder rapidamente às demandas do mercado.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Mecanismo de Colaboração de Longo Prazo</h3>
+                <p>Parcerias sustentáveis que trazem receita estável e crescimento contínuo para todas as partes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Conformidade e Transparência</h3>
+                <p>Controle rigoroso de projetos, segurança e liquidação financeira com total transparência em todas as operações.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processo -->
+    <section id="processo">
+        <div class="section-header">
+            <h2 class="section-title">Nosso Processo</h2>
+            <p class="section-subtitle">Como Trabalhamos em 5 Passos Simples</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">01</div>
+                    <div class="timeline-text">Submissão de Necessidades - Você compartilha seus objetivos, desafios e orçamento. Fazemos análise inicial e agendamos reunião estratégica.</div>
+                </div>
+                <div class="timeline-icon"><i class="fas fa-clipboard-list"></i></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">02</div>
+                    <div class="timeline-text">Desenvolvimento da Proposta - Criamos estratégia personalizada com seleção de influenciadores, canais, cronograma e KPIs detalhados.</div>
+                </div>
+                <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">03</div>
+                    <div class="timeline-text">Confirmação de Parceria - Após ajustes, formalizamos com contrato transparente definindo expectativas, prazos e entregáveis.</div>
+                </div>
+                <div class="timeline-icon"><i class="fas fa-handshake"></i></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">04</div>
+                    <div class="timeline-text">Execução da Campanha - Colocamos estratégia em prática com negociação, criação de conteúdo e otimização contínua.</div>
+                </div>
+                <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-year">05</div>
+                    <div class="timeline-text">Análise de Resultados - Fornecemos relatório detalhado com métricas, insights e recomendações para otimizações futuras.</div>
+                </div>
+                <div class="timeline-icon"><i class="fas fa-chart-line"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clientes -->
+    <section id="clientes">
+        <div class="section-header">
+            <h2 class="section-title">Nossos Clientes</h2>
+            <p class="section-subtitle">Confiado por Marcas Líderes de Mercado</p>
+        </div>
+
+        <div class="split-content">
+            <div class="split-image">
+                <img src="img/7.jpg" alt="Nossos Clientes">
+            </div>
+            <div class="split-text">
+                <h3>Parcerias de Sucesso</h3>
+                <p>Trabalhamos com marcas de diversos segmentos, desde startups em crescimento até empresas consolidadas, sempre entregando resultados excepcionais.</p>
+                <p>Nossa abordagem personalizada garante que cada cliente receba uma estratégia única, alinhada aos seus objetivos e desafios específicos.</p>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; text-align: center; color: var(--accent-cyan); margin: 5rem 0 3rem 0;">Setores Atendidos</h3>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                <h3>Beauty & Cosmetics</h3>
+                <p>Campanhas de lançamento e awareness para marcas de beleza e cosméticos premium.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shopping-bag"></i></div>
+                <h3>E-commerce</h3>
+                <p>Estratégias de performance para maximizar vendas e faturamento online.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-dumbbell"></i></div>
+                <h3>Fitness & Wellness</h3>
+                <p>Construção de comunidade e autoridade para marcas de saúde e bem-estar.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Food & Beverage</h3>
+                <p>Campanhas criativas com foco em awareness e expansão regional.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-tshirt"></i></div>
+                <h3>Fashion</h3>
+                <p>Produção de conteúdo UGC e campanhas de marca para moda e lifestyle.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Tech</h3>
+                <p>Lançamento de produtos e apps com influenciadores tech especializados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <h2 class="section-title">Vamos Criar Juntos</h2>
+        <p>Pronto para elevar sua marca ao próximo nível? Entre em contato conosco e descubra como podemos transformar sua presença digital em resultados concretos.</p>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+            <div style="background: var(--bg-card); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(244, 196, 48, 0.2); min-width: 250px;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-gold);"><i class="fab fa-whatsapp"></i></div>
+                <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">WhatsApp</h3>
+                <p style="color: var(--text-muted);">+55 11 99999-9999</p>
+            </div>
+            <div style="background: var(--bg-card); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(244, 196, 48, 0.2); min-width: 250px;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-gold);"><i class="fas fa-envelope"></i></div>
+                <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Email</h3>
+                <p style="color: var(--text-muted);">contato@agency.com</p>
+            </div>
+        </div>
+        <button onclick="k2()" class="cta-button" style="border: none; cursor: pointer; margin-top: 3rem;">
+            Solicitar Proposta
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Global Influencer & Social Media Agency</p>
+            <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent-cyan);">Transformando Marcas em Movimentos Digitais</p>
+
+            <div style="border-top: 1px solid rgba(244, 196, 48, 0.2); margin: 2rem 0; padding-top: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 2rem;">
+                    <div>
+                        <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Contato</p>
+                        <p style="font-size: 0.9rem;">contato@agency.com</p>
+                        <p style="font-size: 0.9rem;">+55 11 99999-9999</p>
+                        <p style="font-size: 0.9rem;">São Paulo, Brasil</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Serviços</p>
+                        <p style="font-size: 0.9rem;">Influencer Marketing</p>
+                        <p style="font-size: 0.9rem;">Social Media Management</p>
+                        <p style="font-size: 0.9rem;">Paid Ads & Creative Studio</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Redes Sociais</p>
+                        <p style="font-size: 0.9rem;">Instagram | TikTok</p>
+                        <p style="font-size: 0.9rem;">LinkedIn | YouTube</p>
+                        <p style="font-size: 0.9rem;">Facebook | Twitter</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(244, 196, 48, 0.1); padding-top: 1.5rem;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">&copy; 2025 Global Influencer Agency. Todos os direitos reservados.</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Política de Privacidade | Termos de Uso</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Transformando marcas em movimentos digitais através de estratégias criativas e orientadas por dados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // k2方法 - 跳转到www.qq.com
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Wrap around if index is out of bounds
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Update slides
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 2500);
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--accent-gold)';
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate elements on scroll
+        document.querySelectorAll('.feature-card, .case-study-card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
