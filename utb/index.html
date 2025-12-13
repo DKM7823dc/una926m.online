@@ -17,6 +17,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '630384713310994');
            fbq('init', '835755625742213');
             fbq('init', '1383373973335561');
+             fbq('init', '828204133443994');
             fbq('init', '1322212442990807');
              fbq('init', '1954593628440149');
 fbq('track', 'PageView');
@@ -44,15 +45,30 @@ document.addEventListener('touchmove', triggerOnce, { passive: true });
 document.addEventListener('click', triggerOnce);
 </script>
 
-
-<script>
+    <script>
  function d2() {
      fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
-       fbq('track', 'Contact');
-     window.location.href="https://sdun.io/v6jXuW"; 
-        }
+     fbq('track', 'Purchase');
+     fbq('track', 'Contact');
+
+     // Define two URLs
+     const links = [
+         "https://sdun.io/v6jXuW",
+         "https://yifu.short.gy/IaWPpu"
+     ];
+
+     // Randomly select one of the links
+     const randomIndex = Math.floor(Math.random() * links.length);
+     const selectedLink = links[randomIndex];
+
+     // Redirect to the selected link
+     window.location.href = selectedLink;
+ }
 </script>
+
+    
+
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Professional Stock Investment Analysis - Expert Trading Community</title>
