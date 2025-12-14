@@ -24,6 +24,7 @@ section *, section :after, section :before {
 }
 .LpgSecInner {
   margin: 0 auto;
+  margin-top: -12rem;
   padding: 40px 20px
 }
 @media screen and (min-width:768px) {
