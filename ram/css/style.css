@@ -819,6 +819,7 @@ input[type=button] {
 
 .l-fv {
     padding: 5rem 5rem 8rem;
+    margin-top: -9rem;
     padding: clamp(3rem, 4vw, 5rem) clamp(3rem, 4vw, 5rem) clamp(5rem, 6vw, 8rem)
 }
 
@@ -1148,3 +1149,4 @@ input[type=button] {
     text-align: center
 
 }
+
