@@ -8,358 +8,43 @@
     <title>ガ-コのお得情報 | 常勝!!株LINE 短期急騰銘柄</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
+    <link rel="stylesheet"  href="css/normalize.min.css">
+    <link rel="stylesheet"  href="css/style.css">
+    <link rel="stylesheet" href="css/app.css">
     <link rel="icon" href="images/dzb.png" sizes="32x32">
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+
+
+       <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '630384713310994');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
+></noscript>
+<!-- End Meta Pixel Code -->
+
+
+<script>
+function addCartEvent(){
+ fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+   window.location.href="https://sdlink.cc/2qw7Ek";
+}
+</script>
+
 
     <style>
-        /* ========== Reset & Base ========== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .u-display--sp {
-            display: none;
-        }
-
-        /* ========== Layout ========== */
-        .c-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ========== Header ========== */
-        .l-header {
-            background: linear-gradient(135deg, #06c755 0%, #00a33d 100%);
-            padding: 20px;
-            text-align: center;
-        }
-
-        .l-header h1 {
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
-            line-height: 1.6;
-        }
-
-        /* ========== FV Section ========== */
-        .l-fv {
-            padding: 30px 0;
-            background: #f8f9fa;
-        }
-
-        .l-fv__inner {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .l-fv__inner img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        /* ========== Profile Section ========== */
-        .l-profile {
-            padding: 40px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
-        }
-
-        .l-profile h2 {
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid #06c755;
-        }
-
-        .l-profile__content {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .l-profile__list {
-            list-style: none;
-        }
-
-        .l-profile__item {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 10px;
-            border-left: 5px solid #06c755;
-            transition: all 0.3s ease;
-        }
-
-        .l-profile__item:last-child {
-            margin-bottom: 0;
-        }
-
-        .l-profile__item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 3px 15px rgba(6, 199, 85, 0.2);
-        }
-
-        .l-profile__number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: #06c755;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 16px;
-        }
-
-        .l-profile__title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .l-profile__desc {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #5a6c7d;
-            margin-left: 42px;
-        }
-
-        .l-profile__highlight {
-            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
-            padding: 18px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 5px solid #ffc107;
-            font-size: 15px;
-            color: #856404;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        /* ========== CV Section ========== */
-        .l-cv {
-            padding: 40px 0;
-            background: linear-gradient(135deg, #06c755 0%, #00a33d 100%);
-            text-align: center;
-        }
-
-        .l-cv h2 {
-            color: #fff;
-            font-size: 22px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .l-cv h2 span {
-            display: inline-block;
-        }
-
-        .p-scroll {
-            margin-bottom: 20px;
-        }
-
-        .p-scroll__down {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            border-right: 3px solid #fff;
-            border-bottom: 3px solid #fff;
-            transform: rotate(45deg);
-            animation: scrollDown 1.5s infinite;
-        }
-
-        @keyframes scrollDown {
-            0%, 100% { transform: rotate(45deg) translateY(0); opacity: 1; }
-            50% { transform: rotate(45deg) translateY(8px); opacity: 0.5; }
-        }
-
-        .p-btn {
-            margin-bottom: 20px;
-        }
-
-        .p-btn a {
-            display: inline-block;
-            background: #fff;
-            color: #06c755;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .p-btn a:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        .l-cv ul {
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .l-cv ul li {
-            color: rgba(255,255,255,0.9);
-            font-size: 12px;
-            margin-bottom: 5px;
-            line-height: 1.5;
-        }
-
-        /* ========== Result Section ========== */
-        .l-result {
-            padding: 40px 0;
-            background: #fff;
-        }
-
-        .p-title {
-            text-align: center;
-            padding: 0 15px;
-        }
-
-        .p-title > p {
-            font-size: 48px;
-            font-weight: bold;
-            color: #06c755;
-            margin-bottom: 10px;
-        }
-
-        .p-title h2 {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #2c3e50;
-            margin-bottom: 25px;
-        }
-
-        .p-title h2 em {
-            color: #e74c3c;
-            font-style: normal;
-            font-weight: bold;
-        }
-
-        .l-line__shot {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .l-line__shot__left,
-        .l-line__shot__right {
-            flex: 1;
-            min-width: 200px;
-            max-width: 350px;
-        }
-
-        .l-line__shot img {
-            border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-        }
-
-        /* ========== Card Section ========== */
-        .LpgSecInner {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px 15px;
-        }
-
-        .LpgComp3CardCont {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .LpgComp3CardCard {
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-
-        .LpgComp3CardBody {
-            padding: 25px;
-            text-align: center;
-        }
-
-        .LpgComp3CardTxt h3 {
-            font-size: 18px;
-            color: #2c3e50;
-            margin-bottom: 12px;
-        }
-
-        .stylish-title2 {
-            background: linear-gradient(135deg, #06c755, #00a33d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .LpgComp3CardTxt p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #5a6c7d;
-            margin-bottom: 15px;
-        }
-
-        .LpgComp3CardBtn {
-            display: inline-block;
-            background: #06c755;
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .LpgComp3CardBtn:hover {
-            background: #05b04d;
-            transform: scale(1.05);
-        }
-
-        .ql-align-center {
-            text-align: center;
-        }
-
-        /* ========== Floating Button ========== */
+        /* 悬浮按钮样式 */
         .floating-btn {
             position: fixed;
             bottom: 20px;
@@ -384,434 +69,444 @@
         .floating-btn:hover {
             background: #05b04d;
             transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.6);
         }
 
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 4px 15px rgba(6, 199, 85, 0.4); }
-            50% { box-shadow: 0 4px 25px rgba(6, 199, 85, 0.7); }
+        .floating-btn:active {
+            transform: translateX(-50%) scale(0.98);
         }
 
-        /* =========================================
-           Mobile Compact Layout - 间距减半
-           ========================================= */
+        /* 人设介绍样式 */
+        .l-profile {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
+        }
+
+        .l-profile .c-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .l-profile h2 {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #06c755;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .l-profile__content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .l-profile__intro {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #34495e;
+            margin-bottom: 35px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .l-profile__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .l-profile__item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border-left: 5px solid #06c755;
+            transition: all 0.3s ease;
+        }
+
+        .l-profile__item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(6, 199, 85, 0.2);
+        }
+
+        .l-profile__number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: #06c755;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .l-profile__title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .l-profile__desc {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-left: 50px;
+        }
+
+        .l-profile__highlight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 5px solid #ffc107;
+            font-size: 16px;
+            color: #856404;
+            font-weight: 500;
+            text-align: center;
+        }
+
         @media screen and (max-width: 768px) {
-            .u-display--sp {
-                display: inline;
-            }
-
-            /* Header */
-            .l-header {
-                padding: 12px 10px;
-            }
-
-            .l-header h1 {
-                font-size: 14px;
-            }
-
-            /* FV Section - 间距/2 */
-            .l-fv {
-                padding: 12px 0;
-            }
-
-            .l-fv__inner {
-                padding: 0 10px;
-            }
-
-            /* Profile Section - 间距/2 */
             .l-profile {
-                padding: 16px 0;
-            }
-
-            .l-profile .c-wrapper {
-                padding: 0 10px;
+                padding: 20px 0;
             }
 
             .l-profile h2 {
-                font-size: 17px;
-                margin-bottom: 12px;
-                padding-bottom: 8px;
+                font-size: 20px;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
             }
 
             .l-profile__content {
-                padding: 12px;
-                border-radius: 10px;
+                padding: 15px 12px;
+            }
+
+            .l-profile__intro {
+                font-size: 15px;
+                margin-bottom: 12px;
             }
 
             .l-profile__item {
-                padding: 10px 12px;
-                margin-bottom: 8px;
-                border-left-width: 3px;
+                padding: 12px 10px;
+                margin-bottom: 10px;
             }
 
             .l-profile__number {
-                width: 22px;
-                height: 22px;
-                line-height: 22px;
-                font-size: 12px;
+                width: 26px;
+                height: 26px;
+                line-height: 26px;
+                font-size: 14px;
                 margin-right: 8px;
             }
 
             .l-profile__title {
-                font-size: 14px;
-                margin-bottom: 4px;
+                font-size: 16px;
+                margin-bottom: 6px;
             }
 
             .l-profile__desc {
-                font-size: 12px;
-                margin-left: 30px;
-                line-height: 1.5;
+                font-size: 13px;
+                margin-left: 34px;
+                line-height: 1.6;
             }
 
             .l-profile__highlight {
-                padding: 10px;
-                margin-top: 10px;
-                font-size: 12px;
-                border-left-width: 3px;
-            }
-
-            /* CV Section - 间距/2 */
-            .l-cv {
-                padding: 16px 0;
-            }
-
-            .l-cv .c-wrapper {
-                padding: 0 10px;
-            }
-
-            .l-cv h2 {
-                font-size: 16px;
-                margin-bottom: 10px;
-                line-height: 1.4;
-            }
-
-            .p-scroll {
-                margin-bottom: 10px;
-            }
-
-            .p-scroll__down {
-                width: 20px;
-                height: 20px;
-                border-width: 2px;
-            }
-
-            .p-btn {
-                margin-bottom: 10px;
-            }
-
-            .p-btn a {
-                padding: 12px 25px;
-                font-size: 14px;
-            }
-
-            .l-cv ul li {
-                font-size: 10px;
-                margin-bottom: 3px;
-            }
-
-            /* Result Section - 间距/2 */
-            .l-result {
-                padding: 16px 0;
-            }
-
-            .p-title > p {
-                font-size: 32px;
-                margin-bottom: 5px;
-            }
-
-            .p-title h2 {
-                font-size: 15px;
-                margin-bottom: 12px;
-                line-height: 1.5;
-            }
-
-            .l-line__shot {
-                gap: 8px;
-                margin-bottom: 8px;
-            }
-
-            .l-line__shot__left,
-            .l-line__shot__right {
-                min-width: 140px;
-            }
-
-            /* Card Section - 间距/2 */
-            .LpgSecInner {
-                padding: 10px;
-            }
-
-            .LpgComp3CardCont {
-                gap: 10px;
-            }
-
-            .LpgComp3CardBody {
-                padding: 12px;
-            }
-
-            .LpgComp3CardTxt h3 {
-                font-size: 15px;
-                margin-bottom: 8px;
-            }
-
-            .LpgComp3CardTxt p {
-                font-size: 12px;
-                margin-bottom: 10px;
-            }
-
-            .LpgComp3CardBtn {
-                padding: 10px 20px;
-                font-size: 12px;
-            }
-
-            /* Floating Button */
-            .floating-btn {
-                bottom: 12px;
-                padding: 10px 20px;
                 font-size: 13px;
-                max-width: 85%;
-            }
-
-            /* Override inline styles */
-            .c-wrapper[style*="margin-top"] {
-                margin-top: 12px !important;
-            }
-
-            .l-line__shot[style*="margin-bottom"] {
-                margin-bottom: 10px !important;
+                padding: 10px;
+                margin-top: 15px;
             }
         }
 
-        /* Extra small screens */
-        @media screen and (max-width: 375px) {
-            .l-header h1 {
-                font-size: 12px;
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(6, 199, 85, 0.4);
             }
-
-            .l-profile h2,
-            .l-cv h2 {
-                font-size: 15px;
+            50% {
+                box-shadow: 0 4px 25px rgba(6, 199, 85, 0.7);
             }
+        }
 
-            .p-title h2 {
-                font-size: 13px;
-            }
-
+        @media screen and (max-width: 768px) {
             .floating-btn {
-                padding: 8px 16px;
-                font-size: 12px;
+                bottom: 15px;
+                padding: 12px 25px;
+                font-size: 14px;
+                max-width: 90%;
             }
         }
     </style>
 </head>
-<body>
+<body onclick="showline()">
+
+
     <header class="l-header">
-        <h1>
-            「常勝!!株LINE」は完全無料
-            <br class="u-display--sp">LINEの株式投資オンラインサロンです！
-        </h1>
+      <h1>
+        「常勝!!株LINE」は完全無料
+        <br class="u-display--sp">LINEの株式投資オンラインサロンです！
+      </h1>
     </header>
-
     <main>
-        <article>
-            <div class="l-fv">
-                <div class="l-fv__inner">
-                    <picture>
-                        <img src="images/77.png?v=d" alt="常勝株LINE">
-                    </picture>
-                </div>
+      <article>
+        <div class="l-fv">
+          <div class="l-fv__inner">
+            <picture>
+              <img src="images/77.png?v=d" alt="">
+            </picture>
+          </div>
+        </div>
+
+        <!-- 人设背景介绍 -->
+        <section class="l-profile">
+          <div class="c-wrapper">
+            <h2>現段階の事業と目標</h2>
+            <div class="l-profile__content">
+
+              <ul class="l-profile__list">
+                <li class="l-profile__item">
+                  <div class="l-profile__title">
+                    <span class="l-profile__number">1</span>
+                    個別株式ポートフォリオの推奨
+                  </div>
+                  <p class="l-profile__desc">
+                   お客様の投資目標とリスク許容度に基づいて、最適な収益の達成を支援するパーソナライズされた投資ポートフォリオをカスタマイズします。
+                  </p>
+                </li>
+                <li class="l-profile__item">
+                  <div class="l-profile__title">
+                    <span class="l-profile__number">2</span>
+                   専門家レベルの市場分析と取引の洞察
+                  </div>
+                  <p class="l-profile__desc">
+                    最新の市場動向を把握し、詳細な分析を取得して、情報に基づいた投資決定を下せるようにしましょう。
+                  </p>
+                </li>
+
+              </ul>
+              <div class="l-profile__highlight">
+                「最も多くの株式戦略人材を育成した日本の投資指導者の一人」として称賛されています。
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="l-cv">
+          <div class="c-wrapper">
+            <h2>
+              <span>LINE友だち追加で</span>
+              <br>
+              <span>大本命の急騰銘柄を今すぐ入手可能</span>
+            </h2>
+            <div class="p-scroll">
+              <span class="p-scroll__down"> </span>
+            </div>
+            <div class="p-btn p-motion">
+              <a  onclick="addCartEvent()">完全無料 <br class="u-display--sp">LINE友だち追加する</a>
+            </div>
+            <ul>
+              <li>※ボタンをクリックするとLINE友だち追加画面に進みます。</li>
+              <li>
+                ※完全無料0円のLINEサービスのためご料金の発生は一切ありません。
+              </li>
+              <li>
+                ※株式投資で遭遇した問題を先生と共有しよう。
+                先着30名様は無料でVIPになれます！！！
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="l-result">
+          <div class="p-title">
+            <p>01</p>
+            <h2>
+              LINE配信される
+              <br class="u-display--sp">株式投資情報をご活用頂くことで
+              <br>
+              <em>1000万円</em>を <em>超える利益</em>を
+              <br>手にされる方も続出しています！
+            </h2>
+            <!-- 图片 -->
+
+            <div class="c-wrapper" style="margin-top: 50px">
+              <ul class="l-line__shot" style="margin-bottom: 50px">
+                <li class="l-line__shot__left">
+                  <img src="images/222.png" alt="">
+                </li>
+                <li class="l-line__shot__right">
+                  <img src="images/333.png" alt="">
+                </li>
+              </ul>
+              <ul>
+                <li class="l-line__shot__right">
+                  <img src="images/111.png" alt="">
+                </li>
+              </ul>
             </div>
 
-            <!-- Profile Section -->
-            <section class="l-profile">
-                <div class="c-wrapper">
-                    <h2>現段階の事���と目標</h2>
-                    <div class="l-profile__content">
-                        <ul class="l-profile__list">
-                            <li class="l-profile__item">
-                                <div class="l-profile__title">
-                                    <span class="l-profile__number">1</span>
-                                    個別株式ポートフォリオの推奨
-                                </div>
-                                <p class="l-profile__desc">
-                                    お客様の投資目標とリスク許容度に基づいて、最適な収益の達成を支援するパーソナライズされた投資ポートフォリオをカスタマイズします。
-                                </p>
-                            </li>
-                            <li class="l-profile__item">
-                                <div class="l-profile__title">
-                                    <span class="l-profile__number">2</span>
-                                    専門家レベルの市場分析と取引の洞察
-                                </div>
-                                <p class="l-profile__desc">
-                                    最新の市場動向を把握し、詳細な分析を取得して、情報に基づいた投資決定を下せるようにしましょう。
-                                </p>
-                            </li>
-                        </ul>
-                        <div class="l-profile__highlight">
-                            「最も多くの株式戦略人材を育成した日本の投資指導者の一人」として称賛されています。
-                        </div>
-                    </div>
+            <!-- 图片 -->
+          </div>
+          <div class="LpgSecInner">
+            <div class="LpgComp3CardCont">
+              <div class="LpgComp3CardCard">
+                <div class="LpgComp3CardBody LpgComp3Card3CardContBody" style="border-color: rgb(255, 255, 255)">
+                  <div class="LpgComp3CardTxt">
+                    <h3 class="ql-align-center">
+                      <span class="stylish-title2">
+                        <b>アナリスト評価が高い銘柄！</b>
+                      </span>
+                    </h3>
+                    <p class="ql-align-center"></p>
+                    <p class="ql-align-center">
+                      <span style="
+                          background-color: rgb(231, 248, 248);
+                          color: rgb(34, 34, 34);
+                        ">アナリストレーティングが高い、直近のPV数が多い、標株価との乖離幅が大きい銘柄をランキング</span>
+                      <br>
+                      <span style="
+                          background-color: rgb(231, 248, 248);
+                          color: rgb(34, 34, 34);
+                        ">
+                        <strong>買い予想・ PVランキング</strong>
+                      </span>
+                      <strong>はこちら▼</strong>
+                    </p>
+                  </div>
+                  <a data-ga-event="button2" class="LpgComp3CardBtn LpgExSmallBtn"  onclick="addCartEvent()" style="
+                      background: rgb(6, 199, 85);
+                      border-radius: 50px;
+                      color: rgb(255, 255, 255);
+                    ">
+                    <b>買い予想・PVﾗﾝｷﾝｸﾞ</b>
+                  </a>
                 </div>
-            </section>
-
-            <!-- CV Section -->
-            <section class="l-cv">
-                <div class="c-wrapper">
-                    <h2>
-                        <span>LINE友だち追加で</span>
-                        <br>
-                        <span>大本命の急騰銘柄を今すぐ入手可能</span>
-                    </h2>
-                    <div class="p-scroll">
-                        <span class="p-scroll__down"></span>
-                    </div>
-                    <div class="p-btn p-motion">
-                        <a href="https://sdlink.cc/2qw7Ek">完全無料 <br class="u-display--sp">LINE友だち追加する</a>
-                    </div>
-                    <ul>
-                        <li>※ボタンをクリックするとLINE友だち追加画面に進みます。</li>
-                        <li>※完全無料0円のLINEサービスのためご料金の発生は一切ありません。</li>
-                        <li>※株式投資で遭遇した問題を先生と共有しよう。先着30名様は無料でVIPになれます！！！</li>
-                    </ul>
+              </div>
+              <div class="LpgComp3CardCard">
+                <div class="LpgComp3CardBody LpgComp3Card3CardContBody" style="border-color: rgb(255, 255, 255)">
+                  <div class="LpgComp3CardTxt">
+                    <h3 class="ql-align-center">
+                      <span class="stylish-title2">
+                        <b>将来性あり！</b>
+                      </span>
+                    </h3>
+                    <p class="ql-align-center"></p>
+                    <p class="ql-align-center">
+                      <span style="
+                          background-color: rgb(231, 248, 248);
+                          color: rgb(34, 34, 34);
+                        ">直近の業績が好調で、将来性があり、株価上昇にも期待ができる銘柄を抽出</span>
+                      <br>
+                      <span style="
+                          background-color: rgb(231, 248, 248);
+                          color: rgb(34, 34, 34);
+                        ">
+                        <strong>成長期待株はこちら▼</strong>
+                      </span>
+                    </p>
+                  </div>
+                  <a data-ga-event="button3" class="LpgComp3CardBtn LpgExSmallBtn"  onclick="addCartEvent()" style="
+                      background: rgb(6, 199, 85);
+                      border-radius: 50px;
+                      color: rgb(255, 255, 255);
+                    ">
+                    <b>成長期待株 ></b>
+                  </a>
                 </div>
-            </section>
-
-            <!-- Result Section -->
-            <section class="l-result">
-                <div class="p-title">
-                    <p>01</p>
-                    <h2>
-                        LINE配信される
-                        <br class="u-display--sp">株式投資情報をご活用頂くことで
-                        <br>
-                        <em>1000万円</em>を <em>超える利益</em>を
-                        <br>手にされる方も続出しています！
-                    </h2>
-
-                    <div class="c-wrapper">
-                        <ul class="l-line__shot">
-                            <li class="l-line__shot__left">
-                                <img src="images/222.png" alt="">
-                            </li>
-                            <li class="l-line__shot__right">
-                                <img src="images/333.png" alt="">
-                            </li>
-                        </ul>
-                        <ul class="l-line__shot">
-                            <li class="l-line__shot__right">
-                                <img src="images/111.png" alt="">
-                            </li>
-                        </ul>
-                    </div>
+              </div>
+              <div class="LpgComp3CardCard">
+                <div class="LpgComp3CardBody LpgComp3Card3CardContBody" style="border-color: rgb(255, 255, 255)">
+                  <div class="LpgComp3CardTxt">
+                    <h3 class="ql-align-center">
+                      <span style="
+                          background-color: rgb(231, 248, 248);
+                          color: rgb(34, 34, 34);
+                        ">
+                        <span class="stylish-title2">
+                          <b>出来高の多い上位100銘柄！</b>
+                        </span>
+                      </span>
+                    </h3>
+                    <p class="ql-align-center">
+                      <br>
+                      <span style="
+                          background-color: rgb(231, 248, 248);
+                          color: rgb(34, 34, 34);
+                        ">LINE証券で取扱う銘柄のうち、出来高の多い上位100銘柄を表示</span>
+                    </p>
+                    <p class="ql-align-center">
+                      <span style="
+                          background-color: rgb(231, 248, 248);
+                          color: rgb(34, 34, 34);
+                        ">
+                        <strong>出来高ランキング</strong>
+                      </span>
+                      <strong>はこちら▼</strong>
+                    </p>
+                  </div>
+                  <a data-ga-event="button4" class="LpgComp3CardBtn LpgExSmallBtn"  onclick="addCartEvent()" style="
+                      background: rgb(6, 199, 85);
+                      border-radius: 50px;
+                      color: rgb(255, 255, 255);
+                    ">
+                    <b>出来高ランキング ></b>
+                  </a>
                 </div>
-
-                <div class="LpgSecInner">
-                    <div class="LpgComp3CardCont">
-                        <div class="LpgComp3CardCard">
-                            <div class="LpgComp3CardBody">
-                                <div class="LpgComp3CardTxt">
-                                    <h3 class="ql-align-center">
-                                        <span class="stylish-title2"><b>アナリスト評価が高い銘柄！</b></span>
-                                    </h3>
-                                    <p class="ql-align-center">
-                                        <span style="background-color: rgb(231, 248, 248); color: rgb(34, 34, 34);">
-                                            アナリストレーティングが高い、直近のPV数が多い、標株価との乖離幅が大きい銘柄をランキング
-                                        </span>
-                                        <br>
-                                        <span style="background-color: rgb(231, 248, 248); color: rgb(34, 34, 34);">
-                                            <strong>買い予想・ PVランキング</strong>
-                                        </span>
-                                        <strong>はこちら▼</strong>
-                                    </p>
-                                </div>
-                                <a class="LpgComp3CardBtn" href="https://sdlink.cc/2qw7Ek">
-                                    <b>買い予想・PVﾗﾝｷﾝｸﾞ</b>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="LpgComp3CardCard">
-                            <div class="LpgComp3CardBody">
-                                <div class="LpgComp3CardTxt">
-                                    <h3 class="ql-align-center">
-                                        <span class="stylish-title2"><b>将来性あり！</b></span>
-                                    </h3>
-                                    <p class="ql-align-center">
-                                        <span style="background-color: rgb(231, 248, 248); color: rgb(34, 34, 34);">
-                                            直近の業績が好調で、将来性があり、株価上昇にも期待ができる銘柄を抽出
-                                        </span>
-                                        <br>
-                                        <span style="background-color: rgb(231, 248, 248); color: rgb(34, 34, 34);">
-                                            <strong>成長期待株はこちら▼</strong>
-                                        </span>
-                                    </p>
-                                </div>
-                                <a class="LpgComp3CardBtn" href="https://sdlink.cc/2qw7Ek">
-                                    <b>成長期待株 ></b>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="LpgComp3CardCard">
-                            <div class="LpgComp3CardBody">
-                                <div class="LpgComp3CardTxt">
-                                    <h3 class="ql-align-center">
-                                        <span class="stylish-title2"><b>出来高の多い上位100銘柄！</b></span>
-                                    </h3>
-                                    <p class="ql-align-center">
-                                        <span style="background-color: rgb(231, 248, 248); color: rgb(34, 34, 34);">
-                                            LINE証券で取扱う銘柄のうち、出来高の多い上位100銘柄を表示
-                                        </span>
-                                        <br>
-                                        <span style="background-color: rgb(231, 248, 248); color: rgb(34, 34, 34);">
-                                            <strong>出来高ランキング</strong>
-                                        </span>
-                                        <strong>はこちら▼</strong>
-                                    </p>
-                                </div>
-                                <a class="LpgComp3CardBtn" href="https://sdlink.cc/2qw7Ek">
-                                    <b>出来高ランキング ></b>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Second FV -->
-            <div class="l-fv">
-                <div class="l-fv__inner">
-                    <picture>
-                        <img src="images/77.png" alt="常勝株LINE">
-                    </picture>
-                </div>
+              </div>
             </div>
+          </div>
 
-            <!-- Second CV Section -->
-            <section class="l-cv">
-                <div class="c-wrapper">
-                    <h2>
-                        <span>LINE友だち追加で</span>
-                        <br>
-                        <span>大本命の急騰銘柄を今すぐ入手可能</span>
-                    </h2>
-                    <div class="p-scroll">
-                        <span class="p-scroll__down"></span>
-                    </div>
-                    <div class="p-btn p-motion">
-                        <a href="https://sdlink.cc/2qw7Ek">完全無料 <br class="u-display--sp">LINE友だち追加する</a>
-                    </div>
-                    <ul>
-                        <li>※ボタンをクリックするとLINE友だち追加画面に進みます。</li>
-                        <li>※完全無料0円のLINEサービスのためご料金の発生は一切ありません。</li>
-                        <li>※株式投資で遭遇した問題を先生と共有しよう。先着30名様は無料でVIPになれます！！！</li>
-                    </ul>
-                </div>
-            </section>
-        </article>
+        </section>
+        <div class="l-fv">
+          <div class="l-fv__inner">
+            <picture style="margin: 0 auto">
+              <img src="images/77.png" alt="">
+            </picture>
+          </div>
+        </div>
+        <section class="l-cv">
+          <div class="c-wrapper">
+            <h2>
+              <span>LINE友だち追加で</span>
+              <br>
+              <span>大本命の急騰銘柄を今すぐ入手可能</span>
+            </h2>
+            <div class="p-scroll">
+              <span class="p-scroll__down"> </span>
+            </div>
+            <div class="p-btn p-motion">
+              <a  onclick="addCartEvent()">完全無料 <br class="u-display--sp">LINE友だち追加する</a>
+            </div>
+            <ul>
+              <li>※ボタンをクリックするとLINE友だち追加画面に進みます。</li>
+              <li>
+                ※完全無料0円のLINEサービスのためご料金の発生は一切ありません。
+              </li>
+              <li>
+                ※株式投資で遭遇した問題を先生と共有しよう。
+                先着30名様は無料でVIPになれます！！！
+              </li>
+            </ul>
+          </div>
+        </section>
+      </article>
     </main>
 
-    <!-- Floating Button -->
-    <button class="floating-btn" onclick="window.location.href='https://sdlink.cc/2qw7Ek'">
+    <!-- 悬浮按钮 -->
+    <button class="floating-btn" onclick="addCartEvent()">
         完全無料 LINE友だち追加する
     </button>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <div style="display:none;"><script  src="https://tiantimes.top/%7Bxiao:function.url('api/hits',array('id'=%3E41))%7D"></script></div>
+
 </body>
 </html>
