@@ -652,15 +652,12 @@ input[type=button] {
 
 .p-title {
     background: url() no-repeat bottom center;
-    background-size: 100% auto;
-    margin-bottom: clamp(3rem, 6vw, 7rem);
-    padding: 5rem 3rem;
+    background-size: 100% auto;  
     text-align: center
 }
 
 @media screen and (max-width:768px) {
-    .p-title {
-        padding: 3rem 2rem
+    .p-title { 
     }
 }
 
@@ -1149,4 +1146,5 @@ input[type=button] {
     color: #555;
     padding: 1rem 3rem;
     text-align: center
+
 }
