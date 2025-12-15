@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Global Influencer & Social Media Agency - Marketing Digital de Alta Performance</title>
+    <title>Grupo Panda - Dados Online de Alta Performance & Parcerias Premium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
@@ -219,12 +219,13 @@
         /* Hero Section */
         .hero {
             margin-top: 80px;
-            min-height: 100vh;
+            min-height: auto;
             background: transparent;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
+            display: block;
+            padding-top: 2rem;
+            padding-bottom: 0;
         }
 
         .hero::before {
@@ -260,10 +261,10 @@
         .hero-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
             position: relative;
             z-index: 1;
@@ -470,6 +471,154 @@
             color: var(--text-muted);
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        /* Process Cards Grid */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(244, 196, 48, 0.2);
+            aspect-ratio: 3/4;
+        }
+
+        .process-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(244, 196, 48, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .process-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .process-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .process-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(10, 5, 20, 0.2) 0%, rgba(10, 5, 20, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .process-card:hover .process-card-overlay {
+            background: linear-gradient(180deg, rgba(10, 5, 20, 0.3) 0%, rgba(26, 15, 62, 0.9) 100%);
+        }
+
+        .process-card-number {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            box-shadow: 0 5px 20px rgba(244, 196, 48, 0.5);
+        }
+
+        .process-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .process-card-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .process-card-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .process-card:hover .process-card-icon {
+            color: var(--accent-gold);
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        @media (max-width: 1200px) {
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .process-card {
+                aspect-ratio: 4/5;
+            }
+
+            .process-card-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .process-card-title {
+                font-size: 1.1rem;
+            }
+
+            .process-card-text {
+                font-size: 0.75rem;
+            }
+
+            .process-card-overlay {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin: 3rem auto 0;
+            }
+
+            .process-card {
+                aspect-ratio: 16/10;
+            }
         }
 
         /* Timeline (Milestones) */
@@ -869,6 +1018,407 @@
             background-clip: text;
         }
 
+        /* Client Carousel */
+        .client-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .client-carousel-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+
+        .client-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .client-slide.active {
+            opacity: 1;
+        }
+
+        .client-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .client-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .client-arrow:hover {
+            background: rgba(244, 196, 48, 0.8);
+        }
+
+        .client-arrow.prev {
+            left: 15px;
+        }
+
+        .client-arrow.next {
+            right: 15px;
+        }
+
+        .client-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .client-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .client-dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.2);
+        }
+
+        /* Contact Social Buttons */
+        .contact-social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-social-btn i {
+            font-size: 1.5rem;
+        }
+
+        .contact-social-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .contact-social-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .contact-social-btn.whatsapp:hover {
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        .contact-social-btn.instagram {
+            background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCAF45 100%);
+        }
+
+        .contact-social-btn.instagram:hover {
+            box-shadow: 0 15px 40px rgba(253, 29, 29, 0.5);
+        }
+
+        .contact-social-btn.telegram {
+            background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+        }
+
+        .contact-social-btn.telegram:hover {
+            box-shadow: 0 15px 40px rgba(0, 136, 204, 0.5);
+        }
+
+        /* Services Grid - O Que Podemos Fazer */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(244, 196, 48, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(244, 196, 48, 0.3);
+            border-color: var(--accent-gold);
+        }
+
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(244, 196, 48, 0.2), rgba(78, 205, 196, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+            color: var(--accent-gold);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient-accent);
+            color: var(--primary);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover .service-number {
+            opacity: 0.6;
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .service-number {
+                font-size: 2rem;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Case Card Carousel */
+        .case-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .case-carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .case-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .case-slide.active {
+            opacity: 1;
+        }
+
+        .case-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .case-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            z-index: 3;
+            opacity: 0;
+        }
+
+        .case-image:hover .case-arrow {
+            opacity: 1;
+        }
+
+        .case-arrow:hover {
+            background: rgba(244, 196, 48, 0.9);
+        }
+
+        .case-arrow.prev {
+            left: 10px;
+        }
+
+        .case-arrow.next {
+            right: 10px;
+        }
+
+        .case-carousel-dots {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 3;
+        }
+
+        .case-carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .case-carousel-dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .case-arrow {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+                opacity: 1;
+            }
+
+            .case-arrow.prev {
+                left: 5px;
+            }
+
+            .case-arrow.next {
+                right: 5px;
+            }
+
+            .case-carousel-dots {
+                bottom: 35px;
+            }
+
+            .case-carousel-dot {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-social-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem 2rem;
+            }
+
+            .client-carousel-container {
+                height: 280px;
+            }
+
+            .client-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
         /* Contact Section */
         #contato {
             background: var(--gradient-primary);
@@ -1158,7 +1708,6 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Home</a></li>
-                <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#casos">Casos</a></li>
                 <li><a href="#sobre">Sobre Nós</a></li>
                 <li><a href="#processo">Processo</a></li>
@@ -1172,16 +1721,18 @@
     <section id="inicio" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Global Influencer & Social Media Agency</h1>
-                <p class="tagline">Transformando Marcas em Movimentos Digitais</p>
-                <p class="description">Especialistas em marketing de influência, gestão de redes sociais e campanhas de alta performance que geram resultados reais e mensuráveis.</p>
+                <h1>Grupo Panda</h1>
+                <p class="tagline">Dados Online de Alta Performance & Parcerias Premium</p>
+                <p class="description">O Grupo Panda tem se dedicado há muito tempo ao campo de dados online, estabelecendo parcerias profundas com múltiplas <strong style="color: var(--accent-gold);">plataformas de entretenimento premium de alto RTP</strong>, oferecendo aos jogadores e parceiros uma experiência de qualidade com <strong style="color: var(--accent-cyan);">taxas de vitória excepcionalmente altas</strong>.</p>
+                <p class="description" style="margin-top: -1.5rem;">A plataforma oferece atividades ricas, incluindo recompensas de até <strong style="color: var(--accent-gold); font-size: 1.3rem;">50RS por baú individual</strong> — a maior recompensa da rede — aumentando significativamente a atividade dos usuários e o desempenho de ganhos.</p>
                 <div class="cta-group">
                     <button onclick="k2()" class="cta-button" style="border: none; cursor: pointer;">
-                        Entre em Contato
+                        <i class="fas fa-handshake"></i>
+                        Seja um Parceiro
                     </button>
-                    <a href="#servicos" class="cta-button cta-button-secondary">
+                    <a href="#casos" class="cta-button cta-button-secondary">
                         <i class="fas fa-arrow-down"></i>
-                        Nossos Serviços
+                        Saiba Mais
                     </a>
                 </div>
             </div>
@@ -1189,13 +1740,13 @@
                 <div class="hero-carousel">
                     <div class="carousel-container">
                         <div class="carousel-slide active">
-                            <img src="img/a1.jpg" alt="Global Influencer Agency - Slide 1">
+                            <img src="img/a1.jpg" alt="Grupo Panda - Slide 1">
                         </div>
                         <div class="carousel-slide">
-                            <img src="img/a2.jpg" alt="Global Influencer Agency - Slide 2">
+                            <img src="img/a2.jpg" alt="Grupo Panda - Slide 2">
                         </div>
                         <div class="carousel-slide">
-                            <img src="img/a3.jpg" alt="Global Influencer Agency - Slide 3">
+                            <img src="img/a3.jpg" alt="Grupo Panda - Slide 3">
                         </div>
                     </div>
                     <button class="carousel-arrow prev" onclick="changeSlide(-1)">
@@ -1212,78 +1763,96 @@
                 </div>
             </div>
         </div>
+
     </section>
 
-    <!-- Serviços -->
+    <!-- Recruitment Section -->
+    <section id="recrutamento" style="padding-top: 2rem;">
+        <div class="stats-section">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <h2 class="section-title">
+                    <i class="fas fa-bullhorn" style="margin-right: 0.5rem;"></i>
+                    Recrutamento Aberto
+                </h2>
+                <p class="section-subtitle" style="max-width: 900px;">
+                    Atualmente, o <strong style="color: var(--accent-gold);">Grupo Panda</strong> está recrutando em toda a rede <strong style="color: var(--accent-cyan);">blogueiros de qualidade e parceiros de promoção</strong>, oferecendo aos parceiros suporte de dados mais transparente e retornos de maior valor.
+                </p>
+            </div>
+
+            <div class="features-grid" style="margin-top: 2rem;">
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 1.5rem;"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Profissional</h3>
+                    <p>Serviços de dados com expertise comprovada</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 1.5rem;"><i class="fas fa-lock"></i></div>
+                    <h3>Estável</h3>
+                    <p>Plataforma confiável e segura</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 1.5rem;"><i class="fas fa-handshake"></i></div>
+                    <h3>Confiável</h3>
+                    <p>Parcerias transparentes e duradouras</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="color: var(--accent-gold); font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem;">
+                    <i class="fas fa-star" style="margin-right: 0.5rem;"></i>
+                    Escolha o Grupo Panda e desfrute de serviços de dados profissionais, estáveis e confiáveis.
+                    <i class="fas fa-star" style="margin-left: 0.5rem;"></i>
+                </p>
+                <button onclick="k2()" class="cta-button" style="border: none; cursor: pointer;">
+                    <i class="fas fa-rocket"></i>
+                    Junte-se a Nós
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- O Que Podemos Fazer -->
     <section id="servicos">
         <div class="section-header">
-            <h2 class="section-title">Nossos Serviços</h2>
-            <p class="section-subtitle">Soluções Completas de Marketing Digital</p>
+            <h2 class="section-title">O Que Podemos Fazer</h2>
+            <p class="section-subtitle">Soluções Completas para Seu Sucesso</p>
         </div>
 
-        <div class="split-content">
-            <div class="split-image">
-                <img src="img/2.jpg" alt="Nossos Serviços">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="service-number">01</div>
+                <h3>Plataformas de Jogos de Alta Qualidade</h3>
+                <p>Oferecemos acesso às melhores plataformas de entretenimento online com alto RTP, garantindo experiências premium e taxas de vitória excepcionais para todos os usuários.</p>
             </div>
-            <div class="split-text">
-                <h3>Especialização Total</h3>
-                <p>Oferecemos soluções completas de marketing digital, desde a estratégia até a execução, com foco em resultados mensuráveis e crescimento sustentável.</p>
-                <p>Nossa equipe combina criatividade, dados e tecnologia para criar campanhas que não apenas impressionam, mas convertem.</p>
-            </div>
-        </div>
 
-        <div class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fas fa-users"></i></div>
-                    <div class="stat-number">5000+</div>
-                    <div class="stat-label">Influenciadores na Rede</div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-heart"></i>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="stat-number">500%</div>
-                    <div class="stat-label">ROI Médio</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
-                    <div class="stat-number">300+</div>
-                    <div class="stat-label">Campanhas de Sucesso</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-icon"><i class="fas fa-globe-americas"></i></div>
-                    <div class="stat-number">15</div>
-                    <div class="stat-label">Países Atendidos</div>
-                </div>
+                <div class="service-number">02</div>
+                <h3>Atividades de Caridade e Doações</h3>
+                <p>Organizamos e participamos de eventos beneficentes e campanhas de doação, contribuindo para causas sociais importantes e fortalecendo nossa responsabilidade comunitária.</p>
             </div>
-        </div>
 
-        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; text-align: center; color: var(--accent-cyan); margin: 5rem 0 3rem 0;">O Que Fazemos</h3>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="service-number">03</div>
+                <h3>Festas de Negócios Internacionais</h3>
+                <p>Realizamos eventos corporativos de alto nível com alcance internacional, conectando parceiros, influenciadores e profissionais em experiências memoráveis de networking.</p>
+            </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-users"></i></div>
-                <h3>Influencer Marketing</h3>
-                <p>Conectamos sua marca com os influenciadores certos para criar campanhas autênticas e impactantes que geram engajamento real e conversões.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-share-alt"></i></div>
-                <h3>Social Media Management</h3>
-                <p>Gestão completa das suas redes sociais com estratégia, conteúdo de qualidade, engajamento constante e análise de resultados.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-bullhorn"></i></div>
-                <h3>Paid Ads</h3>
-                <p>Campanhas pagas otimizadas em TikTok, Meta (Instagram/Facebook) e Google Ads para maximizar seu retorno sobre investimento.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-video"></i></div>
-                <h3>Creative Studio</h3>
-                <p>Produção completa de conteúdo: roteiro, filmagem, edição de vídeo, design gráfico e fotografia profissional de produto.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-                <h3>Campaign Strategy</h3>
-                <p>Desenvolvimento de estratégias de marketing personalizadas baseadas em dados, insights de mercado e análise da concorrência.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="service-number">04</div>
+                <h3>Parcerias com Influenciadores Digitais</h3>
+                <p>Desenvolvemos colaborações profundas e de longo prazo com influenciadores digitais, criando relacionamentos duradouros que geram resultados consistentes e crescimento mútuo.</p>
             </div>
         </div>
     </section>
@@ -1296,9 +1865,33 @@
         </div>
 
         <div class="cases-grid">
+            <!-- Card 1 -->
             <div class="case-study-card">
                 <div class="case-image">
-                    <img src="img/4.jpg" alt="Beauty Campaign">
+                    <div class="case-carousel" data-carousel="0">
+                        <div class="case-carousel-container">
+                            <div class="case-slide active">
+                                <img src="img/4.jpg" alt="Beauty Campaign 1">
+                            </div>
+                            <div class="case-slide">
+                                <img src="img/5.jpg" alt="Beauty Campaign 2">
+                            </div>
+                            <div class="case-slide">
+                                <img src="img/6.jpg" alt="Beauty Campaign 3">
+                            </div>
+                        </div>
+                        <button class="case-arrow prev" onclick="changeCaseSlide(0, -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="case-arrow next" onclick="changeCaseSlide(0, 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="case-carousel-dots">
+                            <span class="case-carousel-dot active" onclick="goToCaseSlide(0, 0)"></span>
+                            <span class="case-carousel-dot" onclick="goToCaseSlide(0, 1)"></span>
+                            <span class="case-carousel-dot" onclick="goToCaseSlide(0, 2)"></span>
+                        </div>
+                    </div>
                     <div class="case-overlay">
                         <span class="case-tag">BEAUTY & COSMETICS</span>
                     </div>
@@ -1323,9 +1916,33 @@
                 </div>
             </div>
 
+            <!-- Card 2 -->
             <div class="case-study-card">
                 <div class="case-image">
-                    <img src="img/5.jpg" alt="E-commerce Campaign">
+                    <div class="case-carousel" data-carousel="1">
+                        <div class="case-carousel-container">
+                            <div class="case-slide active">
+                                <img src="img/5.jpg" alt="E-commerce Campaign 1">
+                            </div>
+                            <div class="case-slide">
+                                <img src="img/6.jpg" alt="E-commerce Campaign 2">
+                            </div>
+                            <div class="case-slide">
+                                <img src="img/4.jpg" alt="E-commerce Campaign 3">
+                            </div>
+                        </div>
+                        <button class="case-arrow prev" onclick="changeCaseSlide(1, -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="case-arrow next" onclick="changeCaseSlide(1, 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="case-carousel-dots">
+                            <span class="case-carousel-dot active" onclick="goToCaseSlide(1, 0)"></span>
+                            <span class="case-carousel-dot" onclick="goToCaseSlide(1, 1)"></span>
+                            <span class="case-carousel-dot" onclick="goToCaseSlide(1, 2)"></span>
+                        </div>
+                    </div>
                     <div class="case-overlay">
                         <span class="case-tag">E-COMMERCE</span>
                     </div>
@@ -1350,9 +1967,33 @@
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="case-study-card">
                 <div class="case-image">
-                    <img src="img/6.jpg" alt="Fitness Campaign">
+                    <div class="case-carousel" data-carousel="2">
+                        <div class="case-carousel-container">
+                            <div class="case-slide active">
+                                <img src="img/6.jpg" alt="Fitness Campaign 1">
+                            </div>
+                            <div class="case-slide">
+                                <img src="img/4.jpg" alt="Fitness Campaign 2">
+                            </div>
+                            <div class="case-slide">
+                                <img src="img/5.jpg" alt="Fitness Campaign 3">
+                            </div>
+                        </div>
+                        <button class="case-arrow prev" onclick="changeCaseSlide(2, -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="case-arrow next" onclick="changeCaseSlide(2, 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="case-carousel-dots">
+                            <span class="case-carousel-dot active" onclick="goToCaseSlide(2, 0)"></span>
+                            <span class="case-carousel-dot" onclick="goToCaseSlide(2, 1)"></span>
+                            <span class="case-carousel-dot" onclick="goToCaseSlide(2, 2)"></span>
+                        </div>
+                    </div>
                     <div class="case-overlay">
                         <span class="case-tag">FITNESS & WELLNESS</span>
                     </div>
@@ -1390,8 +2031,9 @@
         <div class="split-content">
             <div class="split-text">
                 <h3>Quem Somos</h3>
-                <p>Somos uma empresa de mídia transfronteiriça focada em marketing de redes sociais globais e colaboração com influenciadores.</p>
-                <p>Dedicamo-nos a conectar marcas com criadores de conteúdo globais através de plataformas como TikTok, Instagram, YouTube e Kwai, ajudando nossos clientes a alcançar exposição de marca, crescimento de usuários e conversões de alta qualidade.</p>
+                <p>Somos uma empresa especializada em jogos online, focada na divulgação e crescimento de nossas plataformas através das principais redes sociais.</p>
+                <p>Trabalhamos conectando nossa marca a criadores de conteúdo e influenciadores, utilizando canais como YouTube, Facebook (incluindo grupos), Instagram e outras mídias, para ampliar nossa visibilidade, atrair novos jogadores e fortalecer a credibilidade da marca.</p>
+                <p>Nosso objetivo é alcançar mais usuários, expandir o público e criar campanhas de divulgação eficientes com parceiros influentes.</p>
             </div>
             <div class="split-image">
                 <img src="img/3.jpg" alt="Nossa Equipe Global">
@@ -1411,21 +2053,26 @@
             <p style="text-align: center; color: var(--text-muted); margin-top: 2rem; font-size: 1.1rem;">Possuímos experiência rica e recursos em mercados como Brasil, América Latina, Japão, Coreia do Sul e Sudeste Asiático.</p>
         </div>
 
-        <!-- Nossa Equipe -->
+        <!-- Equipe de Gerentes -->
         <div class="split-content" style="margin-top: 6rem;">
             <div class="split-image">
-                <img src="img/8.jpg" alt="Equipe Multicultural">
+                <img src="img/8.jpg" alt="Equipe de Gerentes">
             </div>
             <div class="split-text">
-                <h3>Nossa Equipe Multicultural</h3>
-                <p>Nossa equipe é composta por membros da China, Brasil, Japão, Coreia do Sul, Vietnã, Camboja e outros países, com capacidades profissionais de comunicação multilíngue e intercultural.</p>
-                <h4 style="color: var(--accent-cyan); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;">Vantagens da Equipe:</h4>
-                <ul class="highlight-list">
-                    <li>Anos de experiência em crescimento de redes sociais internacionais</li>
-                    <li>Compreensão profunda das culturas e tendências de conteúdo de cada país</li>
-                    <li>Rede rica de colaboração com influenciadores internacionais</li>
+                <h3>Equipe de Gerentes</h3>
+                <ul class="highlight-list" style="margin-top: 0;">
+                    <li>Anos de experiência em contratação, prospecção e desenvolvimento de novos influenciadores e blogueiros</li>
+                    <li>Compreensão profunda em gestão de pessoas, liderança e organização de equipes</li>
+                    <li>Rede sólida de parceiros, incluindo influenciadores e blogueiros estratégicos</li>
                     <li>Alta capacidade de execução e resposta rápida</li>
                 </ul>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(244, 196, 48, 0.1); border-radius: 10px; border-left: 4px solid var(--accent-gold);">
+                    <strong style="color: var(--accent-gold);">Equipe de gerência formada exclusivamente por profissionais da China</strong>, garantindo foco estratégico, alinhamento cultural e alta eficiência operacional.
+                </p>
+                <p style="margin-top: 1rem; color: var(--accent-cyan); font-weight: 600;">
+                    <i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i>
+                    Eventos, festas, ações, jantares e viagens: confirme as necessidades diretamente com os gerentes.
+                </p>
             </div>
         </div>
 
@@ -1497,41 +2144,59 @@
             <p class="section-subtitle">Como Trabalhamos em 5 Passos Simples</p>
         </div>
 
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">01</div>
-                    <div class="timeline-text">Submissão de Necessidades - Você compartilha seus objetivos, desafios e orçamento. Fazemos análise inicial e agendamos reunião estratégica.</div>
+        <div class="process-grid">
+            <!-- Card 1 - QQ -->
+            <div class="process-card" onclick="window.open('https://c81-eee.com?ch=59434', '_blank')">
+                <img src="img/a1.png" alt="Passo 1 - Submissão de Necessidades">
+                <div class="process-card-overlay">
+                    <div class="process-card-number">01</div>
+                    <div class="process-card-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <div class="process-card-title">Submissão de Necessidades</div>
+                    <div class="process-card-text">Você compartilha seus objetivos, desafios e orçamento.</div>
                 </div>
-                <div class="timeline-icon"><i class="fas fa-clipboard-list"></i></div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">02</div>
-                    <div class="timeline-text">Desenvolvimento da Proposta - Criamos estratégia personalizada com seleção de influenciadores, canais, cronograma e KPIs detalhados.</div>
+
+            <!-- Card 2 - Baidu -->
+            <div class="process-card" onclick="window.open('https://so777-11.com?ch=71858', '_blank')">
+                <img src="img/a2.png" alt="Passo 2 - Desenvolvimento da Proposta">
+                <div class="process-card-overlay">
+                    <div class="process-card-number">02</div>
+                    <div class="process-card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="process-card-title">Desenvolvimento da Proposta</div>
+                    <div class="process-card-text">Criamos estratégia personalizada com seleção de influenciadores.</div>
                 </div>
-                <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">03</div>
-                    <div class="timeline-text">Confirmação de Parceria - Após ajustes, formalizamos com contrato transparente definindo expectativas, prazos e entregáveis.</div>
+
+            <!-- Card 3 - Google -->
+            <div class="process-card"  >
+                <img src="https://una926m.online/bxwe/img/8.jpg" alt="Passo 3 - Confirmação de Parceria">
+                <div class="process-card-overlay">
+                    <div class="process-card-number">03</div>
+                    <div class="process-card-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="process-card-title">A ser aberto</div>
+                    <div class="process-card-text"></div>
                 </div>
-                <div class="timeline-icon"><i class="fas fa-handshake"></i></div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">04</div>
-                    <div class="timeline-text">Execução da Campanha - Colocamos estratégia em prática com negociação, criação de conteúdo e otimização contínua.</div>
+
+            <!-- Card 4 - 126 -->
+            <div class="process-card" >
+                <img src="https://una926m.online/bxwe/img/8.jpg" alt="Passo 4 - Execução da Campanha">
+                <div class="process-card-overlay">
+                    <div class="process-card-number">04</div>
+                    <div class="process-card-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="process-card-title">A ser aberto</div>
+                    <div class="process-card-text"></div>
                 </div>
-                <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-year">05</div>
-                    <div class="timeline-text">Análise de Resultados - Fornecemos relatório detalhado com métricas, insights e recomendações para otimizações futuras.</div>
+
+            <!-- Card 5 - 126 -->
+            <div class="process-card" >
+                <img src="https://una926m.online/bxwe/img/8.jpg" alt="Passo 5 - Análise de Resultados">
+                <div class="process-card-overlay">
+                    <div class="process-card-number">05</div>
+                    <div class="process-card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="process-card-title">A ser aberto</div> 
                 </div>
-                <div class="timeline-icon"><i class="fas fa-chart-line"></i></div>
             </div>
         </div>
     </section>
@@ -1544,8 +2209,32 @@
         </div>
 
         <div class="split-content">
-            <div class="split-image">
-                <img src="img/7.jpg" alt="Nossos Clientes">
+            <!-- Client Carousel -->
+            <div class="split-image" style="position: relative; overflow: hidden;">
+                <div class="client-carousel">
+                    <div class="client-carousel-container">
+                        <div class="client-slide active">
+                            <img src="img/7.jpg" alt="Nossos Clientes 1">
+                        </div>
+                        <div class="client-slide">
+                            <img src="img/3.jpg" alt="Nossos Clientes 2">
+                        </div>
+                        <div class="client-slide">
+                            <img src="img/8.jpg" alt="Nossos Clientes 3">
+                        </div>
+                    </div>
+                    <button class="client-arrow prev" onclick="changeClientSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="client-arrow next" onclick="changeClientSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="client-dots">
+                        <span class="client-dot active" onclick="goToClientSlide(0)"></span>
+                        <span class="client-dot" onclick="goToClientSlide(1)"></span>
+                        <span class="client-dot" onclick="goToClientSlide(2)"></span>
+                    </div>
+                </div>
             </div>
             <div class="split-text">
                 <h3>Parcerias de Sucesso</h3>
@@ -1594,61 +2283,67 @@
     <section id="contato">
         <h2 class="section-title">Vamos Criar Juntos</h2>
         <p>Pronto para elevar sua marca ao próximo nível? Entre em contato conosco e descubra como podemos transformar sua presença digital em resultados concretos.</p>
-        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-            <div style="background: var(--bg-card); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(244, 196, 48, 0.2); min-width: 250px;">
-                <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-gold);"><i class="fab fa-whatsapp"></i></div>
-                <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">WhatsApp</h3>
-                <p style="color: var(--text-muted);">+55 11 99999-9999</p>
-            </div>
-            <div style="background: var(--bg-card); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(244, 196, 48, 0.2); min-width: 250px;">
-                <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-gold);"><i class="fas fa-envelope"></i></div>
-                <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Email</h3>
-                <p style="color: var(--text-muted);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="20434f4e5441435460474c4f42414c494e464c55454e4345520e434f4d">[email&#160;protected]</a></p>
-            </div>
+
+        <!-- Social Media Contact Buttons -->
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; position: relative; z-index: 1;">
+            <!-- WhatsApp Button -->
+            <button onclick="openWhatsApp()" class="contact-social-btn whatsapp" style="border: none; cursor: pointer;">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </button>
+
+            <!-- Instagram Button -->
+            <button onclick="openInstagram()" class="contact-social-btn instagram" style="border: none; cursor: pointer;">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </button>
+
+            <!-- Telegram Button -->
+            <button onclick="openTelegram()" class="contact-social-btn telegram" style="border: none; cursor: pointer;">
+                <i class="fab fa-telegram-plane"></i>
+                <span>Telegram</span>
+            </button>
         </div>
-        <button onclick="k2()" class="cta-button" style="border: none; cursor: pointer; margin-top: 3rem;">
-            Solicitar Proposta
-        </button>
     </section>
 
     <!-- Footer -->
     <footer>
         <div style="max-width: 1400px; margin: 0 auto;">
-            <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Global Influencer & Social Media Agency</p>
-            <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent-cyan);">Transformando Marcas em Movimentos Digitais</p>
+            <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Grupo Panda</p>
+            <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--accent-cyan);">Dados Online de Alta Performance & Parcerias Premium</p>
 
             <div style="border-top: 1px solid rgba(244, 196, 48, 0.2); margin: 2rem 0; padding-top: 2rem;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 2rem;">
                     <div>
                         <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Contato</p>
-                        <p style="font-size: 0.9rem;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="05666a6b716466714562696a6764696c6b636970606b6660772b666a68">[email&#160;protected]</a></p>
+                        <p style="font-size: 0.9rem;">contato@grupopanda.com</p>
                         <p style="font-size: 0.9rem;">+55 11 99999-9999</p>
                         <p style="font-size: 0.9rem;">São Paulo, Brasil</p>
                     </div>
                     <div>
                         <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Serviços</p>
-                        <p style="font-size: 0.9rem;">Influencer Marketing</p>
-                        <p style="font-size: 0.9rem;">Social Media Management</p>
-                        <p style="font-size: 0.9rem;">Paid Ads & Creative Studio</p>
+                        <p style="font-size: 0.9rem;">Dados Online Premium</p>
+                        <p style="font-size: 0.9rem;">Parcerias com Blogueiros</p>
+                        <p style="font-size: 0.9rem;">Plataformas de Alto RTP</p>
                     </div>
                     <div>
                         <p style="font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">Redes Sociais</p>
+                        <p style="font-size: 0.9rem;">WhatsApp | Telegram</p>
                         <p style="font-size: 0.9rem;">Instagram | TikTok</p>
-                        <p style="font-size: 0.9rem;">LinkedIn | YouTube</p>
-                        <p style="font-size: 0.9rem;">Facebook | Twitter</p>
+                        <p style="font-size: 0.9rem;">YouTube | Facebook</p>
                     </div>
                 </div>
             </div>
 
             <div style="border-top: 1px solid rgba(244, 196, 48, 0.1); padding-top: 1.5rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">&copy; 2025 Global Influencer Agency. Todos os direitos reservados.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">&copy; 2025 Grupo Panda. Todos os direitos reservados.</p>
                 <p style="font-size: 0.8rem; color: var(--text-muted);">Política de Privacidade | Termos de Uso</p>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Transformando marcas em movimentos digitais através de estratégias criativas e orientadas por dados.</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">Serviços de dados profissionais, estáveis e confiáveis para parceiros em todo o mundo.</p>
             </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // k2方法 - 跳转到www.qq.com
         function k2() {
             window.open('https://www.qq.com', '_blank');
@@ -1758,18 +2453,17 @@
         // Active nav link on scroll
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
+            const navLinksItems = document.querySelectorAll('.nav-links a');
 
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (pageYOffset >= sectionTop - 200) {
                     current = section.getAttribute('id');
                 }
             });
 
-            navLinks.forEach(link => {
+            navLinksItems.forEach(link => {
                 link.style.color = '';
                 if (link.getAttribute('href').slice(1) === current) {
                     link.style.color = 'var(--accent-gold)';
@@ -1793,13 +2487,109 @@
         }, observerOptions);
 
         // Animate elements on scroll
-        document.querySelectorAll('.feature-card, .case-study-card, .timeline-item').forEach(el => {
+        document.querySelectorAll('.feature-card, .case-study-card, .process-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
-    </script>
 
+        // Client Carousel functionality
+        let currentClientSlide = 0;
+        const clientSlides = document.querySelectorAll('.client-slide');
+        const clientDots = document.querySelectorAll('.client-dot');
+        const totalClientSlides = clientSlides.length;
+
+        function showClientSlide(index) {
+            // Wrap around if index is out of bounds
+            if (index >= totalClientSlides) {
+                currentClientSlide = 0;
+            } else if (index < 0) {
+                currentClientSlide = totalClientSlides - 1;
+            } else {
+                currentClientSlide = index;
+            }
+
+            // Update client slides
+            clientSlides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentClientSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Update client dots
+            clientDots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === currentClientSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function changeClientSlide(direction) {
+            showClientSlide(currentClientSlide + direction);
+        }
+
+        function goToClientSlide(index) {
+            showClientSlide(index);
+        }
+
+        // Auto-advance client carousel every 4 seconds
+        setInterval(() => {
+            changeClientSlide(1);
+        }, 4000);
+
+        // Case Card Carousel functionality (for individual cards)
+        const caseCarousels = document.querySelectorAll('.case-carousel');
+        const currentCaseSlides = [0, 0, 0]; // Track current slide for each card
+
+        function showCaseSlide(carouselIndex, slideIndex) {
+            const carousel = caseCarousels[carouselIndex];
+            if (!carousel) return;
+
+            const slides = carousel.querySelectorAll('.case-slide');
+            const dots = carousel.querySelectorAll('.case-carousel-dot');
+            const totalSlides = slides.length;
+
+            // Wrap around if index is out of bounds
+            if (slideIndex >= totalSlides) {
+                currentCaseSlides[carouselIndex] = 0;
+            } else if (slideIndex < 0) {
+                currentCaseSlides[carouselIndex] = totalSlides - 1;
+            } else {
+                currentCaseSlides[carouselIndex] = slideIndex;
+            }
+
+            // Update slides
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentCaseSlides[carouselIndex]) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === currentCaseSlides[carouselIndex]) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function changeCaseSlide(carouselIndex, direction) {
+            showCaseSlide(carouselIndex, currentCaseSlides[carouselIndex] + direction);
+        }
+
+        function goToCaseSlide(carouselIndex, slideIndex) {
+            showCaseSlide(carouselIndex, slideIndex);
+        }
+
+        // Auto-advance each case carousel with different timing
+        setInterval(() => { changeCaseSlide(0, 1); }, 4000);
+        setInterval(() => { changeCaseSlide(1, 1); }, 4500);
+        setInterval(() => { changeCaseSlide(2, 1); }, 5000);
+    </script>
 </body>
 </html>
