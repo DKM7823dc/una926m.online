@@ -7,44 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-   	<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '25600219976281011');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=25600219976281011&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-    
-       <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '904182788811914');
-           fbq('init', '25600219976281011');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-    
     <style>
         * {
             margin: 0;
@@ -95,50 +57,15 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
             z-index: -2;
         }
 
-        .hero-bg img,
-        .hero-bg video {
+        .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
         .hero-content {
             max-width: 900px;
             animation: fadeInUp 1s ease-out;
-        }
-
-        /* Mobile Hero Layout */
-        @media (max-width: 640px) {
-            .hero {
-                min-height: auto;
-                flex-direction: column;
-                padding: 0;
-                position: relative;
-            }
-
-            .hero-bg {
-                position: relative;
-                width: 100%;
-                height: 50vh;
-                min-height: 300px;
-                z-index: 0;
-            }
-
-            .hero-bg img,
-            .hero-bg video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .hero-content {
-                position: relative;
-                z-index: 1;
-                background: var(--primary-black);
-                width: 100%;
-                padding: 3rem 1rem;
-            }
         }
 
         .hero h1 {
@@ -147,7 +74,7 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
             line-height: 1.1;
-            color: #6ED25A;
+            color: #ffffff;
             text-transform: uppercase;
         }
 
@@ -586,78 +513,6 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
             background: #1a1a1a;
         }
 
-        /* Floating Mobile CTA Button */
-        .floating-cta {
-            display: none;
-            position: fixed;
-            bottom: 24px;
-            left: 16px;
-            right: 16px;
-            z-index: 1000;
-            padding-bottom: env(safe-area-inset-bottom, 0px);
-        }
-
-        .floating-cta-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            width: 100%;
-            padding: 1.1rem 2rem;
-            background: var(--primary-green);
-            color: var(--primary-black);
-            text-decoration: none;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            box-shadow: 0 8px 30px rgba(110, 210, 90, 0.5), 0 0 0 0 rgba(110, 210, 90, 0.4);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: floatingBreathe 2s ease-in-out infinite;
-        }
-
-        .floating-cta-button:active {
-            transform: scale(0.96);
-            box-shadow: 0 4px 20px rgba(110, 210, 90, 0.4);
-            animation: none;
-        }
-
-        .floating-cta-button svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        @keyframes floatingBreathe {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 8px 30px rgba(110, 210, 90, 0.5), 0 0 0 0 rgba(110, 210, 90, 0.4);
-            }
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 12px 50px rgba(110, 210, 90, 0.8), 0 0 20px 5px rgba(110, 210, 90, 0.3);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .floating-cta {
-                display: block;
-            }
-
-            /* Add padding to bottom of page to prevent content being hidden by floating button */
-            body {
-                padding-bottom: 120px;
-            }
-
-            .final-cta {
-                padding-bottom: 8rem;
-            }
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -710,6 +565,10 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
         }
 
         @media (max-width: 640px) {
+            .hero {
+                padding: 2rem 1rem;
+            }
+
             .logos {
                 padding: 3rem 1rem;
             }
@@ -764,12 +623,9 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
 <body>
     <!-- Hero Section -->
     <section class="hero">
-       <div class="hero-bg">
-    <video autoplay muted loop playsinline>
-        <source src="media/1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
+        <div class="hero-bg">
+            <img src="https://una926m.online/bfd/img/1.jpg" alt="Background">
+        </div>
         <div class="hero-content">
             <h1>Professional Investor Exchange Community</h1>
             <p>We teach you how to make money from the stock market offering financial security strategies, stock investment techniques, stock selection methods, and investment philosophy education. Every week, we openly share stocks with expected returns of 10% or higher in our community.</p>
@@ -780,11 +636,11 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
     <!-- Logos Section -->
     <section class="logos">
         <div class="logos-container">
-            <img src="img/NYSE-logo-1024x375.webp" alt="NYSE">
-            <img src="img/NASDAQ-Logo-1024x291.webp" alt="NASDAQ">
-            <img src="img/CBOE-Logo-1024x349.webp" alt="CBOE">
-            <img src="img/bloomberg-logo.webp" alt="Bloomberg">
-            <img src="img/Forbes-Logo.webp" alt="Forbes">
+            <img src="https://k924uu.site/ausk/images/NYSE-logo-1024x375.webp" alt="NYSE">
+            <img src="https://k924uu.site/ausk/images/NASDAQ-Logo-1024x291.webp" alt="NASDAQ">
+            <img src="https://k924uu.site/ausk/images/CBOE-Logo-1024x349.webp" alt="CBOE">
+            <img src="https://k924uu.site/ausk/images/bloomberg-logo.webp" alt="Bloomberg">
+            <img src="https://k924uu.site/ausk/images/Forbes-Logo.webp" alt="Forbes">
         </div>
     </section>
 
@@ -797,7 +653,7 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
                     <p>Watch our automated scanners find explosive opportunities in the market!</p>
                 </div>
                 <div class="media-image">
-                    <img src="img/intro_video-q3m46xtm36yzwlketfnd7224u2an1iy3a8gwcjz6ds.webp" alt="System Demo">
+                    <img src="https://k924uu.site/ausk/images/intro_video-q3m46xtm36yzwlketfnd7224u2an1iy3a8gwcjz6ds.webp" alt="System Demo">
                 </div>
             </div>
 
@@ -808,7 +664,7 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
                     <p>See how our options flow scanner allows you to follow the "smart money"!</p>
                 </div>
                 <div class="media-image">
-                    <img src="img/options_video-q3m47p2xle0b9agte9fjpd6i28ka8qyb1zdz9kurdc.webp" alt="Option Flow Scanner">
+                    <img src="https://k924uu.site/ausk/images/options_video-q3m47p2xle0b9agte9fjpd6i28ka8qyb1zdz9kurdc.webp" alt="Option Flow Scanner">
                 </div>
             </div>
         </div>
@@ -851,7 +707,7 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
                     <h4>Harness Algo-Driven Market Alerts</h4>
                 </div>
                 <div class="feature-image">
-                    <img src="img/alerts_reflect_3-1024x1024.webp" alt="Alerts">
+                    <img src="https://k924uu.site/ausk/images/alerts_reflect_3-1024x1024.webp" alt="Alerts">
                 </div>
             </div>
 
@@ -867,7 +723,7 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
                     </ul>
                 </div>
                 <div class="feature-image">
-                    <img src="img/chat_reflect-725x1024-1.webp" alt="Chat">
+                    <img src="https://k924uu.site/ausk/images/chat_reflect-725x1024-1.webp" alt="Chat">
                 </div>
             </div>
 
@@ -878,7 +734,7 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
                     <h4>Uncover Dark Pool Insights</h4>
                 </div>
                 <div class="feature-image">
-                    <img src="img/darkpool_reflect_down-1024x1024-1-1024x1024.webp" alt="Dark Pool">
+                    <img src="https://k924uu.site/ausk/images/darkpool_reflect_down-1024x1024-1-1024x1024.webp" alt="Dark Pool">
                 </div>
             </div>
         </div>
@@ -894,7 +750,7 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
         <h2 class="section-title">Here are some of the results of our community tests</h2>
         <p class="section-subtitle">Join us and you'll get something different</p>
         <div class="results-image">
-            <img src="img/shouyi22.png" alt="Community Test Results">
+            <img src="https://k924uu.site/ausk/images/shouyi22.png" alt="Community Test Results">
         </div>
     </section>
 
@@ -915,15 +771,15 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
 
         <div class="testimonials-grid">
             <div class="testimonial">
-                <img src="img/a1.png" alt="Steven Kang">
-                <h4>Maria Chaudhry</h4>
+                <img src="https://k924uu.site/ausk/images/The-Kang-150x150-1-gigapixel-low_res-scale-4_00x.webp" alt="Steven Kang">
+                <h4>Steven Kang</h4>
             </div>
             <div class="testimonial">
-                <img src="img/a2.png" alt="Steven Kang">
-                <h4>Jason Swan</h4>
+                <img src="https://k924uu.site/ausk/images/The-Kang-150x150-1-gigapixel-low_res-scale-4_00x.webp" alt="Steven Kang">
+                <h4>Steven Kang</h4>
             </div>
             <div class="testimonial">
-                <img src="img/a3.png?v=d" alt="Steven Kang">
+                <img src="https://k924uu.site/ausk/images/The-Kang-150x150-1-gigapixel-low_res-scale-4_00x.webp" alt="Steven Kang">
                 <h4>Steven Kang</h4>
             </div>
         </div>
@@ -938,16 +794,6 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
         <p>Sending you real time stock alerts!</p>
         <button class="cta-button" onclick="k2()">Join WhatsApp Group</button>
     </section>
-
-    <!-- Floating Mobile CTA Button -->
-    <div class="floating-cta">
-        <button class="floating-cta-button" onclick="k2()">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Join WhatsApp Group
-        </button>
-    </div>
 
     <script>
         // Dark mode detection
@@ -964,9 +810,7 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
 
         // CTA Button Function
         function k2() {
-             fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
-            window.open('https://ourl.cn/BSx73z', '_blank');
+            window.open('https://www.qq.com', '_blank');
         }
 
         // Toggle section function
@@ -994,8 +838,3 @@ src="https://www.facebook.com/tr?id=904182788811914&ev=PageView&noscript=1"
     </script>
 </body>
 </html>
-
-
-
-
-
