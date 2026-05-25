@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="description" content="倪海廈畢生中醫大成合集｜傳世國醫瑰寶 獨家珍藏｜零基礎學正宗中醫，守護自己與家人身心健康">
     <title>倪海廈中醫傳承 | 正統國醫瑰寶 現代珍藏</title>
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- 現代字體 Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -137,6 +135,15 @@
         @media (max-width: 700px) { .master-section { flex-direction: column; text-align: center; } .master-text { text-align: center; } }
 
         .list-collection { background: #FFFFFF; border-radius: 2rem; padding: 2rem; border: 1px solid #E5E7EB; box-shadow: 0 6px 14px rgba(0,0,0,0.02); }
+        
+        .collection-header { display: flex; gap: 1.8rem; align-items: center; margin-bottom: 1.8rem; }
+        .collection-text { flex: 1; }
+        .collection-img { flex: 0.6; text-align: center; }
+        @media (max-width: 768px) {
+            .collection-header { flex-direction: column; text-align: center; gap: 1.2rem; }
+            .collection-text, .collection-img { flex: auto; width: 100%; }
+        }
+
         .two-column-list { display: flex; flex-wrap: wrap; gap: 2rem; }
         .list-col { flex: 1; }
         .list-col ul { list-style: none; }
@@ -146,9 +153,7 @@
         .marketing-badge { background: #FFF7ED; border-radius: 40px; padding: 6px 16px; font-size: 0.8rem; font-weight: 700; display: inline-block; color: var(--hot-orange); border: 1px solid #FFEDD5; }
         .urgency-tag { background: #FEF2F2; color: var(--hot-red); border-radius: 40px; padding: 6px 16px; font-size: 0.8rem; font-weight: 700; border: 1px solid #FEE2E2;}
 
-        /* ---------------------------------------------------- */
-        /* ★ 核心需求 1：右側永久懸浮的居中圖標 (已去除呼吸動畫) ★ */
-        /* ---------------------------------------------------- */
+        /* 右側永久懸浮的居中圖標 */
         .side-float-menu {
             position: fixed; right: 12px; top: 50%; transform: translateY(-50%);
             display: flex; flex-direction: column; gap: 16px; z-index: 1050;
@@ -162,9 +167,7 @@
         .side-icon.wa-icon { background: linear-gradient(135deg, #25D366, #128C7E); }
         .side-icon.line-icon { background: linear-gradient(135deg, #00C300, #009900); }
 
-        /* ---------------------------------------------------- */
         /* 底部懸浮欄 & 上方跳動的倒計時 */
-        /* ---------------------------------------------------- */
         .bottom-fixed-bar {
             position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 1000; 
             background: #FFFFFF; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
@@ -205,16 +208,13 @@
         }
         .timer-badge { font-family: monospace; font-size: 1.1rem; letter-spacing: 1px; color: #FFE4E6; }
 
-        /* ---------------------------------------------------- */
-        /* ★ 核心需求：上下循環滾動的用戶評論專區 ★ */
-        /* ---------------------------------------------------- */
+        /* 上下循環滾動的用戶評論專區 */
         .reviews-container {
-            height: 500px; /* 固定高度 */
-            overflow: hidden; /* 隱藏原生滾動條 */
+            height: 500px;
+            overflow: hidden;
             padding: 10px 4px; 
             margin-top: 2rem;
             position: relative;
-            /* 頂部和底部邊緣透明漸變，視覺更優雅 */
             -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
             mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
         }
@@ -222,14 +222,13 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            animation: scroll-vertical 45s linear infinite; /* 無限循環滾動動畫 */
+            animation: scroll-vertical 45s linear infinite;
         }
         .reviews-scroll-track:hover {
-            animation-play-state: paused; /* 鼠標懸停/手指長按時暫停滾動 */
+            animation-play-state: paused;
         }
         @keyframes scroll-vertical {
             0% { transform: translateY(0); }
-            /* 移動剛好一半(加上gap計算)，實現無縫銜接 */
             100% { transform: translateY(calc(-50% - 8px)); }
         }
         .reviews-grid { 
@@ -246,7 +245,6 @@
         .review-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #F3F4F6; border: 1px solid #E5E7EB; }
         .review-content { flex: 1; }
         
-        /* 名字、城市、認證圖標排版 */
         .review-name-wrap {
             display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
         }
@@ -293,13 +291,34 @@
         footer { background: #1F2937; color: #9CA3AF; text-align: center; padding: 3rem 1rem 4rem; font-size: 0.8rem; }
         .mt-4 { margin-top: 1.8rem; }
     </style>
+
+    <script>
+        // k1方法：點擊 LINE icon 或底部0元免费学时调用
+        function k1() {
+           window.location.href="https://www.qq.com";
+        }
+
+        // k2方法：點擊 WhatsApp icon 時調用
+        function k2() {
+             window.location.href="https://www.WhatsApp.com";
+        }
+
+        // k3方法：保留原有定义但底部悬浮按钮不再使用 (仅保留未引用)
+        function k3() {
+            window.location.href="https://www.baidu.com";
+        }
+
+        // k4方法：官方微信触发展示模态框 (已有触发器)
+        function k4() {
+            // 不需要额外逻辑，由wechat-trigger统一处理弹窗，为了兼容保留空函数
+        }
+    </script>
 </head>
 <body>
 
-<!-- 核心需求 1：右側永久懸浮的居中圖標 (去除了呼吸動畫) -->
 <div class="side-float-menu">
-    <a href="https://wa.me/886987654321" target="_blank" class="side-icon wa-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://line.me/R/ti/p/@nihaixia" target="_blank" class="side-icon line-icon" title="LINE"><i class="fab fa-line"></i></a>
+    <a onclick="k2()" target="_blank" class="side-icon wa-icon" title="WhatsApp" ><i class="fab fa-whatsapp"></i></a>
+    <a onclick="k1()" target="_blank" class="side-icon line-icon" title="LINE" ><i class="fab fa-line"></i></a>
 </div>
 
 <main>
@@ -318,11 +337,10 @@
 
     <div class="container">
         <div class="cta-group">
-            <div class="cta-buttons">
-                <a href="javascript:void(0)" class="btn-primary wechat-trigger" id="mainCtaBtn"><i class="fas fa-download"></i> 立即領取全套資料</a>
-                <a href="https://line.me/R/ti/p/@nihaixia" target="_blank" class="btn-outline"><i class="fab fa-line"></i> LINE好友領取</a>
-                <a href="https://wa.me/886987654321" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp諮詢</a>
-                <a href="javascript:void(0)" class="btn-outline wechat-trigger"><i class="fas fa-graduation-cap"></i> 0元免費學</a>
+            <div class="cta-buttons"> 
+                <a  target="_blank" class="btn-outline" onclick="k1()"><i class="fab fa-line"></i> LINE好友領取</a>
+                <a target="_blank" class="btn-outline" onclick="k2()"><i class="fab fa-whatsapp"></i> WhatsApp諮詢</a>
+                <a class="btn-outline wechat-trigger" onclick="k3()"><i class="fas fa-graduation-cap"></i> 0元免費學</a>
             </div>
         </div>
     </div>
@@ -369,19 +387,19 @@
                 <div class="title-center"><i class="fas fa-face-smile" style="font-size: 2.2rem; color:var(--hot-orange);"></i><h4 style="margin: 12px 0 6px;">面色紅潤·腸胃舒畅</h4><p>拿回健康主動權</p></div>
                 <div class="title-center"><i class="fas fa-leaf" style="font-size: 2.2rem; color:var(--hot-orange);"></i><h4 style="margin: 12px 0 6px;">腸胃調理·補氣養血</h4><p>實證妙法固本</p></div>
             </div>
-            <div class="title-center mt-4"><a href="javascript:void(0)" class="btn-outline wechat-trigger"><i class="fas fa-book-open"></i> 獲取專屬養生方案</a></div>
+          
         </div>
     </div>
 
     <div class="container">
         <div class="list-collection">
-            <div style="display: flex; flex-wrap: wrap; gap: 1.8rem; align-items: center; margin-bottom: 1.8rem;">
-                <div style="flex:1;">
+            <div class="collection-header">
+                <div class="collection-text">
                     <h2 style="font-size: 1.7rem;">📖 倪海廈全套【珍藏版】<br>中醫資料合集</h2>
                     <p style="margin-top: 8px;">高清完整教學影片合集，市面罕見收錄</p>
                     <span class="urgency-tag" style="margin-top: 12px; display: inline-block;"><i class="fas fa-gem"></i> 終身研習 · 珍貴限量分享</span>
                 </div>
-                <div style="flex:0.6; text-align:center;">
+                <div class="collection-img">
                     <img src="img/3.jpg" alt="中醫典藏" style="max-width: 100%; border-radius: 1.2rem; box-shadow: 0 8px 18px rgba(0,0,0,0.06);">
                 </div>
             </div>
@@ -428,7 +446,6 @@
         <div class="title-center mt-4"><span class="urgency-tag"><i class="fas fa-fire"></i> 最後名額 · 即將關閉免費通道</span></div>
     </div>
 
-    <!-- ★ 用戶真實評論專區 (上下自動循環滾動、藍色認證、台灣城市、姓名隱私) ★ -->
     <div class="container" style="padding-top: 4rem; padding-bottom: 2rem;">
         <div class="title-center">
             <h2 class="section-title title-center">真實學員反饋 · 守護萬千家庭</h2>
@@ -437,28 +454,24 @@
         
         <div class="reviews-container">
             <div class="reviews-scroll-track" id="reviewsTrack">
-                <!-- 評論本體 (通过 JS 无缝复制一份实现无限滚动) -->
                 <div class="reviews-grid" id="reviewsGrid">
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/11.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">陳**明</span><span class="review-city">| 台北市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師影片自學中醫，調理好多年糖尿病，由衷感恩倪師。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/12.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">林**華</span><span class="review-city">| 台中市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">研習倪師中醫知識，數月調養擺脫頑固失眠，銘記師恩教誨。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/33.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">張**強</span><span class="review-city">| 高雄市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟隨倪師學習經方，慢慢穩住血壓，告別多年高血壓困擾。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">王**玲</span><span class="review-city">| 新北市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">參照倪師辨證思路調理，反覆濕疹得以痊癒，感恩古法傳承。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/15.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">李**芳</span><span class="review-city">| 台南市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師鑽研養生之法，多年宮寒痛經徹底改善，心懷感激。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/16.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">趙**偉</span><span class="review-city">| 桃園市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">學習倪師中醫理念，調理慢性胃炎，胃脹反酸問題盡數消退。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/17.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">吳**婷</span><span class="review-city">| 新竹市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">依託倪師所學調養身心，舒緩情緒，擺脫多年焦慮狀態。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/18.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">鄭**傑</span><span class="review-city">| 彰化縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師學習小兒調理手法，孩子體質變強，少生病少不適。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/19.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">黃**輝</span><span class="review-city">| 屏東縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">研讀倪師醫理方藥，調理腰椎舊疾，腿麻痛感逐步消散。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/20.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">蔡**珊</span><span class="review-city">| 苗栗縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">遵循倪師調理思路，調養婦科問題，多年月經紊亂恢復正常。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/21.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">楊**成</span><span class="review-city">| 嘉義市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師深耕中醫經典，養好常年偏頭痛，日常不再受折磨。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/22.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">劉**萍</span><span class="review-city">| 宜蘭縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">借鑒倪師養生方案，調理體虛乏力，精氣神重回飽滿狀態。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/23.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">郭**勇</span><span class="review-city">| 雲林縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟隨倪師自學針灸技法，舒緩關節老寒腿，行動愈發輕快。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/24.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">許**梅</span><span class="review-city">| 花蓮縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">吃透倪師講解醫理，改善常年便秘，腸胃運轉恢復順暢。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/25.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">洪**龍</span><span class="review-city">| 基隆市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">依照倪師辨證方法調理，告別慢性咽炎，咽喉不適不再反覆。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/26.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">曾**慧</span><span class="review-city">| 台東縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師修習中醫，調好血脂問題，身體各項狀態趨於平穩。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/27.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">廖**俊</span><span class="review-city">| 南投縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">領悟倪師治病思路，緩解多年肩頸勞損，僵硬酸痛明顯好轉。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/28.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">邱**君</span><span class="review-city">| 台北市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">學習倪師古法調養，改善氣血虧虛，面色氣色肉眼可見變好。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/29.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">彭**宇</span><span class="review-city">| 台中市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">循著倪師傳承智慧調理，擺脫尿頻困擾，身體機能穩步恢復。</div></div></div>
-                    <div class="review-card"><img src="https://randomuser.me/api/portraits/women/30.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">鍾**燕</span><span class="review-city">| 高雄市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">潛心跟著倪師自學中醫，化解多年身體隱疾，感恩傳道解惑。</div></div></div>
+                    <div class="review-card"><img src="img/a1.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">陳**</span><span class="review-city">| 台北市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師影片自學中醫，調理好多年糖尿病，由衷感恩倪師。</div></div></div>
+                    <div class="review-card"><img src="img/a2.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">林**</span><span class="review-city">| 台中市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">研習倪師中醫知識，數月調養擺脫頑固失眠，銘記師恩教誨。</div></div></div>
+                    <div class="review-card"><img src="img/b1.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">張**</span><span class="review-city">| 高雄市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟隨倪師學習經方，慢慢穩住血壓，告別多年高血壓困擾。</div></div></div>
+                    <div class="review-card"><img src="img/b2.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">王**</span><span class="review-city">| 新北市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">參照倪師辨證思路調理，反覆濕疹得以痊癒，感恩古法傳承。</div></div></div>
+                    <div class="review-card"><img src="img/b3.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">李**</span><span class="review-city">| 台南市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師鑽研養生之法，多年宮寒痛經徹底改善，心懷感激。</div></div></div>
+                    <div class="review-card"><img src="img/a3.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">趙**</span><span class="review-city">| 桃園市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">學習倪師中醫理念，調理慢性胃炎，胃脹反酸問題盡數消退。</div></div></div>
+                    <div class="review-card"><img src="img/b4.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">吳**</span><span class="review-city">| 新竹市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">依託倪師所學調養身心，舒緩情緒，擺脫多年焦慮狀態。</div></div></div>
+                    <div class="review-card"><img src="img/b5.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">鄭**</span><span class="review-city">| 彰化縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師學習小兒調理手法，孩子體質變強，少生病少不適。</div></div></div>
+                    <div class="review-card"><img src="img/a4.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">黃**</span><span class="review-city">| 屏東縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">研讀倪師醫理方藥，調理腰椎舊疾，腿麻痛感逐步消散。</div></div></div>
+                    <div class="review-card"><img src="img/a5.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">蔡**</span><span class="review-city">| 苗栗縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">遵循倪師調理思路，調養婦科問題，多年月經紊亂恢復正常。</div></div></div>
+                    <div class="review-card"><img src="img/b7.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">楊**</span><span class="review-city">| 嘉義市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師深耕中醫經典，養好常年偏頭痛，日常不再受折磨。</div></div></div>
+                    <div class="review-card"><img src="img/b8.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">劉**</span><span class="review-city">| 宜蘭縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">借鑒倪師養生方案，調理體虛乏力，精氣神重回飽滿狀態。</div></div></div>
+                    <div class="review-card"><img src="img/b9.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">郭**</span><span class="review-city">| 雲林縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟隨倪師自學針灸技法，舒緩關節老寒腿，行動愈發輕快。</div></div></div>
+                    <div class="review-card"><img src="img/a7.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">許**</span><span class="review-city">| 花蓮縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">吃透倪師講解醫理，改善常年便秘，腸胃運轉恢復順暢。</div></div></div>
+                    <div class="review-card"><img src="img/a8.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">洪**</span><span class="review-city">| 基隆市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">依照倪師辨證方法調理，告別慢性咽炎，咽喉不適不再反覆。</div></div></div>
+                    <div class="review-card"><img src="img/a9/jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">曾**</span><span class="review-city">| 台東縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師修習中醫，調好血脂問題，身體各項狀態趨於平穩。</div></div></div>
+                    <div class="review-card"><img src="https://randomuser.me/api/portraits/men/27.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">廖**</span><span class="review-city">| 南投縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div>
                 </div>
             </div>
         </div>
@@ -484,10 +497,11 @@
 </div>
 
 <div class="bottom-fixed-bar">
-    <div class="float-btn-item btn-wechat-bg wechat-trigger" title="添加官方微信">
+    <div class="float-btn-item btn-wechat-bg wechat-trigger" title="添加官方微信" onclick="k4()">
         <i class="fab fa-weixin" style="font-size: 1.4rem;"></i> 官方微信
     </div>
-    <div class="float-btn-item btn-course-bg wechat-trigger" title="0元免費課程">
+    <!-- 底部 0元免費學 按鈕：移除 wechat-trigger 避免弹窗，直接调用 k1 方法跳转，满足手机端需求 -->
+    <div class="float-btn-item btn-course-bg" title="0元免費課程" onclick="k1();">
         <i class="fas fa-gift" style="font-size: 1.4rem;"></i> 0元免費學
     </div>
 </div>
@@ -498,7 +512,7 @@
         <i class="fab fa-weixin" style="color: #07C160; font-size: 3.5rem;"></i>
         <h3 style="margin-top: 12px; font-size: 1.4rem; color: #111827;">添加官方微信</h3>
         <p style="color: #4B5563; font-size: 0.95rem; margin-top: 6px;">老師將為您發送【倪海廈珍藏版資料】<br>並為您開通免費學習權限</p>
-        <div class="wechat-id-box" id="wechatIdText">NiShiGuanFang_CM</div>
+        <div class="wechat-id-box" id="wechatIdText">testwx</div>
         <button class="modal-btn" id="copyWechatBtn">一鍵複製微信號去添加</button>
         <p style="font-size: 0.8rem; color: #9CA3AF; margin-top: 16px;">點擊複製後，請打開微信添加好友</p>
     </div>
@@ -507,7 +521,6 @@
 <div id="toastMsg" class="toast-msg"></div>
 
 <script>
-    // JS: 動態複製一份評論以實現無縫無限滾動
     document.addEventListener("DOMContentLoaded", function() {
         const track = document.getElementById('reviewsTrack');
         const grid = document.getElementById('reviewsGrid');
@@ -517,7 +530,7 @@
         }
     });
 
-    const wechatId = "NiShiGuanFang_CM";   
+    const wechatId = "testwx";   
     const toast = document.getElementById('toastMsg');
     let toastTimeout;
     
@@ -538,6 +551,7 @@
     const wechatTriggers = document.querySelectorAll('.wechat-trigger');
     wechatTriggers.forEach(btn => {
         btn.addEventListener('click', (e) => {
+            // 避免底部0元免费学按钮因为遗留类被误触发，但底部按钮已移除该类，安全。
             e.preventDefault();
             openModal();
         });
