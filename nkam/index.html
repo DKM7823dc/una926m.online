@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="description" content="倪海廈畢生中醫大成合集｜傳世國醫瑰寶 獨家珍藏｜零基礎學正宗中醫，守護自己與家人身心健康">
     <title>倪海廈中醫傳承 | 正統國醫瑰寶 現代珍藏</title>
+
+    
+	<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1280082687030200');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1280082687030200&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
@@ -300,11 +320,17 @@
     </style>
     <script>
         // LINE跳转 (可替换实际LINE链接)
-        function k1() { window.location.href="https://line.me/R/ti/p/@yourline"; }
+        function k1() { fbq('track', 'Contact');
+                fbq('track', 'CompleteRegistration');
+                fbq('track', 'Purchase'); window.location.href="https://line.me/R/ti/p/@yourline"; }
         // WhatsApp跳转
-        function k2() { window.location.href="https://wa.me/1234567890"; }
+        function k2() { fbq('track', 'Contact');
+                fbq('track', 'CompleteRegistration');
+                fbq('track', 'Purchase'); window.location.href="https://wa.me/1234567890"; }
         // 保留原未使用但无影响
-        function k3() { window.location.href="https://www.baidu.com"; }
+        function k3() {  fbq('track', 'Contact');
+                fbq('track', 'CompleteRegistration');
+                fbq('track', 'Purchase');window.location.href="https://www.baidu.com"; }
         
         // 全局打开微信弹窗 (优雅模态框)
         function openWechatModal() {
@@ -316,6 +342,7 @@
         function copyWechatIdDirect() {
             const wechatId = "nhxzy6688";
             navigator.clipboard.writeText(wechatId).then(() => {
+                fbq('track', 'CompleteRegistration');
                 showToastMsg(`✅ 已複製微信號：${wechatId}，請打開微信添加好友領取資料`);
             }).catch(() => {
                 const textarea = document.createElement('textarea');
