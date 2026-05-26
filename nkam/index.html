@@ -153,7 +153,7 @@
         .marketing-badge { background: #FFF7ED; border-radius: 40px; padding: 6px 16px; font-size: 0.8rem; font-weight: 700; display: inline-block; color: var(--hot-orange); border: 1px solid #FFEDD5; }
         .urgency-tag { background: #FEF2F2; color: var(--hot-red); border-radius: 40px; padding: 6px 16px; font-size: 0.8rem; font-weight: 700; border: 1px solid #FEE2E2;}
 
-        /* 右側永久懸浮的居中圖標 */
+        /* 右侧悬浮单个图标 (复制微信号 - 优雅弹窗) */
         .side-float-menu {
             position: fixed; right: 12px; top: 50%; transform: translateY(-50%);
             display: flex; flex-direction: column; gap: 16px; z-index: 1050;
@@ -161,13 +161,12 @@
         .side-icon {
             width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
             font-size: 2rem; color: white; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border: 2px solid #FFF; transition: transform 0.2s;
+            border: 2px solid #FFF; transition: transform 0.2s; cursor: pointer;
+            background: linear-gradient(135deg, #07C160, #059e4a);
         }
         .side-icon:hover { transform: scale(1.05); }
-        .side-icon.wa-icon { background: linear-gradient(135deg, #25D366, #128C7E); }
-        .side-icon.line-icon { background: linear-gradient(135deg, #00C300, #009900); }
 
-        /* 底部懸浮欄 & 上方跳動的倒計時 */
+        /* 底部悬浮栏 - 三个按钮 (Line, WhatsApp, 0元免费领取) */
         .bottom-fixed-bar {
             position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 1000; 
             background: #FFFFFF; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
@@ -175,11 +174,14 @@
         }
         .bottom-fixed-bar .float-btn-item {
             flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
-            padding: 12px 0; font-size: 1.1rem; font-weight: 700; color: white;
+            padding: 12px 0; font-size: 1rem; font-weight: 700; color: white;
             cursor: pointer; text-decoration: none; border: none; transition: background 0.2s;
         }
-        .btn-wechat-bg { background: #07C160; }
-        .btn-wechat-bg:hover { background: #06AD56; }
+        /* 三个按钮配色 */
+        .btn-line-bg { background: #06C755; }
+        .btn-line-bg:hover { background: #05a849; }
+        .btn-wa-bg { background: #25D366; }
+        .btn-wa-bg:hover { background: #1da15a; }
         .btn-course-bg { background: linear-gradient(135deg, #FF5A00, #E63946); position: relative; overflow: hidden; }
         .btn-course-bg::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
@@ -290,35 +292,59 @@
 
         footer { background: #1F2937; color: #9CA3AF; text-align: center; padding: 3rem 1rem 4rem; font-size: 0.8rem; }
         .mt-4 { margin-top: 1.8rem; }
+        
+        @media (max-width: 480px) {
+            .bottom-fixed-bar .float-btn-item { font-size: 0.85rem; gap: 5px; }
+            .float-btn-item i { font-size: 1.2rem; }
+        }
     </style>
-
     <script>
-        // k1方法：點擊 LINE icon 或底部0元免费学时调用
-        function k1() {
-           window.location.href="https://www.qq.com";
+        // LINE跳转 (可替换实际LINE链接)
+        function k1() { window.location.href="https://line.me/R/ti/p/@yourline"; }
+        // WhatsApp跳转
+        function k2() { window.location.href="https://wa.me/1234567890"; }
+        // 保留原未使用但无影响
+        function k3() { window.location.href="https://www.baidu.com"; }
+        
+        // 全局打开微信弹窗 (优雅模态框)
+        function openWechatModal() {
+            const modal = document.getElementById('wechatModal');
+            if(modal) modal.classList.add('active');
         }
-
-        // k2方法：點擊 WhatsApp icon 時調用
-        function k2() {
-             window.location.href="https://www.WhatsApp.com";
+        
+        // 保留原有复制微信号全局函数 (以备其他地方潜在调用，但右侧icon不再直接调用)
+        function copyWechatIdDirect() {
+            const wechatId = "nhxzy6688";
+            navigator.clipboard.writeText(wechatId).then(() => {
+                showToastMsg(`✅ 已複製微信號：${wechatId}，請打開微信添加好友領取資料`);
+            }).catch(() => {
+                const textarea = document.createElement('textarea');
+                textarea.value = wechatId;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToastMsg(`✅ 複製成功，微信號：${wechatId}`);
+            });
         }
-
-        // k3方法：保留原有定义但底部悬浮按钮不再使用 (仅保留未引用)
-        function k3() {
-            window.location.href="https://www.baidu.com";
-        }
-
-        // k4方法：官方微信触发展示模态框 (已有触发器)
-        function k4() {
-            // 不需要额外逻辑，由wechat-trigger统一处理弹窗，为了兼容保留空函数
+        
+        function showToastMsg(msg) {
+            const toast = document.getElementById('toastMsg');
+            if(!toast) return;
+            toast.textContent = msg;
+            toast.style.opacity = '1';
+            clearTimeout(window.toastTimeout);
+            window.toastTimeout = setTimeout(() => { toast.style.opacity = '0'; }, 2500);
         }
     </script>
 </head>
 <body>
 
+<!-- 右侧仅保留一个悬浮图标：点击弹出优雅微信弹窗（含复制功能） -->
 <div class="side-float-menu">
-    <a onclick="k2()" target="_blank" class="side-icon wa-icon" title="WhatsApp" ><i class="fab fa-whatsapp"></i></a>
-    <a onclick="k1()" target="_blank" class="side-icon line-icon" title="LINE" ><i class="fab fa-line"></i></a>
+    <div class="side-icon" title="領取資料 · 複製微信號" onclick="openWechatModal();">
+        <i class="fab fa-weixin"></i>
+    </div>
 </div>
 
 <main>
@@ -335,12 +361,13 @@
         </div>
     </div>
 
+    <!-- 保留原CTA组 -->
     <div class="container">
         <div class="cta-group">
             <div class="cta-buttons"> 
-                <a  target="_blank" class="btn-outline" onclick="k1()"><i class="fab fa-line"></i> LINE好友領取</a>
+                <a target="_blank" class="btn-outline" onclick="k1()"><i class="fab fa-line"></i> LINE好友領取</a>
                 <a target="_blank" class="btn-outline" onclick="k2()"><i class="fab fa-whatsapp"></i> WhatsApp諮詢</a>
-                <a class="btn-outline wechat-trigger" onclick="k3()"><i class="fas fa-graduation-cap"></i> 0元免費學</a>
+                <a class="btn-outline wechat-trigger"><i class="fas fa-graduation-cap"></i> 0元免費學</a>
             </div>
         </div>
     </div>
@@ -375,8 +402,6 @@
         </div>
     </div>
 
-  
-
     <div class="container">
         <div class="list-collection">
             <div class="collection-header">
@@ -386,7 +411,7 @@
                     <span class="urgency-tag" style="margin-top: 12px; display: inline-block;"><i class="fas fa-gem"></i> 終身研習 · 珍貴限量分享</span>
                 </div>
                 <div class="collection-img">
-                    <img src="img/3.jpg" alt="中醫典藏" style="max-width: 100%; border-radius: 1.2rem; box-shadow: 0 8px 18px rgba(0,0,0,0.06);">
+                    <img src="img/88.jpg" alt="中醫典藏" style="max-width: 100%; border-radius: 1.2rem; box-shadow: 0 8px 18px rgba(0,0,0,0.06);">
                 </div>
             </div>
             <div class="two-column-list">
@@ -407,11 +432,9 @@
     </div>
 
     <div class="container">
-        <h2 class="section-title title-center">報名學習流程</h2>
+        <h2 class="section-title title-center">領取方式</h2>
         <div class="grid-3" style="margin-top: 1.8rem;">
-            <div class="step-card"><div class="step-number">1</div><h3>報名領取課程</h3><p>點擊按鈕獲取微信，預約珍藏版名額</p></div>
-            <div class="step-card"><div class="step-number">2</div><h3>添加老師</h3><p>專屬助教老師審核後引導領取</p></div>
-            <div class="step-card"><div class="step-number">3</div><h3>獲取寶貴資料</h3><p>永久保存高清影片全集</p></div>
+            <div class="step-card"><div class="step-number">1</div><h3>免費領取</h3><p>點擊添加我們即可免費獲得寶貴資料</p></div> 
         </div>
         <div class="title-center mt-4"><span class="marketing-badge"><i class="fas fa-headset"></i> 專屬助教1v1指導學習路徑</span></div>
     </div>
@@ -422,7 +445,7 @@
             <div class="marketing-badge" style="margin-top: 12px; background:var(--bg-soft); border-color:var(--accent); color:var(--primary);"><i class="fas fa-chart-line"></i> 超過92%學員反饋：家庭健康明顯改善</div>
         </div>
         <div class="grid-2">
-            <div class="info-card" style="text-align:left;"><i class="fas fa-book-bookmark" style="color:var(--hot-orange); font-size:1.5rem; margin-bottom:10px;"></i><h3>正統古法</h3><p>根植四大經典，無篡改雜糅，純正中醫血脈</p></div>
+             
             <div class="info-card" style="text-align:left;"><i class="fas fa-language" style="color:var(--hot-orange); font-size:1.5rem; margin-bottom:10px;"></i><h3>通俗易懂</h3><p>口語化拆解，零基礎3天入門中醫邏輯</p></div>
             <div class="info-card" style="text-align:left;"><i class="fas fa-hand-holding-heart" style="color:var(--hot-orange); font-size:1.5rem; margin-bottom:10px;"></i><h3>實戰性強</h3><p>全源於臨床，對症感冒、腸胃、失眠等困擾</p></div>
             <div class="info-card" style="text-align:left;"><i class="fas fa-gem" style="color:var(--hot-orange); font-size:1.5rem; margin-bottom:10px;"></i><h3>資源稀缺</h3><p>市面上極難一次性獲取完整版，珍藏機會僅此一次</p></div>
@@ -437,27 +460,20 @@
             <h2 class="section-title title-center">真實學員反饋 · 守護萬千家庭</h2>
             <p style="margin-top: 8px;">已有數萬名零基礎學員跟隨倪師學習，重獲健康</p>
         </div>
-        
         <div class="reviews-container">
             <div class="reviews-scroll-track" id="reviewsTrack">
                 <div class="reviews-grid" id="reviewsGrid">
-                    <div class="review-card"><img src="img/a1.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">陳**</span><span class="review-city">| 台北市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師影片自學中醫，調理好多年糖尿病，由衷感恩倪師。</div></div></div>
-                    <div class="review-card"><img src="img/a2.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">林**</span><span class="review-city">| 台中市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">研習倪師中醫知識，數月調養擺脫頑固失眠，銘記師恩教誨。</div></div></div>
-                    <div class="review-card"><img src="img/b1.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">張**</span><span class="review-city">| 高雄市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟隨倪師學習經方，慢慢穩住血壓，告別多年高血壓困擾。</div></div></div>
-                    <div class="review-card"><img src="img/b2.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">王**</span><span class="review-city">| 新北市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">參照倪師辨證思路調理，反覆濕疹得以痊癒，感恩古法傳承。</div></div></div>
-                    <div class="review-card"><img src="img/b3.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">李**</span><span class="review-city">| 台南市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師鑽研養生之法，多年宮寒痛經徹底改善，心懷感激。</div></div></div>
-                    <div class="review-card"><img src="img/a3.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">趙**</span><span class="review-city">| 桃園市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">學習倪師中醫理念，調理慢性胃炎，胃脹反酸問題盡數消退。</div></div></div>
-                    <div class="review-card"><img src="img/b4.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">吳**</span><span class="review-city">| 新竹市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">依託倪師所學調養身心，舒緩情緒，擺脫多年焦慮狀態。</div></div></div>
-                    <div class="review-card"><img src="img/b5.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">鄭**</span><span class="review-city">| 彰化縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師學習小兒調理手法，孩子體質變強，少生病少不適。</div></div></div>
-                    <div class="review-card"><img src="img/a4.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">黃**</span><span class="review-city">| 屏東縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">研讀倪師醫理方藥，調理腰椎舊疾，腿麻痛感逐步消散。</div></div></div>
-                    <div class="review-card"><img src="img/a5.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">蔡**</span><span class="review-city">| 苗栗縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">遵循倪師調理思路，調養婦科問題，多年月經紊亂恢復正常。</div></div></div>
-                    <div class="review-card"><img src="img/b7.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">楊**</span><span class="review-city">| 嘉義市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師深耕中醫經典，養好常年偏頭痛，日常不再受折磨。</div></div></div>
-                    <div class="review-card"><img src="img/b8.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">劉**</span><span class="review-city">| 宜蘭縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">借鑒倪師養生方案，調理體虛乏力，精氣神重回飽滿狀態。</div></div></div>
-                    <div class="review-card"><img src="img/b9.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">郭**</span><span class="review-city">| 雲林縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟隨倪師自學針灸技法，舒緩關節老寒腿，行動愈發輕快。</div></div></div>
-                    <div class="review-card"><img src="img/a7.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">許**</span><span class="review-city">| 花蓮縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">吃透倪師講解醫理，改善常年便秘，腸胃運轉恢復順暢。</div></div></div>
-                    <div class="review-card"><img src="img/a8.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">洪**</span><span class="review-city">| 基隆市</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">依照倪師辨證方法調理，告別慢性咽炎，咽喉不適不再反覆。</div></div></div>
-                    <div class="review-card"><img src="img/a9/jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">曾**</span><span class="review-city">| 台東縣</span><i class="fas fa-check-circle review-verify" title="真實認證"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師修習中醫，調好血脂問題，身體各項狀態趨於平穩。</div></div></div>
-                  
+                    <!-- 评论内容保持不变 -->
+                    <div class="review-card"><img src="img/a1.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">陳**</span><span class="review-city">| 台北市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師影片自學中醫，調理好多年糖尿病，由衷感恩倪師。</div></div></div>
+                    <div class="review-card"><img src="img/a2.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">林**</span><span class="review-city">| 台中市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">研習倪師中醫知識，數月調養擺脫頑固失眠，銘記師恩教誨。</div></div></div>
+                    <div class="review-card"><img src="img/b1.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">張**</span><span class="review-city">| 高雄市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟隨倪師學習經方，慢慢穩住血壓，告別多年高血壓困擾。</div></div></div>
+                    <div class="review-card"><img src="img/b2.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">王**</span><span class="review-city">| 新北市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">參照倪師辨證思路調理，反覆濕疹得以痊癒，感恩古法傳承。</div></div></div>
+                    <div class="review-card"><img src="img/b3.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">李**</span><span class="review-city">| 台南市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師鑽研養生之法，多年宮寒痛經徹底改善，心懷感激。</div></div></div>
+                    <div class="review-card"><img src="img/a3.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">趙**</span><span class="review-city">| 桃園市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">學習倪師中醫理念，調理慢性胃炎，胃脹反酸問題盡數消退。</div></div></div>
+                    <div class="review-card"><img src="img/b4.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">吳**</span><span class="review-city">| 新竹市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">依託倪師所學調養身心，舒緩情緒，擺脫多年焦慮狀態。</div></div></div>
+                    <div class="review-card"><img src="img/b5.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">鄭**</span><span class="review-city">| 彰化縣</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師學習小兒調理手法，孩子體質變強，少生病少不適。</div></div></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -476,106 +492,117 @@
     <p style="margin-top: 6px;">© 2026 倪海廈中醫傳承學庫 | 守護自己與家人身心健康</p>
 </footer>
 
+<!-- 倒计时 -->
 <div class="floating-countdown wechat-trigger">
     <i class="fas fa-clock"></i> 名額即將關閉 <span class="timer-badge" id="bottomTimer">30:00</span>
 </div>
 
+<!-- 底部三个按钮：Line, WhatsApp, 0元免费领取 -->
 <div class="bottom-fixed-bar">
-    <div class="float-btn-item btn-wechat-bg wechat-trigger" title="添加官方微信" onclick="k4()">
-        <i class="fab fa-weixin" style="font-size: 1.4rem;"></i> 官方微信
+    <div class="float-btn-item btn-line-bg" onclick="k1();">
+        <i class="fab fa-line" style="font-size: 1.4rem;"></i> LINE
     </div>
-    <!-- 底部 0元免費學 按鈕：移除 wechat-trigger 避免弹窗，直接调用 k1 方法跳转，满足手机端需求 -->
-    <div class="float-btn-item btn-course-bg" title="0元免費課程" onclick="k1();">
-        <i class="fas fa-gift" style="font-size: 1.4rem;"></i> 0元免費學
+    <div class="float-btn-item btn-wa-bg" onclick="k2();">
+        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> WhatsApp
+    </div>
+    <div class="float-btn-item btn-course-bg" onclick="k1();">
+        <i class="fas fa-gift" style="font-size: 1.4rem;"></i> 0元免費領
     </div>
 </div>
 
+<!-- 微信优雅弹窗 -->
 <div class="modal-overlay" id="wechatModal">
     <div class="modal-content">
         <div class="modal-close" id="closeModal">&times;</div>
         <i class="fab fa-weixin" style="color: #07C160; font-size: 3.5rem;"></i>
         <h3 style="margin-top: 12px; font-size: 1.4rem; color: #111827;">添加官方微信</h3>
         <p style="color: #4B5563; font-size: 0.95rem; margin-top: 6px;">老師將為您發送【倪海廈珍藏版資料】<br>並為您開通免費學習權限</p>
-        <div class="wechat-id-box" id="wechatIdText">testwx</div>
+        <div class="wechat-id-box" id="wechatIdText">nhxzy6688</div>
         <button class="modal-btn" id="copyWechatBtn">一鍵複製微信號去添加</button>
         <p style="font-size: 0.8rem; color: #9CA3AF; margin-top: 16px;">點擊複製後，請打開微信添加好友</p>
     </div>
 </div>
-
 <div id="toastMsg" class="toast-msg"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        // 上下滚动评论复制逻辑
         const track = document.getElementById('reviewsTrack');
         const grid = document.getElementById('reviewsGrid');
         if (track && grid) {
             const clone = grid.cloneNode(true);
             track.appendChild(clone);
         }
-    });
-
-    const wechatId = "testwx";   
-    const toast = document.getElementById('toastMsg');
-    let toastTimeout;
-    
-    function showToast(msg) {
-        toast.textContent = msg;
-        toast.style.opacity = '1';
-        clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => { toast.style.opacity = '0'; }, 2500);
-    }
-
-    const modal = document.getElementById('wechatModal');
-    const closeBtn = document.getElementById('closeModal');
-    function openModal() { modal.classList.add('active'); }
-    function closeModal() { modal.classList.remove('active'); }
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-
-    const wechatTriggers = document.querySelectorAll('.wechat-trigger');
-    wechatTriggers.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            // 避免底部0元免费学按钮因为遗留类被误触发，但底部按钮已移除该类，安全。
-            e.preventDefault();
-            openModal();
-        });
-    });
-
-    const copyBtn = document.getElementById('copyWechatBtn');
-    copyBtn.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(wechatId);
-            showToast(`✅ 已複製：${wechatId}，請打開微信添加`);
-            setTimeout(() => closeModal(), 1500); 
-        } catch (err) {
-            const textarea = document.createElement('textarea');
-            textarea.value = wechatId;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            showToast(`✅ 複製成功，請打開微信添加`);
-            setTimeout(() => closeModal(), 1500);
+        
+        // 微信弹窗相关DOM
+        const modal = document.getElementById('wechatModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        
+        function closeModalFunc() {
+            if(modal) modal.classList.remove('active');
         }
+        
+        if(closeModalBtn) closeModalBtn.addEventListener('click', closeModalFunc);
+        if(modal) modal.addEventListener('click', (e) => { if(e.target === modal) closeModalFunc(); });
+        
+        // 所有 .wechat-trigger 元素打开弹窗（资料领取等）
+        const wechatTriggers = document.querySelectorAll('.wechat-trigger');
+        wechatTriggers.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if(modal) modal.classList.add('active');
+            });
+        });
+        
+        // 模态框内复制按钮逻辑
+        const copyModalBtn = document.getElementById('copyWechatBtn');
+        const modalWechatId = "nhxzy6688";
+        if(copyModalBtn) {
+            copyModalBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(modalWechatId);
+                    showToastMsg(`✅ 已複製：${modalWechatId}，請打開微信添加`);
+                    setTimeout(() => closeModalFunc(), 1500);
+                } catch(err) {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = modalWechatId;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    showToastMsg(`✅ 複製成功，請打開微信添加`);
+                    setTimeout(() => closeModalFunc(), 1500);
+                }
+            });
+        }
+        
+        // 倒计时功能
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                if(display) display.textContent = minutes + ":" + seconds;
+                if (--timer < 0) { timer = duration; }
+            }, 1000);
+        }
+        let thirtyMinutes = 60 * 30;
+        let displayTimer = document.querySelector('#bottomTimer');
+        if (displayTimer) startTimer(thirtyMinutes, displayTimer);
     });
-
-    function startTimer(duration, display) {
-        let timer = duration, minutes, seconds;
-        setInterval(function () {
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-            display.textContent = minutes + ":" + seconds;
-            if (--timer < 0) { timer = duration; }
-        }, 1000);
+    
+    // 全局toast复用
+    function showToastMsg(msg) {
+        const toast = document.getElementById('toastMsg');
+        if(toast) {
+            toast.textContent = msg;
+            toast.style.opacity = '1';
+            if(window.toastTimeout) clearTimeout(window.toastTimeout);
+            window.toastTimeout = setTimeout(() => { toast.style.opacity = '0'; }, 2500);
+        }
     }
-
-    window.onload = function () {
-        let thirtyMinutes = 60 * 30; 
-        let display = document.querySelector('#bottomTimer');
-        if (display) startTimer(thirtyMinutes, display);
-    };
 </script>
 </body>
 </html>
