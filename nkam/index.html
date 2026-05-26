@@ -7,8 +7,7 @@
     <title>倪海廈中醫傳承 | 正統國醫瑰寶 現代珍藏</title>
 
     
-	<!-- Meta Pixel Code -->
-<script>
+	<script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -23,9 +22,7 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -188,21 +185,22 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
 
         /* 底部悬浮栏 - 三个按钮 (Line, WhatsApp, 0元免费领取) */
         .bottom-fixed-bar {
-            position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 1000; 
+            position: fixed; bottom: 0; left: 0; width: 100%; display: flex; flex-wrap: wrap; z-index: 1000; 
             background: #FFFFFF; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
             padding-bottom: env(safe-area-inset-bottom);
         }
         .bottom-fixed-bar .float-btn-item {
-            flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+            flex: 1 1 50%; display: flex; align-items: center; justify-content: center; gap: 8px;
             padding: 12px 0; font-size: 1rem; font-weight: 700; color: white;
             cursor: pointer; text-decoration: none; border: none; transition: background 0.2s;
         }
+        .bottom-fixed-bar .btn-course-bg { flex: 1 1 100%; }
         /* 三个按钮配色 */
         .btn-line-bg { background: #06C755; }
         .btn-line-bg:hover { background: #05a849; }
         .btn-wa-bg { background: #25D366; }
         .btn-wa-bg:hover { background: #1da15a; }
-        .btn-course-bg { background: linear-gradient(135deg, #FF5A00, #E63946); position: relative; overflow: hidden; }
+        .btn-course-bg { background: #06C755; position: relative; overflow: hidden; }
         .btn-course-bg::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
@@ -322,15 +320,15 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         // LINE跳转 (可替换实际LINE链接)
         function k1() { fbq('track', 'Contact');
                 fbq('track', 'CompleteRegistration');
-                fbq('track', 'Purchase'); window.location.href="https://line.me/R/ti/p/@yourline"; }
+                fbq('track', 'Purchase'); window.location.href="https://ourl.cn/TgNt2Y"; }
         // WhatsApp跳转
         function k2() { fbq('track', 'Contact');
                 fbq('track', 'CompleteRegistration');
-                fbq('track', 'Purchase'); window.location.href="https://wa.me/1234567890"; }
-        // 保留原未使用但无影响
+                fbq('track', 'Purchase'); window.location.href="https://ourl.cn/3hTCJe"; }
+        // 保留原未使用但无影响-官方line
         function k3() {  fbq('track', 'Contact');
                 fbq('track', 'CompleteRegistration');
-                fbq('track', 'Purchase');window.location.href="https://www.baidu.com"; }
+                fbq('track', 'Purchase');window.location.href="https://sourl.cn/RwQ689"; }
         
         // 全局打开微信弹窗 (优雅模态框)
         function openWechatModal() {
@@ -340,7 +338,7 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         
         // 保留原有复制微信号全局函数 (以备其他地方潜在调用，但右侧icon不再直接调用)
         function copyWechatIdDirect() {
-            const wechatId = "nhxzy6688";
+            const wechatId = "nhx599";
             navigator.clipboard.writeText(wechatId).then(() => {
                 fbq('track', 'CompleteRegistration');
                 showToastMsg(`✅ 已複製微信號：${wechatId}，請打開微信添加好友領取資料`);
@@ -367,7 +365,6 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
 </head>
 <body>
 
-<!-- 右侧仅保留一个悬浮图标：点击弹出优雅微信弹窗（含复制功能） -->
 <div class="side-float-menu">
     <div class="side-icon" title="領取資料 · 複製微信號" onclick="openWechatModal();">
         <i class="fab fa-weixin"></i>
@@ -388,7 +385,6 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         </div>
     </div>
 
-    <!-- 保留原CTA组 -->
     <div class="container">
         <div class="cta-group">
             <div class="cta-buttons"> 
@@ -425,7 +421,7 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         <div class="grid-3" style="margin: 0.5rem 0;">
             <div class="info-card"><i class="fas fa-chalkboard-user" style="font-size: 2.2rem; color:var(--primary); margin-bottom: 10px;"></i><h3>0基礎免費學習</h3><p>0基礎免費學倪師，自學中醫自救養生，已幫助數萬學員入門</p></div>
             <div class="info-card"><i class="fas fa-mobile-screen" style="font-size: 2.2rem; color:var(--primary); margin-bottom: 10px;"></i><h3>觀看方式</h3><p>平板｜手機｜電腦 隨時隨地想學就學，知識隨行</p></div>
-            <div class="info-card"><i class="fas fa-film" style="font-size: 2.2rem; color:var(--primary); margin-bottom: 10px;"></i><h3>免費高清400集</h3><p>高清無刪減·帶字幕｜市面最全合集，很難找到這麼完整</p></div>
+            <div class="info-card"><i class="fas fa-film" style="font-size: 2.2rem; color:var(--primary); margin-bottom: 10px;"></i><h3>免費高清900集</h3><p>高清無刪減·帶字幕｜市面最全合集，很難找到這麼完整</p></div>
         </div>
     </div>
 
@@ -490,7 +486,6 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         <div class="reviews-container">
             <div class="reviews-scroll-track" id="reviewsTrack">
                 <div class="reviews-grid" id="reviewsGrid">
-                    <!-- 评论内容保持不变 -->
                     <div class="review-card"><img src="img/a1.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">陳**</span><span class="review-city">| 台北市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟著倪師影片自學中醫，調理好多年糖尿病，由衷感恩倪師。</div></div></div>
                     <div class="review-card"><img src="img/a2.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">林**</span><span class="review-city">| 台中市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">研習倪師中醫知識，數月調養擺脫頑固失眠，銘記師恩教誨。</div></div></div>
                     <div class="review-card"><img src="img/b1.jpg" alt="user" class="review-avatar"><div class="review-content"><div class="review-name-wrap"><div class="review-user-info"><span class="review-name">張**</span><span class="review-city">| 高雄市</span><i class="fas fa-check-circle review-verify"></i></div><span class="review-stars">★★★★★</span></div><div class="review-text">跟隨倪師學習經方，慢慢穩住血壓，告別多年高血壓困擾。</div></div></div>
@@ -519,12 +514,10 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
     <p style="margin-top: 6px;">© 2026 倪海廈中醫傳承學庫 | 守護自己與家人身心健康</p>
 </footer>
 
-<!-- 倒计时 -->
 <div class="floating-countdown wechat-trigger">
     <i class="fas fa-clock"></i> 名額即將關閉 <span class="timer-badge" id="bottomTimer">30:00</span>
 </div>
 
-<!-- 底部三个按钮：Line, WhatsApp, 0元免费领取 -->
 <div class="bottom-fixed-bar">
     <div class="float-btn-item btn-line-bg" onclick="k1();">
         <i class="fab fa-line" style="font-size: 1.4rem;"></i> LINE
@@ -532,19 +525,18 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
     <div class="float-btn-item btn-wa-bg" onclick="k2();">
         <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> WhatsApp
     </div>
-    <div class="float-btn-item btn-course-bg" onclick="k1();">
-        <i class="fas fa-gift" style="font-size: 1.4rem;"></i> 0元免費領
+    <div class="float-btn-item btn-course-bg" onclick="k3();">
+        <i class="fab fa-line" style="font-size: 1.4rem;"></i> 非台灣地區請新增官方line
     </div>
 </div>
 
-<!-- 微信优雅弹窗 -->
 <div class="modal-overlay" id="wechatModal">
     <div class="modal-content">
         <div class="modal-close" id="closeModal">&times;</div>
         <i class="fab fa-weixin" style="color: #07C160; font-size: 3.5rem;"></i>
         <h3 style="margin-top: 12px; font-size: 1.4rem; color: #111827;">添加官方微信</h3>
         <p style="color: #4B5563; font-size: 0.95rem; margin-top: 6px;">老師將為您發送【倪海廈珍藏版資料】<br>並為您開通免費學習權限</p>
-        <div class="wechat-id-box" id="wechatIdText">nhxzy6688</div>
+        <div class="wechat-id-box" id="wechatIdText">nhx599</div>
         <button class="modal-btn" id="copyWechatBtn">一鍵複製微信號去添加</button>
         <p style="font-size: 0.8rem; color: #9CA3AF; margin-top: 16px;">點擊複製後，請打開微信添加好友</p>
     </div>
@@ -583,7 +575,7 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         
         // 模态框内复制按钮逻辑
         const copyModalBtn = document.getElementById('copyWechatBtn');
-        const modalWechatId = "nhxzy6688";
+        const modalWechatId = "nhx599";
         if(copyModalBtn) {
             copyModalBtn.addEventListener('click', async () => {
                 try {
