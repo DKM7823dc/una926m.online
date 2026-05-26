@@ -6,23 +6,24 @@
     <meta name="description" content="倪海廈畢生中醫大成合集｜傳世國醫瑰寶 獨家珍藏｜零基礎學正宗中醫，守護自己與家人身心健康">
     <title>倪海廈中醫傳承 | 正統國醫瑰寶 現代珍藏</title>
 
+    <!-- Facebook Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1002791122203729');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
+    /></noscript>
     
-	<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1002791122203729');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
-/></noscript>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -170,7 +171,7 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         .marketing-badge { background: #FFF7ED; border-radius: 40px; padding: 6px 16px; font-size: 0.8rem; font-weight: 700; display: inline-block; color: var(--hot-orange); border: 1px solid #FFEDD5; }
         .urgency-tag { background: #FEF2F2; color: var(--hot-red); border-radius: 40px; padding: 6px 16px; font-size: 0.8rem; font-weight: 700; border: 1px solid #FEE2E2;}
 
-        /* 右侧悬浮单个图标 (复制微信号 - 优雅弹窗) */
+        /* 右侧悬浮菜单 - 三个图标（微信，Line，WhatsApp） */
         .side-float-menu {
             position: fixed; right: 12px; top: 50%; transform: translateY(-50%);
             display: flex; flex-direction: column; gap: 16px; z-index: 1050;
@@ -181,9 +182,11 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
             border: 2px solid #FFF; transition: transform 0.2s; cursor: pointer;
             background: linear-gradient(135deg, #07C160, #059e4a);
         }
+        .side-icon-line { background: linear-gradient(135deg, #06C755, #05a849); }
+        .side-icon-wa { background: linear-gradient(135deg, #25D366, #1da15a); }
         .side-icon:hover { transform: scale(1.05); }
 
-        /* 底部悬浮栏 - 三个按钮 (Line, WhatsApp, 0元免费领取) */
+        /* 底部悬浮栏 - 三个按钮 (Line, WhatsApp, 特别醒目领取) */
         .bottom-fixed-bar {
             position: fixed; bottom: 0; left: 0; width: 100%; display: flex; flex-wrap: wrap; z-index: 1000; 
             background: #FFFFFF; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
@@ -194,23 +197,56 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
             padding: 12px 0; font-size: 1rem; font-weight: 700; color: white;
             cursor: pointer; text-decoration: none; border: none; transition: background 0.2s;
         }
-        .bottom-fixed-bar .btn-course-bg { flex: 1 1 100%; }
-        /* 三个按钮配色 */
-        .btn-line-bg { background: #06C755; }
-        .btn-line-bg:hover { background: #05a849; }
-        .btn-wa-bg { background: #25D366; }
-        .btn-wa-bg:hover { background: #1da15a; }
-        .btn-course-bg { background: #06C755; position: relative; overflow: hidden; }
-        .btn-course-bg::after {
+        .bottom-fixed-bar .btn-course-bg { 
+            flex: 1 1 100%; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 0;
+            background: #06C755;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .bottom-fixed-bar .btn-course-bg i {
+            font-size: 1.9rem;
+            margin-bottom: 2px;
+        }
+        .bottom-fixed-bar .btn-course-bg .btn-text-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.35;
+        }
+        .bottom-fixed-bar .btn-course-bg .main-text {
+            font-size: 6.2rem;
+        }
+        .bottom-fixed-bar .btn-course-bg .sub-text {
+            font-size: 1rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+        /* 闪光动画 */
+        .bottom-fixed-bar .btn-course-bg::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
             transform: rotate(30deg); animation: shimmer 3s infinite;
         }
         @keyframes shimmer { 0% { transform: translateX(-100%) rotate(30deg); } 100% { transform: translateX(100%) rotate(30deg); } }
 
+        .btn-line-bg { background: #06C755; }
+        .btn-line-bg:hover { background: #05a849; }
+        .btn-wa-bg { background: #25D366; }
+        .btn-wa-bg:hover { background: #1da15a; }
+
         .floating-countdown {
             position: fixed;
-            bottom: calc(56px + env(safe-area-inset-bottom) + 12px); 
+            bottom: calc(72px + env(safe-area-inset-bottom) + 12px); 
             left: 50%; transform: translateX(-50%);
             background: linear-gradient(135deg, #E63946, #C81D25); color: white;
             padding: 6px 18px; border-radius: 40px; font-size: 0.9rem; font-weight: 700;
@@ -313,46 +349,18 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         
         @media (max-width: 480px) {
             .bottom-fixed-bar .float-btn-item { font-size: 0.85rem; gap: 5px; }
-            .float-btn-item i { font-size: 1.2rem; }
+            .bottom-fixed-bar .btn-course-bg .main-text { font-size: 2rem; }
+            .bottom-fixed-bar .btn-course-bg .sub-text { font-size: 1.85rem; }
+            .bottom-fixed-bar .btn-course-bg i { font-size: 1.6rem; }
         }
     </style>
     <script>
-        // LINE跳转 (可替换实际LINE链接)
-        function k1() { fbq('track', 'Contact');
-                fbq('track', 'CompleteRegistration');
-                fbq('track', 'Purchase'); window.location.href="https://ourl.cn/TgNt2Y"; }
-        // WhatsApp跳转
-        function k2() { fbq('track', 'Contact');
-                fbq('track', 'CompleteRegistration');
-                fbq('track', 'Purchase'); window.location.href="https://ourl.cn/3hTCJe"; }
-        // 保留原未使用但无影响-官方line
-        function k3() {  fbq('track', 'Contact');
-                fbq('track', 'CompleteRegistration');
-                fbq('track', 'Purchase');window.location.href="https://sourl.cn/RwQ689"; }
+        // LINE, WhatsApp, 非台湾地区跳转
+        function k1() { fbq('track', 'Contact'); fbq('track', 'CompleteRegistration'); fbq('track', 'Purchase'); window.location.href="https://ourl.cn/TgNt2Y"; }
+        function k2() { fbq('track', 'Contact'); fbq('track', 'CompleteRegistration'); fbq('track', 'Purchase'); window.location.href="https://ourl.cn/3hTCJe"; }
+        function k3() { fbq('track', 'Contact'); fbq('track', 'CompleteRegistration'); fbq('track', 'Purchase'); window.location.href="https://sourl.cn/RwQ689"; }
         
-        // 全局打开微信弹窗 (优雅模态框)
-        function openWechatModal() {
-            const modal = document.getElementById('wechatModal');
-            if(modal) modal.classList.add('active');
-        }
-        
-        // 保留原有复制微信号全局函数 (以备其他地方潜在调用，但右侧icon不再直接调用)
-        function copyWechatIdDirect() {
-            const wechatId = "nhx599";
-            navigator.clipboard.writeText(wechatId).then(() => {
-                fbq('track', 'CompleteRegistration');
-                showToastMsg(`✅ 已複製微信號：${wechatId}，請打開微信添加好友領取資料`);
-            }).catch(() => {
-                const textarea = document.createElement('textarea');
-                textarea.value = wechatId;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                showToastMsg(`✅ 複製成功，微信號：${wechatId}`);
-            });
-        }
-        
+        function openWechatModal() { const modal = document.getElementById('wechatModal'); if(modal) modal.classList.add('active'); }
         function showToastMsg(msg) {
             const toast = document.getElementById('toastMsg');
             if(!toast) return;
@@ -365,9 +373,16 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
 </head>
 <body>
 
+<!-- 右侧悬浮菜单 (微信, LINE, WhatsApp) -->
 <div class="side-float-menu">
     <div class="side-icon" title="領取資料 · 複製微信號" onclick="openWechatModal();">
         <i class="fab fa-weixin"></i>
+    </div>
+    <div class="side-icon side-icon-line" title="LINE好友領取" onclick="k1();">
+        <i class="fab fa-line"></i>
+    </div>
+    <div class="side-icon side-icon-wa" title="WhatsApp諮詢" onclick="k2();">
+        <i class="fab fa-whatsapp"></i>
     </div>
 </div>
 
@@ -390,7 +405,8 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
             <div class="cta-buttons"> 
                 <a target="_blank" class="btn-outline" onclick="k1()"><i class="fab fa-line"></i> LINE好友領取</a>
                 <a target="_blank" class="btn-outline" onclick="k2()"><i class="fab fa-whatsapp"></i> WhatsApp諮詢</a>
-                  <a class="btn-outline wechat-trigger" style="cursor:pointer;">0元免費學</a>
+                <!-- 为 0元免費學 按钮增加微信图标，其他属性完全保留 -->
+                <a class="btn-outline wechat-trigger" style="cursor:pointer;"><i class="fab fa-weixin"></i> 0元免費學</a>
             </div>
         </div>
     </div>
@@ -468,7 +484,6 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
             <div class="marketing-badge" style="margin-top: 12px; background:var(--bg-soft); border-color:var(--accent); color:var(--primary);"><i class="fas fa-chart-line"></i> 超過92%學員反饋：家庭健康明顯改善</div>
         </div>
         <div class="grid-2">
-             
             <div class="info-card" style="text-align:left;"><i class="fas fa-language" style="color:var(--hot-orange); font-size:1.5rem; margin-bottom:10px;"></i><h3>通俗易懂</h3><p>口語化拆解，零基礎3天入門中醫邏輯</p></div>
             <div class="info-card" style="text-align:left;"><i class="fas fa-hand-holding-heart" style="color:var(--hot-orange); font-size:1.5rem; margin-bottom:10px;"></i><h3>實戰性強</h3><p>全源於臨床，對症感冒、腸胃、失眠等困擾</p></div>
             <div class="info-card" style="text-align:left;"><i class="fas fa-gem" style="color:var(--hot-orange); font-size:1.5rem; margin-bottom:10px;"></i><h3>資源稀缺</h3><p>市面上極難一次性獲取完整版，珍藏機會僅此一次</p></div>
@@ -518,15 +533,16 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
     <i class="fas fa-clock"></i> 名額即將關閉 <span class="timer-badge" id="bottomTimer">30:00</span>
 </div>
 
+<!-- 底部悬浮栏 - LINE / WhatsApp / 非台湾地区醒目按钮（文字换行+醒目） -->
 <div class="bottom-fixed-bar">
-    <div class="float-btn-item btn-line-bg" onclick="k1();">
-        <i class="fab fa-line" style="font-size: 1.4rem;"></i> LINE
-    </div>
-    <div class="float-btn-item btn-wa-bg" onclick="k2();">
-        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> WhatsApp
-    </div>
+    
+    
     <div class="float-btn-item btn-course-bg" onclick="k3();">
-        <i class="fab fa-line" style="font-size: 1.4rem;"></i> 非台灣地區｜點我即可免費領取
+        <i class="fab fa-line"></i>
+        <div class="btn-text-block">
+            <span class="main-text">非台灣地區</span>
+            <span class="sub-text">點我即可免費領取</span>
+        </div>
     </div>
 </div>
 
@@ -545,35 +561,19 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // 上下滚动评论复制逻辑
         const track = document.getElementById('reviewsTrack');
         const grid = document.getElementById('reviewsGrid');
-        if (track && grid) {
-            const clone = grid.cloneNode(true);
-            track.appendChild(clone);
-        }
+        if (track && grid) { const clone = grid.cloneNode(true); track.appendChild(clone); }
         
-        // 微信弹窗相关DOM
         const modal = document.getElementById('wechatModal');
         const closeModalBtn = document.getElementById('closeModal');
-        
-        function closeModalFunc() {
-            if(modal) modal.classList.remove('active');
-        }
-        
+        function closeModalFunc() { if(modal) modal.classList.remove('active'); }
         if(closeModalBtn) closeModalBtn.addEventListener('click', closeModalFunc);
         if(modal) modal.addEventListener('click', (e) => { if(e.target === modal) closeModalFunc(); });
         
-        // 所有 .wechat-trigger 元素打开弹窗（资料领取等）
         const wechatTriggers = document.querySelectorAll('.wechat-trigger');
-        wechatTriggers.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if(modal) modal.classList.add('active');
-            });
-        });
+        wechatTriggers.forEach(btn => { btn.addEventListener('click', (e) => { e.preventDefault(); if(modal) modal.classList.add('active'); }); });
         
-        // 模态框内复制按钮逻辑
         const copyModalBtn = document.getElementById('copyWechatBtn');
         const modalWechatId = "nhx599";
         if(copyModalBtn) {
@@ -595,7 +595,6 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
             });
         }
         
-        // 倒计时功能
         function startTimer(duration, display) {
             let timer = duration, minutes, seconds;
             setInterval(function () {
@@ -611,17 +610,7 @@ src="https://www.facebook.com/tr?id=1002791122203729&ev=PageView&noscript=1"
         let displayTimer = document.querySelector('#bottomTimer');
         if (displayTimer) startTimer(thirtyMinutes, displayTimer);
     });
-    
-    // 全局toast复用
-    function showToastMsg(msg) {
-        const toast = document.getElementById('toastMsg');
-        if(toast) {
-            toast.textContent = msg;
-            toast.style.opacity = '1';
-            if(window.toastTimeout) clearTimeout(window.toastTimeout);
-            window.toastTimeout = setTimeout(() => { toast.style.opacity = '0'; }, 2500);
-        }
-    }
+    window.showToastMsg = showToastMsg;
 </script>
 </body>
 </html>
