@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StockMaster — 专业股票交易平台，零佣金，实时行情，智能选股。立即开户，开启你的投资之旅。" />
+  <meta name="theme-color" content="#0F172A" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <title>StockMaster — 让每一笔投资都更有价值</title>
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
+    :root {
+      /* Colors — Dark Finance Theme */
+      --color-primary:       #1E40AF;
+      --color-on-primary:    #FFFFFF;
+      --color-secondary:     #3B82F6;
+      --color-accent:        #059669;
+      --color-on-accent:     #FFFFFF;
+      --color-profit:        #059669;
+      --color-loss:          #DC2626;
+      --color-background:    #0A0F1E;
+      --color-foreground:    #F1F5F9;
+      --color-card:          #111827;
+      --color-card-hover:    #1A2332;
+      --color-muted:         #1E293B;
+      --color-muted-text:    #94A3B8;
+      --color-border:        rgba(255,255,255,0.08);
+      --color-destructive:   #EF4444;
+      --color-ring:          #3B82F6;
+      --color-success:       #10B981;
+      --color-warning:       #F59E0B;
+
+      /* Typography */
+      --font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --font-mono:    'IBM Plex Mono', 'SF Mono', 'Cascadia Code', monospace;
+      --font-size-xs:   0.75rem;
+      --font-size-sm:   0.875rem;
+      --font-size-base: 1rem;
+      --font-size-lg:   1.125rem;
+      --font-size-xl:   1.25rem;
+      --font-size-2xl:  1.5rem;
+      --font-size-3xl:  1.875rem;
+      --font-size-4xl:  2.25rem;
+      --font-size-5xl:  3rem;
+      --font-size-6xl:  3.75rem;
+      --font-size-7xl:  4.5rem;
+
+      /* Spacing */
+      --space-1:  0.25rem;
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-5:  1.25rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+
+      /* Radii */
+      --radius-sm:    0.375rem;
+      --radius-md:    0.5rem;
+      --radius-lg:    0.75rem;
+      --radius-xl:    1rem;
+      --radius-2xl:   1.5rem;
+      --radius-full:  9999px;
+
+      /* Shadows */
+      --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg:   0 12px 32px rgba(0, 0, 0, 0.5);
+      --shadow-xl:   0 24px 48px rgba(0, 0, 0, 0.6);
+      --shadow-glow: 0 0 20px rgba(5, 150, 105, 0.15);
+
+      /* Transitions */
+      --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+      --duration:    250ms;
+
+      /* Layout */
+      --max-width:   1200px;
+      --nav-height:  4.5rem;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--font-size-base);
+      line-height: 1.6;
+      color: var(--color-foreground);
+      background: var(--color-background);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--color-primary); text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       UTILITY
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #3B82F6 0%, #10B981 50%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-title {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .section-title { font-size: var(--font-size-4xl); }
+    }
+    @media (min-width: 1024px) {
+      .section-title { font-size: var(--font-size-5xl); }
+    }
+
+    .section-desc {
+      font-size: var(--font-size-lg);
+      color: var(--color-muted-text);
+      max-width: 36rem;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: var(--font-size-base);
+      font-weight: 600;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid transparent;
+      transition: all var(--duration) var(--ease-out);
+      min-height: 3rem;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+    .btn--primary {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+      border-color: var(--color-primary);
+    }
+    .btn--primary:hover {
+      background: #2563EB;
+      border-color: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(30, 64, 175, 0.3);
+    }
+    .btn--accent {
+      background: var(--color-accent);
+      color: var(--color-on-accent);
+      border-color: var(--color-accent);
+    }
+    .btn--accent:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--color-foreground);
+      border-color: var(--color-border);
+    }
+    .btn--outline:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: rgba(30, 64, 175, 0.08);
+    }
+    .btn--lg {
+      padding: 1rem 2.25rem;
+      font-size: var(--font-size-lg);
+      min-height: 3.5rem;
+      border-radius: var(--radius-xl);
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      z-index: 1000;
+      background: transparent;
+      transition: all var(--duration) var(--ease-out);
+    }
+    .nav--scrolled {
+      background: rgba(10, 15, 30, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--color-border);
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: var(--color-foreground);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav__logo-icon {
+      width: 2rem; height: 2rem;
+      background: linear-gradient(135deg, #3B82F6, #10B981);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: var(--font-size-xs);
+      color: white;
+      font-weight: 800;
+    }
+    .nav__logo span { color: #60A5FA; }
+
+    .nav__links {
+      display: none;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    @media (min-width: 768px) {
+      .nav__links { display: flex; }
+    }
+    .nav__links a {
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      color: var(--color-muted-text);
+      transition: color var(--duration);
+      position: relative;
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--color-primary);
+      transition: width var(--duration) var(--ease-out);
+    }
+    .nav__links a:hover { color: var(--color-foreground); }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__links a:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .mobile-menu-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 2.5rem; height: 2.5rem;
+      background: transparent; border: 1px solid var(--color-border);
+      border-radius: var(--radius-md); color: var(--color-foreground);
+    }
+    @media (min-width: 768px) {
+      .mobile-menu-btn { display: none; }
+    }
+    .mobile-menu-btn:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+    }
+
+    .mobile-menu {
+      position: fixed; top: var(--nav-height); left: 0; right: 0; bottom: 0;
+      background: rgba(10, 15, 30, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: var(--space-8);
+      opacity: 0; visibility: hidden;
+      transition: all var(--duration) var(--ease-out);
+    }
+    .mobile-menu--open { opacity: 1; visibility: visible; }
+    .mobile-menu a {
+      font-size: var(--font-size-2xl);
+      font-weight: 600;
+      color: var(--color-foreground);
+    }
+    .mobile-menu a:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 4px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ============================================================
+       TICKER
+       ============================================================ */
+    .ticker-wrapper {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0;
+      height: 2rem;
+      z-index: 999;
+      background: rgba(10, 15, 30, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity var(--duration) var(--ease-out);
+    }
+    .ticker-wrapper--visible { opacity: 1; }
+
+    .ticker {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      white-space: nowrap;
+      animation: tickerScroll 30s linear infinite;
+    }
+    .ticker:hover { animation-play-state: paused; }
+
+    .ticker__item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: 0 var(--space-6);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      font-weight: 500;
+    }
+    .ticker__item-symbol {
+      color: var(--color-muted-text);
+    }
+    .ticker__item-price {
+      color: var(--color-foreground);
+    }
+    .ticker__item-change {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .ticker__item-change--up { color: var(--color-profit); }
+    .ticker__item-change--down { color: var(--color-loss); }
+    .ticker__item-change svg { width: 0.75rem; height: 0.75rem; }
+
+    @keyframes tickerScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: calc(var(--nav-height) + 2rem) 0 var(--space-16);
+    }
+
+    /* Animated background */
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__bg-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(30, 64, 175, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(5, 150, 105, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.06) 0%, transparent 40%);
+    }
+    /* Candle chart grid background */
+    .hero__bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at 50% 45%, black 35%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 45%, black 35%, transparent 70%);
+    }
+    /* Floating chart lines */
+    .hero__chart-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      opacity: 0.06;
+    }
+    .hero__chart-line svg { width: 100%; height: 100%; }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--font-size-xs);
+      font-weight: 500;
+      color: var(--color-accent);
+      background: rgba(5, 150, 105, 0.1);
+      border: 1px solid rgba(5, 150, 105, 0.2);
+      padding: var(--space-1) var(--space-4);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-6);
+      animation: fadeUp 0.6s var(--ease-out) 0.1s both;
+    }
+    .hero__badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulseDot 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero__title {
+      font-size: var(--font-size-5xl);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-4);
+      animation: fadeUp 0.6s var(--ease-out) 0.2s both;
+    }
+    @media (min-width: 480px) {
+      .hero__title { font-size: var(--font-size-6xl); }
+    }
+    @media (min-width: 768px) {
+      .hero__title { font-size: var(--font-size-7xl); }
+    }
+
+    .hero__sub {
+      font-size: var(--font-size-xl);
+      font-weight: 300;
+      color: var(--color-muted-text);
+      max-width: 32rem;
+      margin: 0 auto var(--space-10);
+      line-height: 1.6;
+      animation: fadeUp 0.6s var(--ease-out) 0.3s both;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      animation: fadeUp 0.6s var(--ease-out) 0.4s both;
+    }
+    @media (min-width: 480px) {
+      .hero__actions { flex-direction: row; justify-content: center; }
+    }
+
+    .hero__stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-6) var(--space-12);
+      margin-top: var(--space-12);
+      animation: fadeUp 0.6s var(--ease-out) 0.5s both;
+    }
+    .hero__stat {
+      text-align: center;
+    }
+    .hero__stat-value {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      background: linear-gradient(135deg, #3B82F6, #10B981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero__stat-label {
+      font-size: var(--font-size-xs);
+      color: var(--color-muted-text);
+      margin-top: var(--space-1);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       TRUST BAR
+       ============================================================ */
+    .trust-bar {
+      padding: var(--space-10) 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-card);
+    }
+    .trust-bar__label {
+      text-align: center;
+      font-size: var(--font-size-xs);
+      color: var(--color-muted-text);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-6);
+    }
+    .trust-bar__logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-8) var(--space-12);
+    }
+    .trust-bar__logo {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-muted-text);
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+      transition: opacity var(--duration);
+    }
+    .trust-bar__logo:hover { opacity: 0.8; }
+
+    /* ============================================================
+       FEATURES
+       ============================================================ */
+    .features {
+      padding: var(--space-24) 0;
+    }
+    .features__header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    .features__header .section-desc { margin: 0 auto; }
+
+    .features__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    @media (min-width: 640px) {
+      .features__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .features__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .feature-card {
+      padding: var(--space-8);
+      border-radius: var(--radius-xl);
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+      transition: all var(--duration) var(--ease-out);
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+      opacity: 0;
+      transition: opacity var(--duration);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.2);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-card__icon {
+      width: 3rem; height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg);
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--color-primary);
+      margin-bottom: var(--space-5);
+    }
+    .feature-card__icon svg { width: 1.5rem; height: 1.5rem; }
+    .feature-card h3 {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    .feature-card p {
+      font-size: var(--font-size-sm);
+      color: var(--color-muted-text);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       LIVE MARKET
+       ============================================================ */
+    .market {
+      padding: var(--space-24) 0;
+      background: var(--color-card);
+    }
+    .market__header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    .market__header .section-desc { margin: 0 auto; }
+
+    .market__table {
+      max-width: 48rem;
+      margin: 0 auto;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+    .market__row {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-6);
+      align-items: center;
+      border-bottom: 1px solid var(--color-border);
+      transition: background var(--duration);
+    }
+    .market__row:last-child { border-bottom: none; }
+    .market__row:hover { background: var(--color-muted); }
+
+    .market__row-header {
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      color: var(--color-muted-text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-top: var(--space-5);
+      padding-bottom: var(--space-5);
+    }
+    .market__row-header:hover { background: transparent; }
+
+    .market__symbol {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .market__symbol-color {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .market__name {
+      font-size: var(--font-size-xs);
+      color: var(--color-muted-text);
+      display: none;
+    }
+    @media (min-width: 480px) {
+      .market__name { display: block; }
+    }
+    .market__price {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+    }
+    .market__change {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .market__change--up {
+      color: var(--color-profit);
+      background: rgba(5, 150, 105, 0.1);
+    }
+    .market__change--down {
+      color: var(--color-loss);
+      background: rgba(220, 38, 38, 0.1);
+    }
+    .market__sparkline {
+      display: none;
+    }
+    @media (min-width: 640px) {
+      .market__sparkline { display: block; }
+    }
+
+    .market__footer {
+      text-align: center;
+      margin-top: var(--space-8);
+    }
+    .market__footer p {
+      font-size: var(--font-size-xs);
+      color: var(--color-muted-text);
+    }
+
+    /* ============================================================
+       PLATFORM
+       ============================================================ */
+    .platform {
+      padding: var(--space-24) 0;
+      overflow: hidden;
+    }
+    .platform__header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    .platform__header .section-desc { margin: 0 auto; }
+
+    .platform__showcase {
+      position: relative;
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+    .platform__mockup {
+      width: 100%;
+      aspect-ratio: 16/10;
+      border-radius: var(--radius-2xl);
+      border: 1px solid var(--color-border);
+      background: var(--color-card);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Mockup chart UI */
+    .mockup-chart {
+      padding: var(--space-6);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .mockup-chart__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+    .mockup-chart__symbol {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+    }
+    .mockup-chart__price {
+      font-family: var(--font-mono);
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      color: var(--color-profit);
+    }
+    .mockup-chart__price span {
+      font-size: var(--font-size-sm);
+      font-weight: 400;
+      color: var(--color-profit);
+      margin-left: var(--space-2);
+      background: rgba(5, 150, 105, 0.1);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .mockup-chart__canvas {
+      flex: 1;
+      position: relative;
+    }
+    .mockup-chart__canvas svg {
+      width: 100%; height: 100%;
+    }
+
+    /* Floating elements around mockup */
+    .platform__floating {
+      position: absolute;
+      display: none;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-lg);
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-xs);
+      font-weight: 500;
+      animation: floatBounce 3s var(--ease-out) infinite;
+    }
+    @media (min-width: 768px) {
+      .platform__floating { display: flex; }
+    }
+    .platform__floating--1 {
+      top: 10%; right: -4rem;
+      animation-delay: 0s;
+      color: var(--color-profit);
+    }
+    .platform__floating--2 {
+      bottom: 20%; left: -4rem;
+      animation-delay: 1.5s;
+      color: var(--color-loss);
+    }
+    .platform__floating svg { width: 1rem; height: 1rem; }
+
+    @keyframes floatBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+       ============================================================ */
+    .testimonials {
+      padding: var(--space-24) 0;
+      background: var(--color-card);
+    }
+    .testimonials__header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    .testimonials__header .section-desc { margin: 0 auto; }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    @media (min-width: 640px) {
+      .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .testimonials__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .testimonial-card {
+      padding: var(--space-8);
+      border-radius: var(--radius-xl);
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      transition: all var(--duration) var(--ease-out);
+    }
+    .testimonial-card:hover {
+      border-color: rgba(59, 130, 246, 0.2);
+      transform: translateY(-2px);
+    }
+    .testimonial-card__rating {
+      display: flex;
+      gap: 2px;
+      margin-bottom: var(--space-4);
+    }
+    .testimonial-card__rating svg {
+      width: 1rem; height: 1rem;
+      color: var(--color-warning);
+    }
+    .testimonial-card__text {
+      font-size: var(--font-size-sm);
+      color: var(--color-muted-text);
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+    }
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .testimonial-card__avatar {
+      width: 2.5rem; height: 2.5rem;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #3B82F6, #10B981);
+      display: flex; align-items: center; justify-content: center;
+      font-size: var(--font-size-sm); font-weight: 600; color: white;
+      flex-shrink: 0;
+    }
+    .testimonial-card__name {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+    .testimonial-card__role {
+      font-size: var(--font-size-xs);
+      color: var(--color-muted-text);
+    }
+
+    /* ============================================================
+       CTA
+       ============================================================ */
+    .cta {
+      padding: var(--space-24) 0;
+    }
+    .cta__box {
+      text-align: center;
+      padding: var(--space-16) var(--space-8);
+      border-radius: var(--radius-2xl);
+      background: linear-gradient(135deg, rgba(30, 64, 175, 0.12), rgba(5, 150, 105, 0.08));
+      border: 1px solid var(--color-border);
+      max-width: 52rem;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta__box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(59, 130, 246, 0.03), transparent, rgba(5, 150, 105, 0.03), transparent);
+      animation: ctaRotate 20s linear infinite;
+    }
+    @keyframes ctaRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .cta__box > * {
+      position: relative;
+      z-index: 1;
+    }
+    .cta__box h2 {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .cta__box h2 { font-size: var(--font-size-4xl); }
+    }
+    .cta__box p {
+      color: var(--color-muted-text);
+      max-width: 30rem;
+      margin: 0 auto var(--space-8);
+    }
+    .cta__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    @media (min-width: 480px) {
+      .cta__actions { flex-direction: row; justify-content: center; }
+    }
+    .cta__trust {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+      font-size: var(--font-size-xs);
+      color: var(--color-muted-text);
+    }
+    .cta__trust-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .cta__trust-item svg { width: 1rem; height: 1rem; color: var(--color-success); }
+
+    /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq {
+      padding: var(--space-24) 0;
+      background: var(--color-card);
+    }
+    .faq__header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    .faq__list {
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+    .faq__item {
+      border-bottom: 1px solid var(--color-border);
+    }
+    .faq__item:first-child {
+      border-top: 1px solid var(--color-border);
+    }
+    .faq__question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-5) 0;
+      background: transparent;
+      border: none;
+      font-size: var(--font-size-base);
+      font-weight: 500;
+      color: var(--color-foreground);
+      text-align: left;
+      transition: color var(--duration);
+    }
+    .faq__question:hover { color: var(--color-primary); }
+    .faq__question:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+    .faq__question svg {
+      width: 1.25rem; height: 1.25rem;
+      flex-shrink: 0;
+      transition: transform var(--duration) var(--ease-out);
+      color: var(--color-muted-text);
+    }
+    .faq__item--open .faq__question svg {
+      transform: rotate(45deg);
+    }
+    .faq__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--duration) var(--ease-out), padding var(--duration) var(--ease-out);
+    }
+    .faq__item--open .faq__answer {
+      max-height: 300px;
+      padding-bottom: var(--space-5);
+    }
+    .faq__answer p {
+      font-size: var(--font-size-sm);
+      color: var(--color-muted-text);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      padding: var(--space-16) 0 var(--space-8);
+      border-top: 1px solid var(--color-border);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      margin-bottom: var(--space-12);
+    }
+    @media (min-width: 640px) {
+      .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    }
+    .footer__brand p {
+      font-size: var(--font-size-sm);
+      color: var(--color-muted-text);
+      max-width: 20rem;
+      margin-top: var(--space-4);
+    }
+    .footer__col h4 {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-4);
+      color: var(--color-muted-text);
+    }
+    .footer__col a {
+      display: block;
+      font-size: var(--font-size-sm);
+      color: var(--color-muted-text);
+      padding: var(--space-1) 0;
+      transition: color var(--duration);
+    }
+    .footer__col a:hover { color: var(--color-foreground); }
+    .footer__col a:focus-visible {
+      outline: 2px solid var(--color-ring);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+    .footer__bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-border);
+      font-size: var(--font-size-xs);
+      color: var(--color-muted-text);
+    }
+    @media (min-width: 640px) {
+      .footer__bottom { flex-direction: row; justify-content: space-between; }
+    }
+    .footer__risk {
+      margin-top: var(--space-12);
+      padding: var(--space-4) var(--space-6);
+      border-radius: var(--radius-lg);
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.1);
+      font-size: var(--font-size-xs);
+      color: var(--color-muted-text);
+      line-height: 1.7;
+    }
+    .footer__risk strong {
+      color: var(--color-destructive);
+    }
+    /* ============================================================
+       SCROLL ANIMATIONS
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+    .reveal--delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       REDUCED MOTION
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+      .ticker { animation: none; }
+      .reveal { opacity: 1; transform: none; }
+      .cta__box::before { animation: none; }
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 374px) {
+      :root { --space-6: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="主导航">
+    <div class="container">
+      <a href="#" class="nav__logo" aria-label="StockMaster 首页">
+        <span class="nav__logo-icon">S</span>
+        Stock<span>Master</span>
+      </a>
+
+      <div class="nav__links">
+        <a href="#features">核心优势</a>
+        <a href="#market">实时行情</a>
+        <a href="#platform">交易平台</a>
+        <a href="#testimonials">用户评价</a>
+        <a href="#faq">常见问题</a>
+      </div>
+
+      <a href="#cta" class="btn btn--accent" id="navCta">立即开户</a>
+
+      <button class="mobile-menu-btn" aria-label="打开菜单" id="mobileMenuBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+          <path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="移动端导航">
+    <a href="#features">核心优势</a>
+    <a href="#market">实时行情</a>
+    <a href="#platform">交易平台</a>
+    <a href="#testimonials">用户评价</a>
+    <a href="#faq">常见问题</a>
+    <a href="#cta" class="btn btn--accent btn--lg">立即开户</a>
+  </div>
+
+  <!-- ============================================================
+       TICKER
+       ============================================================ -->
+  <div class="ticker-wrapper" id="tickerWrapper">
+    <div class="ticker" id="ticker">
+      <span class="ticker__item">
+        <span class="ticker__item-symbol">AAPL</span>
+        <span class="ticker__item-price">$178.72</span>
+        <span class="ticker__item-change ticker__item-change--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +1.23%
+        </span>
+      </span>
+      <span class="ticker__item">
+        <span class="ticker__item-symbol">TSLA</span>
+        <span class="ticker__item-price">$245.60</span>
+        <span class="ticker__item-change ticker__item-change--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          +2.45%
+        </span>
+      </span>
+      <span class="ticker__item">
+        <span class="ticker__item-symbol">NVDA</span>
+        <span class="ticker__item-price">$824.18</span>
+        <span class="ticker__item-change ticker__item-change--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          +3.67%
+        </span>
+      </span>
+      <span class="ticker__item">
+        <span class="ticker__item-symbol">MSFT</span>
+        <span class="ticker__item-price">$378.52</span>
+        <span class="ticker__item-change ticker__item-change--down">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          -0.42%
+        </span>
+      </span>
+      <span class="ticker__item">
+        <span class="ticker__item-symbol">AMZN</span>
+        <span class="ticker__item-price">$158.90</span>
+        <span class="ticker__item-change ticker__item-change--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          +0.89%
+        </span>
+      </span>
+      <span class="ticker__item">
+        <span class="ticker__item-symbol">GOOGL</span>
+        <span class="ticker__item-price">$141.35</span>
+        <span class="ticker__item-change ticker__item-change--down">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          -0.18%
+        </span>
+      </span>
+      <span class="ticker__item">
+        <span class="ticker__item-symbol">META</span>
+        <span class="ticker__item-price">$474.28</span>
+        <span class="ticker__item-change ticker__item-change--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          +1.56%
+        </span>
+      </span>
+      <span class="ticker__item">
+        <span class="ticker__item-symbol">BABA</span>
+        <span class="ticker__item-price">$98.45</span>
+        <span class="ticker__item-change ticker__item-change--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          +0.72%
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__bg-gradient"></div>
+      <div class="hero__bg-grid"></div>
+      <!-- Abstract chart line -->
+      <div class="hero__chart-line">
+        <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+          <path d="M0 160 Q100 180 200 140 T400 110 T600 130 T800 80 T1000 60 T1200 90"
+                fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.3"/>
+          <path d="M0 170 Q150 190 250 150 T450 130 T650 150 T850 100 T1050 80 T1200 110"
+                fill="none" stroke="#10B981" stroke-width="1" opacity="0.2"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero__badge">
+        <span class="hero__badge-dot" aria-hidden="true"></span>
+        实时行情 · 零佣金 · 智能选股
+      </div>
+
+      <h1 class="hero__title">
+        让每一笔投资<br />
+        <span class="gradient-text">都更有价值</span>
+      </h1>
+
+      <p class="hero__sub">
+        StockMaster 为您提供专业级交易工具、实时市场数据和 AI 智能选股建议。
+        零佣金交易，即刻开启你的投资之旅。
+      </p>
+
+      <div class="hero__actions">
+        <a href="#cta" class="btn btn--accent btn--lg">
+          立即开户
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#features" class="btn btn--outline btn--lg">了解更多</a>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <div class="hero__stat-value">500万+</div>
+          <div class="hero__stat-label">注册用户</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-value">¥0</div>
+          <div class="hero__stat-label">佣金起投</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-value">99.9%</div>
+          <div class="hero__stat-label">系统稳定率</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-value">8年</div>
+          <div class="hero__stat-label">行业经验</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TRUST BAR
+       ============================================================ -->
+  <section class="trust-bar" aria-label="合作伙伴">
+    <div class="container">
+      <div class="trust-bar__label">合作机构与媒体认可</div>
+      <div class="trust-bar__logos">
+        <span class="trust-bar__logo">NASDAQ</span>
+        <span class="trust-bar__logo">NYSE</span>
+        <span class="trust-bar__logo">SSE</span>
+        <span class="trust-bar__logo">BLOOMBERG</span>
+        <span class="trust-bar__logo">REUTERS</span>
+        <span class="trust-bar__logo">CNBC</span>
+        <span class="trust-bar__logo">FORBES</span>
+        <span class="trust-bar__logo">WALL STREET</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES
+       ============================================================ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features__header reveal">
+        <h2 class="section-title">为什么选择 <span class="gradient-text">StockMaster</span></h2>
+        <p class="section-desc">我们为每一位投资者打造的极致交易体验，从初学者到专业交易员都能找到所需工具。</p>
+      </div>
+
+      <div class="features__grid">
+        <article class="feature-card reveal reveal--delay-1">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/>
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 7v5l3 3"/>
+            </svg>
+          </div>
+          <h3>实时行情数据</h3>
+          <p>毫秒级延迟的市场数据覆盖全球主要交易所，包括美股、港股、A股、期货、外汇等多元资产。</p>
+        </article>
+
+        <article class="feature-card reveal reveal--delay-2">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <h3>AI 智能选股</h3>
+          <p>基于深度学习算法，分析市场情绪、资金流向和技术指标，为您推荐最具潜力的投资标的。</p>
+        </article>
+
+        <article class="feature-card reveal reveal--delay-3">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>零佣金交易</h3>
+          <p>股票、ETF 交易永久零佣金。没有隐藏费用，没有最低存款要求，真正实现低成本投资。</p>
+        </article>
+
+        <article class="feature-card reveal reveal--delay-1">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <h3>银行级安全保障</h3>
+          <p>256 位 SSL 加密、双重身份验证、SIPC 最高 $500,000 保险保障，您的资金安全始终是我们的首要任务。</p>
+        </article>
+
+        <article class="feature-card reveal reveal--delay-2">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9M16.38 3.46a2 2 0 0 1 2.83 2.83L6 20H2v-4L16.38 3.46z"/>
+            </svg>
+          </div>
+          <h3>专业分析工具</h3>
+          <p>50+ 技术指标、实时图表绘制、多窗口分屏交易、自定义策略回测，满足专业交易员的一切需求。</p>
+        </article>
+
+        <article class="feature-card reveal reveal--delay-3">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M2.5 22v-6h6M2 15.5a8.5 8.5 0 0 1 13.6-7.1M22 8.5a8.5 8.5 0 0 1-13.6 7.1"/>
+            </svg>
+          </div>
+          <h3>7×24h 全球交易</h3>
+          <p>支持盘前盘后交易，覆盖全球 60+ 交易所。无论你在哪个时区，都不会错过任何交易机会。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LIVE MARKET
+       ============================================================ -->
+  <section class="market" id="market">
+    <div class="container">
+      <div class="market__header reveal">
+        <h2 class="section-title">实时热门行情</h2>
+        <p class="section-desc">美股、港股、A 股实时数据，一屏掌握全球市场动态。</p>
+      </div>
+
+      <div class="market__table reveal">
+        <div class="market__row market__row-header">
+          <span>代码</span>
+          <span>现价</span>
+          <span>涨跌幅</span>
+          <span>走势</span>
+        </div>
+        <div class="market__row">
+          <span class="market__symbol">
+            <span class="market__symbol-color" style="background: #3B82F6;"></span>
+            AAPL
+          </span>
+          <span class="market__price">$178.72</span>
+          <span class="market__change market__change--up">+1.23%</span>
+          <span class="market__sparkline">
+            <svg width="60" height="24" viewBox="0 0 60 24">
+              <path d="M0 20 Q10 18 20 14 T40 10 T60 8" fill="none" stroke="#059669" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </div>
+        <div class="market__row">
+          <span class="market__symbol">
+            <span class="market__symbol-color" style="background: #F59E0B;"></span>
+            TSLA
+          </span>
+          <span class="market__price">$245.60</span>
+          <span class="market__change market__change--up">+2.45%</span>
+          <span class="market__sparkline">
+            <svg width="60" height="24" viewBox="0 0 60 24">
+              <path d="M0 18 Q15 20 25 12 T45 6 T60 4" fill="none" stroke="#059669" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </div>
+        <div class="market__row">
+          <span class="market__symbol">
+            <span class="market__symbol-color" style="background: #10B981;"></span>
+            NVDA
+          </span>
+          <span class="market__price">$824.18</span>
+          <span class="market__change market__change--up">+3.67%</span>
+          <span class="market__sparkline">
+            <svg width="60" height="24" viewBox="0 0 60 24">
+              <path d="M0 22 Q10 18 20 10 T40 4 T60 2" fill="none" stroke="#059669" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </div>
+        <div class="market__row">
+          <span class="market__symbol">
+            <span class="market__symbol-color" style="background: #8B5CF6;"></span>
+            MSFT
+          </span>
+          <span class="market__price">$378.52</span>
+          <span class="market__change market__change--down">-0.42%</span>
+          <span class="market__sparkline">
+            <svg width="60" height="24" viewBox="0 0 60 24">
+              <path d="M0 8 Q15 10 25 14 T45 16 T60 18" fill="none" stroke="#DC2626" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </div>
+        <div class="market__row">
+          <span class="market__symbol">
+            <span class="market__symbol-color" style="background: #EC4899;"></span>
+            AMZN
+          </span>
+          <span class="market__price">$158.90</span>
+          <span class="market__change market__change--up">+0.89%</span>
+          <span class="market__sparkline">
+            <svg width="60" height="24" viewBox="0 0 60 24">
+              <path d="M0 16 Q15 14 25 10 T45 8 T60 6" fill="none" stroke="#059669" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </div>
+        <div class="market__row">
+          <span class="market__symbol">
+            <span class="market__symbol-color" style="background: #EF4444;"></span>
+            BABA
+          </span>
+          <span class="market__price">$98.45</span>
+          <span class="market__change market__change--up">+0.72%</span>
+          <span class="market__sparkline">
+            <svg width="60" height="24" viewBox="0 0 60 24">
+              <path d="M0 14 Q10 16 20 12 T40 10 T60 8" fill="none" stroke="#059669" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="market__footer reveal">
+        <p>数据延迟 ≤ 15 分钟 · 开户即享实时行情</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PLATFORM
+       ============================================================ -->
+  <section class="platform" id="platform">
+    <div class="container">
+      <div class="platform__header reveal">
+        <h2 class="section-title">专业交易平台</h2>
+        <p class="section-desc">Web、桌面、移动端全覆盖，随时随地把握投资机会。</p>
+      </div>
+
+      <div class="platform__showcase reveal">
+        <div class="platform__floating platform__floating--1" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          +2.34% 今日收益
+        </div>
+        <div class="platform__floating platform__floating--2" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          -0.87% 已止损
+        </div>
+
+        <div class="platform__mockup">
+          <div class="mockup-chart">
+            <div class="mockup-chart__header">
+              <div>
+                <div class="mockup-chart__symbol">
+                  <span style="color: var(--color-primary);">AAPL</span>
+                  <span style="color: var(--color-muted-text); font-size: var(--font-size-xs); font-weight: 400; margin-left: var(--space-2);">NASDAQ · 1D</span>
+                </div>
+                <div style="font-size: var(--font-size-xs); color: var(--color-muted-text); margin-top: 2px;">Apple Inc.</div>
+              </div>
+              <div class="mockup-chart__price">
+                $178.72
+                <span>+1.23%</span>
+              </div>
+            </div>
+            <!-- Candlestick chart simulation -->
+            <div class="mockup-chart__canvas">
+              <svg viewBox="0 0 700 260" preserveAspectRatio="none">
+                <!-- Grid lines -->
+                <g stroke="rgba(255,255,255,0.04)" stroke-width="0.5">
+                  <line x1="0" y1="0" x2="700" y2="0"/>
+                  <line x1="0" y1="52" x2="700" y2="52"/>
+                  <line x1="0" y1="104" x2="700" y2="104"/>
+                  <line x1="0" y1="156" x2="700" y2="156"/>
+                  <line x1="0" y1="208" x2="700" y2="208"/>
+                  <line x1="0" y1="260" x2="700" y2="260"/>
+                </g>
+                <!-- Price line -->
+                <path d="M0 180 Q50 175 100 160 T200 140 T300 110 T400 95 T500 80 T600 65 T700 52"
+                      fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Gradient fill -->
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.2"/>
+                    <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0 180 Q50 175 100 160 T200 140 T300 110 T400 95 T500 80 T600 65 T700 52 L700 260 L0 260 Z"
+                      fill="url(#chartGrad)"/>
+                <!-- Moving averages -->
+                <path d="M0 165 Q100 155 200 145 T400 125 T600 108 T700 100"
+                      fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+                <path d="M0 145 Q100 140 200 130 T400 115 T600 100 T700 88"
+                      fill="none" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+                <!-- Tooltip indicator -->
+                <circle cx="500" cy="80" r="4" fill="#10B981" stroke="#0A0F1E" stroke-width="2"/>
+                <!-- Buy/Sell markers -->
+                <text x="150" y="125" font-size="10" fill="#10B981" font-family="monospace">▲ BUY</text>
+                <text x="420" y="80" font-size="10" fill="#10B981" font-family="monospace">▲ BUY</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials__header reveal">
+        <h2 class="section-title">用户真实评价</h2>
+        <p class="section-desc">来自 500 万+用户的真实反馈，看看他们如何通过 StockMaster 实现投资目标。</p>
+      </div>
+
+      <div class="testimonials__grid">
+        <article class="testimonial-card reveal reveal--delay-1">
+          <div class="testimonial-card__rating">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-card__text">"从一个小白开始用 StockMaster，AI 选股功能帮我避了很多坑。三个月下来收益率超过了 15%，比我自己瞎买强太多了。"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">张</div>
+            <div>
+              <div class="testimonial-card__name">张伟</div>
+              <div class="testimonial-card__role">投资新手 · 入市 3 个月</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal reveal--delay-2">
+          <div class="testimonial-card__rating">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-card__text">"专业交易员需要的工具这里全都有。多窗口分屏、实时数据、策略回测... 界面设计也很清爽，用过就回不去了。"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">李</div>
+            <div>
+              <div class="testimonial-card__name">李强</div>
+              <div class="testimonial-card__role">全职交易员 · 8 年经验</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal reveal--delay-3">
+          <div class="testimonial-card__rating">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-card__text">"美股港股 A 股一个账户全搞定，省去了在不同券商开户的麻烦。零佣金真的太香了，每个月省下的手续费够吃好几顿了。"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">王</div>
+            <div>
+              <div class="testimonial-card__name">王芳</div>
+              <div class="testimonial-card__role">价值投资者 · 3 年经验</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
+  <section class="cta" id="cta">
+    <div class="container">
+      <div class="cta__box reveal">
+        <h2>立即开启你的投资之旅</h2>
+        <p>开户仅需 3 分钟，零佣金交易，随时随地把握全球投资机会。<br />前 10,000 名开户用户享 30 天 VIP 体验。</p>
+        <div class="cta__actions">
+          <a href="#" class="btn btn--accent btn--lg">
+            立即免费开户
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#" class="btn btn--outline btn--lg">下载 App</a>
+        </div>
+        <div class="cta__trust">
+          <span class="cta__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            零佣金交易
+          </span>
+          <span class="cta__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            最高 $500K 保险
+          </span>
+          <span class="cta__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            7×24h 客服支持
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq__header reveal">
+        <h2 class="section-title">常见问题</h2>
+        <p class="section-desc">关于 StockMaster，你可能想了解的一切。</p>
+      </div>
+
+      <div class="faq__list" role="list">
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            开户需要哪些条件？
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+          <div class="faq__answer">
+            <p>年满 18 周岁，持有有效身份证件即可在线开户。整个流程仅需 3 分钟，无需任何存款要求。我们支持中国大陆居民身份证、港澳通行证、护照等多种证件。</p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            StockMaster 安全可靠吗？
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+          <div class="faq__answer">
+            <p>StockMaster 受美国 SEC 和 FINRA 监管，是 SIPC 成员。您的账户享有最高 $500,000 的证券投资者保护。我们采用 256 位 SSL 加密、双因素认证和冷钱包存储，确保您的资产和信息安全。</p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            可以交易哪些市场的股票？
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+          <div class="faq__answer">
+            <p>我们支持美股（NYSE、NASDAQ）、港股（HKEX）、A 股（沪深港通）、英股（LSE）、日股（TSE）等全球 60+ 交易所的股票、ETF、期权和期货交易。一个账户，投资全球。</p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            交易真的零佣金吗？有隐藏费用吗？
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+          <div class="faq__answer">
+            <p>是的，股票和 ETF 交易永久零佣金，没有任何隐藏费用。我们通过增值服务（如高级数据订阅、API 接入）盈利，而非交易佣金。开户、账户维护、入金均免费。部分市场可能产生监管费用，我们会在交易确认中明确列出。</p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            AI 智能选股真的能帮我赚钱吗？
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+          <div class="faq__answer">
+            <p>AI 智能选股基于深度学习分析市场数据、新闻情绪和技术指标，提供参考建议而非投资保证。历史回测显示我们的 AI 策略在震荡市场中表现优异，但所有投资都有风险，建议结合自身判断使用。过去的表现不代表未来收益。</p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__question" aria-expanded="false">
+            如何出入金？支持哪些币种？
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+          <div class="faq__answer">
+            <p>支持银行转账、银证转账、支付宝、微信等多种入金方式。支持美元、港币、人民币等多币种账户。入金实时到账，出金通常 1-3 个工作日。单笔入金满 $1,000 免手续费。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="nav__logo" aria-label="StockMaster 首页">
+            <span class="nav__logo-icon">S</span>
+            Stock<span>Master</span>
+          </a>
+          <p>StockMaster 致力于为全球投资者提供专业、安全、低成本的交易服务。让每个人都能轻松参与全球资本市场。</p>
+        </div>
+
+        <div class="footer__col">
+          <h4>产品</h4>
+          <a href="#features">核心优势</a>
+          <a href="#pricing">收费标准</a>
+          <a href="#market">实时行情</a>
+          <a href="#platform">交易平台</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>公司</h4>
+          <a href="#">关于我们</a>
+          <a href="#">加入我们</a>
+          <a href="#">投资者关系</a>
+          <a href="#">新闻中心</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>支持</h4>
+          <a href="#">帮助中心</a>
+          <a href="#">联系我们</a>
+          <a href="#">隐私政策</a>
+          <a href="#">服务协议</a>
+        </div>
+      </div>
+
+      <div class="footer__risk">
+        <strong>风险提示：</strong>投资有风险，入市需谨慎。股票、期权、期货等金融产品交易存在亏损风险，可能损失部分或全部本金。过往业绩不预示未来表现。本页面内容不构成投资建议，仅供参考。请在投资前充分了解相关风险，并根据自身风险承受能力做出决策。
+      </div>
+
+      <div class="footer__bottom">
+        <span>&copy; 2026 StockMaster. All rights reserved.</span>
+        <span>让每一笔投资都更有价值</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* ---- Nav Scroll ---- */
+      const nav = document.querySelector('.nav');
+      const tickerWrapper = document.getElementById('tickerWrapper');
+
+      window.addEventListener('scroll', function() {
+        const y = window.scrollY;
+        if (y > 60) {
+          nav.classList.add('nav--scrolled');
+          tickerWrapper.classList.add('ticker-wrapper--visible');
+        } else {
+          nav.classList.remove('nav--scrolled');
+          tickerWrapper.classList.remove('ticker-wrapper--visible');
+        }
+      }, { passive: true });
+
+      /* ---- Mobile Menu ---- */
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      mobileMenuBtn.addEventListener('click', function() {
+        const isOpen = mobileMenu.classList.toggle('mobile-menu--open');
+        mobileMenuBtn.setAttribute('aria-label', isOpen ? '关闭菜单' : '打开菜单');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('mobile-menu--open');
+          mobileMenuBtn.setAttribute('aria-label', '打开菜单');
+          document.body.style.overflow = '';
+        });
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu--open')) {
+          mobileMenu.classList.remove('mobile-menu--open');
+          mobileMenuBtn.setAttribute('aria-label', '打开菜单');
+          document.body.style.overflow = '';
+        }
+      });
+
+      /* ---- Scroll Reveal ---- */
+      const revealEls = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal--visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          rootMargin: '0px 0px -60px 0px',
+          threshold: 0.1
+        });
+
+        revealEls.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        revealEls.forEach(function(el) { el.classList.add('reveal--visible'); });
+      }
+
+      /* ---- FAQ Accordion ---- */
+      const faqItems = document.querySelectorAll('.faq__item');
+
+      faqItems.forEach(function(item) {
+        const question = item.querySelector('.faq__question');
+        question.addEventListener('click', function() {
+          const isOpen = item.classList.contains('faq__item--open');
+          faqItems.forEach(function(other) {
+            other.classList.remove('faq__item--open');
+            other.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('faq__item--open');
+            question.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* ---- Smooth Scroll ---- */
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            const navH = 72;
+            const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+            history.pushState(null, '', targetId);
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
