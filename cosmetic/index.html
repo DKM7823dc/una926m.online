@@ -1,1975 +1,816 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="StockMaster — 专业股票交易平台，零佣金，实时行情，智能选股。立即开户，开启你的投资之旅。" />
-  <meta name="theme-color" content="#0F172A" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Dr. Sarah Johnson · Anti-Aging Dermatology</title>
+<meta name="description" content="Board-certified dermatologist specializing in anti-aging. 15+ years clinical experience. UCLA Medical Center. Evidence-based, non-invasive skin rejuvenation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════ DESIGN TOKENS ═══════════════ */
+:root{
+  --teal-900:#0B2B35;--teal-800:#123C48;--teal-700:#1A4F5E;--teal-50:#E8F0F2;
+  --gold:#C49B6C;--gold-light:#E8D5B0;--gold-pale:#F5EDE0;
+  --cream:#F7F4F0;--ivory:#FAF8F6;--charcoal:#1A1A1A;
+  --gray-700:#4A4A4A;--gray-500:#7A7A7A;--gray-300:#B8B8B8;--gray-100:#E8E8E8;
+  --white:#FFFFFF;--success:#3A7D5C;
+  --shadow-sm:0 2px 8px rgba(11,43,53,.06);--shadow-md:0 8px 32px rgba(11,43,53,.08);
+  --shadow-lg:0 20px 60px rgba(11,43,53,.12);--shadow-xl:0 32px 80px rgba(11,43,53,.15);
+  --radius:16px;--radius-sm:8px;--radius-xl:24px;
+  --font-serif:'Playfair Display',Georgia,serif;
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --max-w:1200px;--nav-h:64px;
+  --section-pad:40px;--container-pad:20px;--card-pad:20px;
+}
+@media(min-width:480px){:root{--container-pad:28px;--card-pad:24px}}
+@media(min-width:768px){:root{--nav-h:76px;--section-pad:56px;--container-pad:32px;--card-pad:32px}}
+@media(min-width:1024px){:root{--nav-h:80px;--section-pad:40px;--card-pad:36px}}
 
-  <title>StockMaster — 让每一笔投资都更有价值</title>
+/* ═══════════════ RESET ═══════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--font-sans);font-size:15px;line-height:1.7;color:var(--charcoal);background:var(--ivory);overflow-x:hidden;-webkit-overflow-scrolling:touch}
+@media(min-width:768px){body{font-size:16px}}
+img{max-width:100%;height:auto;display:block}a{color:inherit;text-decoration:none}button,input{font:inherit}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--container-pad)}
 
-  <style>
-    /* ============================================================
-       DESIGN TOKENS
-       ============================================================ */
-    :root {
-      /* Colors — Dark Finance Theme */
-      --color-primary:       #1E40AF;
-      --color-on-primary:    #FFFFFF;
-      --color-secondary:     #3B82F6;
-      --color-accent:        #059669;
-      --color-on-accent:     #FFFFFF;
-      --color-profit:        #059669;
-      --color-loss:          #DC2626;
-      --color-background:    #0A0F1E;
-      --color-foreground:    #F1F5F9;
-      --color-card:          #111827;
-      --color-card-hover:    #1A2332;
-      --color-muted:         #1E293B;
-      --color-muted-text:    #94A3B8;
-      --color-border:        rgba(255,255,255,0.08);
-      --color-destructive:   #EF4444;
-      --color-ring:          #3B82F6;
-      --color-success:       #10B981;
-      --color-warning:       #F59E0B;
+/* ═══════════════ TYPOGRAPHY ═══════════════ */
+h1,h2,h3,h4{font-family:var(--font-serif);font-weight:600;line-height:1.2;letter-spacing:-.015em}
+h1{font-size:clamp(1.75rem,5.5vw,3.8rem)}
+h2{font-size:clamp(1.5rem,4vw,3.2rem)}
+h3{font-size:clamp(1.15rem,2.2vw,1.5rem)}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin-bottom:.75rem}
+@media(min-width:768px){.section-label{margin-bottom:1rem}}
+.section-label::before{content:'';display:block;width:20px;height:1px;background:var(--gold);flex-shrink:0}
+@media(min-width:768px){.section-label::before{width:24px}}
+.section-title{margin-bottom:.8rem;color:var(--teal-900);letter-spacing:-.02em}
+@media(min-width:768px){.section-title{margin-bottom:1.2rem}}
+.section-subtitle{font-size:.92rem;color:var(--gray-500);line-height:1.75;max-width:540px}
+@media(min-width:768px){.section-subtitle{font-size:1rem}}
+.text-center{text-align:center}
+.text-center .section-subtitle{margin:0 auto}.text-center .section-label::before{display:none}
 
-      /* Typography */
-      --font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      --font-mono:    'IBM Plex Mono', 'SF Mono', 'Cascadia Code', monospace;
-      --font-size-xs:   0.75rem;
-      --font-size-sm:   0.875rem;
-      --font-size-base: 1rem;
-      --font-size-lg:   1.125rem;
-      --font-size-xl:   1.25rem;
-      --font-size-2xl:  1.5rem;
-      --font-size-3xl:  1.875rem;
-      --font-size-4xl:  2.25rem;
-      --font-size-5xl:  3rem;
-      --font-size-6xl:  3.75rem;
-      --font-size-7xl:  4.5rem;
+/* ═══════════════ BUTTONS ═══════════════ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;font-family:var(--font-sans);font-size:.85rem;font-weight:600;border-radius:100px;border:none;cursor:pointer;min-height:44px;transition:all .35s cubic-bezier(.22,1,.36,1)}
+@media(min-width:768px){.btn{padding:14px 32px;font-size:.88rem;gap:10px}}
+.btn-primary{background:var(--teal-900);color:var(--white)}
+.btn-primary:hover{background:var(--teal-800);transform:translateY(-2px);box-shadow:0 8px 24px rgba(11,43,53,.25)}
+.btn-secondary{background:transparent;color:var(--teal-900);border:1.5px solid rgba(11,43,53,.15)}
+.btn-secondary:hover{border-color:var(--teal-900);background:rgba(11,43,53,.03);transform:translateY(-2px)}
+.btn-light{background:var(--white);color:var(--teal-900)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.btn-outline-light{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.25)}
+.btn-outline-light:hover{border-color:var(--white);background:rgba(255,255,255,.06);transform:translateY(-2px)}
 
-      /* Spacing */
-      --space-1:  0.25rem;
-      --space-2:  0.5rem;
-      --space-3:  0.75rem;
-      --space-4:  1rem;
-      --space-5:  1.25rem;
-      --space-6:  1.5rem;
-      --space-8:  2rem;
-      --space-10: 2.5rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-20: 5rem;
-      --space-24: 6rem;
-      --space-32: 8rem;
+/* ═══════════════ NAV ═══════════════ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;transition:all .4s ease}
+.nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.nav .container{display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:8px;font-family:var(--font-serif);font-size:.95rem;color:var(--white);font-weight:600;letter-spacing:-.02em;transition:color .3s;z-index:1002;position:relative;overflow:hidden;white-space:nowrap;max-width:55vw}
+@media(min-width:480px){.nav-brand{font-size:1rem;gap:10px;max-width:none}}
+@media(min-width:768px){.nav-brand{font-size:1.2rem}}
+.nav.scrolled .nav-brand{color:var(--teal-900)}
+.nav-brand-icon{width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:.65rem;font-weight:700;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none}@media(min-width:1024px){.nav-links{gap:28px}}
+.nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.7);transition:color .3s;position:relative;white-space:nowrap}
+.nav.scrolled .nav-links a{color:var(--gray-700)}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:var(--gold);transition:width .3s ease}
+.nav-links a:hover{color:var(--white)}.nav.scrolled .nav-links a:hover{color:var(--teal-900)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:9px 20px!important;background:var(--gold)!important;color:var(--teal-900)!important;border-radius:100px;font-weight:600!important;transition:all .3s!important}
+.nav-cta::after{display:none!important}.nav-cta:hover{background:var(--gold-light)!important;transform:translateY(-1px)}
+.mobile-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;min-width:44px;min-height:44px;position:relative;z-index:1002}
+.mobile-btn span{display:block;width:20px;height:2px;border-radius:2px;background:var(--white);transition:all .35s ease;transform-origin:center}
+.nav.scrolled .mobile-btn span{background:var(--teal-900)}
+.mobile-btn.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.mobile-btn.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.mobile-btn.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav.scrolled .mobile-btn.active span{background:var(--teal-900)}
+@media(min-width:769px){.mobile-btn{display:none}}
+.nav-overlay{position:fixed;inset:0;z-index:-1;background:rgba(11,43,53,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);opacity:0;visibility:hidden;transition:all .4s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.nav-overlay.open{opacity:1;visibility:visible;z-index:1001}
+.nav-overlay ul{list-style:none;text-align:center;display:flex;flex-direction:column;gap:8px}
+.nav-overlay ul li a{display:block;padding:14px 28px;min-height:44px;font-family:var(--font-serif);font-size:1.4rem;color:rgba(255,255,255,.7);transition:color .3s;font-weight:500}
+.nav-overlay ul li a:hover{color:var(--white)}
+.nav-overlay-cta{display:inline-block;margin-top:24px;padding:14px 40px;background:var(--gold);color:var(--teal-900);border-radius:100px;font-weight:600;font-size:.95rem}
+.nav-overlay-footer{position:absolute;bottom:40px;text-align:center;color:rgba(255,255,255,.3);font-size:.75rem}
+@media(max-width:768px){body.menu-open{overflow:hidden}}
 
-      /* Radii */
-      --radius-sm:    0.375rem;
-      --radius-md:    0.5rem;
-      --radius-lg:    0.75rem;
-      --radius-xl:    1rem;
-      --radius-2xl:   1.5rem;
-      --radius-full:  9999px;
+/* ═══════════════ HERO ═══════════════ */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;background:var(--teal-900);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 50% at 70% 20%, rgba(196,155,108,.08), transparent),radial-gradient(ellipse 80% 60% at 30% 80%, rgba(11,43,53,.5), transparent),linear-gradient(180deg, var(--teal-900) 0%, #0A2028 50%, var(--teal-800) 100%);pointer-events:none}
+@media(min-width:768px){.hero::before{background:radial-gradient(ellipse 80% 60% at 70% 20%, rgba(196,155,108,.08), transparent),radial-gradient(ellipse 60% 80% at 30% 70%, rgba(11,43,53,.4), transparent),linear-gradient(135deg, var(--teal-900) 0%, #0A2028 50%, var(--teal-800) 100%)}}
+.hero-pattern{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.03}
+.hero-pattern span{position:absolute;font-family:var(--font-serif);font-size:clamp(12rem,30vw,24rem);font-weight:700;color:var(--gold);line-height:1;top:-5%;right:-10%;opacity:.04}
+.hero .container{position:relative;z-index:2;display:grid;gap:28px;align-items:center;padding-top:calc(var(--nav-h) + 16px);padding-bottom:40px}
+@media(min-width:768px){.hero .container{grid-template-columns:1fr 1fr;gap:40px;padding-bottom:0}}@media(min-width:1024px){.hero .container{gap:60px;padding-top:var(--nav-h)}}
+.hero .hero-image-wrap{order:-1;position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);max-height:400px}
+@media(min-width:768px){.hero .hero-image-wrap{order:0;border-radius:var(--radius-xl);max-height:none;transform:perspective(1200px) rotateY(-2deg);transition:transform .8s cubic-bezier(.22,1,.36,1)}.hero .hero-image-wrap:hover{transform:perspective(1200px) rotateY(0deg)}}
+.hero .hero-image-wrap img{width:100%;height:340px;object-fit:cover}
+@media(min-width:480px){.hero .hero-image-wrap img{height:400px}}@media(min-width:768px){.hero .hero-image-wrap img{height:560px;transition:transform .8s ease}.hero .hero-image-wrap:hover img{transform:scale(1.02)}}@media(min-width:1024px){.hero .hero-image-wrap img{height:600px}}
+.hero-image-badge{position:absolute;bottom:16px;left:16px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.45);backdrop-filter:blur(12px);padding:8px 14px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.1)}
+@media(min-width:768px){.hero-image-badge{bottom:24px;left:24px;padding:12px 18px}}
+.hero-image-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--success);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(58,125,92,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(58,125,92,0)}}
+.hero-image-badge span{color:var(--white);font-size:.7rem;font-weight:500}@media(min-width:768px){.hero-image-badge span{font-size:.75rem}}
+.hero-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}@media(min-width:768px){.hero-badges{gap:8px;margin-bottom:1.5rem}}
+.hero-badge-pill{padding:4px 12px;border-radius:100px;font-size:.65rem;font-weight:600;letter-spacing:.03em;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8)}
+@media(min-width:768px){.hero-badge-pill{padding:5px 14px;font-size:.68rem}}
+.hero-badge-pill.gold{background:rgba(196,155,108,.15);border-color:rgba(196,155,108,.25);color:var(--gold-light)}
+.hero h1{color:var(--white);margin-bottom:.5rem;line-height:1.08}
+.hero h1 .gold{color:var(--gold)}
+.hero-sub{font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:1.2rem;line-height:1.7}
+@media(min-width:768px){.hero-sub{font-size:.88rem;margin-bottom:1.4rem}}
+.hero-sub strong{color:rgba(255,255,255,.8);font-weight:500}
+.hero-quote{position:relative;padding:1rem 1.2rem;margin-bottom:1.4rem;background:rgba(255,255,255,.04);border-left:2px solid var(--gold);border-radius:0 var(--radius-sm) var(--radius-sm) 0}
+@media(min-width:768px){.hero-quote{padding:1.4rem 1.8rem;margin-bottom:1.8rem}}
+.hero-quote p{font-family:var(--font-serif);font-style:italic;font-size:.88rem;line-height:1.75;color:rgba(255,255,255,.75)}@media(min-width:768px){.hero-quote p{font-size:.98rem}}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}@media(min-width:480px){.hero-actions{gap:14px}}
+.hero-trust-row{display:flex;gap:12px;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap}
+@media(min-width:768px){.hero-trust-row{gap:24px;margin-top:1.8rem;padding-top:1.6rem}}
+.hero-trust-item{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:rgba(255,255,255,.45)}
+@media(min-width:480px){.hero-trust-item{font-size:.76rem;gap:7px}}@media(min-width:768px){.hero-trust-item{font-size:.78rem}}
+.hero-trust-item svg{width:12px;height:12px;flex-shrink:0;color:var(--gold)}@media(min-width:768px){.hero-trust-item svg{width:14px;height:14px}}
 
-      /* Shadows */
-      --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.3);
-      --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.4);
-      --shadow-lg:   0 12px 32px rgba(0, 0, 0, 0.5);
-      --shadow-xl:   0 24px 48px rgba(0, 0, 0, 0.6);
-      --shadow-glow: 0 0 20px rgba(5, 150, 105, 0.15);
+/* ═══════════════ CREDENTIALS ═══════════════ */
+.credentials-bar{padding:18px 0;background:var(--cream);border-bottom:1px solid var(--gray-100);overflow:hidden;width:100%}
+@media(min-width:768px){.credentials-bar{padding:28px 0}}
+.credentials-track{display:flex;align-items:center;gap:32px;animation:scroll-cred 24s linear infinite;width:max-content;padding-left:16px}
+@media(min-width:768px){.credentials-track{gap:48px;padding-left:0}}
+.credentials-track-item{display:flex;align-items:center;gap:8px;flex-shrink:0;font-size:.72rem;color:var(--gray-500);font-weight:500;white-space:nowrap}
+@media(min-width:768px){.credentials-track-item{font-size:.78rem;gap:10px}}
+.credentials-track-item svg{width:15px;height:15px;color:var(--gold);flex-shrink:0}@media(min-width:768px){.credentials-track-item svg{width:18px;height:18px}}
+@keyframes scroll-cred{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+section{padding:var(--section-pad) 0}
+.section-header{margin-bottom:clamp(20px,2.5vw,32px)}
 
-      /* Transitions */
-      --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
-      --duration:    250ms;
+/* ═══════════════ EXPERTISE ═══════════════ */
+.expertise{background:var(--ivory)}
+.expertise-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+@media(min-width:768px){.expertise-grid{grid-template-columns:1fr 1fr;gap:40px}}@media(min-width:1024px){.expertise-grid{gap:60px}}
+.expertise-visual{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;order:-1}@media(min-width:768px){.expertise-visual{order:0;gap:16px}}
+.expertise-visual-main{grid-column:1/-1;border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:16/10}
+@media(min-width:768px){.expertise-visual-main{border-radius:var(--radius);aspect-ratio:16/9}}
+.expertise-visual-main img{width:100%;height:100%;object-fit:cover}
+.expertise-visual-sub{border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-sm);aspect-ratio:4/3}
+.expertise-visual-sub img{width:100%;height:100%;object-fit:cover}
+.expertise-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}@media(min-width:768px){.expertise-stats{gap:16px;margin-top:28px}}
+.expertise-stat{text-align:center;padding:12px 8px;background:var(--cream);border-radius:var(--radius-sm)}@media(min-width:768px){.expertise-stat{padding:16px}}
+.expertise-stat-num{font-family:var(--font-serif);font-size:1.4rem;font-weight:700;color:var(--teal-900);line-height:1}@media(min-width:768px){.expertise-stat-num{font-size:1.8rem}}
+.expertise-stat-label{font-size:.68rem;color:var(--gray-500);margin-top:3px}@media(min-width:768px){.expertise-stat-label{font-size:.72rem;margin-top:4px}}
+.expertise-list{list-style:none;display:flex;flex-direction:column;gap:12px}@media(min-width:768px){.expertise-list{gap:16px}}
+.expertise-item{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+@media(min-width:768px){.expertise-item{padding:18px 20px;gap:16px}}
+.expertise-item:active{transform:translateX(4px)}.expertise-item:hover{transform:translateX(6px);box-shadow:var(--shadow-md)}
+.expertise-item-icon{width:34px;height:34px;border-radius:50%;background:var(--gold-pale);color:var(--gold);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+@media(min-width:768px){.expertise-item-icon{width:38px;height:38px;font-size:.9rem}}
+.expertise-item h4{font-family:var(--font-sans);font-weight:600;font-size:.85rem;margin-bottom:2px}@media(min-width:768px){.expertise-item h4{font-size:.9rem}}
+.expertise-item p{font-size:.8rem;color:var(--gray-500);line-height:1.55}@media(min-width:768px){.expertise-item p{font-size:.82rem;line-height:1.6}}
 
-      /* Layout */
-      --max-width:   1200px;
-      --nav-height:  4.5rem;
-    }
+/* ═══════════════ PRODUCTS (from introduce.txt) ═══════════════ */
+.products{background:var(--cream);position:relative;overflow:hidden}
+.products::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold-light),transparent)}
+.products-grid{display:grid;grid-template-columns:1fr;gap:28px}
+@media(min-width:768px){.products-grid{grid-template-columns:1fr 1fr;gap:32px}}@media(min-width:1024px){.products-grid{gap:40px}}
+.product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .45s cubic-bezier(.22,1,.36,1)}
+.product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.product-card-image{width:100%;height:220px;object-fit:cover;display:block}
+@media(min-width:768px){.product-card-image{height:260px}}
+.product-card-body{padding:var(--card-pad)}
+.product-step{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:.5rem}
+.product-step::before{content:'';display:block;width:16px;height:1px;background:var(--gold)}
+.product-name{font-family:var(--font-serif);font-size:clamp(1.15rem,2vw,1.5rem);font-weight:600;color:var(--teal-900);margin-bottom:.5rem}
+.product-desc{font-size:.88rem;color:var(--gray-500);line-height:1.75;margin-bottom:1rem;border-bottom:1px solid var(--gray-100);padding-bottom:1rem}
+.product-ingredients-title{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-800);margin-bottom:.75rem}
+.product-ingredients{list-style:none;display:grid;gap:6px}
+.product-ingredient{display:flex;align-items:flex-start;gap:10px;padding:7px 10px;background:var(--ivory);border-radius:6px;font-size:.8rem;line-height:1.5;color:var(--gray-700);transition:background .25s}
+.product-card:hover .product-ingredient{background:var(--cream)}
+.product-ingredient-icon{width:20px;height:20px;border-radius:50%;background:var(--teal-50);color:var(--teal-700);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;margin-top:2px}
+.product-ingredient strong{font-weight:600;color:var(--teal-900)}
+.product-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 24px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--teal-900);border-radius:100px;font-weight:600;font-size:.8rem;transition:all .3s;border:none;cursor:pointer}
+.product-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,155,108,.3)}
 
-    /* ============================================================
-       RESET & BASE
-       ============================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ═══════════════ CASE STUDIES (card layout) ═══════════════ */
+.cases{background:var(--ivory)}
+.cases-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:768px){.cases-grid{gap:36px}}@media(min-width:1024px){.cases-grid{gap:40px}}
+.case-card{display:grid;grid-template-columns:1fr;background:var(--white);border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow .4s}
+@media(min-width:768px){.case-card{border-radius:var(--radius);grid-template-columns:1fr 1fr}}.case-card:hover{box-shadow:var(--shadow-lg)}
+.case-media{position:relative;min-height:240px;background:var(--teal-900);overflow:hidden;cursor:pointer}
+@media(min-width:480px){.case-media{min-height:300px}}@media(min-width:768px){.case-media{min-height:380px}}
+.case-media-bg{position:absolute;inset:0}
+.case-media-bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
+.case-media-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1;color:var(--white);background:rgba(11,43,53,.2);transition:background .4s}
+.case-card:hover .case-media-overlay{background:rgba(11,43,53,.35)}
+.case-play-btn{width:56px;height:56px;border-radius:50%;border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:10px;transition:all .4s;position:relative}
+@media(min-width:768px){.case-play-btn{width:64px;height:64px;font-size:1.3rem;margin-bottom:14px}}
+.case-play-btn::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(255,255,255,.1);animation:ripple-pulse 2.5s ease-out infinite}
+@keyframes ripple-pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.3);opacity:0}}
+.case-card:hover .case-play-btn{border-color:var(--gold);background:rgba(196,155,108,.15);transform:scale(1.05)}
+.case-play-label{font-size:.72rem;font-weight:500;opacity:.8}@media(min-width:768px){.case-play-label{font-size:.78rem}}
+.case-duration{position:absolute;bottom:12px;right:12px;z-index:2;background:rgba(0,0,0,.5);color:var(--white);font-size:.65rem;padding:2px 8px;border-radius:4px;font-weight:500}
+@media(min-width:768px){.case-duration{bottom:16px;right:16px;font-size:.7rem;padding:3px 10px}}
+.case-photo-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.case-photo-grid .photo{position:relative;overflow:hidden}
+.case-photo-grid .photo img{width:100%;height:100%;object-fit:cover}
+.case-photo-grid .label{position:absolute;bottom:10px;font-size:.62rem;font-weight:600;padding:2px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:768px){.case-photo-grid .label{bottom:12px;font-size:.68rem;padding:3px 10px;border-radius:4px}}
+.case-photo-grid .label.before{left:10px;background:rgba(0,0,0,.5);color:var(--white)}@media(min-width:768px){.case-photo-grid .label.before{left:12px}}
+.case-photo-grid .label.after{right:10px;background:var(--success);color:var(--white)}@media(min-width:768px){.case-photo-grid .label.after{right:12px}}
+.case-body{padding:var(--card-pad);display:flex;flex-direction:column;justify-content:center}
+.case-patient{display:flex;align-items:center;gap:10px;margin-bottom:8px}@media(min-width:768px){.case-patient{gap:12px;margin-bottom:10px}}
+.case-patient-name{font-weight:600;font-size:.85rem}@media(min-width:768px){.case-patient-name{font-size:.9rem}}
+.case-patient-meta{font-size:.72rem;color:var(--gray-500)}
+.case-tag{display:inline-block;padding:3px 9px;margin-bottom:10px;background:var(--gold-pale);color:var(--gray-700);font-size:.7rem;font-weight:500;border-radius:4px}
+@media(min-width:768px){.case-tag{padding:4px 11px;margin-bottom:12px;font-size:.73rem}}
+.case-quote{font-family:var(--font-serif);font-style:italic;font-size:.88rem;line-height:1.75;color:var(--gray-500);margin-bottom:14px}
+@media(min-width:768px){.case-quote{font-size:.92rem;line-height:1.85;margin-bottom:16px}}
+.case-results{display:flex;gap:18px;padding-top:12px;border-top:1px solid var(--gray-100);flex-wrap:wrap}
+@media(min-width:768px){.case-results{gap:28px;padding-top:16px;flex-wrap:nowrap}}
+.case-result-value{font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--teal-900)}@media(min-width:768px){.case-result-value{font-size:1.2rem}}
+.case-result-label{font-size:.68rem;color:var(--gray-500);margin-top:1px}
 
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-    }
+/* ═══════════════ TESTIMONIALS ═══════════════ */
+.testimonials{background:var(--white);position:relative;overflow:hidden}
+.testimonials::before{content:'"';position:absolute;top:-40px;left:-20px;font-family:var(--font-serif);font-size:20rem;font-weight:700;color:var(--teal-50);line-height:1;pointer-events:none;opacity:.3}
+@media(min-width:768px){.testimonials::before{top:-80px;left:-40px;font-size:40rem}}
+.testimonials-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.testimonials-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.testimonials-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}}
+.t-card{background:var(--ivory);border-radius:var(--radius-sm);padding:22px 22px 20px;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative;isolation:isolate}
+@media(min-width:768px){.t-card{border-radius:var(--radius);padding:28px 28px 24px}}
+.t-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);background:var(--white)}
+/* .t-card.wide removed for consistent grid layout */
+.t-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:10px}@media(min-width:768px){.t-card-header{margin-bottom:14px}}
+.t-card-avatar{display:flex;align-items:center;gap:10px;min-width:0}@media(min-width:768px){.t-card-avatar{gap:12px}}
+.t-card-avatar-fig{width:38px;height:38px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid transparent;transition:border-color .3s}@media(min-width:768px){.t-card-avatar-fig{width:42px;height:42px}}
+.t-card:hover .t-card-avatar-fig{border-color:var(--gold-light)}
+.t-card-avatar-fig img{width:100%;height:100%;object-fit:cover}
+.t-card-name{font-weight:600;font-size:.82rem;line-height:1.3;word-break:break-word}@media(min-width:768px){.t-card-name{font-size:.85rem}}
+.t-card-meta{font-size:.68rem;color:var(--gray-500)}
+.t-card-stars{display:flex;gap:2px;flex-shrink:0}
+.t-card-stars svg{width:12px;height:12px;fill:#D4A843;color:#D4A843}@media(min-width:768px){.t-card-stars svg{width:13px;height:13px}}
+.t-card-text{font-size:.82rem;line-height:1.75;color:var(--gray-500);margin-bottom:12px}
+@media(min-width:768px){.t-card-text{font-size:.86rem;line-height:1.8;margin-bottom:14px}}
+.t-card-text::before{content:'"';color:var(--gold);font-family:var(--font-serif)}
+.t-card-text::after{content:'"';color:var(--gold);font-family:var(--font-serif)}
+.t-card-footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--gray-100)}@media(min-width:768px){.t-card-footer{gap:10px;padding-top:14px}}
+.t-card-verified{display:inline-flex;align-items:center;gap:4px;font-size:.65rem;color:var(--success);font-weight:500}@media(min-width:768px){.t-card-verified{font-size:.68rem}}
+.t-card-verified svg{width:11px;height:11px}@media(min-width:768px){.t-card-verified svg{width:12px;height:12px}}
 
-    body {
-      font-family: var(--font-body);
-      font-size: var(--font-size-base);
-      line-height: 1.6;
-      color: var(--color-foreground);
-      background: var(--color-background);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+/* ═══════════════ PROCESS ═══════════════ */
+.process{background:var(--ivory)}
+.process-grid{display:grid;grid-template-columns:1fr;gap:28px;position:relative;max-width:380px;margin:0 auto}
+@media(min-width:640px){.process-grid{grid-template-columns:repeat(2,1fr);max-width:none;gap:24px}}@media(min-width:1024px){.process-grid{grid-template-columns:repeat(4,1fr);gap:24px}}
+@media(min-width:1024px){.process-grid::before{content:'';position:absolute;top:34px;left:10%;right:10%;height:2px;background:linear-gradient(to right,var(--gold),var(--teal-50))}}
+.process-card{text-align:center;position:relative}
+.process-num{width:50px;height:50px;margin:0 auto 16px;border-radius:50%;background:var(--white);border:2px solid var(--teal-900);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;font-family:var(--font-serif);font-size:1rem;font-weight:600;color:var(--teal-900);transition:all .4s}
+@media(min-width:768px){.process-num{width:56px;height:56px;font-size:1.1rem;margin:0 auto 20px}}
+.process-card:active .process-num,.process-card:hover .process-num{background:var(--teal-900);color:var(--white);transform:scale(1.08)}
+.process-card h4{font-family:var(--font-sans);font-weight:600;font-size:.85rem;margin-bottom:5px;color:var(--teal-900)}@media(min-width:768px){.process-card h4{font-size:.9rem;margin-bottom:6px}}
+.process-card p{font-size:.8rem;color:var(--gray-500);line-height:1.65;max-width:260px;margin:0 auto}@media(min-width:768px){.process-card p{font-size:.82rem;line-height:1.65;max-width:220px}}
+.process-guarantee{margin-top:32px;padding:16px 20px;background:var(--white);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;gap:12px;box-shadow:var(--shadow-sm);flex-wrap:wrap;text-align:center}
+@media(min-width:768px){.process-guarantee{margin-top:44px;padding:20px 28px;border-radius:var(--radius);gap:14px;text-align:left;flex-wrap:nowrap;justify-content:center}}
+.process-guarantee svg{width:16px;height:16px;flex-shrink:0;color:var(--gold)}@media(min-width:768px){.process-guarantee svg{width:18px;height:18px}}
+.process-guarantee span{font-size:.82rem;color:var(--gray-700)}@media(min-width:768px){.process-guarantee span{font-size:.88rem}}
 
-    img { max-width: 100%; display: block; }
-    a { color: var(--color-primary); text-decoration: none; }
-    button { cursor: pointer; font-family: inherit; }
-    ul { list-style: none; }
+/* ═══════════════ PRIVACY ═══════════════ */
+.privacy{background:var(--cream)}
+.privacy-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+@media(min-width:768px){.privacy-grid{grid-template-columns:1fr 1fr;gap:40px}}@media(min-width:1024px){.privacy-grid{gap:50px}}
+.privacy-media{position:relative;border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-lg);order:-1}
+@media(min-width:768px){.privacy-media{border-radius:var(--radius);order:0}}
+.privacy-media img{width:100%;max-height:320px;object-fit:cover}@media(min-width:768px){.privacy-media img{max-height:none;min-height:400px}}
+.privacy-list{list-style:none;display:grid;gap:12px}@media(min-width:768px){.privacy-list{gap:16px}}
+.privacy-item{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);transition:transform .3s}@media(min-width:768px){.privacy-item{padding:18px 20px;gap:16px}}
+.privacy-item:active{transform:translateX(3px)}.privacy-item:hover{transform:translateX(4px)}
+.privacy-item-icon{width:34px;height:34px;border-radius:50%;background:var(--teal-50);color:var(--teal-700);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.85rem}@media(min-width:768px){.privacy-item-icon{width:38px;height:38px;font-size:.95rem}}
+.privacy-item h4{font-family:var(--font-sans);font-weight:600;font-size:.84rem;margin-bottom:2px}@media(min-width:768px){.privacy-item h4{font-size:.88rem}}
+.privacy-item p{font-size:.78rem;color:var(--gray-500);line-height:1.55}@media(min-width:768px){.privacy-item p{font-size:.8rem;line-height:1.6}}
 
-    /* ============================================================
-       UTILITY
-       ============================================================ */
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--space-6);
-    }
+/* ═══════════════ CTA ═══════════════ */
+.cta-section{padding:50px 0;background:linear-gradient(180deg, var(--teal-900) 0%, #0A2028 50%, var(--teal-800) 100%);text-align:center;position:relative;overflow:hidden}
+@media(min-width:768px){.cta-section{padding:70px 0;background:linear-gradient(135deg, var(--teal-900) 0%, #0A2028 50%, var(--teal-800) 100%)}}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 40% at 50% 30%, rgba(196,155,108,.06), transparent 60%);pointer-events:none}
+@media(min-width:768px){.cta-section::before{background:radial-gradient(ellipse 70% 50% at 50% 30%, rgba(196,155,108,.06), transparent 60%)}}
+.cta-section .container{position:relative;z-index:1}
+.cta-section h1,.cta-section h2{color:var(--white);margin-bottom:.7rem}
+.cta-section p{font-size:.92rem;color:rgba(255,255,255,.65);margin-bottom:1.6rem;max-width:480px;margin-left:auto;margin-right:auto}@media(min-width:768px){.cta-section p{font-size:1rem;margin-bottom:2rem}}
+.cta-section .hero-actions{justify-content:center}
+.cta-disclaimer{margin-top:16px;font-size:.74rem;color:rgba(255,255,255,.35)}@media(min-width:768px){.cta-disclaimer{margin-top:18px;font-size:.78rem}}
 
-    .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-    }
+/* ═══════════════ FOOTER ═══════════════ */
+.footer{background:var(--teal-900);color:rgba(255,255,255,.5);padding:40px 0 24px}@media(min-width:768px){.footer{padding:50px 0 30px}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-bottom:28px}@media(min-width:480px){.footer-grid{grid-template-columns:1fr 1fr}}@media(min-width:768px){.footer-grid{grid-template-columns:2fr 1fr;gap:40px;margin-bottom:32px}}
+.footer-brand h3{font-family:var(--font-serif);color:var(--white);font-size:1.1rem;margin-bottom:8px}@media(min-width:768px){.footer-brand h3{font-size:1.2rem;margin-bottom:10px}}
+.footer-brand p{font-size:.8rem;line-height:1.65;max-width:320px}@media(min-width:768px){.footer-brand p{font-size:.82rem;line-height:1.7}}
+.footer-col h4{font-family:var(--font-sans);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--white);margin-bottom:12px}@media(min-width:768px){.footer-col h4{font-size:.75rem;margin-bottom:14px}}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}@media(min-width:768px){.footer-col ul{gap:7px}}
+.footer-col a{font-size:.8rem;transition:color .2s;display:inline-block;padding:2px 0}@media(min-width:768px){.footer-col a{font-size:.82rem}}.footer-col a:hover{color:var(--white)}
+.footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:.74rem}@media(min-width:768px){.footer-bottom{padding-top:24px;font-size:.78rem}}
 
-    .gradient-text {
-      background: linear-gradient(135deg, #3B82F6 0%, #10B981 50%, #F59E0B 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+/* ═══════════════ FLOATING CTA ═══════════════ */
+.float-cta{display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;padding:16px 40px;background:linear-gradient(135deg,var(--teal-900),var(--teal-700));color:var(--white);border:none;border-radius:100px;font-family:var(--font-sans);font-size:.95rem;font-weight:600;box-shadow:0 4px 24px rgba(11,43,53,.35);cursor:pointer;white-space:nowrap;min-height:52px;animation:float-breathe 2.4s ease-in-out infinite;transition:transform .3s ease,box-shadow .3s ease}
+.float-cta:active{transform:translateX(-50%) scale(.97)}
+@keyframes float-breathe{0%,100%{box-shadow:0 4px 24px rgba(11,43,53,.35);transform:translateX(-50%) scale(1)}50%{box-shadow:0 8px 40px rgba(11,43,53,.55),0 0 60px rgba(196,155,108,.15);transform:translateX(-50%) scale(1.03)}}
+@media(max-width:767px){.float-cta{display:flex;align-items:center;justify-content:center;gap:10px}}@media(min-width:480px){.float-cta{padding:16px 48px;font-size:1rem}}
 
-    .section-title {
-      font-size: var(--font-size-3xl);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: var(--space-4);
-    }
-    @media (min-width: 768px) {
-      .section-title { font-size: var(--font-size-4xl); }
-    }
-    @media (min-width: 1024px) {
-      .section-title { font-size: var(--font-size-5xl); }
-    }
-
-    .section-desc {
-      font-size: var(--font-size-lg);
-      color: var(--color-muted-text);
-      max-width: 36rem;
-      line-height: 1.7;
-    }
-
-    /* ============================================================
-       BUTTONS
-       ============================================================ */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-2);
-      font-family: var(--font-body);
-      font-size: var(--font-size-base);
-      font-weight: 600;
-      padding: 0.75rem 1.75rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid transparent;
-      transition: all var(--duration) var(--ease-out);
-      min-height: 3rem;
-      white-space: nowrap;
-      text-decoration: none;
-    }
-    .btn:focus-visible {
-      outline: 2px solid var(--color-ring);
-      outline-offset: 2px;
-    }
-    .btn--primary {
-      background: var(--color-primary);
-      color: var(--color-on-primary);
-      border-color: var(--color-primary);
-    }
-    .btn--primary:hover {
-      background: #2563EB;
-      border-color: #2563EB;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(30, 64, 175, 0.3);
-    }
-    .btn--accent {
-      background: var(--color-accent);
-      color: var(--color-on-accent);
-      border-color: var(--color-accent);
-    }
-    .btn--accent:hover {
-      background: #059669;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
-    }
-    .btn--outline {
-      background: transparent;
-      color: var(--color-foreground);
-      border-color: var(--color-border);
-    }
-    .btn--outline:hover {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-      background: rgba(30, 64, 175, 0.08);
-    }
-    .btn--lg {
-      padding: 1rem 2.25rem;
-      font-size: var(--font-size-lg);
-      min-height: 3.5rem;
-      border-radius: var(--radius-xl);
-    }
-
-    /* ============================================================
-       NAVIGATION
-       ============================================================ */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-height);
-      z-index: 1000;
-      background: transparent;
-      transition: all var(--duration) var(--ease-out);
-    }
-    .nav--scrolled {
-      background: rgba(10, 15, 30, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 1px 0 var(--color-border);
-    }
-    .nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-    }
-    .nav__logo {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--font-size-xl);
-      font-weight: 700;
-      color: var(--color-foreground);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-    .nav__logo-icon {
-      width: 2rem; height: 2rem;
-      background: linear-gradient(135deg, #3B82F6, #10B981);
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      font-size: var(--font-size-xs);
-      color: white;
-      font-weight: 800;
-    }
-    .nav__logo span { color: #60A5FA; }
-
-    .nav__links {
-      display: none;
-      align-items: center;
-      gap: var(--space-8);
-    }
-    @media (min-width: 768px) {
-      .nav__links { display: flex; }
-    }
-    .nav__links a {
-      font-size: var(--font-size-sm);
-      font-weight: 500;
-      color: var(--color-muted-text);
-      transition: color var(--duration);
-      position: relative;
-    }
-    .nav__links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--color-primary);
-      transition: width var(--duration) var(--ease-out);
-    }
-    .nav__links a:hover { color: var(--color-foreground); }
-    .nav__links a:hover::after { width: 100%; }
-    .nav__links a:focus-visible {
-      outline: 2px solid var(--color-ring);
-      outline-offset: 4px;
-      border-radius: 2px;
-    }
-
-    .mobile-menu-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 2.5rem; height: 2.5rem;
-      background: transparent; border: 1px solid var(--color-border);
-      border-radius: var(--radius-md); color: var(--color-foreground);
-    }
-    @media (min-width: 768px) {
-      .mobile-menu-btn { display: none; }
-    }
-    .mobile-menu-btn:focus-visible {
-      outline: 2px solid var(--color-ring);
-      outline-offset: 2px;
-    }
-
-    .mobile-menu {
-      position: fixed; top: var(--nav-height); left: 0; right: 0; bottom: 0;
-      background: rgba(10, 15, 30, 0.98);
-      backdrop-filter: blur(20px);
-      z-index: 999;
-      display: flex;
-      flex-direction: column; align-items: center; justify-content: center;
-      gap: var(--space-8);
-      opacity: 0; visibility: hidden;
-      transition: all var(--duration) var(--ease-out);
-    }
-    .mobile-menu--open { opacity: 1; visibility: visible; }
-    .mobile-menu a {
-      font-size: var(--font-size-2xl);
-      font-weight: 600;
-      color: var(--color-foreground);
-    }
-    .mobile-menu a:focus-visible {
-      outline: 2px solid var(--color-ring);
-      outline-offset: 4px;
-      border-radius: var(--radius-sm);
-    }
-
-    /* ============================================================
-       TICKER
-       ============================================================ */
-    .ticker-wrapper {
-      position: fixed;
-      top: var(--nav-height);
-      left: 0; right: 0;
-      height: 2rem;
-      z-index: 999;
-      background: rgba(10, 15, 30, 0.85);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--color-border);
-      overflow: hidden;
-      opacity: 0;
-      transition: opacity var(--duration) var(--ease-out);
-    }
-    .ticker-wrapper--visible { opacity: 1; }
-
-    .ticker {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      white-space: nowrap;
-      animation: tickerScroll 30s linear infinite;
-    }
-    .ticker:hover { animation-play-state: paused; }
-
-    .ticker__item {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-3);
-      padding: 0 var(--space-6);
-      font-family: var(--font-mono);
-      font-size: var(--font-size-xs);
-      font-weight: 500;
-    }
-    .ticker__item-symbol {
-      color: var(--color-muted-text);
-    }
-    .ticker__item-price {
-      color: var(--color-foreground);
-    }
-    .ticker__item-change {
-      display: inline-flex;
-      align-items: center;
-      gap: 2px;
-    }
-    .ticker__item-change--up { color: var(--color-profit); }
-    .ticker__item-change--down { color: var(--color-loss); }
-    .ticker__item-change svg { width: 0.75rem; height: 0.75rem; }
-
-    @keyframes tickerScroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ============================================================
-       HERO
-       ============================================================ */
-    .hero {
-      position: relative;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      padding: calc(var(--nav-height) + 2rem) 0 var(--space-16);
-    }
-
-    /* Animated background */
-    .hero__bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero__bg-gradient {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(30, 64, 175, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 50%, rgba(5, 150, 105, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.06) 0%, transparent 40%);
-    }
-    /* Candle chart grid background */
-    .hero__bg-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(ellipse at 50% 45%, black 35%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse at 50% 45%, black 35%, transparent 70%);
-    }
-    /* Floating chart lines */
-    .hero__chart-line {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 40%;
-      opacity: 0.06;
-    }
-    .hero__chart-line svg { width: 100%; height: 100%; }
-
-    .hero .container {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .hero__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: var(--font-size-xs);
-      font-weight: 500;
-      color: var(--color-accent);
-      background: rgba(5, 150, 105, 0.1);
-      border: 1px solid rgba(5, 150, 105, 0.2);
-      padding: var(--space-1) var(--space-4);
-      border-radius: var(--radius-full);
-      margin-bottom: var(--space-6);
-      animation: fadeUp 0.6s var(--ease-out) 0.1s both;
-    }
-    .hero__badge-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--color-accent);
-      animation: pulseDot 1.5s ease-in-out infinite;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .hero__title {
-      font-size: var(--font-size-5xl);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: var(--space-4);
-      animation: fadeUp 0.6s var(--ease-out) 0.2s both;
-    }
-    @media (min-width: 480px) {
-      .hero__title { font-size: var(--font-size-6xl); }
-    }
-    @media (min-width: 768px) {
-      .hero__title { font-size: var(--font-size-7xl); }
-    }
-
-    .hero__sub {
-      font-size: var(--font-size-xl);
-      font-weight: 300;
-      color: var(--color-muted-text);
-      max-width: 32rem;
-      margin: 0 auto var(--space-10);
-      line-height: 1.6;
-      animation: fadeUp 0.6s var(--ease-out) 0.3s both;
-    }
-
-    .hero__actions {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
-      animation: fadeUp 0.6s var(--ease-out) 0.4s both;
-    }
-    @media (min-width: 480px) {
-      .hero__actions { flex-direction: row; justify-content: center; }
-    }
-
-    .hero__stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-6) var(--space-12);
-      margin-top: var(--space-12);
-      animation: fadeUp 0.6s var(--ease-out) 0.5s both;
-    }
-    .hero__stat {
-      text-align: center;
-    }
-    .hero__stat-value {
-      font-family: var(--font-mono);
-      font-size: var(--font-size-3xl);
-      font-weight: 700;
-      background: linear-gradient(135deg, #3B82F6, #10B981);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero__stat-label {
-      font-size: var(--font-size-xs);
-      color: var(--color-muted-text);
-      margin-top: var(--space-1);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ============================================================
-       TRUST BAR
-       ============================================================ */
-    .trust-bar {
-      padding: var(--space-10) 0;
-      border-top: 1px solid var(--color-border);
-      border-bottom: 1px solid var(--color-border);
-      background: var(--color-card);
-    }
-    .trust-bar__label {
-      text-align: center;
-      font-size: var(--font-size-xs);
-      color: var(--color-muted-text);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: var(--space-6);
-    }
-    .trust-bar__logos {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-8) var(--space-12);
-    }
-    .trust-bar__logo {
-      font-family: var(--font-mono);
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-      color: var(--color-muted-text);
-      opacity: 0.5;
-      letter-spacing: 0.05em;
-      transition: opacity var(--duration);
-    }
-    .trust-bar__logo:hover { opacity: 0.8; }
-
-    /* ============================================================
-       FEATURES
-       ============================================================ */
-    .features {
-      padding: var(--space-24) 0;
-    }
-    .features__header {
-      text-align: center;
-      margin-bottom: var(--space-16);
-    }
-    .features__header .section-desc { margin: 0 auto; }
-
-    .features__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-6);
-    }
-    @media (min-width: 640px) {
-      .features__grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .features__grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .feature-card {
-      padding: var(--space-8);
-      border-radius: var(--radius-xl);
-      background: var(--color-card);
-      border: 1px solid var(--color-border);
-      position: relative;
-      overflow: hidden;
-      transition: all var(--duration) var(--ease-out);
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
-      opacity: 0;
-      transition: opacity var(--duration);
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(59, 130, 246, 0.2);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-    }
-    .feature-card:hover::before { opacity: 1; }
-
-    .feature-card__icon {
-      width: 3rem; height: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-lg);
-      background: rgba(59, 130, 246, 0.1);
-      color: var(--color-primary);
-      margin-bottom: var(--space-5);
-    }
-    .feature-card__icon svg { width: 1.5rem; height: 1.5rem; }
-    .feature-card h3 {
-      font-size: var(--font-size-lg);
-      font-weight: 600;
-      margin-bottom: var(--space-2);
-    }
-    .feature-card p {
-      font-size: var(--font-size-sm);
-      color: var(--color-muted-text);
-      line-height: 1.7;
-    }
-
-    /* ============================================================
-       LIVE MARKET
-       ============================================================ */
-    .market {
-      padding: var(--space-24) 0;
-      background: var(--color-card);
-    }
-    .market__header {
-      text-align: center;
-      margin-bottom: var(--space-12);
-    }
-    .market__header .section-desc { margin: 0 auto; }
-
-    .market__table {
-      max-width: 48rem;
-      margin: 0 auto;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--color-border);
-      overflow: hidden;
-    }
-    .market__row {
-      display: grid;
-      grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
-      gap: var(--space-4);
-      padding: var(--space-4) var(--space-6);
-      align-items: center;
-      border-bottom: 1px solid var(--color-border);
-      transition: background var(--duration);
-    }
-    .market__row:last-child { border-bottom: none; }
-    .market__row:hover { background: var(--color-muted); }
-
-    .market__row-header {
-      font-size: var(--font-size-xs);
-      font-weight: 600;
-      color: var(--color-muted-text);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding-top: var(--space-5);
-      padding-bottom: var(--space-5);
-    }
-    .market__row-header:hover { background: transparent; }
-
-    .market__symbol {
-      font-family: var(--font-mono);
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-    .market__symbol-color {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-    }
-    .market__name {
-      font-size: var(--font-size-xs);
-      color: var(--color-muted-text);
-      display: none;
-    }
-    @media (min-width: 480px) {
-      .market__name { display: block; }
-    }
-    .market__price {
-      font-family: var(--font-mono);
-      font-size: var(--font-size-sm);
-      font-weight: 500;
-    }
-    .market__change {
-      font-family: var(--font-mono);
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-      padding: var(--space-1) var(--space-2);
-      border-radius: var(--radius-sm);
-      text-align: center;
-    }
-    .market__change--up {
-      color: var(--color-profit);
-      background: rgba(5, 150, 105, 0.1);
-    }
-    .market__change--down {
-      color: var(--color-loss);
-      background: rgba(220, 38, 38, 0.1);
-    }
-    .market__sparkline {
-      display: none;
-    }
-    @media (min-width: 640px) {
-      .market__sparkline { display: block; }
-    }
-
-    .market__footer {
-      text-align: center;
-      margin-top: var(--space-8);
-    }
-    .market__footer p {
-      font-size: var(--font-size-xs);
-      color: var(--color-muted-text);
-    }
-
-    /* ============================================================
-       PLATFORM
-       ============================================================ */
-    .platform {
-      padding: var(--space-24) 0;
-      overflow: hidden;
-    }
-    .platform__header {
-      text-align: center;
-      margin-bottom: var(--space-16);
-    }
-    .platform__header .section-desc { margin: 0 auto; }
-
-    .platform__showcase {
-      position: relative;
-      max-width: 48rem;
-      margin: 0 auto;
-    }
-    .platform__mockup {
-      width: 100%;
-      aspect-ratio: 16/10;
-      border-radius: var(--radius-2xl);
-      border: 1px solid var(--color-border);
-      background: var(--color-card);
-      overflow: hidden;
-      position: relative;
-      box-shadow: var(--shadow-xl);
-    }
-
-    /* Mockup chart UI */
-    .mockup-chart {
-      padding: var(--space-6);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .mockup-chart__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: var(--space-4);
-    }
-    .mockup-chart__symbol {
-      font-family: var(--font-mono);
-      font-size: var(--font-size-lg);
-      font-weight: 600;
-    }
-    .mockup-chart__price {
-      font-family: var(--font-mono);
-      font-size: var(--font-size-2xl);
-      font-weight: 700;
-      color: var(--color-profit);
-    }
-    .mockup-chart__price span {
-      font-size: var(--font-size-sm);
-      font-weight: 400;
-      color: var(--color-profit);
-      margin-left: var(--space-2);
-      background: rgba(5, 150, 105, 0.1);
-      padding: 2px 8px;
-      border-radius: var(--radius-sm);
-    }
-    .mockup-chart__canvas {
-      flex: 1;
-      position: relative;
-    }
-    .mockup-chart__canvas svg {
-      width: 100%; height: 100%;
-    }
-
-    /* Floating elements around mockup */
-    .platform__floating {
-      position: absolute;
-      display: none;
-      align-items: center;
-      gap: var(--space-3);
-      padding: var(--space-3) var(--space-4);
-      border-radius: var(--radius-lg);
-      background: var(--color-card);
-      border: 1px solid var(--color-border);
-      box-shadow: var(--shadow-lg);
-      font-family: var(--font-mono);
-      font-size: var(--font-size-xs);
-      font-weight: 500;
-      animation: floatBounce 3s var(--ease-out) infinite;
-    }
-    @media (min-width: 768px) {
-      .platform__floating { display: flex; }
-    }
-    .platform__floating--1 {
-      top: 10%; right: -4rem;
-      animation-delay: 0s;
-      color: var(--color-profit);
-    }
-    .platform__floating--2 {
-      bottom: 20%; left: -4rem;
-      animation-delay: 1.5s;
-      color: var(--color-loss);
-    }
-    .platform__floating svg { width: 1rem; height: 1rem; }
-
-    @keyframes floatBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    /* ============================================================
-       TESTIMONIALS
-       ============================================================ */
-    .testimonials {
-      padding: var(--space-24) 0;
-      background: var(--color-card);
-    }
-    .testimonials__header {
-      text-align: center;
-      margin-bottom: var(--space-16);
-    }
-    .testimonials__header .section-desc { margin: 0 auto; }
-
-    .testimonials__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-6);
-    }
-    @media (min-width: 640px) {
-      .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 1024px) {
-      .testimonials__grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .testimonial-card {
-      padding: var(--space-8);
-      border-radius: var(--radius-xl);
-      background: var(--color-background);
-      border: 1px solid var(--color-border);
-      transition: all var(--duration) var(--ease-out);
-    }
-    .testimonial-card:hover {
-      border-color: rgba(59, 130, 246, 0.2);
-      transform: translateY(-2px);
-    }
-    .testimonial-card__rating {
-      display: flex;
-      gap: 2px;
-      margin-bottom: var(--space-4);
-    }
-    .testimonial-card__rating svg {
-      width: 1rem; height: 1rem;
-      color: var(--color-warning);
-    }
-    .testimonial-card__text {
-      font-size: var(--font-size-sm);
-      color: var(--color-muted-text);
-      line-height: 1.7;
-      margin-bottom: var(--space-6);
-    }
-    .testimonial-card__author {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-    .testimonial-card__avatar {
-      width: 2.5rem; height: 2.5rem;
-      border-radius: var(--radius-full);
-      background: linear-gradient(135deg, #3B82F6, #10B981);
-      display: flex; align-items: center; justify-content: center;
-      font-size: var(--font-size-sm); font-weight: 600; color: white;
-      flex-shrink: 0;
-    }
-    .testimonial-card__name {
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-    }
-    .testimonial-card__role {
-      font-size: var(--font-size-xs);
-      color: var(--color-muted-text);
-    }
-
-    /* ============================================================
-       CTA
-       ============================================================ */
-    .cta {
-      padding: var(--space-24) 0;
-    }
-    .cta__box {
-      text-align: center;
-      padding: var(--space-16) var(--space-8);
-      border-radius: var(--radius-2xl);
-      background: linear-gradient(135deg, rgba(30, 64, 175, 0.12), rgba(5, 150, 105, 0.08));
-      border: 1px solid var(--color-border);
-      max-width: 52rem;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta__box::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(from 0deg, transparent, rgba(59, 130, 246, 0.03), transparent, rgba(5, 150, 105, 0.03), transparent);
-      animation: ctaRotate 20s linear infinite;
-    }
-    @keyframes ctaRotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .cta__box > * {
-      position: relative;
-      z-index: 1;
-    }
-    .cta__box h2 {
-      font-size: var(--font-size-3xl);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: var(--space-4);
-    }
-    @media (min-width: 768px) {
-      .cta__box h2 { font-size: var(--font-size-4xl); }
-    }
-    .cta__box p {
-      color: var(--color-muted-text);
-      max-width: 30rem;
-      margin: 0 auto var(--space-8);
-    }
-    .cta__actions {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
-    }
-    @media (min-width: 480px) {
-      .cta__actions { flex-direction: row; justify-content: center; }
-    }
-    .cta__trust {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-6);
-      margin-top: var(--space-8);
-      font-size: var(--font-size-xs);
-      color: var(--color-muted-text);
-    }
-    .cta__trust-item {
-      display: flex;
-      align-items: center;
-      gap: var(--space-1);
-    }
-    .cta__trust-item svg { width: 1rem; height: 1rem; color: var(--color-success); }
-
-    /* ============================================================
-       FAQ
-       ============================================================ */
-    .faq {
-      padding: var(--space-24) 0;
-      background: var(--color-card);
-    }
-    .faq__header {
-      text-align: center;
-      margin-bottom: var(--space-12);
-    }
-    .faq__list {
-      max-width: 48rem;
-      margin: 0 auto;
-    }
-    .faq__item {
-      border-bottom: 1px solid var(--color-border);
-    }
-    .faq__item:first-child {
-      border-top: 1px solid var(--color-border);
-    }
-    .faq__question {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-      padding: var(--space-5) 0;
-      background: transparent;
-      border: none;
-      font-size: var(--font-size-base);
-      font-weight: 500;
-      color: var(--color-foreground);
-      text-align: left;
-      transition: color var(--duration);
-    }
-    .faq__question:hover { color: var(--color-primary); }
-    .faq__question:focus-visible {
-      outline: 2px solid var(--color-ring);
-      outline-offset: 2px;
-      border-radius: var(--radius-sm);
-    }
-    .faq__question svg {
-      width: 1.25rem; height: 1.25rem;
-      flex-shrink: 0;
-      transition: transform var(--duration) var(--ease-out);
-      color: var(--color-muted-text);
-    }
-    .faq__item--open .faq__question svg {
-      transform: rotate(45deg);
-    }
-    .faq__answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height var(--duration) var(--ease-out), padding var(--duration) var(--ease-out);
-    }
-    .faq__item--open .faq__answer {
-      max-height: 300px;
-      padding-bottom: var(--space-5);
-    }
-    .faq__answer p {
-      font-size: var(--font-size-sm);
-      color: var(--color-muted-text);
-      line-height: 1.7;
-    }
-
-    /* ============================================================
-       FOOTER
-       ============================================================ */
-    .footer {
-      padding: var(--space-16) 0 var(--space-8);
-      border-top: 1px solid var(--color-border);
-    }
-    .footer__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-10);
-      margin-bottom: var(--space-12);
-    }
-    @media (min-width: 640px) {
-      .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
-    }
-    .footer__brand p {
-      font-size: var(--font-size-sm);
-      color: var(--color-muted-text);
-      max-width: 20rem;
-      margin-top: var(--space-4);
-    }
-    .footer__col h4 {
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: var(--space-4);
-      color: var(--color-muted-text);
-    }
-    .footer__col a {
-      display: block;
-      font-size: var(--font-size-sm);
-      color: var(--color-muted-text);
-      padding: var(--space-1) 0;
-      transition: color var(--duration);
-    }
-    .footer__col a:hover { color: var(--color-foreground); }
-    .footer__col a:focus-visible {
-      outline: 2px solid var(--color-ring);
-      outline-offset: 2px;
-      border-radius: var(--radius-sm);
-    }
-    .footer__bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
-      padding-top: var(--space-8);
-      border-top: 1px solid var(--color-border);
-      font-size: var(--font-size-xs);
-      color: var(--color-muted-text);
-    }
-    @media (min-width: 640px) {
-      .footer__bottom { flex-direction: row; justify-content: space-between; }
-    }
-    .footer__risk {
-      margin-top: var(--space-12);
-      padding: var(--space-4) var(--space-6);
-      border-radius: var(--radius-lg);
-      background: rgba(239, 68, 68, 0.05);
-      border: 1px solid rgba(239, 68, 68, 0.1);
-      font-size: var(--font-size-xs);
-      color: var(--color-muted-text);
-      line-height: 1.7;
-    }
-    .footer__risk strong {
-      color: var(--color-destructive);
-    }
-    /* ============================================================
-       SCROLL ANIMATIONS
-       ============================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
-    }
-    .reveal--visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal--delay-1 { transition-delay: 0.1s; }
-    .reveal--delay-2 { transition-delay: 0.2s; }
-    .reveal--delay-3 { transition-delay: 0.3s; }
-    .reveal--delay-4 { transition-delay: 0.4s; }
-
-    /* ============================================================
-       REDUCED MOTION
-       ============================================================ */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      html { scroll-behavior: auto; }
-      .ticker { animation: none; }
-      .reveal { opacity: 1; transform: none; }
-      .cta__box::before { animation: none; }
-    }
-
-    /* ============================================================
-       RESPONSIVE
-       ============================================================ */
-    @media (max-width: 374px) {
-      :root { --space-6: 1rem; }
-    }
-  </style>
+/* ═══════════════ ANIMATIONS ═══════════════ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+</style>
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVIGATION
-       ============================================================ -->
-  <nav class="nav" role="navigation" aria-label="主导航">
-    <div class="container">
-      <a href="#" class="nav__logo" aria-label="StockMaster 首页">
-        <span class="nav__logo-icon">S</span>
-        Stock<span>Master</span>
-      </a>
+<!-- Mobile floating CTA -->
+<button class="float-cta" onclick="k2()">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+  Free Consultation
+</button>
 
-      <div class="nav__links">
-        <a href="#features">核心优势</a>
-        <a href="#market">实时行情</a>
-        <a href="#platform">交易平台</a>
-        <a href="#testimonials">用户评价</a>
-        <a href="#faq">常见问题</a>
-      </div>
-
-      <a href="#cta" class="btn btn--accent" id="navCta">立即开户</a>
-
-      <button class="mobile-menu-btn" aria-label="打开菜单" id="mobileMenuBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-          <path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/>
-        </svg>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="移动端导航">
-    <a href="#features">核心优势</a>
-    <a href="#market">实时行情</a>
-    <a href="#platform">交易平台</a>
-    <a href="#testimonials">用户评价</a>
-    <a href="#faq">常见问题</a>
-    <a href="#cta" class="btn btn--accent btn--lg">立即开户</a>
-  </div>
-
-  <!-- ============================================================
-       TICKER
-       ============================================================ -->
-  <div class="ticker-wrapper" id="tickerWrapper">
-    <div class="ticker" id="ticker">
-      <span class="ticker__item">
-        <span class="ticker__item-symbol">AAPL</span>
-        <span class="ticker__item-price">$178.72</span>
-        <span class="ticker__item-change ticker__item-change--up">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-          +1.23%
-        </span>
-      </span>
-      <span class="ticker__item">
-        <span class="ticker__item-symbol">TSLA</span>
-        <span class="ticker__item-price">$245.60</span>
-        <span class="ticker__item-change ticker__item-change--up">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-          +2.45%
-        </span>
-      </span>
-      <span class="ticker__item">
-        <span class="ticker__item-symbol">NVDA</span>
-        <span class="ticker__item-price">$824.18</span>
-        <span class="ticker__item-change ticker__item-change--up">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-          +3.67%
-        </span>
-      </span>
-      <span class="ticker__item">
-        <span class="ticker__item-symbol">MSFT</span>
-        <span class="ticker__item-price">$378.52</span>
-        <span class="ticker__item-change ticker__item-change--down">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          -0.42%
-        </span>
-      </span>
-      <span class="ticker__item">
-        <span class="ticker__item-symbol">AMZN</span>
-        <span class="ticker__item-price">$158.90</span>
-        <span class="ticker__item-change ticker__item-change--up">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-          +0.89%
-        </span>
-      </span>
-      <span class="ticker__item">
-        <span class="ticker__item-symbol">GOOGL</span>
-        <span class="ticker__item-price">$141.35</span>
-        <span class="ticker__item-change ticker__item-change--down">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          -0.18%
-        </span>
-      </span>
-      <span class="ticker__item">
-        <span class="ticker__item-symbol">META</span>
-        <span class="ticker__item-price">$474.28</span>
-        <span class="ticker__item-change ticker__item-change--up">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-          +1.56%
-        </span>
-      </span>
-      <span class="ticker__item">
-        <span class="ticker__item-symbol">BABA</span>
-        <span class="ticker__item-price">$98.45</span>
-        <span class="ticker__item-change ticker__item-change--up">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-          +0.72%
-        </span>
-      </span>
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#" class="nav-brand" id="navBrand">
+      <span class="nav-brand-icon">SJ</span>
+      Dr. Sarah Johnson
+    </a>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#cases">Results</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="javascript:void(0)" onclick="k2()" class="nav-cta">Free Consultation</a></li>
+    </ul>
+    <button class="mobile-btn" id="mobileBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-overlay" id="navOverlay">
+      <ul>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#cases">Results</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#privacy">Privacy &amp; Delivery</a></li>
+        <li><a href="javascript:void(0)" onclick="k2()" class="nav-overlay-cta">Free Consultation</a></li>
+      </ul>
+      <div class="nav-overlay-footer">Dr. Sarah Johnson · Board-Certified Dermatologist</div>
     </div>
   </div>
+</nav>
 
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg" aria-hidden="true">
-      <div class="hero__bg-gradient"></div>
-      <div class="hero__bg-grid"></div>
-      <!-- Abstract chart line -->
-      <div class="hero__chart-line">
-        <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
-          <path d="M0 160 Q100 180 200 140 T400 110 T600 130 T800 80 T1000 60 T1200 90"
-                fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.3"/>
-          <path d="M0 170 Q150 190 250 150 T450 130 T650 150 T850 100 T1050 80 T1200 110"
-                fill="none" stroke="#10B981" stroke-width="1" opacity="0.2"/>
-        </svg>
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"><span>MD</span></div>
+  <div class="container">
+    <div class="hero-image-wrap reveal">
+      <img src="img/1.png" alt="Dr. Sarah Johnson" loading="eager">
+      <div class="hero-image-badge"><span class="hero-image-badge-dot"></span><span>Available for online consultation</span></div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="hero-badges">
+        <span class="hero-badge-pill gold">🏆 Dermatology Excellence Award 2024</span>
+        <span class="hero-badge-pill">UCLA Medical Center</span>
+        <span class="hero-badge-pill">Anti-Aging Research Institute</span>
+        <span class="hero-badge-pill">ASDS Member</span>
+      </div>
+      <h1>Meet <span class="gold">Dr. Sarah Johnson</span></h1>
+      <div class="hero-sub"><strong>Board-Certified Dermatologist</strong> · 15+ Years Clinical Experience<br>Former Chief Resident, UCLA Dermatology · ASDS &amp; IRSAD Fellow<br>Specializing in evidence-based, non-invasive anti-aging medicine</div>
+      <div class="hero-quote"><p>"After 15 years in dermatology, I've learned one thing: most anti-aging products treat the surface, not the cause. My approach is different — I start with your skin's biology, then build a protocol that actually works. No hype, no shortcuts. Just medicine."</p></div>
+      <div class="hero-actions">
+        <a href="javascript:void(0)" onclick="k2()" class="btn btn-light btn-large">Book a Free Assessment</a>
+      </div>
+      <div class="hero-trust-row">
+        <span class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> HIPAA Compliant</span>
+        <span class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 1,200+ Cases</span>
+        <span class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 30-Day Guarantee</span>
+        <span class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Discreet Shipping</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="container">
-      <div class="hero__badge">
-        <span class="hero__badge-dot" aria-hidden="true"></span>
-        实时行情 · 零佣金 · 智能选股
+<!-- ═══ CREDENTIALS ═══ -->
+<div class="credentials-bar">
+  <div class="credentials-track">
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> Board Certified · American Board of Dermatology</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> UCLA Medical Center · Former Chief Resident</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Anti-Aging Research Institute · IRSAD Fellow</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ASDS</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg> Published in · JCD</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> Board Certified · American Board of Dermatology</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> UCLA Medical Center · Former Chief Resident</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Anti-Aging Research Institute · IRSAD Fellow</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ASDS</span>
+    <span class="credentials-track-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg> Published in · JCD</span>
+  </div>
+</div>
+
+<!-- ═══ EXPERTISE ═══ -->
+<section class="expertise" id="expertise">
+  <div class="container">
+    <div class="expertise-grid">
+      <div class="reveal">
+        <span class="section-label">Anti-Aging Expertise</span>
+        <h2 class="section-title">The Science Behind<br>Visible Results</h2>
+        <p class="section-subtitle" style="margin-bottom:1.2rem">My approach combines cutting-edge dermatological research with personalized care. Every protocol is backed by peer-reviewed studies and tailored to your unique skin biology.</p>
+        <ul class="expertise-list">
+          <li class="expertise-item"><span class="expertise-item-icon">🔬</span><div><h4>Advanced Peptide Therapy</h4><p>Clinically proven to stimulate collagen production by up to 170% in 12 weeks.</p></div></li>
+          <li class="expertise-item"><span class="expertise-item-icon">🧬</span><div><h4>AI-Powered Skin Analysis</h4><p>VISIA 3D imaging identifies aging patterns invisible to the naked eye.</p></div></li>
+          <li class="expertise-item"><span class="expertise-item-icon">⚕️</span><div><h4>Non-Invasive Regeneration</h4><p>No surgery. No downtime. Activate your skin's innate repair mechanisms.</p></div></li>
+          <li class="expertise-item"><span class="expertise-item-icon">📊</span><div><h4>Data-Driven Tracking</h4><p>Bi-weekly progress imaging with quantitative analysis. We measure what matters.</p></div></li>
+        </ul>
+        <div class="expertise-stats reveal reveal-d2">
+          <div class="expertise-stat"><div class="expertise-stat-num">15+</div><div class="expertise-stat-label">Years</div></div>
+          <div class="expertise-stat"><div class="expertise-stat-num">97%</div><div class="expertise-stat-label">Satisfaction</div></div>
+          <div class="expertise-stat"><div class="expertise-stat-num">1.2K+</div><div class="expertise-stat-label">Cases</div></div>
+        </div>
       </div>
-
-      <h1 class="hero__title">
-        让每一笔投资<br />
-        <span class="gradient-text">都更有价值</span>
-      </h1>
-
-      <p class="hero__sub">
-        StockMaster 为您提供专业级交易工具、实时市场数据和 AI 智能选股建议。
-        零佣金交易，即刻开启你的投资之旅。
-      </p>
-
-      <div class="hero__actions">
-        <a href="#cta" class="btn btn--accent btn--lg">
-          立即开户
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a href="#features" class="btn btn--outline btn--lg">了解更多</a>
+      <div class="reveal reveal-d1">
+        <div class="expertise-visual">
+          <div class="expertise-visual-main"><img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&q=80&auto=format&fit=crop" alt="Lab" loading="lazy"></div>
+          <div class="expertise-visual-sub"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=300&q=80&auto=format&fit=crop" alt="Microscope" loading="lazy"></div>
+          <div class="expertise-visual-sub"><img src="img/d1.jpg" alt="Consultation" loading="lazy"></div>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="hero__stats">
-        <div class="hero__stat">
-          <div class="hero__stat-value">500万+</div>
-          <div class="hero__stat-label">注册用户</div>
+<!-- ═══ PRODUCTS (from introduce.txt) ═══ -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Clean Science · Real Results</span>
+      <h2 class="section-title">Formulated With Purpose</h2>
+      <p class="section-subtitle">9 natural ingredients you can pronounce. 4 pure plant oils. Zero fillers. Every component is chosen for a reason.</p>
+    </div>
+    <div class="products-grid">
+      <!-- Day Face Serum -->
+      <div class="product-card reveal">
+        <img class="product-card-image" src="img/d2.jpg" alt="Day Face Serum" loading="lazy">
+        <div class="product-card-body">
+          <div class="product-step">Step 1</div>
+          <h3 class="product-name">Day Face Serum</h3>
+          <p class="product-desc">A lightweight, fast-absorbing serum powered by probiotic technology and 9 natural ingredients. Hydrates, repairs, and protects your skin barrier throughout the day.</p>
+          <div class="product-ingredients-title">What's inside &amp; why</div>
+          <ul class="product-ingredients">
+            <li class="product-ingredient"><span class="product-ingredient-icon">💧</span><div><strong>Glycerin</strong> — A humectant that draws moisture into the skin, keeping it hydrated and soft</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🦠</span><div><strong>Probiotic Complex</strong> — Lactobacillus + Bacillus + Saccharomyces ferments balance the skin's microbiome for a healthy, radiant complexion</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🧪</span><div><strong>Lactic Acid</strong> — Gently exfoliates, promoting a smoother, more radiant complexion</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🌿</span><div><strong>Sodium Alginate</strong> — Seaweed-derived ingredient that hydrates and soothes the skin</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">💎</span><div><strong>Sodium Hyaluronate</strong> — Powerful moisture-binding ingredient that keeps skin plump and hydrated</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🌰</span><div><strong>Squalane</strong> — Mimics the skin's natural oils, providing deep moisture without a greasy feel</div></li>
+          </ul>
+          <button onclick="k2()" class="product-cta">✨ Claim Your Free Sample</button>
         </div>
-        <div class="hero__stat">
-          <div class="hero__stat-value">¥0</div>
-          <div class="hero__stat-label">佣金起投</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-value">99.9%</div>
-          <div class="hero__stat-label">系统稳定率</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-value">8年</div>
-          <div class="hero__stat-label">行业经验</div>
+      </div>
+      <!-- Face Oil -->
+      <div class="product-card reveal reveal-d1">
+        <img class="product-card-image" src="img/d3.jpg" alt="Face Oil" loading="lazy">
+        <div class="product-card-body">
+          <div class="product-step">Step 2</div>
+          <h3 class="product-name">Face Oil</h3>
+          <p class="product-desc">A luxuriously lightweight oil that seals in moisture and delivers concentrated nutrients. Four pure plant-based oils work in synergy to rejuvenate and protect.</p>
+          <div class="product-ingredients-title">What's inside &amp; why</div>
+          <ul class="product-ingredients">
+            <li class="product-ingredient"><span class="product-ingredient-icon">🫒</span><div><strong>Olive Squalane</strong> — Unique molecule derived from olives; incredibly light, absorbs quickly, enhances elasticity and prevents moisture loss</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🌴</span><div><strong>Marula Seed Oil</strong> — Rich in antioxidants and essential fatty acids, deeply nourishes and rejuvenates for outstanding hydration</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🥜</span><div><strong>Argan Kernel Oil</strong> — Powerhouse of nourishment, infuses skin with essential fatty acids, softens and defends against aging</div></li>
+            <li class="product-ingredient"><span class="product-ingredient-icon">🍎</span><div><strong>Pomegranate Seed Oil</strong> — Known for regenerative properties, deeply penetrates to promote healing and improve elasticity</div></li>
+          </ul>
+          <button onclick="k2()" class="product-cta">✨ Claim Your Free Face Oil</button>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       TRUST BAR
-       ============================================================ -->
-  <section class="trust-bar" aria-label="合作伙伴">
-    <div class="container">
-      <div class="trust-bar__label">合作机构与媒体认可</div>
-      <div class="trust-bar__logos">
-        <span class="trust-bar__logo">NASDAQ</span>
-        <span class="trust-bar__logo">NYSE</span>
-        <span class="trust-bar__logo">SSE</span>
-        <span class="trust-bar__logo">BLOOMBERG</span>
-        <span class="trust-bar__logo">REUTERS</span>
-        <span class="trust-bar__logo">CNBC</span>
-        <span class="trust-bar__logo">FORBES</span>
-        <span class="trust-bar__logo">WALL STREET</span>
-      </div>
+<!-- ═══ CASE STUDIES ═══ -->
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Real Results</span>
+      <h2 class="section-title">Every Case Tells a Story</h2>
+      <p class="section-subtitle">Real patients, real conversations, real outcomes. No actors, no scripts — just the work we've done together.</p>
     </div>
-  </section>
-
-  <!-- ============================================================
-       FEATURES
-       ============================================================ -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="features__header reveal">
-        <h2 class="section-title">为什么选择 <span class="gradient-text">StockMaster</span></h2>
-        <p class="section-desc">我们为每一位投资者打造的极致交易体验，从初学者到专业交易员都能找到所需工具。</p>
-      </div>
-
-      <div class="features__grid">
-        <article class="feature-card reveal reveal--delay-1">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/>
-              <circle cx="12" cy="12" r="5"/>
-              <path d="M12 7v5l3 3"/>
-            </svg>
+    <div class="cases-grid">
+      <!-- Case 1 -->
+      <div class="case-card reveal">
+        <div class="case-media" style="cursor:default;overflow:hidden;">
+          <img src="img/a1.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
+            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">12-week transformation</span>
           </div>
-          <h3>实时行情数据</h3>
-          <p>毫秒级延迟的市场数据覆盖全球主要交易所，包括美股、港股、A股、期货、外汇等多元资产。</p>
-        </article>
-
-        <article class="feature-card reveal reveal--delay-2">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-              <polyline points="17 6 23 6 23 12"/>
-            </svg>
+        </div>
+        <div class="case-body">
+          <div class="case-patient">
+            <div><div class="case-patient-name">Jennifer K.</div><div class="case-patient-meta">Los Angeles, CA · 52</div></div>
           </div>
-          <h3>AI 智能选股</h3>
-          <p>基于深度学习算法，分析市场情绪、资金流向和技术指标，为您推荐最具潜力的投资标的。</p>
-        </article>
-
-        <article class="feature-card reveal reveal--delay-3">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/>
-            </svg>
+          <span class="case-tag">Deep Firming + Peptide Therapy</span>
+          <p class="case-quote">"Before Dr. Johnson, I'd given up on my skin. She didn't try to sell me anything — she analyzed my skin, told me what was genetic and what could change, and built a plan from there. Three months later, friends said I looked five years younger."</p>
+          <div class="case-results">
+            <div class="case-result-item"><div class="case-result-value">12 wks</div><div class="case-result-label">Duration</div></div>
+            <div class="case-result-item"><div class="case-result-value">-65%</div><div class="case-result-label">Nasolabial folds</div></div>
+            <div class="case-result-item"><div class="case-result-value">+73%</div><div class="case-result-label">Firmness</div></div>
           </div>
-          <h3>零佣金交易</h3>
-          <p>股票、ETF 交易永久零佣金。没有隐藏费用，没有最低存款要求，真正实现低成本投资。</p>
-        </article>
-
-        <article class="feature-card reveal reveal--delay-1">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
-          </div>
-          <h3>银行级安全保障</h3>
-          <p>256 位 SSL 加密、双重身份验证、SIPC 最高 $500,000 保险保障，您的资金安全始终是我们的首要任务。</p>
-        </article>
-
-        <article class="feature-card reveal reveal--delay-2">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 20h9M16.38 3.46a2 2 0 0 1 2.83 2.83L6 20H2v-4L16.38 3.46z"/>
-            </svg>
-          </div>
-          <h3>专业分析工具</h3>
-          <p>50+ 技术指标、实时图表绘制、多窗口分屏交易、自定义策略回测，满足专业交易员的一切需求。</p>
-        </article>
-
-        <article class="feature-card reveal reveal--delay-3">
-          <div class="feature-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21.5 2v6h-6M2.5 22v-6h6M2 15.5a8.5 8.5 0 0 1 13.6-7.1M22 8.5a8.5 8.5 0 0 1-13.6 7.1"/>
-            </svg>
-          </div>
-          <h3>7×24h 全球交易</h3>
-          <p>支持盘前盘后交易，覆盖全球 60+ 交易所。无论你在哪个时区，都不会错过任何交易机会。</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       LIVE MARKET
-       ============================================================ -->
-  <section class="market" id="market">
-    <div class="container">
-      <div class="market__header reveal">
-        <h2 class="section-title">实时热门行情</h2>
-        <p class="section-desc">美股、港股、A 股实时数据，一屏掌握全球市场动态。</p>
-      </div>
-
-      <div class="market__table reveal">
-        <div class="market__row market__row-header">
-          <span>代码</span>
-          <span>现价</span>
-          <span>涨跌幅</span>
-          <span>走势</span>
-        </div>
-        <div class="market__row">
-          <span class="market__symbol">
-            <span class="market__symbol-color" style="background: #3B82F6;"></span>
-            AAPL
-          </span>
-          <span class="market__price">$178.72</span>
-          <span class="market__change market__change--up">+1.23%</span>
-          <span class="market__sparkline">
-            <svg width="60" height="24" viewBox="0 0 60 24">
-              <path d="M0 20 Q10 18 20 14 T40 10 T60 8" fill="none" stroke="#059669" stroke-width="1.5"/>
-            </svg>
-          </span>
-        </div>
-        <div class="market__row">
-          <span class="market__symbol">
-            <span class="market__symbol-color" style="background: #F59E0B;"></span>
-            TSLA
-          </span>
-          <span class="market__price">$245.60</span>
-          <span class="market__change market__change--up">+2.45%</span>
-          <span class="market__sparkline">
-            <svg width="60" height="24" viewBox="0 0 60 24">
-              <path d="M0 18 Q15 20 25 12 T45 6 T60 4" fill="none" stroke="#059669" stroke-width="1.5"/>
-            </svg>
-          </span>
-        </div>
-        <div class="market__row">
-          <span class="market__symbol">
-            <span class="market__symbol-color" style="background: #10B981;"></span>
-            NVDA
-          </span>
-          <span class="market__price">$824.18</span>
-          <span class="market__change market__change--up">+3.67%</span>
-          <span class="market__sparkline">
-            <svg width="60" height="24" viewBox="0 0 60 24">
-              <path d="M0 22 Q10 18 20 10 T40 4 T60 2" fill="none" stroke="#059669" stroke-width="1.5"/>
-            </svg>
-          </span>
-        </div>
-        <div class="market__row">
-          <span class="market__symbol">
-            <span class="market__symbol-color" style="background: #8B5CF6;"></span>
-            MSFT
-          </span>
-          <span class="market__price">$378.52</span>
-          <span class="market__change market__change--down">-0.42%</span>
-          <span class="market__sparkline">
-            <svg width="60" height="24" viewBox="0 0 60 24">
-              <path d="M0 8 Q15 10 25 14 T45 16 T60 18" fill="none" stroke="#DC2626" stroke-width="1.5"/>
-            </svg>
-          </span>
-        </div>
-        <div class="market__row">
-          <span class="market__symbol">
-            <span class="market__symbol-color" style="background: #EC4899;"></span>
-            AMZN
-          </span>
-          <span class="market__price">$158.90</span>
-          <span class="market__change market__change--up">+0.89%</span>
-          <span class="market__sparkline">
-            <svg width="60" height="24" viewBox="0 0 60 24">
-              <path d="M0 16 Q15 14 25 10 T45 8 T60 6" fill="none" stroke="#059669" stroke-width="1.5"/>
-            </svg>
-          </span>
-        </div>
-        <div class="market__row">
-          <span class="market__symbol">
-            <span class="market__symbol-color" style="background: #EF4444;"></span>
-            BABA
-          </span>
-          <span class="market__price">$98.45</span>
-          <span class="market__change market__change--up">+0.72%</span>
-          <span class="market__sparkline">
-            <svg width="60" height="24" viewBox="0 0 60 24">
-              <path d="M0 14 Q10 16 20 12 T40 10 T60 8" fill="none" stroke="#059669" stroke-width="1.5"/>
-            </svg>
-          </span>
         </div>
       </div>
-
-      <div class="market__footer reveal">
-        <p>数据延迟 ≤ 15 分钟 · 开户即享实时行情</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PLATFORM
-       ============================================================ -->
-  <section class="platform" id="platform">
-    <div class="container">
-      <div class="platform__header reveal">
-        <h2 class="section-title">专业交易平台</h2>
-        <p class="section-desc">Web、桌面、移动端全覆盖，随时随地把握投资机会。</p>
-      </div>
-
-      <div class="platform__showcase reveal">
-        <div class="platform__floating platform__floating--1" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-          +2.34% 今日收益
+      <!-- Case 2 -->
+      <div class="case-card reveal reveal-d1">
+        <div class="case-media" style="cursor:default;overflow:hidden;">
+          <img src="img/a3.jpg" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
+            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">16-week transformation</span>
+          </div>
         </div>
-        <div class="platform__floating platform__floating--2" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-          -0.87% 已止损
+        <div class="case-body">
+          <div class="case-patient">
+            <div><div class="case-patient-name">Sarah M.</div><div class="case-patient-meta">New York, NY · 45</div></div>
+          </div>
+          <span class="case-tag">Pigment Correction + Collagen Activation</span>
+          <p class="case-quote">"The hyperpigmentation from my high-stress job had taken over my face. Dr. Johnson could tell me exactly what caused each spot. After six sessions, the spots I'd had for years were practically gone."</p>
+          <div class="case-results">
+            <div class="case-result-item"><div class="case-result-value">16 wks</div><div class="case-result-label">Duration</div></div>
+            <div class="case-result-item"><div class="case-result-value">-67%</div><div class="case-result-label">Pigmentation</div></div>
+            <div class="case-result-item"><div class="case-result-value">+58%</div><div class="case-result-label">Evenness</div></div>
+          </div>
         </div>
-
-        <div class="platform__mockup">
-          <div class="mockup-chart">
-            <div class="mockup-chart__header">
-              <div>
-                <div class="mockup-chart__symbol">
-                  <span style="color: var(--color-primary);">AAPL</span>
-                  <span style="color: var(--color-muted-text); font-size: var(--font-size-xs); font-weight: 400; margin-left: var(--space-2);">NASDAQ · 1D</span>
-                </div>
-                <div style="font-size: var(--font-size-xs); color: var(--color-muted-text); margin-top: 2px;">Apple Inc.</div>
-              </div>
-              <div class="mockup-chart__price">
-                $178.72
-                <span>+1.23%</span>
-              </div>
-            </div>
-            <!-- Candlestick chart simulation -->
-            <div class="mockup-chart__canvas">
-              <svg viewBox="0 0 700 260" preserveAspectRatio="none">
-                <!-- Grid lines -->
-                <g stroke="rgba(255,255,255,0.04)" stroke-width="0.5">
-                  <line x1="0" y1="0" x2="700" y2="0"/>
-                  <line x1="0" y1="52" x2="700" y2="52"/>
-                  <line x1="0" y1="104" x2="700" y2="104"/>
-                  <line x1="0" y1="156" x2="700" y2="156"/>
-                  <line x1="0" y1="208" x2="700" y2="208"/>
-                  <line x1="0" y1="260" x2="700" y2="260"/>
-                </g>
-                <!-- Price line -->
-                <path d="M0 180 Q50 175 100 160 T200 140 T300 110 T400 95 T500 80 T600 65 T700 52"
-                      fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- Gradient fill -->
-                <defs>
-                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#10B981" stop-opacity="0.2"/>
-                    <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path d="M0 180 Q50 175 100 160 T200 140 T300 110 T400 95 T500 80 T600 65 T700 52 L700 260 L0 260 Z"
-                      fill="url(#chartGrad)"/>
-                <!-- Moving averages -->
-                <path d="M0 165 Q100 155 200 145 T400 125 T600 108 T700 100"
-                      fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-                <path d="M0 145 Q100 140 200 130 T400 115 T600 100 T700 88"
-                      fill="none" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-                <!-- Tooltip indicator -->
-                <circle cx="500" cy="80" r="4" fill="#10B981" stroke="#0A0F1E" stroke-width="2"/>
-                <!-- Buy/Sell markers -->
-                <text x="150" y="125" font-size="10" fill="#10B981" font-family="monospace">▲ BUY</text>
-                <text x="420" y="80" font-size="10" fill="#10B981" font-family="monospace">▲ BUY</text>
-              </svg>
-            </div>
+      </div>
+      <!-- Case 3 -->
+      <div class="case-card reveal reveal-d2">
+        <div class="case-media" style="cursor:default;overflow:hidden;">
+          <img src="img/a5.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
+            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">24-week transformation</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-patient">
+            <div><div class="case-patient-name">Linda T.</div><div class="case-patient-meta">San Francisco, CA · 49</div></div>
+          </div>
+          <span class="case-tag">Full-face Lifting + Texture Remodeling</span>
+          <p class="case-quote">"My jawline and nasolabial folds were making me look older than I felt. Dr. Johnson said I didn't need fillers or surgery — just a smart combination. She photographed me every two weeks and showed me the data. Six months later, I looked like a better version of myself."</p>
+          <div class="case-results">
+            <div class="case-result-item"><div class="case-result-value">24 wks</div><div class="case-result-label">Duration</div></div>
+            <div class="case-result-item"><div class="case-result-value">+71%</div><div class="case-result-label">Elasticity</div></div>
+            <div class="case-result-item"><div class="case-result-value">-58%</div><div class="case-result-label">Wrinkle score</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Case 4 -->
+      <div class="case-card reveal reveal-d1">
+        <div class="case-media" style="cursor:default;overflow:hidden;">
+          <img src="img/a7.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
+            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">8-week transformation</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-patient">
+            <div><div class="case-patient-name">Amanda R.</div><div class="case-patient-meta">Chicago, IL · 47</div></div>
+          </div>
+          <span class="case-tag">Hydration Repair + Barrier Renewal</span>
+          <p class="case-quote">"My skin was so dehydrated and dull from years of stress. Dr. Johnson's protocol transformed my skin texture in just 8 weeks. The fine lines around my eyes are barely visible now and my complexion has never looked better."</p>
+          <div class="case-results">
+            <div class="case-result-item"><div class="case-result-value">8 wks</div><div class="case-result-label">Duration</div></div>
+            <div class="case-result-item"><div class="case-result-value">+80%</div><div class="case-result-label">Hydration</div></div>
+            <div class="case-result-item"><div class="case-result-value">-55%</div><div class="case-result-label">Fine lines</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Case 5 -->
+      <div class="case-card reveal reveal-d2">
+        <div class="case-media" style="cursor:default;overflow:hidden;">
+          <img src="img/a9.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
+            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">12-week transformation</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-patient">
+            <div><div class="case-patient-name">Rachel G.</div><div class="case-patient-meta">Miami, FL · 46</div></div>
+          </div>
+          <span class="case-tag">Brightening + Even Tone Protocol</span>
+          <p class="case-quote">"I've struggled with uneven skin tone for years. Dr. Johnson's approach was completely different — she targeted the root cause instead of just treating symptoms. After 12 weeks my skin is brighter and more even than it's been in a decade."</p>
+          <div class="case-results">
+            <div class="case-result-item"><div class="case-result-value">12 wks</div><div class="case-result-label">Duration</div></div>
+            <div class="case-result-item"><div class="case-result-value">+62%</div><div class="case-result-label">Brightness</div></div>
+            <div class="case-result-item"><div class="case-result-value">-59%</div><div class="case-result-label">Hyperpigmentation</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Case 6 -->
+      <div class="case-card reveal">
+        <div class="case-media" style="cursor:default;overflow:hidden;">
+          <img src="img/a11.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
+            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">20-week transformation</span>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-patient">
+            <div><div class="case-patient-name">Helen W.</div><div class="case-patient-meta">Seattle, WA · 53</div></div>
+          </div>
+          <span class="case-tag">Deep Firming + Collagen Restoration</span>
+          <p class="case-quote">"What impressed me most was Dr. Johnson's thoroughness. She tracked every single change with imaging and data. After 20 weeks, my skin is visibly firmer and the deep wrinkles on my forehead have softened dramatically."</p>
+          <div class="case-results">
+            <div class="case-result-item"><div class="case-result-value">20 wks</div><div class="case-result-label">Duration</div></div>
+            <div class="case-result-item"><div class="case-result-value">+68%</div><div class="case-result-label">Firmness</div></div>
+            <div class="case-result-item"><div class="case-result-value">-61%</div><div class="case-result-label">Forehead lines</div></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       TESTIMONIALS
-       ============================================================ -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="testimonials__header reveal">
-        <h2 class="section-title">用户真实评价</h2>
-        <p class="section-desc">来自 500 万+用户的真实反馈，看看他们如何通过 StockMaster 实现投资目标。</p>
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Real Voices · Real Results</span>
+      <h2 class="section-title">What Patients Are Saying</h2>
+      <p class="section-subtitle">Unedited feedback from real patients. Every review comes directly from our records.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="t-card reveal">
+        <div class="t-card-header">
+          <div class="t-card-avatar">
+            <div class="t-card-avatar-fig"><img src="img/b1.jpg" alt="Brianna Rose" loading="lazy"></div>
+            <div><div class="t-card-name">Brianna Rose</div><div class="t-card-meta">Miami, FL</div></div>
+          </div>
+          <div class="t-card-stars">
+            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+        <p class="t-card-text">3rd day using it and the clarity and hydration is insane. I used a $400/bottle brand all last year and this puts them to shame for less than $150.</p>
+        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
       </div>
-
-      <div class="testimonials__grid">
-        <article class="testimonial-card reveal reveal--delay-1">
-          <div class="testimonial-card__rating">
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="t-card reveal">
+        <div class="t-card-header">
+          <div class="t-card-avatar">
+            <div class="t-card-avatar-fig"><img src="img/b2.jpg" alt="Ellen Meyer Wenker" loading="lazy"></div>
+            <div><div class="t-card-name">Ellen Meyer Wenker</div><div class="t-card-meta">Seattle, WA</div></div>
           </div>
-          <p class="testimonial-card__text">"从一个小白开始用 StockMaster，AI 选股功能帮我避了很多坑。三个月下来收益率超过了 15%，比我自己瞎买强太多了。"</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">张</div>
-            <div>
-              <div class="testimonial-card__name">张伟</div>
-              <div class="testimonial-card__role">投资新手 · 入市 3 个月</div>
-            </div>
+          <div class="t-card-stars">
+            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           </div>
-        </article>
-
-        <article class="testimonial-card reveal reveal--delay-2">
-          <div class="testimonial-card__rating">
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-card-text">What nobody mentions is the space and time you save! 6 drawers of stuff replaced by 6 canisters. Done in 5 minutes morning and night.</p>
+        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-card-header">
+          <div class="t-card-avatar">
+            <div class="t-card-avatar-fig"><img src="img/b3.jpg" alt="Chelsea Ariew" loading="lazy"></div>
+            <div><div class="t-card-name">Chelsea Ariew</div><div class="t-card-meta">Boulder, CO</div></div>
           </div>
-          <p class="testimonial-card__text">"专业交易员需要的工具这里全都有。多窗口分屏、实时数据、策略回测... 界面设计也很清爽，用过就回不去了。"</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">李</div>
-            <div>
-              <div class="testimonial-card__name">李强</div>
-              <div class="testimonial-card__role">全职交易员 · 8 年经验</div>
-            </div>
+          <div class="t-card-stars">
+            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           </div>
-        </article>
-
-        <article class="testimonial-card reveal reveal--delay-3">
-          <div class="testimonial-card__rating">
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-card-text">Less than a week and my dry Colorado mountain skin feels soft again! Nothing else has worked like this.</p>
+        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-card-header">
+          <div class="t-card-avatar">
+            <div class="t-card-avatar-fig"><img src="img/b4.jpg" alt="Carla Dumont" loading="lazy"></div>
+            <div><div class="t-card-name">Carla Dumont</div><div class="t-card-meta">New York, NY</div></div>
           </div>
-          <p class="testimonial-card__text">"美股港股 A 股一个账户全搞定，省去了在不同券商开户的麻烦。零佣金真的太香了，每个月省下的手续费够吃好几顿了。"</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" aria-hidden="true">王</div>
-            <div>
-              <div class="testimonial-card__name">王芳</div>
-              <div class="testimonial-card__role">价值投资者 · 3 年经验</div>
-            </div>
+          <div class="t-card-stars">
+            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           </div>
-        </article>
+        </div>
+        <p class="t-card-text">7 days in and these little jars of magic are just that. The tough lines have softened up. These balms are truly special.</p>
+        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-card-header">
+          <div class="t-card-avatar">
+            <div class="t-card-avatar-fig"><img src="img/b5.jpg" alt="Kelly Donovan" loading="lazy"></div>
+            <div><div class="t-card-name">Kelly Donovan</div><div class="t-card-meta">San Diego, CA</div></div>
+          </div>
+          <div class="t-card-stars">
+            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+        <p class="t-card-text">I've been using this for a month and my skin has never looked better. The glow is real and I'm getting compliments everywhere I go.</p>
+        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-card-header">
+          <div class="t-card-avatar">
+            <div class="t-card-avatar-fig"><img src="img/b6.jpg" alt="Jessica M." loading="lazy"></div>
+            <div><div class="t-card-name">Jessica M.</div><div class="t-card-meta">Austin, TX</div></div>
+          </div>
+          <div class="t-card-stars">
+            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+        <p class="t-card-text">After trying countless products that didn't work, this is the first one that actually delivered. My skin feels amazing and looks so much younger.</p>
+        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       CTA
-       ============================================================ -->
-  <section class="cta" id="cta">
-    <div class="container">
-      <div class="cta__box reveal">
-        <h2>立即开启你的投资之旅</h2>
-        <p>开户仅需 3 分钟，零佣金交易，随时随地把握全球投资机会。<br />前 10,000 名开户用户享 30 天 VIP 体验。</p>
-        <div class="cta__actions">
-          <a href="#" class="btn btn--accent btn--lg">
-            立即免费开户
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="#" class="btn btn--outline btn--lg">下载 App</a>
-        </div>
-        <div class="cta__trust">
-          <span class="cta__trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            零佣金交易
-          </span>
-          <span class="cta__trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            最高 $500K 保险
-          </span>
-          <span class="cta__trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            7×24h 客服支持
-          </span>
-        </div>
+<!-- ═══ PROCESS ═══ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Four Steps to Visible Change</h2>
+      <p class="section-subtitle">From your first consultation to your final result — every stage is transparent and backed by medical rigor.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal"><div class="process-num">01</div><h4>Free Online Assessment</h4><p>Complete a skin health questionnaire. Our team responds within 24 hours.</p></div>
+      <div class="process-card reveal reveal-d1"><div class="process-num">02</div><h4>AI Skin Analysis</h4><p>VISIA 3D imaging maps your skin's aging patterns at the microscopic level.</p></div>
+      <div class="process-card reveal reveal-d2"><div class="process-num">03</div><h4>Custom Protocol</h4><p>Personalized plan by Dr. Johnson with clear timelines and expected outcomes.</p></div>
+      <div class="process-card reveal reveal-d3"><div class="process-num">04</div><h4>Track &amp; Optimize</h4><p>Bi-weekly progress imaging. Protocols adjust dynamically to your skin's response.</p></div>
+    </div>
+    <div class="process-guarantee reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span><strong>Risk-Free Guarantee:</strong> Every protocol includes a 30-day evaluation period. Not satisfied? We'll adjust or refund.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRIVACY ═══ -->
+<section class="privacy" id="privacy">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-label">Privacy &amp; Delivery</span>
+      <h2 class="section-title">Your Privacy Is Our Highest Priority</h2>
+      <p class="section-subtitle">From first consultation to delivery, every detail is protected by medical-grade privacy standards.</p>
+    </div>
+    <div class="privacy-grid">
+      <ul class="privacy-list">
+        <li class="privacy-item reveal"><span class="privacy-item-icon">🔒</span><div><h4>HIPAA-Compliant Protection</h4><p>All personal health information is encrypted to HIPAA standards. No data shared without consent.</p></div></li>
+        <li class="privacy-item reveal reveal-d1"><span class="privacy-item-icon">📦</span><div><h4>Discreet, Anonymous Packaging</h4><p>Plain, unbranded packaging. No logos, product names, or medical markings.</p></div></li>
+        <li class="privacy-item reveal reveal-d2"><span class="privacy-item-icon">🚚</span><div><h4>Fast Shipping · US &amp; International</h4><p>FedEx Priority 2-4 days US. International 5-10 days. Full tracking with signature.</p></div></li>
+        <li class="privacy-item reveal reveal-d3"><span class="privacy-item-icon">🔄</span><div><h4>30-Day Money-Back Guarantee</h4><p>Not seeing results? Full refund or protocol adjustment. No questions asked.</p></div></li>
+      </ul>
+      <div class="privacy-media reveal">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&q=80&auto=format&fit=crop" alt="Secure packaging" loading="lazy">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       FAQ
-       ============================================================ -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <div class="faq__header reveal">
-        <h2 class="section-title">常见问题</h2>
-        <p class="section-desc">关于 StockMaster，你可能想了解的一切。</p>
-      </div>
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">&copy; 2026 Dr. Sarah Johnson Skin Medicine. All rights reserved.</div>
+  </div>
+</footer>
 
-      <div class="faq__list" role="list">
-        <div class="faq__item" role="listitem">
-          <button class="faq__question" aria-expanded="false">
-            开户需要哪些条件？
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-          </button>
-          <div class="faq__answer">
-            <p>年满 18 周岁，持有有效身份证件即可在线开户。整个流程仅需 3 分钟，无需任何存款要求。我们支持中国大陆居民身份证、港澳通行证、护照等多种证件。</p>
-          </div>
-        </div>
-
-        <div class="faq__item" role="listitem">
-          <button class="faq__question" aria-expanded="false">
-            StockMaster 安全可靠吗？
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-          </button>
-          <div class="faq__answer">
-            <p>StockMaster 受美国 SEC 和 FINRA 监管，是 SIPC 成员。您的账户享有最高 $500,000 的证券投资者保护。我们采用 256 位 SSL 加密、双因素认证和冷钱包存储，确保您的资产和信息安全。</p>
-          </div>
-        </div>
-
-        <div class="faq__item" role="listitem">
-          <button class="faq__question" aria-expanded="false">
-            可以交易哪些市场的股票？
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-          </button>
-          <div class="faq__answer">
-            <p>我们支持美股（NYSE、NASDAQ）、港股（HKEX）、A 股（沪深港通）、英股（LSE）、日股（TSE）等全球 60+ 交易所的股票、ETF、期权和期货交易。一个账户，投资全球。</p>
-          </div>
-        </div>
-
-        <div class="faq__item" role="listitem">
-          <button class="faq__question" aria-expanded="false">
-            交易真的零佣金吗？有隐藏费用吗？
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-          </button>
-          <div class="faq__answer">
-            <p>是的，股票和 ETF 交易永久零佣金，没有任何隐藏费用。我们通过增值服务（如高级数据订阅、API 接入）盈利，而非交易佣金。开户、账户维护、入金均免费。部分市场可能产生监管费用，我们会在交易确认中明确列出。</p>
-          </div>
-        </div>
-
-        <div class="faq__item" role="listitem">
-          <button class="faq__question" aria-expanded="false">
-            AI 智能选股真的能帮我赚钱吗？
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-          </button>
-          <div class="faq__answer">
-            <p>AI 智能选股基于深度学习分析市场数据、新闻情绪和技术指标，提供参考建议而非投资保证。历史回测显示我们的 AI 策略在震荡市场中表现优异，但所有投资都有风险，建议结合自身判断使用。过去的表现不代表未来收益。</p>
-          </div>
-        </div>
-
-        <div class="faq__item" role="listitem">
-          <button class="faq__question" aria-expanded="false">
-            如何出入金？支持哪些币种？
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-          </button>
-          <div class="faq__answer">
-            <p>支持银行转账、银证转账、支付宝、微信等多种入金方式。支持美元、港币、人民币等多币种账户。入金实时到账，出金通常 1-3 个工作日。单笔入金满 $1,000 免手续费。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="#" class="nav__logo" aria-label="StockMaster 首页">
-            <span class="nav__logo-icon">S</span>
-            Stock<span>Master</span>
-          </a>
-          <p>StockMaster 致力于为全球投资者提供专业、安全、低成本的交易服务。让每个人都能轻松参与全球资本市场。</p>
-        </div>
-
-        <div class="footer__col">
-          <h4>产品</h4>
-          <a href="#features">核心优势</a>
-          <a href="#pricing">收费标准</a>
-          <a href="#market">实时行情</a>
-          <a href="#platform">交易平台</a>
-        </div>
-
-        <div class="footer__col">
-          <h4>公司</h4>
-          <a href="#">关于我们</a>
-          <a href="#">加入我们</a>
-          <a href="#">投资者关系</a>
-          <a href="#">新闻中心</a>
-        </div>
-
-        <div class="footer__col">
-          <h4>支持</h4>
-          <a href="#">帮助中心</a>
-          <a href="#">联系我们</a>
-          <a href="#">隐私政策</a>
-          <a href="#">服务协议</a>
-        </div>
-      </div>
-
-      <div class="footer__risk">
-        <strong>风险提示：</strong>投资有风险，入市需谨慎。股票、期权、期货等金融产品交易存在亏损风险，可能损失部分或全部本金。过往业绩不预示未来表现。本页面内容不构成投资建议，仅供参考。请在投资前充分了解相关风险，并根据自身风险承受能力做出决策。
-      </div>
-
-      <div class="footer__bottom">
-        <span>&copy; 2026 StockMaster. All rights reserved.</span>
-        <span>让每一笔投资都更有价值</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============================================================
-       JAVASCRIPT
-       ============================================================ -->
-  <script>
-    (function() {
-      'use strict';
-
-      /* ---- Nav Scroll ---- */
-      const nav = document.querySelector('.nav');
-      const tickerWrapper = document.getElementById('tickerWrapper');
-
-      window.addEventListener('scroll', function() {
-        const y = window.scrollY;
-        if (y > 60) {
-          nav.classList.add('nav--scrolled');
-          tickerWrapper.classList.add('ticker-wrapper--visible');
-        } else {
-          nav.classList.remove('nav--scrolled');
-          tickerWrapper.classList.remove('ticker-wrapper--visible');
-        }
-      }, { passive: true });
-
-      /* ---- Mobile Menu ---- */
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-
-      mobileMenuBtn.addEventListener('click', function() {
-        const isOpen = mobileMenu.classList.toggle('mobile-menu--open');
-        mobileMenuBtn.setAttribute('aria-label', isOpen ? '关闭菜单' : '打开菜单');
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-
-      mobileMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          mobileMenu.classList.remove('mobile-menu--open');
-          mobileMenuBtn.setAttribute('aria-label', '打开菜单');
-          document.body.style.overflow = '';
-        });
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu--open')) {
-          mobileMenu.classList.remove('mobile-menu--open');
-          mobileMenuBtn.setAttribute('aria-label', '打开菜单');
-          document.body.style.overflow = '';
-        }
-      });
-
-      /* ---- Scroll Reveal ---- */
-      const revealEls = document.querySelectorAll('.reveal');
-
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('reveal--visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          rootMargin: '0px 0px -60px 0px',
-          threshold: 0.1
-        });
-
-        revealEls.forEach(function(el) {
-          observer.observe(el);
-        });
-      } else {
-        revealEls.forEach(function(el) { el.classList.add('reveal--visible'); });
-      }
-
-      /* ---- FAQ Accordion ---- */
-      const faqItems = document.querySelectorAll('.faq__item');
-
-      faqItems.forEach(function(item) {
-        const question = item.querySelector('.faq__question');
-        question.addEventListener('click', function() {
-          const isOpen = item.classList.contains('faq__item--open');
-          faqItems.forEach(function(other) {
-            other.classList.remove('faq__item--open');
-            other.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
-          });
-          if (!isOpen) {
-            item.classList.add('faq__item--open');
-            question.setAttribute('aria-expanded', 'true');
-          }
-        });
-      });
-
-      /* ---- Smooth Scroll ---- */
-      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          const target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            const navH = 72;
-            const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
-            window.scrollTo({ top: top, behavior: 'smooth' });
-            history.pushState(null, '', targetId);
-          }
-        });
-      });
-
-    })();
-  </script>
-
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+  const nav=document.getElementById('nav');const brand=document.getElementById('navBrand');
+  window.addEventListener('scroll',()=>{const s=window.pageYOffset>60;nav.classList.toggle('scrolled',s);if(brand)brand.style.color=s?'var(--teal-900)':'white'},{passive:true});
+  const btn=document.getElementById('mobileBtn');const overlay=document.getElementById('navOverlay');
+  btn?.addEventListener('click',()=>{overlay.classList.toggle('open');btn.classList.toggle('active');document.body.classList.toggle('menu-open')});
+  overlay?.addEventListener('click',e=>{if(e.target===overlay){overlay.classList.remove('open');btn?.classList.remove('active');document.body.classList.remove('menu-open')}});
+  overlay?.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{overlay.classList.remove('open');btn?.classList.remove('active');document.body.classList.remove('menu-open')})});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-64,behavior:'smooth'})}})});
+  setTimeout(()=>{const s=window.pageYOffset>60;nav.classList.toggle('scrolled',s);if(brand)brand.style.color=s?'var(--teal-900)':'white'},50);
+});
+function handleVideo(id){alert('🎬 Playing video: '+id)}
+function k2(){window.location.href='https://www.qq.com'}
+</script>
 </body>
 </html>
