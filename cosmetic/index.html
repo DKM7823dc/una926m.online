@@ -242,7 +242,6 @@ section{padding:var(--section-pad) 0}
 .t-card{background:var(--ivory);border-radius:var(--radius-sm);padding:22px 22px 20px;transition:all .4s cubic-bezier(.22,1,.36,1);position:relative;isolation:isolate}
 @media(min-width:768px){.t-card{border-radius:var(--radius);padding:28px 28px 24px}}
 .t-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);background:var(--white)}
-/* .t-card.wide removed for consistent grid layout */
 .t-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;gap:10px}@media(min-width:768px){.t-card-header{margin-bottom:14px}}
 .t-card-avatar{display:flex;align-items:center;gap:10px;min-width:0}@media(min-width:768px){.t-card-avatar{gap:12px}}
 .t-card-avatar-fig{width:38px;height:38px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid transparent;transition:border-color .3s}@media(min-width:768px){.t-card-avatar-fig{width:42px;height:42px}}
@@ -259,6 +258,12 @@ section{padding:var(--section-pad) 0}
 .t-card-footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-top:12px;border-top:1px solid var(--gray-100)}@media(min-width:768px){.t-card-footer{gap:10px;padding-top:14px}}
 .t-card-verified{display:inline-flex;align-items:center;gap:4px;font-size:.65rem;color:var(--success);font-weight:500}@media(min-width:768px){.t-card-verified{font-size:.68rem}}
 .t-card-verified svg{width:11px;height:11px}@media(min-width:768px){.t-card-verified svg{width:12px;height:12px}}
+
+/* 新增评论图片样式 */
+.t-card-effect-img{margin: 0 -22px 16px -22px; border-radius: 0; overflow: hidden;}
+@media(min-width:768px){.t-card-effect-img{margin: -28px -28px 16px -28px; border-radius: var(--radius) var(--radius) 0 0;}}
+.t-card-effect-img img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block;transition:transform .5s ease;}
+.t-card:hover .t-card-effect-img img{transform:scale(1.02);}
 
 /* ═══════════════ PROCESS ═══════════════ */
 .process{background:var(--ivory)}
@@ -316,6 +321,89 @@ section{padding:var(--section-pad) 0}
 .float-cta:active{transform:translateX(-50%) scale(.97)}
 @keyframes float-breathe{0%,100%{box-shadow:0 4px 24px rgba(11,43,53,.35);transform:translateX(-50%) scale(1)}50%{box-shadow:0 8px 40px rgba(11,43,53,.55),0 0 60px rgba(196,155,108,.15);transform:translateX(-50%) scale(1.03)}}
 @media(max-width:767px){.float-cta{display:flex;align-items:center;justify-content:center;gap:10px}}@media(min-width:480px){.float-cta{padding:16px 48px;font-size:1rem}}
+
+/* ═══════════════ DELAY MODAL (ENGLISH) ═══════════════ */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(11, 43, 53, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-container {
+  background: var(--white);
+  max-width: 480px;
+  width: 90%;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  transform: scale(0.96);
+  transition: transform 0.25s cubic-bezier(0.21, 0.98, 0.35, 1.1);
+}
+.modal-overlay.active .modal-container {
+  transform: scale(1);
+}
+.modal-header {
+  padding: 20px 24px 8px 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-close {
+  background: var(--gray-100);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.modal-close:hover { background: var(--gray-300); }
+.modal-body {
+  padding: 8px 28px 32px 28px;
+  text-align: center;
+}
+.modal-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--teal-900);
+  margin-bottom: 12px;
+}
+.modal-body p {
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.modal-btn {
+  background: var(--teal-900);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+.modal-btn:hover { background: var(--teal-800); transform: translateY(-2px); }
+@media (max-width: 480px) {
+  .modal-body h3 { font-size: 1.5rem; }
+  .modal-body p { font-size: 0.9rem; }
+}
 
 /* ═══════════════ ANIMATIONS ═══════════════ */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
@@ -492,7 +580,7 @@ section{padding:var(--section-pad) 0}
   </div>
 </section>
 
-<!-- ═══ CASE STUDIES ═══ -->
+<!-- ═══ CASE STUDIES (全部6个案例, 原始内容完整保留) ═══ -->
 <section class="cases" id="cases">
   <div class="container">
     <div class="section-header text-center reveal">
@@ -502,136 +590,22 @@ section{padding:var(--section-pad) 0}
     </div>
     <div class="cases-grid">
       <!-- Case 1 -->
-      <div class="case-card reveal">
-        <div class="case-media" style="cursor:default;overflow:hidden;">
-          <img src="img/a1.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
-            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">12-week transformation</span>
-          </div>
-        </div>
-        <div class="case-body">
-          <div class="case-patient">
-            <div><div class="case-patient-name">Jennifer K.</div><div class="case-patient-meta">Los Angeles, CA · 52</div></div>
-          </div>
-          <span class="case-tag">Deep Firming + Peptide Therapy</span>
-          <p class="case-quote">"Before Dr. Johnson, I'd given up on my skin. She didn't try to sell me anything — she analyzed my skin, told me what was genetic and what could change, and built a plan from there. Three months later, friends said I looked five years younger."</p>
-          <div class="case-results">
-            <div class="case-result-item"><div class="case-result-value">12 wks</div><div class="case-result-label">Duration</div></div>
-            <div class="case-result-item"><div class="case-result-value">-65%</div><div class="case-result-label">Nasolabial folds</div></div>
-            <div class="case-result-item"><div class="case-result-value">+73%</div><div class="case-result-label">Firmness</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="case-card reveal"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a1.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">12-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Jennifer K.</div><div class="case-patient-meta">Los Angeles, CA · 52</div></div></div><span class="case-tag">Deep Firming + Peptide Therapy</span><p class="case-quote">"Before Dr. Johnson, I'd given up on my skin. She didn't try to sell me anything — she analyzed my skin, told me what was genetic and what could change, and built a plan from there. Three months later, friends said I looked five years younger."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">12 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">-65%</div><div class="case-result-label">Nasolabial folds</div></div><div class="case-result-item"><div class="case-result-value">+73%</div><div class="case-result-label">Firmness</div></div></div></div></div>
       <!-- Case 2 -->
-      <div class="case-card reveal reveal-d1">
-        <div class="case-media" style="cursor:default;overflow:hidden;">
-          <img src="img/a3.jpg" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
-            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">16-week transformation</span>
-          </div>
-        </div>
-        <div class="case-body">
-          <div class="case-patient">
-            <div><div class="case-patient-name">Sarah M.</div><div class="case-patient-meta">New York, NY · 45</div></div>
-          </div>
-          <span class="case-tag">Pigment Correction + Collagen Activation</span>
-          <p class="case-quote">"The hyperpigmentation from my high-stress job had taken over my face. Dr. Johnson could tell me exactly what caused each spot. After six sessions, the spots I'd had for years were practically gone."</p>
-          <div class="case-results">
-            <div class="case-result-item"><div class="case-result-value">16 wks</div><div class="case-result-label">Duration</div></div>
-            <div class="case-result-item"><div class="case-result-value">-67%</div><div class="case-result-label">Pigmentation</div></div>
-            <div class="case-result-item"><div class="case-result-value">+58%</div><div class="case-result-label">Evenness</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="case-card reveal reveal-d1"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a3.jpg" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">16-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Sarah M.</div><div class="case-patient-meta">New York, NY · 45</div></div></div><span class="case-tag">Pigment Correction + Collagen Activation</span><p class="case-quote">"The hyperpigmentation from my high-stress job had taken over my face. Dr. Johnson could tell me exactly what caused each spot. After six sessions, the spots I'd had for years were practically gone."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">16 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">-67%</div><div class="case-result-label">Pigmentation</div></div><div class="case-result-item"><div class="case-result-value">+58%</div><div class="case-result-label">Evenness</div></div></div></div></div>
       <!-- Case 3 -->
-      <div class="case-card reveal reveal-d2">
-        <div class="case-media" style="cursor:default;overflow:hidden;">
-          <img src="img/a5.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
-            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">24-week transformation</span>
-          </div>
-        </div>
-        <div class="case-body">
-          <div class="case-patient">
-            <div><div class="case-patient-name">Linda T.</div><div class="case-patient-meta">San Francisco, CA · 49</div></div>
-          </div>
-          <span class="case-tag">Full-face Lifting + Texture Remodeling</span>
-          <p class="case-quote">"My jawline and nasolabial folds were making me look older than I felt. Dr. Johnson said I didn't need fillers or surgery — just a smart combination. She photographed me every two weeks and showed me the data. Six months later, I looked like a better version of myself."</p>
-          <div class="case-results">
-            <div class="case-result-item"><div class="case-result-value">24 wks</div><div class="case-result-label">Duration</div></div>
-            <div class="case-result-item"><div class="case-result-value">+71%</div><div class="case-result-label">Elasticity</div></div>
-            <div class="case-result-item"><div class="case-result-value">-58%</div><div class="case-result-label">Wrinkle score</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="case-card reveal reveal-d2"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a5.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">24-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Linda T.</div><div class="case-patient-meta">San Francisco, CA · 49</div></div></div><span class="case-tag">Full-face Lifting + Texture Remodeling</span><p class="case-quote">"My jawline and nasolabial folds were making me look older than I felt. Dr. Johnson said I didn't need fillers or surgery — just a smart combination. She photographed me every two weeks and showed me the data. Six months later, I looked like a better version of myself."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">24 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">+71%</div><div class="case-result-label">Elasticity</div></div><div class="case-result-item"><div class="case-result-value">-58%</div><div class="case-result-label">Wrinkle score</div></div></div></div></div>
       <!-- Case 4 -->
-      <div class="case-card reveal reveal-d1">
-        <div class="case-media" style="cursor:default;overflow:hidden;">
-          <img src="img/a7.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
-            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">8-week transformation</span>
-          </div>
-        </div>
-        <div class="case-body">
-          <div class="case-patient">
-            <div><div class="case-patient-name">Amanda R.</div><div class="case-patient-meta">Chicago, IL · 47</div></div>
-          </div>
-          <span class="case-tag">Hydration Repair + Barrier Renewal</span>
-          <p class="case-quote">"My skin was so dehydrated and dull from years of stress. Dr. Johnson's protocol transformed my skin texture in just 8 weeks. The fine lines around my eyes are barely visible now and my complexion has never looked better."</p>
-          <div class="case-results">
-            <div class="case-result-item"><div class="case-result-value">8 wks</div><div class="case-result-label">Duration</div></div>
-            <div class="case-result-item"><div class="case-result-value">+80%</div><div class="case-result-label">Hydration</div></div>
-            <div class="case-result-item"><div class="case-result-value">-55%</div><div class="case-result-label">Fine lines</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="case-card reveal reveal-d1"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a7.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">8-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Amanda R.</div><div class="case-patient-meta">Chicago, IL · 47</div></div></div><span class="case-tag">Hydration Repair + Barrier Renewal</span><p class="case-quote">"My skin was so dehydrated and dull from years of stress. Dr. Johnson's protocol transformed my skin texture in just 8 weeks. The fine lines around my eyes are barely visible now and my complexion has never looked better."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">8 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">+80%</div><div class="case-result-label">Hydration</div></div><div class="case-result-item"><div class="case-result-value">-55%</div><div class="case-result-label">Fine lines</div></div></div></div></div>
       <!-- Case 5 -->
-      <div class="case-card reveal reveal-d2">
-        <div class="case-media" style="cursor:default;overflow:hidden;">
-          <img src="img/a9.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
-            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">12-week transformation</span>
-          </div>
-        </div>
-        <div class="case-body">
-          <div class="case-patient">
-            <div><div class="case-patient-name">Rachel G.</div><div class="case-patient-meta">Miami, FL · 46</div></div>
-          </div>
-          <span class="case-tag">Brightening + Even Tone Protocol</span>
-          <p class="case-quote">"I've struggled with uneven skin tone for years. Dr. Johnson's approach was completely different — she targeted the root cause instead of just treating symptoms. After 12 weeks my skin is brighter and more even than it's been in a decade."</p>
-          <div class="case-results">
-            <div class="case-result-item"><div class="case-result-value">12 wks</div><div class="case-result-label">Duration</div></div>
-            <div class="case-result-item"><div class="case-result-value">+62%</div><div class="case-result-label">Brightness</div></div>
-            <div class="case-result-item"><div class="case-result-value">-59%</div><div class="case-result-label">Hyperpigmentation</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="case-card reveal reveal-d2"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a9.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">12-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Rachel G.</div><div class="case-patient-meta">Miami, FL · 46</div></div></div><span class="case-tag">Brightening + Even Tone Protocol</span><p class="case-quote">"I've struggled with uneven skin tone for years. Dr. Johnson's approach was completely different — she targeted the root cause instead of just treating symptoms. After 12 weeks my skin is brighter and more even than it's been in a decade."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">12 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">+62%</div><div class="case-result-label">Brightness</div></div><div class="case-result-item"><div class="case-result-value">-59%</div><div class="case-result-label">Hyperpigmentation</div></div></div></div></div>
       <!-- Case 6 -->
-      <div class="case-card reveal">
-        <div class="case-media" style="cursor:default;overflow:hidden;">
-          <img src="img/a11.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);">
-            <span class="case-play-label" style="font-size:.9rem;font-weight:600;">20-week transformation</span>
-          </div>
-        </div>
-        <div class="case-body">
-          <div class="case-patient">
-            <div><div class="case-patient-name">Helen W.</div><div class="case-patient-meta">Seattle, WA · 53</div></div>
-          </div>
-          <span class="case-tag">Deep Firming + Collagen Restoration</span>
-          <p class="case-quote">"What impressed me most was Dr. Johnson's thoroughness. She tracked every single change with imaging and data. After 20 weeks, my skin is visibly firmer and the deep wrinkles on my forehead have softened dramatically."</p>
-          <div class="case-results">
-            <div class="case-result-item"><div class="case-result-value">20 wks</div><div class="case-result-label">Duration</div></div>
-            <div class="case-result-item"><div class="case-result-value">+68%</div><div class="case-result-label">Firmness</div></div>
-            <div class="case-result-item"><div class="case-result-value">-61%</div><div class="case-result-label">Forehead lines</div></div>
-          </div>
-        </div>
-      </div>
+      <div class="case-card reveal"><div class="case-media" style="cursor:default;overflow:hidden;"><img src="img/a11.png" alt="Transformation result" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><div class="case-media-overlay" style="background:linear-gradient(to top,rgba(11,43,53,.6),transparent 60%);"><span class="case-play-label" style="font-size:.9rem;font-weight:600;">20-week transformation</span></div></div><div class="case-body"><div class="case-patient"><div><div class="case-patient-name">Helen W.</div><div class="case-patient-meta">Seattle, WA · 53</div></div></div><span class="case-tag">Deep Firming + Collagen Restoration</span><p class="case-quote">"What impressed me most was Dr. Johnson's thoroughness. She tracked every single change with imaging and data. After 20 weeks, my skin is visibly firmer and the deep wrinkles on my forehead have softened dramatically."</p><div class="case-results"><div class="case-result-item"><div class="case-result-value">20 wks</div><div class="case-result-label">Duration</div></div><div class="case-result-item"><div class="case-result-value">+68%</div><div class="case-result-label">Firmness</div></div><div class="case-result-item"><div class="case-result-value">-61%</div><div class="case-result-label">Forehead lines</div></div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ TESTIMONIALS ═══ -->
+<!-- ═══ TESTIMONIALS (原有6条评论完整保留，再新增4条带图片评论) ═══ -->
 <section class="testimonials" id="testimonials">
   <div class="container">
     <div class="section-header text-center reveal">
@@ -640,108 +614,27 @@ section{padding:var(--section-pad) 0}
       <p class="section-subtitle">Unedited feedback from real patients. Every review comes directly from our records.</p>
     </div>
     <div class="testimonials-grid">
-      <div class="t-card reveal">
-        <div class="t-card-header">
-          <div class="t-card-avatar">
-            <div class="t-card-avatar-fig"><img src="img/b1.jpg" alt="Brianna Rose" loading="lazy"></div>
-            <div><div class="t-card-name">Brianna Rose</div><div class="t-card-meta">Miami, FL</div></div>
-          </div>
-          <div class="t-card-stars">
-            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-        </div>
-        <p class="t-card-text">3rd day using it and the clarity and hydration is insane. I used a $400/bottle brand all last year and this puts them to shame for less than $150.</p>
-        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
-      </div>
-      <div class="t-card reveal">
-        <div class="t-card-header">
-          <div class="t-card-avatar">
-            <div class="t-card-avatar-fig"><img src="img/b2.jpg" alt="Ellen Meyer Wenker" loading="lazy"></div>
-            <div><div class="t-card-name">Ellen Meyer Wenker</div><div class="t-card-meta">Seattle, WA</div></div>
-          </div>
-          <div class="t-card-stars">
-            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-        </div>
-        <p class="t-card-text">What nobody mentions is the space and time you save! 6 drawers of stuff replaced by 6 canisters. Done in 5 minutes morning and night.</p>
-        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
-      </div>
-      <div class="t-card reveal">
-        <div class="t-card-header">
-          <div class="t-card-avatar">
-            <div class="t-card-avatar-fig"><img src="img/b3.jpg" alt="Chelsea Ariew" loading="lazy"></div>
-            <div><div class="t-card-name">Chelsea Ariew</div><div class="t-card-meta">Boulder, CO</div></div>
-          </div>
-          <div class="t-card-stars">
-            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-        </div>
-        <p class="t-card-text">Less than a week and my dry Colorado mountain skin feels soft again! Nothing else has worked like this.</p>
-        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
-      </div>
-      <div class="t-card reveal">
-        <div class="t-card-header">
-          <div class="t-card-avatar">
-            <div class="t-card-avatar-fig"><img src="img/b4.jpg" alt="Carla Dumont" loading="lazy"></div>
-            <div><div class="t-card-name">Carla Dumont</div><div class="t-card-meta">New York, NY</div></div>
-          </div>
-          <div class="t-card-stars">
-            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-        </div>
-        <p class="t-card-text">7 days in and these little jars of magic are just that. The tough lines have softened up. These balms are truly special.</p>
-        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
-      </div>
-      <div class="t-card reveal">
-        <div class="t-card-header">
-          <div class="t-card-avatar">
-            <div class="t-card-avatar-fig"><img src="img/b5.jpg" alt="Kelly Donovan" loading="lazy"></div>
-            <div><div class="t-card-name">Kelly Donovan</div><div class="t-card-meta">San Diego, CA</div></div>
-          </div>
-          <div class="t-card-stars">
-            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-        </div>
-        <p class="t-card-text">I've been using this for a month and my skin has never looked better. The glow is real and I'm getting compliments everywhere I go.</p>
-        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
-      </div>
-      <div class="t-card reveal">
-        <div class="t-card-header">
-          <div class="t-card-avatar">
-            <div class="t-card-avatar-fig"><img src="img/b6.jpg" alt="Jessica M." loading="lazy"></div>
-            <div><div class="t-card-name">Jessica M.</div><div class="t-card-meta">Austin, TX</div></div>
-          </div>
-          <div class="t-card-stars">
-            <svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843;color:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          </div>
-        </div>
-        <p class="t-card-text">After trying countless products that didn't work, this is the first one that actually delivered. My skin feels amazing and looks so much younger.</p>
-        <div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div>
-      </div>
+      <!-- 原有评论 1 -->
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b1.jpg" alt="Brianna Rose" loading="lazy"></div><div><div class="t-card-name">Brianna Rose</div><div class="t-card-meta">Miami, FL</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">3rd day using it and the clarity and hydration is insane. I used a $400/bottle brand all last year and this puts them to shame for less than $150.</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+	  
+	   <div class="t-card reveal"><div class="t-card-effect-img"><img src="img/c1.png" alt="Visible skin transformation" loading="lazy"></div><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b1.jpg" alt="user"></div><div><div class="t-card-name">Patricia N.</div><div class="t-card-meta">Austin, TX</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">The transformation picture speaks for itself. Thank you Dr. Johnson!</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+	   
+      <!-- 原有评论 2 -->
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b2.jpg" alt="Ellen Meyer Wenker" loading="lazy"></div><div><div class="t-card-name">Ellen Meyer Wenker</div><div class="t-card-meta">Seattle, WA</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">What nobody mentions is the space and time you save! 6 drawers of stuff replaced by 6 canisters. Done in 5 minutes morning and night.</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+      <!-- 原有评论 3 -->
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b3.jpg" alt="Chelsea Ariew" loading="lazy"></div><div><div class="t-card-name">Chelsea Ariew</div><div class="t-card-meta">Boulder, CO</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">Less than a week and my dry Colorado mountain skin feels soft again! Nothing else has worked like this.</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+      <!-- 原有评论 4 -->
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b4.jpg" alt="Carla Dumont" loading="lazy"></div><div><div class="t-card-name">Carla Dumont</div><div class="t-card-meta">New York, NY</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">7 days in and these little jars of magic are just that. The tough lines have softened up. These balms are truly special.</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+      <!-- 原有评论 5 -->
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b5.jpg" alt="Kelly Donovan" loading="lazy"></div><div><div class="t-card-name">Kelly Donovan</div><div class="t-card-meta">San Diego, CA</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">I've been using this for a month and my skin has never looked better. The glow is real and I'm getting compliments everywhere I go.</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+      <!-- 原有评论 6 -->
+      <div class="t-card reveal"><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b6.jpg" alt="Jessica M." loading="lazy"></div><div><div class="t-card-name">Jessica M.</div><div class="t-card-meta">Austin, TX</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">After trying countless products that didn't work, this is the first one that actually delivered. My skin feels amazing and looks so much younger.</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+
+      <!-- ========== 新增4个带图片的评论（基于原有评论基础上追加） ========== -->
+     
+      <div class="t-card reveal"><div class="t-card-effect-img"><img src="img/c2.png" alt="Wrinkle reduction visible" loading="lazy"></div><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b2.jpg" alt="user"></div><div><div class="t-card-name">Diane M.</div><div class="t-card-meta">Portland, OR</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">The difference in my crow's feet is unbelievable. This is the only routine that actually reversed visible aging signs.</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+      <div class="t-card reveal"><div class="t-card-effect-img"><img src="img/c3.png" alt="Glowing skin result" loading="lazy"></div><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b3.jpg" alt="user"></div><div><div class="t-card-name">Elena R.</div><div class="t-card-meta">Denver, CO</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">Glow is real. After 8 weeks my friends asked what I changed. The picture proof is everything!</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
+      <div class="t-card reveal"><div class="t-card-effect-img"><img src="img/4c.jpg" alt="Fast discreet shipping" loading="lazy"></div><div class="t-card-header"><div class="t-card-avatar"><div class="t-card-avatar-fig"><img src="img/b4.jpg" alt="user"></div><div><div class="t-card-name">Stephanie K.</div><div class="t-card-meta">Boston, MA</div></div></div><div class="t-card-stars"><svg viewBox="0 0 20 20" style="width:12px;height:12px;fill:#D4A843"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div></div><p class="t-card-text">Arrived in 2 days in totally plain packaging. No one knows what's inside. So glad I found this.</p><div class="t-card-footer"><span class="t-card-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Verified Patient</span></div></div>
     </div>
   </div>
 </section>
@@ -796,21 +689,124 @@ section{padding:var(--section-pad) 0}
   </div>
 </footer>
 
+<!-- ═══ 延迟弹窗 (英文) ═══ -->
+<div class="modal-overlay" id="delayModal">
+  <div class="modal-container">
+    <div class="modal-header"><button class="modal-close" id="closeModalBtn">✕</button></div>
+    <div class="modal-body">
+      <h3>✨ Exclusive Anti-Aging Assessment ✨</h3>
+      <p>Dr. Sarah Johnson offers a <strong>30-minute free online consultation</strong> to analyze your skin's aging factors and provide medical-grade advice.<br>Limited slots available. Claim yours now.</p>
+      <button class="modal-btn" id="confirmModalBtn">Get Free Assessment →</button>
+    </div>
+  </div>
+</div>
+
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.06,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
-  const nav=document.getElementById('nav');const brand=document.getElementById('navBrand');
-  window.addEventListener('scroll',()=>{const s=window.pageYOffset>60;nav.classList.toggle('scrolled',s);if(brand)brand.style.color=s?'var(--teal-900)':'white'},{passive:true});
-  const btn=document.getElementById('mobileBtn');const overlay=document.getElementById('navOverlay');
-  btn?.addEventListener('click',()=>{overlay.classList.toggle('open');btn.classList.toggle('active');document.body.classList.toggle('menu-open')});
-  overlay?.addEventListener('click',e=>{if(e.target===overlay){overlay.classList.remove('open');btn?.classList.remove('active');document.body.classList.remove('menu-open')}});
-  overlay?.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{overlay.classList.remove('open');btn?.classList.remove('active');document.body.classList.remove('menu-open')})});
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-64,behavior:'smooth'})}})});
-  setTimeout(()=>{const s=window.pageYOffset>60;nav.classList.toggle('scrolled',s);if(brand)brand.style.color=s?'var(--teal-900)':'white'},50);
+// 全局函数 k2 保持不变
+function k2() {
+  window.location.href = 'https://www.qq.com';
+}
+
+// 辅助函数：安全获取元素
+function safeGet(id) {
+  return document.getElementById(id);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // 原有 reveal 动画
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // 导航滚动效果
+  const nav = safeGet('nav');
+  const brand = safeGet('navBrand');
+  const updateNav = () => {
+    const scrolled = window.pageYOffset > 60;
+    if (nav) nav.classList.toggle('scrolled', scrolled);
+    if (brand) brand.style.color = scrolled ? 'var(--teal-900)' : 'white';
+  };
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav(); // 初始化
+
+  // 移动端菜单
+  const mobileBtn = safeGet('mobileBtn');
+  const overlay = safeGet('navOverlay');
+  if (mobileBtn && overlay) {
+    mobileBtn.addEventListener('click', () => {
+      overlay.classList.toggle('open');
+      mobileBtn.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('open');
+        mobileBtn.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
+    overlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        overlay.classList.remove('open');
+        mobileBtn.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  }
+
+  // 平滑滚动锚点
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          window.scrollTo({ top: targetEl.offsetTop - 64, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // 延迟5秒弹窗逻辑 (英文)
+  let modalShown = false;
+  const modalEl = safeGet('delayModal');
+  const closeModal = () => {
+    if (modalEl) {
+      modalEl.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+  const showModal = () => {
+    if (!modalEl || modalShown) return;
+    modalShown = true;
+    modalEl.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+  // 5秒后显示弹窗
+  setTimeout(() => {
+    if (!modalShown) showModal();
+  }, 15000);
+
+  if (modalEl) {
+    const closeBtn = safeGet('closeModalBtn');
+    const confirmBtn = safeGet('confirmModalBtn');
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (confirmBtn) confirmBtn.addEventListener('click', () => {
+      k2();
+      closeModal();
+    });
+    modalEl.addEventListener('click', (e) => {
+      if (e.target === modalEl) closeModal();
+    });
+  }
 });
-function handleVideo(id){alert('🎬 Playing video: '+id)}
-function k2(){window.location.href='https://www.qq.com'}
 </script>
 </body>
 </html>
