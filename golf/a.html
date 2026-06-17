@@ -208,29 +208,30 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         }
 
         /* ===== 修复手机端轮播图显示不全 ===== */
-        @media (max-width: 640px) {
-            .carousel-slide {
-                height: auto !important;
-                min-height: 280px;
-            }
-            .carousel-slide .product-card {
-                height: 100% !important;
-                display: flex;
-                flex-direction: column;
-            }
-            .carousel-slide .product-card img {
-                height: 200px !important;
-                min-height: 180px;
-                object-fit: cover;
-                flex-shrink: 0;
-            }
-            .carousel-slide .product-card .p-4 {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
+       @media (max-width: 640px) {
+    .carousel-slide {
+        height: auto !important;
+        min-height: 280px;
+    }
+    .carousel-slide .product-card {
+        height: 100% !important;
+        display: flex;
+        flex-direction: column;
+    }
+    .carousel-slide .product-card img {
+        height: 200px !important;
+        min-height: 180px;
+        object-fit: contain !important;   /* 完整显示，不裁剪 */
+        background-color: #0d2818;        /* 填充空白区域 */
+        flex-shrink: 0;
+    }
+    .carousel-slide .product-card .p-4 {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
 
         @media (min-width: 641px) and (max-width: 768px) {
             .carousel-slide .product-card img {
