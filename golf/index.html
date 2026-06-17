@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com">
     </script>
 
-	 <!-- TikTok Pixel Code Start -->
+     <!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
@@ -21,8 +21,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </script>
 <!-- TikTok Pixel Code End -->
 
-	
-	 <!-- TikTok Pixel Code Start -->
+    
+     <!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
@@ -35,8 +35,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 }(window, document, 'ttq');
 </script>
 <!-- TikTok Pixel Code End -->
-	
-		 <!-- TikTok Pixel Code Start -->
+    
+         <!-- TikTok Pixel Code Start -->
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
@@ -50,7 +50,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </script>
 <!-- TikTok Pixel Code End -->
 
-	
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -206,6 +206,36 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 font-size: 1.25rem;
             }
         }
+
+        /* ===== 修复手机端轮播图显示不全 ===== */
+       @media (max-width: 640px) {
+    .carousel-slide {
+        height: auto !important;
+        min-height: 280px;
+    }
+    .carousel-slide .product-card {
+        height: 100% !important;
+        display: flex;
+        flex-direction: column;
+    }
+   .carousel-slide .product-card img {
+    height: 200px !important;
+    object-fit: contain !important;  /* 改为 contain */
+    background: #0d2818;  /* 添加背景色填充空白 */
+}
+    .carousel-slide .product-card .p-4 {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            .carousel-slide .product-card img {
+                height: 260px !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-golf-dark text-white font-body overflow-x-hidden">
@@ -311,8 +341,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
                 </div>
             </div>
-			
-			
+            
+            
                         <div class="md:col-span-3 space-y-4">
                             <h3 class="text-lg md:text-xl font-display font-bold text-white">
                                 <i class="fas fa-shield-alt text-golf-gold mr-2"></i>
@@ -351,7 +381,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                                 <span class="text-golf-goldlight">✦</span>
                             </div>
                         </div>
-						
+                        
         </div>
     </section>
 
@@ -374,73 +404,78 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                     <div class="carousel-container overflow-hidden rounded-2xl">
                         <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carouselTrack">
 
-                            <div class="carousel-slide flex-shrink-0 w-full px-2">
-                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20">
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide flex-shrink-0 w-full px-2 h-auto">
+                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20 h-full flex flex-col">
                                     <img src="img/f1.jpg" alt="Pro Driver 460"
-                                    class="w-full h-56 md:h-72 object-cover"
+                                    class="w-full h-48 md:h-72 object-cover flex-shrink-0"
                                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22 viewBox=%220 0 800 400%22%3E%3Crect width=%22800%22 height=%22400%22 fill=%22%231a4a2e%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2232%22 fill=%22%23C9A84C%22 font-weight=%22bold%22%3EPro Driver 460%3C/text%3E%3C/svg%3E'">
-                                    <div class="p-4 md:p-5 text-center">
+                                    <div class="p-4 md:p-5 text-center flex-1 flex flex-col justify-center">
                                         <h3 class="text-lg md:text-xl font-display font-bold text-golf-gold">TaylorMade P790</h3>
                                         <p class="text-gray-400 text-xs md:text-sm mt-1">High-launch, max forgiveness driver</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="carousel-slide flex-shrink-0 w-full px-2">
-                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20">
+                            <!-- Slide 2 -->
+                            <div class="carousel-slide flex-shrink-0 w-full px-2 h-auto">
+                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20 h-full flex flex-col">
                                     <img src="img/f2.jpg" alt="Tour Iron Set"
-                                    class="w-full h-56 md:h-72 object-cover"
+                                    class="w-full h-48 md:h-72 object-cover flex-shrink-0"
                                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22 viewBox=%220 0 800 400%22%3E%3Crect width=%22800%22 height=%22400%22 fill=%22%231a4a2e%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2232%22 fill=%22%23C9A84C%22 font-weight=%22bold%22%3ETour Iron Set%3C/text%3E%3C/svg%3E'">
-                                    <div class="p-4 md:p-5 text-center">
+                                    <div class="p-4 md:p-5 text-center flex-1 flex flex-col justify-center">
                                         <h3 class="text-lg md:text-xl font-display font-bold text-golf-gold">Callaway Magic Set</h3>
                                         <p class="text-gray-400 text-xs md:text-sm mt-1">Precision forged irons for low handicap</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="carousel-slide flex-shrink-0 w-full px-2">
-                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20">
+                            <!-- Slide 3 -->
+                            <div class="carousel-slide flex-shrink-0 w-full px-2 h-auto">
+                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20 h-full flex flex-col">
                                     <img src="img/f3.jpg" alt="Blade Putter"
-                                    class="w-full h-56 md:h-72 object-cover"
+                                    class="w-full h-48 md:h-72 object-cover flex-shrink-0"
                                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22 viewBox=%220 0 800 400%22%3E%3Crect width=%22800%22 height=%22400%22 fill=%22%231a4a2e%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2232%22 fill=%22%23C9A84C%22 font-weight=%22bold%22%3EBlade Putter%3C/text%3E%3C/svg%3E'">
-                                    <div class="p-4 md:p-5 text-center">
+                                    <div class="p-4 md:p-5 text-center flex-1 flex flex-col justify-center">
                                         <h3 class="text-lg md:text-xl font-display font-bold text-golf-gold">Callaway Goddess Ladies' Set</h3>
                                         <p class="text-gray-400 text-xs md:text-sm mt-1">Classic milled face for pure roll</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="carousel-slide flex-shrink-0 w-full px-2">
-                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20">
+                            <!-- Slide 4 -->
+                            <div class="carousel-slide flex-shrink-0 w-full px-2 h-auto">
+                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20 h-full flex flex-col">
                                     <img src="img/f4.jpg" alt="Fairway Wood"
-                                    class="w-full h-56 md:h-72 object-cover"
+                                    class="w-full h-48 md:h-72 object-cover flex-shrink-0"
                                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22 viewBox=%220 0 800 400%22%3E%3Crect width=%22800%22 height=%22400%22 fill=%22%231a4a2e%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2232%22 fill=%22%23C9A84C%22 font-weight=%22bold%22%3EFairway Wood%3C/text%3E%3C/svg%3E'">
-                                    <div class="p-4 md:p-5 text-center">
+                                    <div class="p-4 md:p-5 text-center flex-1 flex flex-col justify-center">
                                         <h3 class="text-lg md:text-xl font-display font-bold text-golf-gold">PING440</h3>
                                         <p class="text-gray-400 text-xs md:text-sm mt-1">Versatile wood for distance & control</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="carousel-slide flex-shrink-0 w-full px-2">
-                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20">
+                            <!-- Slide 5 -->
+                            <div class="carousel-slide flex-shrink-0 w-full px-2 h-auto">
+                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20 h-full flex flex-col">
                                     <img src="img/f5.jpg" alt="Hybrid Rescue"
-                                    class="w-full h-56 md:h-72 object-cover"
+                                    class="w-full h-48 md:h-72 object-cover flex-shrink-0"
                                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22 viewBox=%220 0 800 400%22%3E%3Crect width=%22800%22 height=%22400%22 fill=%22%231a4a2e%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2232%22 fill=%22%23C9A84C%22 font-weight=%22bold%22%3EHybrid Rescue%3C/text%3E%3C/svg%3E'">
-                                    <div class="p-4 md:p-5 text-center">
-                                        <h3 class="text-lg md:text-xl font-display font-bold text-golf-gold">TaylorMade QI10 set
-</h3>
+                                    <div class="p-4 md:p-5 text-center flex-1 flex flex-col justify-center">
+                                        <h3 class="text-lg md:text-xl font-display font-bold text-golf-gold">TaylorMade QI10 set</h3>
                                         <p class="text-gray-400 text-xs md:text-sm mt-1">Easy-launch hybrid for any lie</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="carousel-slide flex-shrink-0 w-full px-2">
-                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20">
+                            <!-- Slide 6 -->
+                            <div class="carousel-slide flex-shrink-0 w-full px-2 h-auto">
+                                <div class="product-card bg-golf-green/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-golf-gold/20 h-full flex flex-col">
                                     <img src="img/f2.jpg" alt="Complete Golf Set"
-                                    class="w-full h-56 md:h-72 object-cover"
+                                    class="w-full h-48 md:h-72 object-cover flex-shrink-0"
                                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22 viewBox=%220 0 800 400%22%3E%3Crect width=%22800%22 height=%22400%22 fill=%22%231a4a2e%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2232%22 fill=%22%23C9A84C%22 font-weight=%22bold%22%3EComplete Set%3C/text%3E%3C/svg%3E'">
-                                    <div class="p-4 md:p-5 text-center">
+                                    <div class="p-4 md:p-5 text-center flex-1 flex flex-col justify-center">
                                         <h3 class="text-lg md:text-xl font-display font-bold text-golf-gold">Titleist Putter</h3>
                                         <p class="text-gray-400 text-xs md:text-sm mt-1">Full bag solution — ready to play</p>
                                     </div>
@@ -659,7 +694,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     }, 3000);
 
     function handleBtnClick() {
-		
+        
       // 追踪事件
       ttq.track('ClickButton');
       ttq.track('Contact');
