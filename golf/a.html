@@ -218,13 +218,11 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         display: flex;
         flex-direction: column;
     }
-    .carousel-slide .product-card img {
-        height: 200px !important;
-        min-height: 180px;
-        object-fit: contain !important;   /* 完整显示，不裁剪 */
-        background-color: #0d2818;        /* 填充空白区域 */
-        flex-shrink: 0;
-    }
+   .carousel-slide .product-card img {
+    height: 200px !important;
+    object-fit: contain !important;  /* 改为 contain */
+    background: #0d2818;  /* 添加背景色填充空白 */
+}
     .carousel-slide .product-card .p-4 {
         flex: 1;
         display: flex;
